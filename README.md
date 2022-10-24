@@ -20,4 +20,10 @@ Here we present some samples in the HRDoc dataset.
 
 ## Release Issues
 
-All code related to train and test will be released in near future.
+We have released scripts related to the data generation, rule-based system and including 4 parts: 
+1. The scripts used to get a colorized document. See `utils/pdf_colorization.py`
+2. PDF parser systems used to extract the text lines, equation, table, and figure areas. See `utils/extract_pdf_hrdh.py` and `utils/extract_pdf_hrdh.py`
+3. The human-designed rule system as a new baseline. See `utils/relation_recover.py`
+4. An end2end multi-modal system for reconstruction task. See `end2end_system` folder
+
+The HRDoc dataset and the model weight and inference code of DSPS system will be made available soon.

@@ -1,0 +1,444 @@
+{
+    "title": [
+        "Coach: A Coarse-to-Fine Approach for Cross-domain Slot Filling"
+    ],
+    "author": [
+        "Zihan Liu, Genta Indra Winata, Peng Xu, Pascale Fung"
+    ],
+    "affili": [
+        "Center for Artificial Intelligence Research (CAiRE)",
+        "Department of Electronic and Computer Engineering",
+        "The Hong Kong University of Science and Technology, Clear Water Bay, Hong Kong"
+    ],
+    "mail": [
+        "zihan.liu@connect.ust.hk"
+    ],
+    "sec": [
+        {
+            "label": "sec",
+            "text": "Abstract",
+            "child": [
+                {
+                    "label": "para",
+                    "text": "As an essential task in task-oriented dialog systems, slot filling requires extensive training data in a certain domain. However, such data are not always available. Hence, cross-domain slot filling has naturally arisen to cope with this data scarcity problem. In this paper, we propose a Coarse-to-fine approach (Coach) for cross-domain slot filling. Our model first learns the general pattern of slot entities by detecting whether the tokens are slot entities or not. It then predicts the specific types for the slot entities. In addition, we propose a template regularization approach to improve the adaptation robustness by regularizing the representation of utterances based on utterance templates. Experimental results show that our model significantly outperforms state-of-theart approaches in slot filling. Furthermore, our model can also be applied to the cross-domain named entity recognition task, and it achieves better adaptation performance than other existing baselines. The code is available at https: //github.com/zliucr/coach."
+                }
+            ]
+        },
+        {
+            "label": "sec",
+            "text": "1 Introduction",
+            "child": [
+                {
+                    "label": "para",
+                    "text": "Slot filling models identify task-related slot types in certain domains for user utterances, and are an indispensable part of task-oriented dialog systems. Supervised approaches have made great achievements in the slot filling task (Goo et al., 2018; Zhang et al., 2019), where substantial labeled training samples are needed. However, collecting large numbers of training samples is not only expensive but also time-consuming. To cope with the data scarcity issue, we are motivated to investigate cross-domain slot filling methods, which leverage knowledge learned in the source domains and adapt the models to the target domain with a minimum number of target domain labeled training samples."
+                },
+                {
+                    "label": "para",
+                    "text": "A challenge in cross-domain slot filling is to handle unseen slot types, which prevents general classification models from adapting to the target domain without any target domain supervision signals. Recently, Bapna et al. (2017) proposed a cross-domain slot filling framework, which enables zero-shot adaptation. As illustrated in Figure 1a, their model conducts slot filling individually for each slot type. It first generates word-level representations, which are then concatenated with the representation of each slot type description, and the predictions are based on the concatenated features for each slot type. Due to the inherent variance of slot entities across different domains, it is difficult for this framework to capture the whole slot entity (e.g., \u201clatin dance cardio\u201d in Figure 1a) in the target domain. There also exists a multiple prediction problem. For example, \u201ctune\u201d in Figure 1a could be predicted as \u201cB\u201d for both \u201cmusic item\u201d and \u201cplaylist\u201d, which would cause additional trouble for the final prediction."
+                },
+                {
+                    "label": "para",
+                    "text": "We emphasize that in order to capture the whole slot entity, it is pivotal for the model to share its parameters for all slot types in the source domains and learn the general pattern of slot entities. Therefore, as depicted in Figure 1b, we propose a new cross-domain slot filling framework called Coach, a coarse-to-fine approach. It first coarsely learns the slot entity pattern by predicting whether the tokens are slot entities or not. Then, it combines the features for each slot entity and predicts the specific (fine) slot type based on the similarity with the representation of each slot type description. In this way, our framework is able to avoid the multiple predictions problem. Additionally, we introduce a template regularization method that delexicalizes slot entity tokens in utterances into different slot labels and produces both correct and incorrect utterance templates to regularize the utterance representations. By doing so, the model learns to cluster the representations of semantically similar utterances (i.e., in the same or similar templates) into a similar vector space, which further improves the adaptation robustness."
+                },
+                {
+                    "label": "para",
+                    "text": "Experimental results show that our model surpasses the state-of-the-art methods by a large margin in both zero-shot and few-shot scenarios. In addition, further experiments show that our framework can be applied to cross-domain named entity recognition, and achieves better adaptation performance than other existing frameworks."
+                }
+            ]
+        },
+        {
+            "label": "sec",
+            "text": "2 Related Work",
+            "child": [
+                {
+                    "label": "para",
+                    "text": "Coarse-to-fine methods in NLP are best known for syntactic parsing (Charniak et al., 2006; Petrov, 2011). Zhang et al. (2017) reduced the search space of semantic parsers by using coarse macro grammars. Different from the previous work, we apply the idea of coarse-to-fine into cross-domain slot filling to handle unseen slot types by separating the slot filling task into two steps (Zhai et al., 2017; Guerini et al., 2018)."
+                },
+                {
+                    "label": "para",
+                    "text": "Coping with low-resource problems where there are zero or few existing training samples has always been an interesting and challenging task (Kingma et al., 2014; Lample et al., 2018; Liu et al., 2019a,b; Lin et al., 2020). Cross-domain adaptation addresses the data scarcity problem in low-resource target domains (Pan et al., 2010; Jaech et al., 2016; Guo et al., 2018; Jia et al., 2019; Liu et al., 2020; Winata et al., 2020). However, most research studying the cross-domain aspect has not focused on predicting unseen label types in the target domain since both source and target domains have the same label types in the considered tasks (Guo et al., 2018). In another line of work, to bypass unseen label types, Ruder and Plank (2018) and Jia et al. (2019) utilized target domain training samples, so that there was no unseen label type in the target domain. Recently, based on the framework proposed by Bapna et al. (2017) (discussed in Section 1), Lee and Jha (2019) added an attention layer to produce slot-aware representations, and Shah et al. (2019) leveraged slot examples to increase the robustness of cross-domain slot filling adaptation."
+                }
+            ]
+        },
+        {
+            "label": "sec",
+            "text": "3 Methodology",
+            "child": [
+                {
+                    "label": "sec",
+                    "text": "3.1 Coach Framework",
+                    "child": [
+                        {
+                            "label": "para",
+                            "text": "As depicted in Figure 2, the slot filling process in our Coach framework consists of two steps. In the first step, we utilize a BiLSTM-CRF structure (Lample et al., 2016) to learn the general pattern of slot entities by having our model predict whether tokens are slot entities or not (i.e., 3-way classification for each token). In the second step, our model further predicts a specific type for each slot entity based on the similarities with the description representations of all possible slot types. To generate representations of slot entities, we leverage another encoder, BiLSTM (Hochreiter and Schmidhuber, 1997), to encode the hidden states of slot entity tokens and produce representations for each slot entity."
+                        },
+                        {
+                            "label": "para",
+                            "text": "We represent the user utterance with n tokens as w = [w1, w2 , ..., wn ], and E denotes the embedding layer for utterances. The whole process can be formulated as follows: [h1, h2, ..., hn ] = BiLSTM(E(w)), (1) [p1 , p2 , ..., pn ] = CRF([h1, h2, ..., hn ]), (2) where [p1, p2, ..., pn] are the logits for the 3-way classification. Then, for each slot entity, we take its hidden states to calculate its representation: rk = BiLSTM([hi, hi+1, ...hj ]), (3) sk = Mdesc \u00b7 rk , (4) where rk denotes the representation of the kth slot entity, [hi, hi+1, ..., hj ] denotes the BiLSTM hidden states for the kth slot entity, Mdesc \u2208 Rns\u00d7ds is the representation matrix of the slot description (ns is the number of possible slot types and ds is the dimension of slot descriptions), and sk is the specific slot type prediction for this kth slot entity. We obtain the slot description representation r desc \u2208 Rds by summing the embeddings of the N slot description tokens (similar to Shah et al. (2019)): r desc = (cid:88) N E(ti ), i=1 (5) where ti is the ith token and E is the same embedding layer as that for utterances."
+                        }
+                    ]
+                },
+                {
+                    "label": "sec",
+                    "text": "3.2 Template Regularization",
+                    "child": [
+                        {
+                            "label": "para",
+                            "text": "In many cases, similar or the same slot types in the target domain can also be found in the source domains. Nevertheless, it is still challenging for the model to recognize the slot types in the target domain owing to the variance between the source domains and the target domain. To improve the adaptation ability, we introduce a template regularization method."
+                        },
+                        {
+                            "label": "para",
+                            "text": "As shown in Figure 2, we first replace the slot entity tokens in the utterance with different slot labels to generate correct and incorrect utterance templates. Then, we use BiLSTM and an attention layer (Felbo et al., 2017) to generate the utterance and template representations: et = ht wa , \u03b1t = (cid:80)n j=1 exp(et ) exp(ej ) , R = (cid:88) n \u03b1tht, t=1 (6) where ht is the BiLSTM hidden state in the tth step, wa is the weight vector in the attention layer and R is the representation for the input utterance or template."
+                        },
+                        {
+                            "label": "para",
+                            "text": "We minimize the regularization loss functions for the right and wrong templates, which can be formulated as follows: Lr = MSE(R u , Rr ), (7) Lw = \u2212\u03b2 \u00d7 MSE(Ru, Rw), (8) where Ru is the representation for the user utterance, Rr and Rw are the representations of right and wrong templates, we set \u03b2 as one, and MSE denotes mean square error. Hence, in the training phase, we minimize the distance between Ru and Rr and maximize the distance between R u and Rw . To generate a wrong template, we replace the correct slot entity with another random slot entity, and we generate two wrong templates for each utterance. To ensure the representations of the templates are meaningful (i.e., similar templates have similar representations) for training Ru , in the first several epochs, the regularization loss is only to optimize the template representations, and in the following epochs, we optimize both template representations and utterance representations."
+                        },
+                        {
+                            "label": "para",
+                            "text": "By doing so, the model learns to cluster the representations in the same or similar templates into a similar vector space. Hence, the hidden states of tokens that belong to the same slot type tend to be similar, which boosts the robustness of these slot types in the target domain."
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "label": "sec",
+            "text": "4 Experiments",
+            "child": [
+                {
+                    "label": "sec",
+                    "text": "4.1 Dataset",
+                    "child": [
+                        {
+                            "label": "para",
+                            "text": "We evaluate our framework on SNIPS (Coucke et al., 2018), a public spoken language understanding dataset which contains 39 slot types across seven domains (intents) and \u223c2000 training samples per domain. To test our framework, each time, we choose one domain as the target domain and the other six domains as the source domains."
+                        },
+                        {
+                            "label": "para",
+                            "text": "Moreover, we also study another adaptation case where there is no unseen label in the target domain. We utilize the CoNLL-2003 English named entity recognition (NER) dataset as the source domain (Tjong Kim Sang and De Meulder, 2003), and the CBS SciTech News NER dataset from Jia et al. (2019) as the target domain. These two datasets have the same four types of entities, namely, PER (person), LOC (location), ORG (organization), and MISC (miscellaneous)."
+                        }
+                    ]
+                },
+                {
+                    "label": "sec",
+                    "text": "4.2 Baselines",
+                    "child": [
+                        {
+                            "label": "para",
+                            "text": "We use word-level (Bojanowski et al., 2017) and character-level (Hashimoto et al., 2017) embeddings for our model as well as all the following baselines."
+                        },
+                        {
+                            "label": "sec",
+                            "text": "Concept Tagger (CT)",
+                            "child": [
+                                {
+                                    "label": "para",
+                                    "text": "Bapna et al. (2017) proposed a slot filling framework that utilizes slot descriptions to cope with the unseen slot types in the target domain."
+                                }
+                            ]
+                        },
+                        {
+                            "label": "sec",
+                            "text": "Robust Zero-shot Tagger (RZT)",
+                            "child": [
+                                {
+                                    "label": "para",
+                                    "text": "Based on CT, Shah et al. (2019) leveraged example values of slots to improve robustness of cross-domain adaptation."
+                                }
+                            ]
+                        },
+                        {
+                            "label": "sec",
+                            "text": "BiLSTM-CRF",
+                            "child": [
+                                {
+                                    "label": "para",
+                                    "text": "This baseline is only for the cross-domain NER. Since there is no unseen label in the NER target domain, the BiLSTM-CRF (Lample et al., 2016) uses the same label set for the source and target domains and casts it as an entity classification task for each token, which is applicable in both zero-shot and few-shot scenarios."
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "label": "sec",
+                    "text": "4.3 Training Details",
+                    "child": [
+                        {
+                            "label": "para",
+                            "text": "We use a 2-layer BiLSTM with a hidden size of 200 and a dropout rate of 0.3 for both the template encoder and utterance encoder. Note that the parameters in these two encoders are not shared. The BiLSTM for encoding the hidden states of slot entity tokens has one layer with a hidden size of 200, which would output the same dimension as the concatenated word-level and char-level embeddings. We use Adam optimizer with a learning rate of 0.0005. Cross-entropy loss is leveraged to train the 3-way classification in the first step, and the specific slot type predictions are used in the second step. We split 500 data samples in the target domain as the validation set for choosing the best model and the remainder are used for the test set. We implement the model in CT and RZT and follow the same setting as for our model for a fair comparison."
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "label": "sec",
+            "text": "5 Results & Discussion",
+            "child": [
+                {
+                    "label": "sec",
+                    "text": "5.1 Cross-domain Slot Filling",
+                    "child": [
+                        {
+                            "label": "sec",
+                            "text": "Quantitative Analysis",
+                            "child": [
+                                {
+                                    "label": "para",
+                                    "text": "As illustrated in Table 1, we can clearly see that our models are able to achieve significantly better performance than the current state-of-the-art approach (RZT). The CT framework suffers from the difficulty of capturing the whole slot entity, while our framework is able to recognize the slot entity tokens by sharing its parameters across all slot types. Based on the CT framework, the performance of RZT is still limited, and Coach outperforms RZT by a \u223c3% F1-score in the zero-shot setting. Additionally, template regularization further improves the adaptation robustness by helping the model cluster the utterance representations into a similar vector space based on their corresponding template representations."
+                                },
+                                {
+                                    "label": "para",
+                                    "text": "Interestingly, our models achieve impressive performance in the few-shot scenario. In terms of the averaged performance, our best model (Coach+TR) outperforms RZT by \u223c8% and \u223c9% F1-scores on the 20-shot and 50-shot settings, respectively. We conjecture that our model is able to better recognize the whole slot entity in the target domain and map the representation of the slot entity belonging to the same slot type into a similar vector space"
+                                }
+                            ]
+                        },
+                        {
+                            "label": "sec",
+                            "text": "Analysis on Seen and Unseen Slots",
+                            "child": [
+                                {
+                                    "label": "para",
+                                    "text": "We take a further step to test the models on seen and unseen slots in target domains to analyze the effectiveness of our approaches. To test the performance, we split the test set into \u201cunseen\u201d and \u201cseen\u201d parts. An utterance is categorized into the \u201cunseen\u201d part as long as there is an unseen slot (i.e., the slot does not exist in the remaining six source domains) in it. Otherwise we categorize it into the \u201cseen\u201d part. The results for the \u201cseen\u201d and \u201cunseen\u201d categories are shown in Table 2. We observe that our approaches generally improve on both unseen and seen slot types compared to the baseline models. For the improvements in the unseen slots, our models are better able to capture the unseen slots since they explicitly learn the general pattern of slot entities. Interestingly, our models also bring large improvements in the seen slot types. We conjecture that it is also challenging to adapt models to seen slots due to the large variance between the source and target domains. For example, slot entities belonging to the \u201cobject type\u201d in the \u201cRateBook\u201d domain are different from those in the \u201cSearchCreativeWork\u201d domain. Hence, the baseline models might fail to recognize these seen slots in the target domain, while our approaches can adapt to the seen slot types more quickly in comparison. In addition, we observe that template regularization improves performance in both seen and unseen slots, which illustrates that clustering representations based on templates can boost the adaptation ability."
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "label": "sec",
+                    "text": "5.2 Cross-domain NER",
+                    "child": [
+                        {
+                            "label": "para",
+                            "text": "From Table 3, we see that the Coach framework is also suitable for the case where there are no unseen labels in the target domain in both the zero-shot and few-shot scenarios, while CT and RZT are not as effective as BiLSTM-CRF. However, we observe that template regularization loses its effectiveness"
+                        }
+                    ]
+                },
+                {
+                    "label": "sec",
+                    "text": "5.3 Ablation Study",
+                    "child": [
+                        {
+                            "label": "para",
+                            "text": "We conduct an ablation study in terms of the methods to encode the entity tokens (described in Eq. (3)) to investigate how they affect the performance. Instead of using BiLSTM, we try two alternatives. One is to use the encoder of Transformer (trs) (Vaswani et al., 2017), and the other is to simply sum the hidden states of slot entity tokens. From Table 4, we can see that there is no significant performance difference among different methods, and we observe that using BiLSTM to encode the entity tokens generally achieves better results."
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "label": "sec",
+            "text": "6 Conclusion",
+            "child": [
+                {
+                    "label": "para",
+                    "text": "We introduce a new cross-domain slot filling framework to handle the unseen slot type issue. Our model shares its parameters across all slot types and learns to predict whether input tokens are slot entities or not. Then, it detects concrete slot types for these slot entity tokens based on the slot type descriptions. Moreover, template regularization is proposed to improve the adaptation robustness further. Experiments show that our model significantly outperforms existing cross-domain slot filling approaches, and it also achieves better performance for the cross-domain NER task, where there is no unseen label type in the target domain."
+                }
+            ]
+        },
+        {
+            "label": "sec",
+            "text": "Acknowledgments",
+            "child": [
+                {
+                    "label": "para",
+                    "text": "This work is partially funded by ITF/319/16FP and MRP/055/18 of the Innovation Technology Commission, the Hong Kong SAR Government."
+                }
+            ]
+        },
+        {
+            "label": "sec",
+            "text": "References",
+            "child": [
+                {
+                    "label": "para",
+                    "text": "Ankur Bapna, Gokhan T \u00a8ur, Dilek Hakkani-T \u00a8ur, and Larry Heck. 2017. Towards zero-shot frame semantic parsing for domain scaling. Proc. Interspeech 2017, pages 2476\u20132480."
+                },
+                {
+                    "label": "para",
+                    "text": "Piotr Bojanowski, Edouard Grave, Armand Joulin, and Tomas Mikolov. 2017. Enriching word vectors with subword information. Transactions of the Association for Computational Linguistics, 5:135\u2013146."
+                },
+                {
+                    "label": "para",
+                    "text": "Eugene Charniak, Mark Johnson, Micha Elsner, Joseph Austerweil, David Ellis, Isaac Haxton, Catherine Hill, R Shrivaths, Jeremy Moore, Michael Pozar, et al. 2006. Multilevel coarse-to-fine pcfg parsing. In Proceedings of the Human Language Technology Conference of the NAACL, Main Conference, pages 168\u2013175."
+                },
+                {
+                    "label": "para",
+                    "text": "Alice Coucke, Alaa Saade, Adrien Ball, Th\u00b4eodore Bluche, Alexandre Caulier, David Leroy, Cl \u00b4ement Doumouro, Thibault Gisselbrecht, Francesco Caltagirone, Thibaut Lavril, et al. 2018. Snips voice platform: an embedded spoken language understanding system for private-by-design voice interfaces. arXiv preprint arXiv:1805.10190."
+                },
+                {
+                    "label": "para",
+                    "text": "Bjarke Felbo, Alan Mislove, Anders S\u00f8gaard, Iyad Rahwan, and Sune Lehmann. 2017. Using millions of emoji occurrences to learn any-domain representations for detecting sentiment, emotion and sarcasm. In Proceedings of the 2017 Conference on Empirical Methods in Natural Language Processing, pages 1615\u20131625."
+                },
+                {
+                    "label": "para",
+                    "text": "Chih-Wen Goo, Guang Gao, Yun-Kai Hsu, Chih-Li Huo, Tsung-Chieh Chen, Keng-Wei Hsu, and YunNung Chen. 2018. Slot-gated modeling for joint slot filling and intent prediction. In Proceedings of the 2018 Conference of the North American Chapter of the Association for Computational Linguistics: Human Language Technologies, Volume 2 (Short Papers), pages 753\u2013757."
+                },
+                {
+                    "label": "para",
+                    "text": "Marco Guerini, Simone Magnolini, Vevake Balaraman, and Bernardo Magnini. 2018. Toward zero-shot entity recognition in task-oriented conversational agents. In Proceedings of the 19th Annual SIGdial Meeting on Discourse and Dialogue, pages 317\u2013 326."
+                },
+                {
+                    "label": "para",
+                    "text": "Jiang Guo, Darsh Shah, and Regina Barzilay. 2018. Multi-source domain adaptation with mixture of experts. In Proceedings of the 2018 Conference on Empirical Methods in Natural Language Processing, pages 4694\u20134703."
+                },
+                {
+                    "label": "para",
+                    "text": "Kazuma Hashimoto, Yoshimasa Tsuruoka, Richard Socher, et al. 2017. A joint many-task model: Growing a neural network for multiple nlp tasks. In Proceedings of the 2017 Conference on Empirical Methods in Natural Language Processing, pages 1923\u2013 1933."
+                },
+                {
+                    "label": "para",
+                    "text": "Sepp Hochreiter and J \u00a8urgen Schmidhuber. 1997. Long short-term memory. Neural computation, 9(8):1735\u20131780."
+                },
+                {
+                    "label": "para",
+                    "text": "Aaron Jaech, Larry Heck, and Mari Ostendorf. 2016. Domain adaptation of recurrent neural networks for natural language understanding. Interspeech 2016, pages 690\u2013694."
+                },
+                {
+                    "label": "para",
+                    "text": "Chen Jia, Xiaobo Liang, and Yue Zhang. 2019. Crossdomain ner using cross-domain language modeling. In Proceedings of the 57th Annual Meeting of the Association for Computational Linguistics, pages 2464\u20132474."
+                },
+                {
+                    "label": "para",
+                    "text": "Durk P Kingma, Shakir Mohamed, Danilo Jimenez Rezende, and Max Welling. 2014. Semi-supervised learning with deep generative models. In Advances in neural information processing systems, pages 3581\u20133589."
+                },
+                {
+                    "label": "para",
+                    "text": "Guillaume Lample, Miguel Ballesteros, Sandeep Subramanian, Kazuya Kawakami, and Chris Dyer. 2016. Neural architectures for named entity recognition. In Proceedings of the 2016 Conference of the North American Chapter of the Association for Computational Linguistics: Human Language Technologies, pages 260\u2013270."
+                },
+                {
+                    "label": "para",
+                    "text": "Guillaume Lample, Myle Ott, Alexis Conneau, Ludovic Denoyer, and MarcAurelio Ranzato. 2018. Phrase-based & neural unsupervised machine translation. In Proceedings of the 2018 Conference on Empirical Methods in Natural Language Processing, pages 5039\u20135049."
+                },
+                {
+                    "label": "para",
+                    "text": "Sungjin Lee and Rahul Jha. 2019. Zero-shot adaptive transfer for conversational language understanding. In Proceedings of the AAAI Conference on Artificial Intelligence, volume 33, pages 6642\u20136649."
+                },
+                {
+                    "label": "para",
+                    "text": "Zhaojiang Lin, Zihan Liu, Genta Indra Winata, Samuel Cahyawijaya, Andrea Madotto, Yejin Bang, Etsuko Ishii, and Pascale Fung. 2020. Xpersona: Evaluating multilingual personalized chatbot. arXiv preprint arXiv:2003.07568."
+                },
+                {
+                    "label": "para",
+                    "text": "Zihan Liu, Jamin Shin, Yan Xu, Genta Indra Winata, Peng Xu, Andrea Madotto, and Pascale Fung. 2019a. Zero-shot cross-lingual dialogue systems with transferable latent variables. In Proceedings of the 2019 Conference on Empirical Methods in Natural Language Processing and the 9th International Joint Conference on Natural Language Processing (EMNLP-IJCNLP), pages 1297\u20131303."
+                },
+                {
+                    "label": "para",
+                    "text": "Zihan Liu, Genta Indra Winata, and Pascale Fung. 2020. Zero-resource cross-domain named entity recognition. arXiv preprint arXiv:2002.05923."
+                },
+                {
+                    "label": "para",
+                    "text": "Zihan Liu, Genta Indra Winata, Zhaojiang Lin, Peng Xu, and Pascale Fung. 2019b. Attention-informed mixed-language training for zero-shot cross-lingual task-oriented dialogue systems. arXiv preprint arXiv:1911.09273."
+                },
+                {
+                    "label": "para",
+                    "text": "Sinno Jialin Pan, Xiaochuan Ni, Jian-Tao Sun, Qiang Yang, and Zheng Chen. 2010. Cross-domain sentiment classification via spectral feature alignment. In Proceedings of the 19th international conference on World wide web, pages 751\u2013760. ACM."
+                },
+                {
+                    "label": "para",
+                    "text": "Slav Petrov. 2011. Coarse-to-fine natural language processing. Springer Science & Business Media."
+                },
+                {
+                    "label": "para",
+                    "text": "Sebastian Ruder and Barbara Plank. 2018. Strong baselines for neural semi-supervised learning under domain shift. In Proceedings of the 56th Annual Meeting of the Association for Computational Linguistics (Volume 1: Long Papers), pages 1044\u20131054."
+                },
+                {
+                    "label": "para",
+                    "text": "Darsh Shah, Raghav Gupta, Amir Fayazi, and Dilek Hakkani-Tur. 2019. Robust zero-shot cross-domain slot filling with example values. In Proceedings of the 57th Annual Meeting of the Association for Computational Linguistics, pages 5484\u20135490, Florence, Italy. Association for Computational Linguistics."
+                },
+                {
+                    "label": "para",
+                    "text": "Erik F. Tjong Kim Sang and Fien De Meulder. 2003. Introduction to the CoNLL-2003 shared task: Language-independent named entity recognition. In Proceedings of the Seventh Conference on Natural Language Learning at HLT-NAACL 2003, pages 142\u2013147."
+                },
+                {
+                    "label": "para",
+                    "text": "Ashish Vaswani, Noam Shazeer, Niki Parmar, Jakob Uszkoreit, Llion Jones, Aidan N Gomez, \u0141ukasz Kaiser, and Illia Polosukhin. 2017. Attention is all you need. In Advances in neural information processing systems, pages 5998\u20136008."
+                },
+                {
+                    "label": "para",
+                    "text": "Genta Indra Winata, Samuel Cahyawijaya, Zihan Liu, Zhaojiang Lin, Andrea Madotto, Peng Xu, and Pascale Fung. 2020. Learning fast adaptation on cross-accented speech recognition. arXiv preprint arXiv:2003.01901."
+                },
+                {
+                    "label": "para",
+                    "text": "Feifei Zhai, Saloni Potdar, Bing Xiang, and Bowen Zhou. 2017. Neural models for sequence chunking. In Thirty-First AAAI Conference on Artificial Intelligence."
+                },
+                {
+                    "label": "para",
+                    "text": "Chenwei Zhang, Yaliang Li, Nan Du, Wei Fan, and Philip Yu. 2019. Joint slot filling and intent detection via capsule neural networks. In Proceedings of the 57th Annual Meeting of the Association for Computational Linguistics, pages 5259\u20135267, Florence, Italy. Association for Computational Linguistics."
+                },
+                {
+                    "label": "para",
+                    "text": "Yuchen Zhang, Panupong Pasupat, and Percy Liang. 2017. Macro grammars and holistic triggering for efficient semantic parsing. In Proceedings of the 2017 Conference on Empirical Methods in Natural Language Processing, pages 1214\u20131223."
+                }
+            ]
+        }
+    ],
+    "fig": [
+        {
+            "box": [
+                311.0,
+                221.0,
+                526.0,
+                380.0
+            ],
+            "page": 0,
+            "caption": "Figure 1: Cross-domain slot filling frameworks."
+        },
+        {
+            "box": [
+                85.0,
+                59.0,
+                511.0,
+                259.0
+            ],
+            "page": 1,
+            "caption": "Figure 2: Illustration of our framework, Coach, and the template regularization approach."
+        }
+    ],
+    "tab": [
+        {
+            "box": [
+                72.0,
+                58.0,
+                524.0,
+                173.0
+            ],
+            "page": 3,
+            "caption": "Table 1: Slot F1-scores based on standard BIO structure for SNIPS. Scores in each row represents the performance of the leftmost target domain, and TR denotes template regularization."
+        },
+        {
+            "box": [
+                70.0,
+                59.0,
+                295.0,
+                125.0
+            ],
+            "page": 4,
+            "caption": "Table 2: Averaged F1-scores for seen and unseen slots over all target domains. \u2021 represent the number of training samples utilized for the target domain. to the representation of this slot type based on Eq (4). This enables the model to quickly adapt to the target domain slots."
+        },
+        {
+            "box": [
+                313.0,
+                59.0,
+                519.0,
+                134.0
+            ],
+            "page": 4,
+            "caption": "Table 3: F1-scores on the NER target domain (CBS SciTech News)."
+        },
+        {
+            "box": [
+                306.0,
+                174.0,
+                529.0,
+                220.0
+            ],
+            "page": 4,
+            "caption": "Table 4: Ablation study in terms of the methods to encode the entity tokens on Coach. in this task, since the text in NER is relatively more open, which makes it hard to capture the templates for each label type."
+        }
+    ],
+    "foot": [],
+    "fnote": []
+}

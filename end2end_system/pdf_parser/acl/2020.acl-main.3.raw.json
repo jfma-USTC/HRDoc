@@ -1,0 +1,6542 @@
+[
+    {
+        "text": "Coach: A Coarse-to-Fine Approach for Cross-domain Slot Filling",
+        "box": [
+            98,
+            70,
+            498,
+            84
+        ],
+        "page": 0
+    },
+    {
+        "text": "Zihan Liu, Genta Indra Winata, Peng Xu, Pascale Fung",
+        "box": [
+            158,
+            110,
+            442,
+            122
+        ],
+        "page": 0
+    },
+    {
+        "text": "Center for Artificial Intelligence Research (CAiRE)",
+        "box": [
+            176,
+            124,
+            423,
+            136
+        ],
+        "page": 0
+    },
+    {
+        "text": "Department of Electronic and Computer Engineering",
+        "box": [
+            173,
+            138,
+            427,
+            150
+        ],
+        "page": 0
+    },
+    {
+        "text": "The Hong Kong University of Science and Technology, Clear Water Bay, Hong Kong",
+        "box": [
+            96,
+            152,
+            504,
+            164
+        ],
+        "page": 0
+    },
+    {
+        "text": "zihan.liu@connect.ust.hk",
+        "box": [
+            214,
+            165,
+            386,
+            177
+        ],
+        "page": 0
+    },
+    {
+        "text": "Abstract",
+        "box": [
+            158,
+            224,
+            203,
+            235
+        ],
+        "page": 0
+    },
+    {
+        "text": "As an essential task in task-oriented dialog",
+        "box": [
+            89,
+            245,
+            273,
+            255
+        ],
+        "page": 0
+    },
+    {
+        "text": "systems, slot filling requires extensive training",
+        "box": [
+            89,
+            257,
+            273,
+            267
+        ],
+        "page": 0
+    },
+    {
+        "text": "data in a certain domain. However, such data",
+        "box": [
+            89,
+            269,
+            273,
+            279
+        ],
+        "page": 0
+    },
+    {
+        "text": "are not always available. Hence, cross-domain",
+        "box": [
+            89,
+            281,
+            273,
+            291
+        ],
+        "page": 0
+    },
+    {
+        "text": "slot filling has naturally arisen to cope with",
+        "box": [
+            89,
+            293,
+            273,
+            303
+        ],
+        "page": 0
+    },
+    {
+        "text": "this data scarcity problem. In this paper, we",
+        "box": [
+            89,
+            305,
+            273,
+            315
+        ],
+        "page": 0
+    },
+    {
+        "text": "propose a Coarse-to-fine approach (Coach)",
+        "box": [
+            89,
+            317,
+            273,
+            327
+        ],
+        "page": 0
+    },
+    {
+        "text": "for cross-domain slot filling. Our model first",
+        "box": [
+            89,
+            329,
+            273,
+            339
+        ],
+        "page": 0
+    },
+    {
+        "text": "learns the general pattern of slot entities by de-",
+        "box": [
+            89,
+            341,
+            274,
+            351
+        ],
+        "page": 0
+    },
+    {
+        "text": "tecting whether the tokens are slot entities or",
+        "box": [
+            89,
+            353,
+            273,
+            363
+        ],
+        "page": 0
+    },
+    {
+        "text": "not. It then predicts the specific types for the",
+        "box": [
+            89,
+            365,
+            273,
+            375
+        ],
+        "page": 0
+    },
+    {
+        "text": "slot entities. In addition, we propose a tem-",
+        "box": [
+            89,
+            377,
+            274,
+            387
+        ],
+        "page": 0
+    },
+    {
+        "text": "plate regularization approach to improve the",
+        "box": [
+            89,
+            389,
+            273,
+            399
+        ],
+        "page": 0
+    },
+    {
+        "text": "adaptation robustness by regularizing the rep-",
+        "box": [
+            89,
+            401,
+            274,
+            411
+        ],
+        "page": 0
+    },
+    {
+        "text": "resentation of utterances based on utterance",
+        "box": [
+            89,
+            413,
+            273,
+            423
+        ],
+        "page": 0
+    },
+    {
+        "text": "templates. Experimental results show that our",
+        "box": [
+            89,
+            425,
+            273,
+            435
+        ],
+        "page": 0
+    },
+    {
+        "text": "model significantly outperforms state-of-the-",
+        "box": [
+            89,
+            437,
+            274,
+            447
+        ],
+        "page": 0
+    },
+    {
+        "text": "art approaches in slot filling. Furthermore, our",
+        "box": [
+            89,
+            449,
+            273,
+            459
+        ],
+        "page": 0
+    },
+    {
+        "text": "model can also be applied to the cross-domain",
+        "box": [
+            89,
+            461,
+            273,
+            471
+        ],
+        "page": 0
+    },
+    {
+        "text": "named entity recognition task, and it achieves",
+        "box": [
+            89,
+            473,
+            273,
+            483
+        ],
+        "page": 0
+    },
+    {
+        "text": "better adaptation performance than other exist-",
+        "box": [
+            89,
+            485,
+            274,
+            495
+        ],
+        "page": 0
+    },
+    {
+        "text": "ing baselines. The code is available at https:",
+        "box": [
+            89,
+            497,
+            275,
+            507
+        ],
+        "page": 0
+    },
+    {
+        "text": "//github.com/zliucr/coach.",
+        "box": [
+            88,
+            509,
+            225,
+            518
+        ],
+        "page": 0
+    },
+    {
+        "text": "1 Introduction",
+        "box": [
+            72,
+            529,
+            154,
+            541
+        ],
+        "page": 0
+    },
+    {
+        "text": "Slot filling models identify task-related slot types",
+        "box": [
+            72,
+            551,
+            290,
+            562
+        ],
+        "page": 0
+    },
+    {
+        "text": "in certain domains for user utterances, and are an",
+        "box": [
+            72,
+            564,
+            290,
+            575
+        ],
+        "page": 0
+    },
+    {
+        "text": "indispensable part of task-oriented dialog systems.",
+        "box": [
+            72,
+            578,
+            292,
+            589
+        ],
+        "page": 0
+    },
+    {
+        "text": "Supervised approaches have made great achieve-",
+        "box": [
+            72,
+            591,
+            292,
+            602
+        ],
+        "page": 0
+    },
+    {
+        "text": "ments in the slot filling task (Goo et al., 2018;",
+        "box": [
+            72,
+            605,
+            291,
+            616
+        ],
+        "page": 0
+    },
+    {
+        "text": "Zhang et al., 2019), where substantial labeled train-",
+        "box": [
+            72,
+            618,
+            292,
+            629
+        ],
+        "page": 0
+    },
+    {
+        "text": "ing samples are needed. However, collecting large",
+        "box": [
+            72,
+            632,
+            290,
+            643
+        ],
+        "page": 0
+    },
+    {
+        "text": "numbers of training samples is not only expen-",
+        "box": [
+            72,
+            646,
+            292,
+            656
+        ],
+        "page": 0
+    },
+    {
+        "text": "sive but also time-consuming. To cope with the",
+        "box": [
+            72,
+            659,
+            290,
+            670
+        ],
+        "page": 0
+    },
+    {
+        "text": "data scarcity issue, we are motivated to investigate",
+        "box": [
+            72,
+            673,
+            290,
+            684
+        ],
+        "page": 0
+    },
+    {
+        "text": "cross-domain slot filling methods, which leverage",
+        "box": [
+            72,
+            686,
+            290,
+            697
+        ],
+        "page": 0
+    },
+    {
+        "text": "knowledge learned in the source domains and adapt",
+        "box": [
+            72,
+            700,
+            290,
+            711
+        ],
+        "page": 0
+    },
+    {
+        "text": "the models to the target domain with a minimum",
+        "box": [
+            72,
+            713,
+            290,
+            724
+        ],
+        "page": 0
+    },
+    {
+        "text": "number of target domain labeled training samples.",
+        "box": [
+            72,
+            727,
+            291,
+            738
+        ],
+        "page": 0
+    },
+    {
+        "text": "A challenge in cross-domain slot filling is to",
+        "box": [
+            82,
+            740,
+            290,
+            751
+        ],
+        "page": 0
+    },
+    {
+        "text": "handle unseen slot types, which prevents general",
+        "box": [
+            72,
+            754,
+            290,
+            765
+        ],
+        "page": 0
+    },
+    {
+        "text": "Can\tyou\tput\tthis\ttune\tonto\tlatin\tdance\tcardio",
+        "box": [
+            358,
+            247,
+            515,
+            256
+        ],
+        "page": 0
+    },
+    {
+        "text": "Playlist O O O O O O B I I",
+        "box": [
+            323,
+            225,
+            504,
+            234
+        ],
+        "page": 0
+    },
+    {
+        "text": "Music\tItem O O O O B O O O O",
+        "box": [
+            316,
+            269,
+            506,
+            278
+        ],
+        "page": 0
+    },
+    {
+        "text": "(a) Framework proposed by Bapna et al. (2017).",
+        "box": [
+            331,
+            284,
+            504,
+            293
+        ],
+        "page": 0
+    },
+    {
+        "text": "Can\tyou\tput\tthis\t\ttune\tonto\t\tlatin\tdance\tcardio",
+        "box": [
+            356,
+            327,
+            518,
+            336
+        ],
+        "page": 0
+    },
+    {
+        "text": "Slot\tEntity O O O O B O B I I",
+        "box": [
+            317,
+            349,
+            504,
+            358
+        ],
+        "page": 0
+    },
+    {
+        "text": "Playlist",
+        "box": [
+            472,
+            298,
+            498,
+            307
+        ],
+        "page": 0
+    },
+    {
+        "text": "Music\tItem",
+        "box": [
+            405,
+            298,
+            444,
+            307
+        ],
+        "page": 0
+    },
+    {
+        "text": "Step\t1",
+        "box": [
+            326,
+            338,
+            346,
+            346
+        ],
+        "page": 0
+    },
+    {
+        "text": "Step\t2",
+        "box": [
+            398,
+            312,
+            418,
+            320
+        ],
+        "page": 0
+    },
+    {
+        "text": "Step\t2",
+        "box": [
+            458,
+            312,
+            479,
+            320
+        ],
+        "page": 0
+    },
+    {
+        "text": "(b) Our proposed framework, Coach.",
+        "box": [
+            351,
+            366,
+            484,
+            375
+        ],
+        "page": 0
+    },
+    {
+        "text": "Figure 1: Cross-domain slot filling frameworks.",
+        "box": [
+            321,
+            387,
+            511,
+            397
+        ],
+        "page": 0
+    },
+    {
+        "text": "classification models from adapting to the target",
+        "box": [
+            307,
+            426,
+            525,
+            437
+        ],
+        "page": 0
+    },
+    {
+        "text": "domain without any target domain supervision sig-",
+        "box": [
+            307,
+            440,
+            527,
+            450
+        ],
+        "page": 0
+    },
+    {
+        "text": "nals. Recently, Bapna et al. (2017) proposed a",
+        "box": [
+            307,
+            453,
+            525,
+            464
+        ],
+        "page": 0
+    },
+    {
+        "text": "cross-domain slot filling framework, which enables",
+        "box": [
+            307,
+            467,
+            525,
+            478
+        ],
+        "page": 0
+    },
+    {
+        "text": "zero-shot adaptation. As illustrated in Figure 1a,",
+        "box": [
+            307,
+            480,
+            526,
+            491
+        ],
+        "page": 0
+    },
+    {
+        "text": "their model conducts slot filling individually for",
+        "box": [
+            307,
+            494,
+            525,
+            505
+        ],
+        "page": 0
+    },
+    {
+        "text": "each slot type. It first generates word-level repre-",
+        "box": [
+            307,
+            507,
+            527,
+            518
+        ],
+        "page": 0
+    },
+    {
+        "text": "sentations, which are then concatenated with the",
+        "box": [
+            307,
+            521,
+            525,
+            532
+        ],
+        "page": 0
+    },
+    {
+        "text": "representation of each slot type description, and the",
+        "box": [
+            307,
+            534,
+            525,
+            545
+        ],
+        "page": 0
+    },
+    {
+        "text": "predictions are based on the concatenated features",
+        "box": [
+            307,
+            548,
+            525,
+            559
+        ],
+        "page": 0
+    },
+    {
+        "text": "for each slot type. Due to the inherent variance",
+        "box": [
+            307,
+            562,
+            525,
+            572
+        ],
+        "page": 0
+    },
+    {
+        "text": "of slot entities across different domains, it is diffi-",
+        "box": [
+            307,
+            575,
+            527,
+            586
+        ],
+        "page": 0
+    },
+    {
+        "text": "cult for this framework to capture the whole slot",
+        "box": [
+            307,
+            589,
+            525,
+            600
+        ],
+        "page": 0
+    },
+    {
+        "text": "entity (e.g., \u201clatin dance cardio\u201d in Figure 1a) in",
+        "box": [
+            307,
+            602,
+            525,
+            613
+        ],
+        "page": 0
+    },
+    {
+        "text": "the target domain. There also exists a multiple",
+        "box": [
+            307,
+            616,
+            525,
+            627
+        ],
+        "page": 0
+    },
+    {
+        "text": "prediction problem. For example, \u201ctune\u201d in Fig-",
+        "box": [
+            307,
+            629,
+            527,
+            640
+        ],
+        "page": 0
+    },
+    {
+        "text": "ure 1a could be predicted as \u201cB\u201d for both \u201cmusic",
+        "box": [
+            307,
+            643,
+            525,
+            654
+        ],
+        "page": 0
+    },
+    {
+        "text": "item\u201d and \u201cplaylist\u201d, which would cause additional",
+        "box": [
+            307,
+            656,
+            525,
+            667
+        ],
+        "page": 0
+    },
+    {
+        "text": "trouble for the final prediction.",
+        "box": [
+            307,
+            670,
+            441,
+            681
+        ],
+        "page": 0
+    },
+    {
+        "text": "We emphasize that in order to capture the whole",
+        "box": [
+            318,
+            686,
+            525,
+            697
+        ],
+        "page": 0
+    },
+    {
+        "text": "slot entity, it is pivotal for the model to share its",
+        "box": [
+            307,
+            700,
+            525,
+            711
+        ],
+        "page": 0
+    },
+    {
+        "text": "parameters for all slot types in the source domains",
+        "box": [
+            307,
+            713,
+            525,
+            724
+        ],
+        "page": 0
+    },
+    {
+        "text": "and learn the general pattern of slot entities. There-",
+        "box": [
+            307,
+            727,
+            527,
+            738
+        ],
+        "page": 0
+    },
+    {
+        "text": "fore, as depicted in Figure 1b, we propose a new",
+        "box": [
+            307,
+            740,
+            525,
+            751
+        ],
+        "page": 0
+    },
+    {
+        "text": "cross-domain slot filling framework called Coach,",
+        "box": [
+            307,
+            754,
+            526,
+            765
+        ],
+        "page": 0
+    },
+    {
+        "text": "Can\t\tyou\t\tput\t\tthis\t\t tune \t\tonto\t\tlatin\t\tdance\t\tcar dio",
+        "box": [
+            126,
+            179,
+            300,
+            187
+        ],
+        "page": 1
+    },
+    {
+        "text": "Can\t\tyou\t\tput\t\tthis \t\trestaurant\ttype\t\tonto\t\tartist",
+        "box": [
+            131,
+            232,
+            290,
+            241
+        ],
+        "page": 1
+    },
+    {
+        "text": "Template\tGeneration",
+        "box": [
+            150,
+            191,
+            222,
+            197
+        ],
+        "page": 1
+    },
+    {
+        "text": "Encoder",
+        "box": [
+            92,
+            148,
+            119,
+            156
+        ],
+        "page": 1
+    },
+    {
+        "text": "Conditional\tRandom\tField\t(CRF)",
+        "box": [
+            159,
+            114,
+            289,
+            122
+        ],
+        "page": 1
+    },
+    {
+        "text": "O O",
+        "box": [
+            131,
+            87,
+            154,
+            93
+        ],
+        "page": 1
+    },
+    {
+        "text": "B",
+        "box": [
+            198,
+            87,
+            202,
+            93
+        ],
+        "page": 1
+    },
+    {
+        "text": "3-way\t(B-I-O)\tClassification\tPer\tToken\t",
+        "box": [
+            151,
+            64,
+            283,
+            72
+        ],
+        "page": 1
+    },
+    {
+        "text": "...",
+        "box": [
+            170,
+            145,
+            178,
+            156
+        ],
+        "page": 1
+    },
+    {
+        "text": "...",
+        "box": [
+            216,
+            145,
+            224,
+            156
+        ],
+        "page": 1
+    },
+    {
+        "text": "Utterance",
+        "box": [
+            90,
+            179,
+            121,
+            186
+        ],
+        "page": 1
+    },
+    {
+        "text": "Correct",
+        "box": [
+            93,
+            206,
+            118,
+            214
+        ],
+        "page": 1
+    },
+    {
+        "text": "... B I I",
+        "box": [
+            216,
+            82,
+            284,
+            93
+        ],
+        "page": 1
+    },
+    {
+        "text": "...",
+        "box": [
+            170,
+            82,
+            178,
+            93
+        ],
+        "page": 1
+    },
+    {
+        "text": "latin\t\tdance\t\tcardio",
+        "box": [
+            441,
+            231,
+            513,
+            239
+        ],
+        "page": 1
+    },
+    {
+        "text": "...",
+        "box": [
+            425,
+            197,
+            433,
+            208
+        ],
+        "page": 1
+    },
+    {
+        "text": "...",
+        "box": [
+            385,
+            197,
+            393,
+            208
+        ],
+        "page": 1
+    },
+    {
+        "text": "tune",
+        "box": [
+            401,
+            231,
+            414,
+            239
+        ],
+        "page": 1
+    },
+    {
+        "text": "Encoder",
+        "box": [
+            459,
+            166,
+            491,
+            173
+        ],
+        "page": 1
+    },
+    {
+        "text": "Encoder",
+        "box": [
+            395,
+            166,
+            428,
+            173
+        ],
+        "page": 1
+    },
+    {
+        "text": "Representation Representation",
+        "box": [
+            389,
+            141,
+            502,
+            148
+        ],
+        "page": 1
+    },
+    {
+        "text": "Slot\tType",
+        "box": [
+            349,
+            92,
+            376,
+            98
+        ],
+        "page": 1
+    },
+    {
+        "text": "Description ...",
+        "box": [
+            346,
+            95,
+            412,
+            106
+        ],
+        "page": 1
+    },
+    {
+        "text": "Matrix",
+        "box": [
+            352,
+            107,
+            369,
+            113
+        ],
+        "page": 1
+    },
+    {
+        "text": "...",
+        "box": [
+            467,
+            95,
+            475,
+            106
+        ],
+        "page": 1
+    },
+    {
+        "text": "similarity\t",
+        "box": [
+            376,
+            123,
+            404,
+            130
+        ],
+        "page": 1
+    },
+    {
+        "text": "comparison comparison",
+        "box": [
+            373,
+            131,
+            481,
+            137
+        ],
+        "page": 1
+    },
+    {
+        "text": "similarity\t",
+        "box": [
+            439,
+            123,
+            468,
+            130
+        ],
+        "page": 1
+    },
+    {
+        "text": "Music\tItem",
+        "box": [
+            390,
+            63,
+            424,
+            71
+        ],
+        "page": 1
+    },
+    {
+        "text": "Playlist",
+        "box": [
+            460,
+            63,
+            492,
+            71
+        ],
+        "page": 1
+    },
+    {
+        "text": "Utterance",
+        "box": [
+            321,
+            146,
+            349,
+            152
+        ],
+        "page": 1
+    },
+    {
+        "text": "Representation",
+        "box": [
+            314,
+            153,
+            364,
+            159
+        ],
+        "page": 1
+    },
+    {
+        "text": "Template",
+        "box": [
+            322,
+            193,
+            354,
+            199
+        ],
+        "page": 1
+    },
+    {
+        "text": "Representations",
+        "box": [
+            313,
+            200,
+            365,
+            207
+        ],
+        "page": 1
+    },
+    {
+        "text": "Regularization\tLoss",
+        "box": [
+            307,
+            173,
+            371,
+            179
+        ],
+        "page": 1
+    },
+    {
+        "text": "Step\tOne",
+        "box": [
+            195,
+            249,
+            228,
+            258
+        ],
+        "page": 1
+    },
+    {
+        "text": "Step\tTwo",
+        "box": [
+            423,
+            249,
+            457,
+            258
+        ],
+        "page": 1
+    },
+    {
+        "text": "Can\t\tyou\t\tput\t\tthis \t\tmusic\titem\t\tonto\t\tplaylist",
+        "box": [
+            135,
+            206,
+            303,
+            214
+        ],
+        "page": 1
+    },
+    {
+        "text": "Incorrect",
+        "box": [
+            91,
+            222,
+            120,
+            233
+        ],
+        "page": 1
+    },
+    {
+        "text": "Can\t\tyou\t\tput\t\tthis \t\tobject\tname\t\tonto\t\tcity...",
+        "box": [
+            139,
+            218,
+            282,
+            233
+        ],
+        "page": 1
+    },
+    {
+        "text": "Figure 2: Illustration of our framework, Coach, and the template regularization approach.",
+        "box": [
+            120,
+            270,
+            476,
+            280
+        ],
+        "page": 1
+    },
+    {
+        "text": "a coarse-to-fine approach. It first coarsely learns",
+        "box": [
+            72,
+            304,
+            290,
+            315
+        ],
+        "page": 1
+    },
+    {
+        "text": "the slot entity pattern by predicting whether the",
+        "box": [
+            72,
+            317,
+            290,
+            328
+        ],
+        "page": 1
+    },
+    {
+        "text": "tokens are slot entities or not. Then, it combines",
+        "box": [
+            72,
+            331,
+            290,
+            342
+        ],
+        "page": 1
+    },
+    {
+        "text": "the features for each slot entity and predicts the spe-",
+        "box": [
+            72,
+            344,
+            292,
+            355
+        ],
+        "page": 1
+    },
+    {
+        "text": "cific (fine) slot type based on the similarity with the",
+        "box": [
+            72,
+            358,
+            290,
+            369
+        ],
+        "page": 1
+    },
+    {
+        "text": "representation of each slot type description. In this",
+        "box": [
+            72,
+            371,
+            290,
+            382
+        ],
+        "page": 1
+    },
+    {
+        "text": "way, our framework is able to avoid the multiple",
+        "box": [
+            71,
+            385,
+            290,
+            396
+        ],
+        "page": 1
+    },
+    {
+        "text": "predictions problem. Additionally, we introduce",
+        "box": [
+            72,
+            398,
+            290,
+            409
+        ],
+        "page": 1
+    },
+    {
+        "text": "a template regularization method that delexical-",
+        "box": [
+            72,
+            412,
+            292,
+            423
+        ],
+        "page": 1
+    },
+    {
+        "text": "izes slot entity tokens in utterances into different",
+        "box": [
+            72,
+            426,
+            290,
+            436
+        ],
+        "page": 1
+    },
+    {
+        "text": "slot labels and produces both correct and incor-",
+        "box": [
+            72,
+            439,
+            292,
+            450
+        ],
+        "page": 1
+    },
+    {
+        "text": "rect utterance templates to regularize the utterance",
+        "box": [
+            72,
+            453,
+            290,
+            464
+        ],
+        "page": 1
+    },
+    {
+        "text": "representations. By doing so, the model learns to",
+        "box": [
+            72,
+            466,
+            290,
+            477
+        ],
+        "page": 1
+    },
+    {
+        "text": "cluster the representations of semantically similar",
+        "box": [
+            72,
+            480,
+            290,
+            491
+        ],
+        "page": 1
+    },
+    {
+        "text": "utterances (i.e., in the same or similar templates)",
+        "box": [
+            72,
+            493,
+            290,
+            504
+        ],
+        "page": 1
+    },
+    {
+        "text": "into a similar vector space, which further improves",
+        "box": [
+            72,
+            507,
+            290,
+            518
+        ],
+        "page": 1
+    },
+    {
+        "text": "the adaptation robustness.",
+        "box": [
+            72,
+            520,
+            184,
+            531
+        ],
+        "page": 1
+    },
+    {
+        "text": "Experimental results show that our model sur-",
+        "box": [
+            82,
+            534,
+            292,
+            545
+        ],
+        "page": 1
+    },
+    {
+        "text": "passes the state-of-the-art methods by a large mar-",
+        "box": [
+            72,
+            548,
+            292,
+            558
+        ],
+        "page": 1
+    },
+    {
+        "text": "gin in both zero-shot and few-shot scenarios. In",
+        "box": [
+            72,
+            561,
+            290,
+            572
+        ],
+        "page": 1
+    },
+    {
+        "text": "addition, further experiments show that our frame-",
+        "box": [
+            72,
+            575,
+            292,
+            586
+        ],
+        "page": 1
+    },
+    {
+        "text": "work can be applied to cross-domain named entity",
+        "box": [
+            71,
+            588,
+            290,
+            599
+        ],
+        "page": 1
+    },
+    {
+        "text": "recognition, and achieves better adaptation perfor-",
+        "box": [
+            72,
+            602,
+            292,
+            613
+        ],
+        "page": 1
+    },
+    {
+        "text": "mance than other existing frameworks.",
+        "box": [
+            72,
+            615,
+            241,
+            626
+        ],
+        "page": 1
+    },
+    {
+        "text": "2 Related Work",
+        "box": [
+            72,
+            638,
+            161,
+            650
+        ],
+        "page": 1
+    },
+    {
+        "text": "Coarse-to-fine methods in NLP are best known",
+        "box": [
+            72,
+            659,
+            290,
+            670
+        ],
+        "page": 1
+    },
+    {
+        "text": "for syntactic parsing (Charniak et al., 2006; Petrov,",
+        "box": [
+            72,
+            673,
+            291,
+            684
+        ],
+        "page": 1
+    },
+    {
+        "text": "2011). Zhang et al. (2017) reduced the search space",
+        "box": [
+            72,
+            686,
+            290,
+            697
+        ],
+        "page": 1
+    },
+    {
+        "text": "of semantic parsers by using coarse macro gram-",
+        "box": [
+            72,
+            700,
+            292,
+            711
+        ],
+        "page": 1
+    },
+    {
+        "text": "mars. Different from the previous work, we apply",
+        "box": [
+            72,
+            713,
+            290,
+            724
+        ],
+        "page": 1
+    },
+    {
+        "text": "the idea of coarse-to-fine into cross-domain slot",
+        "box": [
+            72,
+            727,
+            290,
+            738
+        ],
+        "page": 1
+    },
+    {
+        "text": "filling to handle unseen slot types by separating the",
+        "box": [
+            72,
+            740,
+            290,
+            751
+        ],
+        "page": 1
+    },
+    {
+        "text": "slot filling task into two steps (Zhai et al., 2017;",
+        "box": [
+            72,
+            754,
+            291,
+            765
+        ],
+        "page": 1
+    },
+    {
+        "text": "Guerini et al., 2018).",
+        "box": [
+            307,
+            304,
+            398,
+            315
+        ],
+        "page": 1
+    },
+    {
+        "text": "Coping with low-resource problems where there",
+        "box": [
+            318,
+            318,
+            525,
+            329
+        ],
+        "page": 1
+    },
+    {
+        "text": "are zero or few existing training samples has always",
+        "box": [
+            307,
+            332,
+            525,
+            343
+        ],
+        "page": 1
+    },
+    {
+        "text": "been an interesting and challenging task (Kingma",
+        "box": [
+            307,
+            345,
+            525,
+            356
+        ],
+        "page": 1
+    },
+    {
+        "text": "et al., 2014; Lample et al., 2018; Liu et al., 2019a,b;",
+        "box": [
+            307,
+            359,
+            526,
+            370
+        ],
+        "page": 1
+    },
+    {
+        "text": "Lin et al., 2020). Cross-domain adaptation ad-",
+        "box": [
+            307,
+            372,
+            527,
+            383
+        ],
+        "page": 1
+    },
+    {
+        "text": "dresses the data scarcity problem in low-resource",
+        "box": [
+            307,
+            386,
+            525,
+            397
+        ],
+        "page": 1
+    },
+    {
+        "text": "target domains (Pan et al., 2010; Jaech et al., 2016;",
+        "box": [
+            307,
+            399,
+            526,
+            410
+        ],
+        "page": 1
+    },
+    {
+        "text": "Guo et al., 2018; Jia et al., 2019; Liu et al., 2020;",
+        "box": [
+            307,
+            413,
+            526,
+            424
+        ],
+        "page": 1
+    },
+    {
+        "text": "Winata et al., 2020). However, most research study-",
+        "box": [
+            306,
+            427,
+            527,
+            437
+        ],
+        "page": 1
+    },
+    {
+        "text": "ing the cross-domain aspect has not focused on",
+        "box": [
+            307,
+            440,
+            525,
+            451
+        ],
+        "page": 1
+    },
+    {
+        "text": "predicting unseen label types in the target domain",
+        "box": [
+            307,
+            454,
+            525,
+            465
+        ],
+        "page": 1
+    },
+    {
+        "text": "since both source and target domains have the same",
+        "box": [
+            307,
+            467,
+            525,
+            478
+        ],
+        "page": 1
+    },
+    {
+        "text": "label types in the considered tasks (Guo et al.,",
+        "box": [
+            307,
+            481,
+            526,
+            492
+        ],
+        "page": 1
+    },
+    {
+        "text": "2018). In another line of work, to bypass unseen",
+        "box": [
+            307,
+            494,
+            525,
+            505
+        ],
+        "page": 1
+    },
+    {
+        "text": "label types, Ruder and Plank (2018) and Jia et al.",
+        "box": [
+            307,
+            508,
+            527,
+            519
+        ],
+        "page": 1
+    },
+    {
+        "text": "(2019) utilized target domain training samples, so",
+        "box": [
+            306,
+            521,
+            525,
+            532
+        ],
+        "page": 1
+    },
+    {
+        "text": "that there was no unseen label type in the target do-",
+        "box": [
+            307,
+            535,
+            527,
+            546
+        ],
+        "page": 1
+    },
+    {
+        "text": "main. Recently, based on the framework proposed",
+        "box": [
+            307,
+            549,
+            525,
+            559
+        ],
+        "page": 1
+    },
+    {
+        "text": "by Bapna et al. (2017) (discussed in Section 1), Lee",
+        "box": [
+            307,
+            562,
+            525,
+            573
+        ],
+        "page": 1
+    },
+    {
+        "text": "and Jha (2019) added an attention layer to produce",
+        "box": [
+            307,
+            576,
+            525,
+            587
+        ],
+        "page": 1
+    },
+    {
+        "text": "slot-aware representations, and Shah et al. (2019)",
+        "box": [
+            307,
+            589,
+            526,
+            600
+        ],
+        "page": 1
+    },
+    {
+        "text": "leveraged slot examples to increase the robustness",
+        "box": [
+            307,
+            603,
+            525,
+            614
+        ],
+        "page": 1
+    },
+    {
+        "text": "of cross-domain slot filling adaptation.",
+        "box": [
+            307,
+            616,
+            476,
+            627
+        ],
+        "page": 1
+    },
+    {
+        "text": "3 Methodology",
+        "box": [
+            307,
+            643,
+            392,
+            654
+        ],
+        "page": 1
+    },
+    {
+        "text": "3.1 Coach Framework",
+        "box": [
+            307,
+            667,
+            419,
+            678
+        ],
+        "page": 1
+    },
+    {
+        "text": "As depicted in Figure 2, the slot filling process in",
+        "box": [
+            306,
+            686,
+            525,
+            697
+        ],
+        "page": 1
+    },
+    {
+        "text": "our Coach framework consists of two steps. In",
+        "box": [
+            307,
+            700,
+            525,
+            711
+        ],
+        "page": 1
+    },
+    {
+        "text": "the first step, we utilize a BiLSTM-CRF struc-",
+        "box": [
+            307,
+            713,
+            527,
+            724
+        ],
+        "page": 1
+    },
+    {
+        "text": "ture (Lample et al., 2016) to learn the general",
+        "box": [
+            307,
+            727,
+            525,
+            738
+        ],
+        "page": 1
+    },
+    {
+        "text": "pattern of slot entities by having our model pre-",
+        "box": [
+            307,
+            740,
+            527,
+            751
+        ],
+        "page": 1
+    },
+    {
+        "text": "dict whether tokens are slot entities or not (i.e.,",
+        "box": [
+            307,
+            754,
+            526,
+            765
+        ],
+        "page": 1
+    },
+    {
+        "text": "3-way classification for each token). In the sec-",
+        "box": [
+            72,
+            65,
+            292,
+            76
+        ],
+        "page": 2
+    },
+    {
+        "text": "ond step, our model further predicts a specific type",
+        "box": [
+            72,
+            78,
+            290,
+            89
+        ],
+        "page": 2
+    },
+    {
+        "text": "for each slot entity based on the similarities with",
+        "box": [
+            72,
+            92,
+            290,
+            103
+        ],
+        "page": 2
+    },
+    {
+        "text": "the description representations of all possible slot",
+        "box": [
+            72,
+            105,
+            290,
+            116
+        ],
+        "page": 2
+    },
+    {
+        "text": "types. To generate representations of slot entities,",
+        "box": [
+            72,
+            119,
+            291,
+            130
+        ],
+        "page": 2
+    },
+    {
+        "text": "we leverage another encoder, BiLSTM (Hochre-",
+        "box": [
+            71,
+            132,
+            292,
+            143
+        ],
+        "page": 2
+    },
+    {
+        "text": "iter and Schmidhuber, 1997), to encode the hidden",
+        "box": [
+            72,
+            146,
+            290,
+            157
+        ],
+        "page": 2
+    },
+    {
+        "text": "states of slot entity tokens and produce representa-",
+        "box": [
+            72,
+            160,
+            292,
+            170
+        ],
+        "page": 2
+    },
+    {
+        "text": "tions for each slot entity.",
+        "box": [
+            72,
+            173,
+            179,
+            184
+        ],
+        "page": 2
+    },
+    {
+        "text": "We represent the user utterance with n tokens",
+        "box": [
+            82,
+            186,
+            290,
+            198
+        ],
+        "page": 2
+    },
+    {
+        "text": "as w = [w1, w2 , ..., wn ], and E denotes the embed-",
+        "box": [
+            72,
+            200,
+            292,
+            212
+        ],
+        "page": 2
+    },
+    {
+        "text": "ding layer for utterances. The whole process can",
+        "box": [
+            72,
+            214,
+            290,
+            225
+        ],
+        "page": 2
+    },
+    {
+        "text": "be formulated as follows:",
+        "box": [
+            72,
+            227,
+            182,
+            238
+        ],
+        "page": 2
+    },
+    {
+        "text": "[h1, h2, ..., hn ] = BiLSTM(E(w)), (1)",
+        "box": [
+            103,
+            251,
+            290,
+            263
+        ],
+        "page": 2
+    },
+    {
+        "text": "[p1 , p2 , ..., pn ] = CRF([h1, h2, ..., hn ]), (2)",
+        "box": [
+            88,
+            276,
+            290,
+            287
+        ],
+        "page": 2
+    },
+    {
+        "text": "where [p1, p2, ..., pn] are the logits for the 3-way",
+        "box": [
+            71,
+            295,
+            290,
+            307
+        ],
+        "page": 2
+    },
+    {
+        "text": "classification. Then, for each slot entity, we take",
+        "box": [
+            72,
+            309,
+            290,
+            320
+        ],
+        "page": 2
+    },
+    {
+        "text": "its hidden states to calculate its representation:",
+        "box": [
+            72,
+            323,
+            275,
+            334
+        ],
+        "page": 2
+    },
+    {
+        "text": "rk = BiLSTM([hi, hi+1, ...hj ]), (3)",
+        "box": [
+            109,
+            347,
+            290,
+            359
+        ],
+        "page": 2
+    },
+    {
+        "text": "sk = Mdesc \u00b7 rk ,",
+        "box": [
+            143,
+            371,
+            216,
+            383
+        ],
+        "page": 2
+    },
+    {
+        "text": "(4)",
+        "box": [
+            277,
+            371,
+            290,
+            383
+        ],
+        "page": 2
+    },
+    {
+        "text": "where rk denotes the representation of the kth slot",
+        "box": [
+            71,
+            389,
+            290,
+            403
+        ],
+        "page": 2
+    },
+    {
+        "text": "entity, [hi, hi+1, ..., hj ] denotes the BiLSTM hid-",
+        "box": [
+            72,
+            404,
+            292,
+            416
+        ],
+        "page": 2
+    },
+    {
+        "text": "den states for the kth slot entity, Mdesc \u2208 Rns\u00d7ds",
+        "box": [
+            72,
+            416,
+            289,
+            430
+        ],
+        "page": 2
+    },
+    {
+        "text": "is the representation matrix of the slot description",
+        "box": [
+            72,
+            432,
+            290,
+            443
+        ],
+        "page": 2
+    },
+    {
+        "text": "(ns is the number of possible slot types and ds is",
+        "box": [
+            71,
+            445,
+            290,
+            457
+        ],
+        "page": 2
+    },
+    {
+        "text": "the dimension of slot descriptions), and sk is the",
+        "box": [
+            72,
+            459,
+            290,
+            471
+        ],
+        "page": 2
+    },
+    {
+        "text": "specific slot type prediction for this kth slot en-",
+        "box": [
+            72,
+            471,
+            292,
+            483
+        ],
+        "page": 2
+    },
+    {
+        "text": "tity. We obtain the slot description representation",
+        "box": [
+            72,
+            486,
+            290,
+            497
+        ],
+        "page": 2
+    },
+    {
+        "text": "r desc \u2208 Rds by summing the embeddings of the",
+        "box": [
+            72,
+            498,
+            290,
+            510
+        ],
+        "page": 2
+    },
+    {
+        "text": "N slot description tokens (similar to Shah et al.",
+        "box": [
+            72,
+            513,
+            292,
+            524
+        ],
+        "page": 2
+    },
+    {
+        "text": "(2019)):",
+        "box": [
+            71,
+            527,
+            107,
+            537
+        ],
+        "page": 2
+    },
+    {
+        "text": "r desc = (cid:88) N E(ti ),",
+        "box": [
+            140,
+            538,
+            219,
+            560
+        ],
+        "page": 2
+    },
+    {
+        "text": "i=1",
+        "box": [
+            177,
+            563,
+            191,
+            571
+        ],
+        "page": 2
+    },
+    {
+        "text": "(5)",
+        "box": [
+            277,
+            548,
+            290,
+            560
+        ],
+        "page": 2
+    },
+    {
+        "text": "where ti is the ith token and E is the same embed-",
+        "box": [
+            71,
+            577,
+            292,
+            590
+        ],
+        "page": 2
+    },
+    {
+        "text": "ding layer as that for utterances.",
+        "box": [
+            72,
+            592,
+            211,
+            603
+        ],
+        "page": 2
+    },
+    {
+        "text": "3.2 Template Regularization",
+        "box": [
+            72,
+            614,
+            211,
+            625
+        ],
+        "page": 2
+    },
+    {
+        "text": "In many cases, similar or the same slot types in",
+        "box": [
+            72,
+            632,
+            290,
+            643
+        ],
+        "page": 2
+    },
+    {
+        "text": "the target domain can also be found in the source",
+        "box": [
+            72,
+            646,
+            290,
+            656
+        ],
+        "page": 2
+    },
+    {
+        "text": "domains. Nevertheless, it is still challenging for",
+        "box": [
+            72,
+            659,
+            290,
+            670
+        ],
+        "page": 2
+    },
+    {
+        "text": "the model to recognize the slot types in the target",
+        "box": [
+            72,
+            673,
+            290,
+            684
+        ],
+        "page": 2
+    },
+    {
+        "text": "domain owing to the variance between the source",
+        "box": [
+            72,
+            686,
+            290,
+            697
+        ],
+        "page": 2
+    },
+    {
+        "text": "domains and the target domain. To improve the",
+        "box": [
+            72,
+            700,
+            290,
+            711
+        ],
+        "page": 2
+    },
+    {
+        "text": "adaptation ability, we introduce a template regular-",
+        "box": [
+            72,
+            713,
+            292,
+            724
+        ],
+        "page": 2
+    },
+    {
+        "text": "ization method.",
+        "box": [
+            72,
+            727,
+            139,
+            738
+        ],
+        "page": 2
+    },
+    {
+        "text": "As shown in Figure 2, we first replace the slot",
+        "box": [
+            82,
+            740,
+            290,
+            751
+        ],
+        "page": 2
+    },
+    {
+        "text": "entity tokens in the utterance with different slot",
+        "box": [
+            72,
+            754,
+            290,
+            765
+        ],
+        "page": 2
+    },
+    {
+        "text": "labels to generate correct and incorrect utterance",
+        "box": [
+            307,
+            65,
+            525,
+            76
+        ],
+        "page": 2
+    },
+    {
+        "text": "templates. Then, we use BiLSTM and an attention",
+        "box": [
+            307,
+            78,
+            525,
+            89
+        ],
+        "page": 2
+    },
+    {
+        "text": "layer (Felbo et al., 2017) to generate the utterance",
+        "box": [
+            307,
+            92,
+            525,
+            103
+        ],
+        "page": 2
+    },
+    {
+        "text": "and template representations:",
+        "box": [
+            307,
+            105,
+            435,
+            116
+        ],
+        "page": 2
+    },
+    {
+        "text": "et = ht wa , \u03b1t = (cid:80)n j=1 exp(et ) exp(ej ) , R = (cid:88) n \u03b1tht,",
+        "box": [
+            307,
+            127,
+            523,
+            158
+        ],
+        "page": 2
+    },
+    {
+        "text": "t=1",
+        "box": [
+            484,
+            151,
+            498,
+            159
+        ],
+        "page": 2
+    },
+    {
+        "text": "(6)",
+        "box": [
+            512,
+            159,
+            525,
+            170
+        ],
+        "page": 2
+    },
+    {
+        "text": "where ht is the BiLSTM hidden state in the tth step,",
+        "box": [
+            306,
+            170,
+            526,
+            184
+        ],
+        "page": 2
+    },
+    {
+        "text": "wa is the weight vector in the attention layer and",
+        "box": [
+            307,
+            186,
+            525,
+            198
+        ],
+        "page": 2
+    },
+    {
+        "text": "R is the representation for the input utterance or",
+        "box": [
+            307,
+            199,
+            525,
+            210
+        ],
+        "page": 2
+    },
+    {
+        "text": "template.",
+        "box": [
+            307,
+            213,
+            347,
+            224
+        ],
+        "page": 2
+    },
+    {
+        "text": "We minimize the regularization loss functions",
+        "box": [
+            318,
+            227,
+            525,
+            238
+        ],
+        "page": 2
+    },
+    {
+        "text": "for the right and wrong templates, which can be",
+        "box": [
+            307,
+            240,
+            525,
+            251
+        ],
+        "page": 2
+    },
+    {
+        "text": "formulated as follows:",
+        "box": [
+            307,
+            254,
+            405,
+            265
+        ],
+        "page": 2
+    },
+    {
+        "text": "Lr = MSE(R u , Rr ),",
+        "box": [
+            369,
+            276,
+            461,
+            290
+        ],
+        "page": 2
+    },
+    {
+        "text": "(7)",
+        "box": [
+            512,
+            276,
+            525,
+            290
+        ],
+        "page": 2
+    },
+    {
+        "text": "Lw = \u2212\u03b2 \u00d7 MSE(Ru, Rw), (8)",
+        "box": [
+            352,
+            302,
+            525,
+            315
+        ],
+        "page": 2
+    },
+    {
+        "text": "where Ru is the representation for the user utter-",
+        "box": [
+            306,
+            323,
+            527,
+            336
+        ],
+        "page": 2
+    },
+    {
+        "text": "ance, Rr and Rw are the representations of right",
+        "box": [
+            307,
+            336,
+            525,
+            349
+        ],
+        "page": 2
+    },
+    {
+        "text": "and wrong templates, we set \u03b2 as one, and MSE",
+        "box": [
+            307,
+            351,
+            525,
+            363
+        ],
+        "page": 2
+    },
+    {
+        "text": "denotes mean square error. Hence, in the training",
+        "box": [
+            307,
+            365,
+            525,
+            376
+        ],
+        "page": 2
+    },
+    {
+        "text": "phase, we minimize the distance between Ru and",
+        "box": [
+            307,
+            377,
+            525,
+            390
+        ],
+        "page": 2
+    },
+    {
+        "text": "Rr and maximize the distance between R u and",
+        "box": [
+            307,
+            391,
+            525,
+            403
+        ],
+        "page": 2
+    },
+    {
+        "text": "Rw . To generate a wrong template, we replace",
+        "box": [
+            307,
+            404,
+            525,
+            417
+        ],
+        "page": 2
+    },
+    {
+        "text": "the correct slot entity with another random slot",
+        "box": [
+            307,
+            419,
+            525,
+            430
+        ],
+        "page": 2
+    },
+    {
+        "text": "entity, and we generate two wrong templates for",
+        "box": [
+            307,
+            433,
+            525,
+            444
+        ],
+        "page": 2
+    },
+    {
+        "text": "each utterance. To ensure the representations of the",
+        "box": [
+            307,
+            447,
+            525,
+            457
+        ],
+        "page": 2
+    },
+    {
+        "text": "templates are meaningful (i.e., similar templates",
+        "box": [
+            307,
+            460,
+            525,
+            471
+        ],
+        "page": 2
+    },
+    {
+        "text": "have similar representations) for training Ru , in",
+        "box": [
+            307,
+            472,
+            525,
+            485
+        ],
+        "page": 2
+    },
+    {
+        "text": "the first several epochs, the regularization loss is",
+        "box": [
+            307,
+            487,
+            525,
+            498
+        ],
+        "page": 2
+    },
+    {
+        "text": "only to optimize the template representations, and",
+        "box": [
+            307,
+            501,
+            525,
+            512
+        ],
+        "page": 2
+    },
+    {
+        "text": "in the following epochs, we optimize both template",
+        "box": [
+            307,
+            514,
+            525,
+            525
+        ],
+        "page": 2
+    },
+    {
+        "text": "representations and utterance representations.",
+        "box": [
+            307,
+            528,
+            506,
+            539
+        ],
+        "page": 2
+    },
+    {
+        "text": "By doing so, the model learns to cluster the rep-",
+        "box": [
+            318,
+            542,
+            527,
+            552
+        ],
+        "page": 2
+    },
+    {
+        "text": "resentations in the same or similar templates into",
+        "box": [
+            307,
+            555,
+            525,
+            566
+        ],
+        "page": 2
+    },
+    {
+        "text": "a similar vector space. Hence, the hidden states of",
+        "box": [
+            307,
+            569,
+            525,
+            580
+        ],
+        "page": 2
+    },
+    {
+        "text": "tokens that belong to the same slot type tend to be",
+        "box": [
+            307,
+            582,
+            525,
+            593
+        ],
+        "page": 2
+    },
+    {
+        "text": "similar, which boosts the robustness of these slot",
+        "box": [
+            307,
+            596,
+            525,
+            607
+        ],
+        "page": 2
+    },
+    {
+        "text": "types in the target domain.",
+        "box": [
+            307,
+            609,
+            423,
+            620
+        ],
+        "page": 2
+    },
+    {
+        "text": "4 Experiments",
+        "box": [
+            307,
+            633,
+            390,
+            645
+        ],
+        "page": 2
+    },
+    {
+        "text": "4.1 Dataset",
+        "box": [
+            307,
+            655,
+            366,
+            666
+        ],
+        "page": 2
+    },
+    {
+        "text": "We evaluate our framework on SNIPS (Coucke",
+        "box": [
+            306,
+            673,
+            525,
+            684
+        ],
+        "page": 2
+    },
+    {
+        "text": "et al., 2018), a public spoken language understand-",
+        "box": [
+            307,
+            686,
+            527,
+            697
+        ],
+        "page": 2
+    },
+    {
+        "text": "ing dataset which contains 39 slot types across",
+        "box": [
+            307,
+            700,
+            525,
+            711
+        ],
+        "page": 2
+    },
+    {
+        "text": "seven domains (intents) and \u223c2000 training sam-",
+        "box": [
+            307,
+            713,
+            527,
+            724
+        ],
+        "page": 2
+    },
+    {
+        "text": "ples per domain. To test our framework, each time,",
+        "box": [
+            307,
+            727,
+            526,
+            738
+        ],
+        "page": 2
+    },
+    {
+        "text": "we choose one domain as the target domain and the",
+        "box": [
+            306,
+            740,
+            525,
+            751
+        ],
+        "page": 2
+    },
+    {
+        "text": "other six domains as the source domains.",
+        "box": [
+            307,
+            754,
+            486,
+            765
+        ],
+        "page": 2
+    },
+    {
+        "text": "Training Setting",
+        "box": [
+            81,
+            63,
+            140,
+            72
+        ],
+        "page": 3
+    },
+    {
+        "text": "Zero-shot",
+        "box": [
+            201,
+            63,
+            237,
+            72
+        ],
+        "page": 3
+    },
+    {
+        "text": "Few-shot on 20 (1%) samples Few-shot on 50 (2.5%) samples",
+        "box": [
+            284,
+            63,
+            516,
+            72
+        ],
+        "page": 3
+    },
+    {
+        "text": "Domain",
+        "box": [
+            81,
+            74,
+            110,
+            83
+        ],
+        "page": 3
+    },
+    {
+        "text": "\u2193 Model \u2192 CT RZT Coach +TR CT RZT Coach +TR CT RZT Coach +TR",
+        "box": [
+            112,
+            74,
+            513,
+            83
+        ],
+        "page": 3
+    },
+    {
+        "text": "AddToPlaylist",
+        "box": [
+            81,
+            85,
+            130,
+            94
+        ],
+        "page": 3
+    },
+    {
+        "text": "38.82 42.77 45.23 50.90 58.36 63.18 58.29 62.76 68.69 74.89 71.63 74.68",
+        "box": [
+            164,
+            85,
+            514,
+            94
+        ],
+        "page": 3
+    },
+    {
+        "text": "BookRestaurant 27.54 30.68 33.45 34.01 45.65 50.54 61.08 65.97 54.22 54.49 72.19 74.82",
+        "box": [
+            81,
+            96,
+            514,
+            105
+        ],
+        "page": 3
+    },
+    {
+        "text": "GetWeather",
+        "box": [
+            81,
+            107,
+            121,
+            115
+        ],
+        "page": 3
+    },
+    {
+        "text": "46.45 50.28 47.93 50.47 54.22 58.86 67.61 67.89 63.23 58.87 81.55 79.64",
+        "box": [
+            164,
+            107,
+            514,
+            115
+        ],
+        "page": 3
+    },
+    {
+        "text": "PlayMusic",
+        "box": [
+            81,
+            117,
+            117,
+            126
+        ],
+        "page": 3
+    },
+    {
+        "text": "32.86 33.12 28.89 32.01 46.35 47.20 53.82 54.04 54.32 59.20 62.41 66.38",
+        "box": [
+            164,
+            117,
+            514,
+            126
+        ],
+        "page": 3
+    },
+    {
+        "text": "RateBook",
+        "box": [
+            81,
+            128,
+            115,
+            137
+        ],
+        "page": 3
+    },
+    {
+        "text": "14.54 16.43 25.67 22.06 64.37 63.33 74.87 74.68 76.45 76.87 86.88 84.62",
+        "box": [
+            164,
+            128,
+            514,
+            137
+        ],
+        "page": 3
+    },
+    {
+        "text": "SearchCreativeWork 39.79 44.45 43.91 46.65 57.83 63.39 60.32 57.19 66.38 67.81 65.38 64.56",
+        "box": [
+            81,
+            139,
+            514,
+            147
+        ],
+        "page": 3
+    },
+    {
+        "text": "FindScreeningEvent 13.83 12.25 25.64 25.63 48.59 49.18 66.18 67.38 70.67 74.58 78.10 83.85",
+        "box": [
+            81,
+            149,
+            514,
+            158
+        ],
+        "page": 3
+    },
+    {
+        "text": "Average F1",
+        "box": [
+            81,
+            160,
+            122,
+            169
+        ],
+        "page": 3
+    },
+    {
+        "text": "30.55 32.85 35.82 37.39 53.62 56.53 63.17 64.27 64.85 66.67 74.02 75.51",
+        "box": [
+            164,
+            160,
+            514,
+            169
+        ],
+        "page": 3
+    },
+    {
+        "text": "Table 1: Slot F1-scores based on standard BIO structure for SNIPS. Scores in each row represents the performance",
+        "box": [
+            71,
+            181,
+            525,
+            191
+        ],
+        "page": 3
+    },
+    {
+        "text": "of the leftmost target domain, and TR denotes template regularization.",
+        "box": [
+            72,
+            193,
+            351,
+            203
+        ],
+        "page": 3
+    },
+    {
+        "text": "Moreover, we also study another adaptation case",
+        "box": [
+            82,
+            227,
+            290,
+            238
+        ],
+        "page": 3
+    },
+    {
+        "text": "where there is no unseen label in the target do-",
+        "box": [
+            71,
+            240,
+            292,
+            251
+        ],
+        "page": 3
+    },
+    {
+        "text": "main. We utilize the CoNLL-2003 English named",
+        "box": [
+            72,
+            254,
+            290,
+            265
+        ],
+        "page": 3
+    },
+    {
+        "text": "entity recognition (NER) dataset as the source do-",
+        "box": [
+            72,
+            267,
+            292,
+            278
+        ],
+        "page": 3
+    },
+    {
+        "text": "main (Tjong Kim Sang and De Meulder, 2003), and",
+        "box": [
+            72,
+            281,
+            290,
+            292
+        ],
+        "page": 3
+    },
+    {
+        "text": "the CBS SciTech News NER dataset from Jia et al.",
+        "box": [
+            72,
+            295,
+            292,
+            305
+        ],
+        "page": 3
+    },
+    {
+        "text": "(2019) as the target domain. These two datasets",
+        "box": [
+            71,
+            308,
+            290,
+            319
+        ],
+        "page": 3
+    },
+    {
+        "text": "have the same four types of entities, namely, PER",
+        "box": [
+            72,
+            322,
+            290,
+            333
+        ],
+        "page": 3
+    },
+    {
+        "text": "(person), LOC (location), ORG (organization), and",
+        "box": [
+            71,
+            335,
+            290,
+            346
+        ],
+        "page": 3
+    },
+    {
+        "text": "MISC (miscellaneous).",
+        "box": [
+            72,
+            349,
+            173,
+            360
+        ],
+        "page": 3
+    },
+    {
+        "text": "4.2 Baselines",
+        "box": [
+            72,
+            372,
+            139,
+            383
+        ],
+        "page": 3
+    },
+    {
+        "text": "We use word-level (Bojanowski et al., 2017) and",
+        "box": [
+            71,
+            390,
+            290,
+            401
+        ],
+        "page": 3
+    },
+    {
+        "text": "character-level (Hashimoto et al., 2017) embed-",
+        "box": [
+            72,
+            404,
+            292,
+            414
+        ],
+        "page": 3
+    },
+    {
+        "text": "dings for our model as well as all the following",
+        "box": [
+            72,
+            417,
+            290,
+            428
+        ],
+        "page": 3
+    },
+    {
+        "text": "baselines.",
+        "box": [
+            72,
+            431,
+            114,
+            442
+        ],
+        "page": 3
+    },
+    {
+        "text": "Concept Tagger (CT)",
+        "box": [
+            72,
+            452,
+            172,
+            463
+        ],
+        "page": 3
+    },
+    {
+        "text": "Bapna et al. (2017) pro-",
+        "box": [
+            183,
+            452,
+            292,
+            463
+        ],
+        "page": 3
+    },
+    {
+        "text": "posed a slot filling framework that utilizes slot de-",
+        "box": [
+            72,
+            466,
+            292,
+            477
+        ],
+        "page": 3
+    },
+    {
+        "text": "scriptions to cope with the unseen slot types in the",
+        "box": [
+            72,
+            479,
+            290,
+            490
+        ],
+        "page": 3
+    },
+    {
+        "text": "target domain.",
+        "box": [
+            72,
+            493,
+            134,
+            504
+        ],
+        "page": 3
+    },
+    {
+        "text": "Robust Zero-shot Tagger (RZT)",
+        "box": [
+            72,
+            515,
+            220,
+            526
+        ],
+        "page": 3
+    },
+    {
+        "text": "Based on CT,",
+        "box": [
+            231,
+            515,
+            291,
+            526
+        ],
+        "page": 3
+    },
+    {
+        "text": "Shah et al. (2019) leveraged example values of slots",
+        "box": [
+            72,
+            528,
+            290,
+            539
+        ],
+        "page": 3
+    },
+    {
+        "text": "to improve robustness of cross-domain adaptation.",
+        "box": [
+            72,
+            542,
+            292,
+            553
+        ],
+        "page": 3
+    },
+    {
+        "text": "BiLSTM-CRF",
+        "box": [
+            72,
+            564,
+            139,
+            575
+        ],
+        "page": 3
+    },
+    {
+        "text": "This baseline is only for the",
+        "box": [
+            150,
+            564,
+            290,
+            575
+        ],
+        "page": 3
+    },
+    {
+        "text": "cross-domain NER. Since there is no unseen label",
+        "box": [
+            72,
+            577,
+            290,
+            588
+        ],
+        "page": 3
+    },
+    {
+        "text": "in the NER target domain, the BiLSTM-CRF (Lam-",
+        "box": [
+            72,
+            591,
+            292,
+            602
+        ],
+        "page": 3
+    },
+    {
+        "text": "ple et al., 2016) uses the same label set for the",
+        "box": [
+            72,
+            604,
+            290,
+            615
+        ],
+        "page": 3
+    },
+    {
+        "text": "source and target domains and casts it as an entity",
+        "box": [
+            72,
+            618,
+            290,
+            629
+        ],
+        "page": 3
+    },
+    {
+        "text": "classification task for each token, which is applica-",
+        "box": [
+            72,
+            631,
+            292,
+            642
+        ],
+        "page": 3
+    },
+    {
+        "text": "ble in both zero-shot and few-shot scenarios.",
+        "box": [
+            72,
+            645,
+            267,
+            656
+        ],
+        "page": 3
+    },
+    {
+        "text": "4.3 Training Details",
+        "box": [
+            72,
+            668,
+            171,
+            679
+        ],
+        "page": 3
+    },
+    {
+        "text": "We use a 2-layer BiLSTM with a hidden size of",
+        "box": [
+            71,
+            686,
+            290,
+            697
+        ],
+        "page": 3
+    },
+    {
+        "text": "200 and a dropout rate of 0.3 for both the tem-",
+        "box": [
+            72,
+            700,
+            292,
+            711
+        ],
+        "page": 3
+    },
+    {
+        "text": "plate encoder and utterance encoder. Note that the",
+        "box": [
+            72,
+            713,
+            290,
+            724
+        ],
+        "page": 3
+    },
+    {
+        "text": "parameters in these two encoders are not shared.",
+        "box": [
+            72,
+            727,
+            292,
+            738
+        ],
+        "page": 3
+    },
+    {
+        "text": "The BiLSTM for encoding the hidden states of slot",
+        "box": [
+            71,
+            740,
+            290,
+            751
+        ],
+        "page": 3
+    },
+    {
+        "text": "entity tokens has one layer with a hidden size of",
+        "box": [
+            72,
+            754,
+            290,
+            765
+        ],
+        "page": 3
+    },
+    {
+        "text": "200, which would output the same dimension as",
+        "box": [
+            307,
+            227,
+            525,
+            238
+        ],
+        "page": 3
+    },
+    {
+        "text": "the concatenated word-level and char-level embed-",
+        "box": [
+            307,
+            240,
+            527,
+            251
+        ],
+        "page": 3
+    },
+    {
+        "text": "dings. We use Adam optimizer with a learning",
+        "box": [
+            307,
+            254,
+            525,
+            265
+        ],
+        "page": 3
+    },
+    {
+        "text": "rate of 0.0005. Cross-entropy loss is leveraged to",
+        "box": [
+            307,
+            267,
+            525,
+            278
+        ],
+        "page": 3
+    },
+    {
+        "text": "train the 3-way classification in the first step, and",
+        "box": [
+            307,
+            281,
+            525,
+            292
+        ],
+        "page": 3
+    },
+    {
+        "text": "the specific slot type predictions are used in the",
+        "box": [
+            307,
+            295,
+            525,
+            305
+        ],
+        "page": 3
+    },
+    {
+        "text": "second step. We split 500 data samples in the tar-",
+        "box": [
+            307,
+            308,
+            527,
+            319
+        ],
+        "page": 3
+    },
+    {
+        "text": "get domain as the validation set for choosing the",
+        "box": [
+            307,
+            322,
+            525,
+            333
+        ],
+        "page": 3
+    },
+    {
+        "text": "best model and the remainder are used for the test",
+        "box": [
+            307,
+            335,
+            525,
+            346
+        ],
+        "page": 3
+    },
+    {
+        "text": "set. We implement the model in CT and RZT and",
+        "box": [
+            307,
+            349,
+            525,
+            360
+        ],
+        "page": 3
+    },
+    {
+        "text": "follow the same setting as for our model for a fair",
+        "box": [
+            307,
+            362,
+            525,
+            373
+        ],
+        "page": 3
+    },
+    {
+        "text": "comparison.",
+        "box": [
+            307,
+            376,
+            360,
+            387
+        ],
+        "page": 3
+    },
+    {
+        "text": "5 Results & Discussion",
+        "box": [
+            307,
+            400,
+            432,
+            412
+        ],
+        "page": 3
+    },
+    {
+        "text": "5.1 Cross-domain Slot Filling",
+        "box": [
+            307,
+            423,
+            451,
+            434
+        ],
+        "page": 3
+    },
+    {
+        "text": "Quantitative Analysis",
+        "box": [
+            307,
+            442,
+            407,
+            453
+        ],
+        "page": 3
+    },
+    {
+        "text": "As illustrated in Table 1,",
+        "box": [
+            418,
+            442,
+            526,
+            453
+        ],
+        "page": 3
+    },
+    {
+        "text": "we can clearly see that our models are able to",
+        "box": [
+            306,
+            455,
+            525,
+            466
+        ],
+        "page": 3
+    },
+    {
+        "text": "achieve significantly better performance than the",
+        "box": [
+            307,
+            469,
+            525,
+            480
+        ],
+        "page": 3
+    },
+    {
+        "text": "current state-of-the-art approach (RZT). The CT",
+        "box": [
+            307,
+            482,
+            525,
+            493
+        ],
+        "page": 3
+    },
+    {
+        "text": "framework suffers from the difficulty of capturing",
+        "box": [
+            307,
+            496,
+            525,
+            507
+        ],
+        "page": 3
+    },
+    {
+        "text": "the whole slot entity, while our framework is able",
+        "box": [
+            307,
+            510,
+            525,
+            520
+        ],
+        "page": 3
+    },
+    {
+        "text": "to recognize the slot entity tokens by sharing its",
+        "box": [
+            307,
+            523,
+            525,
+            534
+        ],
+        "page": 3
+    },
+    {
+        "text": "parameters across all slot types. Based on the CT",
+        "box": [
+            307,
+            537,
+            525,
+            548
+        ],
+        "page": 3
+    },
+    {
+        "text": "framework, the performance of RZT is still limited,",
+        "box": [
+            307,
+            550,
+            526,
+            561
+        ],
+        "page": 3
+    },
+    {
+        "text": "and Coach outperforms RZT by a \u223c3% F1-score",
+        "box": [
+            307,
+            564,
+            525,
+            575
+        ],
+        "page": 3
+    },
+    {
+        "text": "in the zero-shot setting. Additionally, template",
+        "box": [
+            307,
+            577,
+            525,
+            588
+        ],
+        "page": 3
+    },
+    {
+        "text": "regularization further improves the adaptation ro-",
+        "box": [
+            307,
+            591,
+            527,
+            602
+        ],
+        "page": 3
+    },
+    {
+        "text": "bustness by helping the model cluster the utterance",
+        "box": [
+            307,
+            604,
+            525,
+            615
+        ],
+        "page": 3
+    },
+    {
+        "text": "representations into a similar vector space based",
+        "box": [
+            307,
+            618,
+            525,
+            629
+        ],
+        "page": 3
+    },
+    {
+        "text": "on their corresponding template representations.",
+        "box": [
+            307,
+            631,
+            517,
+            642
+        ],
+        "page": 3
+    },
+    {
+        "text": "Interestingly, our models achieve impressive per-",
+        "box": [
+            318,
+            646,
+            527,
+            656
+        ],
+        "page": 3
+    },
+    {
+        "text": "formance in the few-shot scenario. In terms of the",
+        "box": [
+            307,
+            659,
+            525,
+            670
+        ],
+        "page": 3
+    },
+    {
+        "text": "averaged performance, our best model (Coach+TR)",
+        "box": [
+            307,
+            673,
+            526,
+            684
+        ],
+        "page": 3
+    },
+    {
+        "text": "outperforms RZT by \u223c8% and \u223c9% F1-scores on",
+        "box": [
+            307,
+            686,
+            525,
+            697
+        ],
+        "page": 3
+    },
+    {
+        "text": "the 20-shot and 50-shot settings, respectively. We",
+        "box": [
+            307,
+            700,
+            525,
+            711
+        ],
+        "page": 3
+    },
+    {
+        "text": "conjecture that our model is able to better recog-",
+        "box": [
+            307,
+            713,
+            527,
+            724
+        ],
+        "page": 3
+    },
+    {
+        "text": "nize the whole slot entity in the target domain and",
+        "box": [
+            307,
+            727,
+            525,
+            738
+        ],
+        "page": 3
+    },
+    {
+        "text": "map the representation of the slot entity belonging",
+        "box": [
+            307,
+            740,
+            525,
+            751
+        ],
+        "page": 3
+    },
+    {
+        "text": "to the same slot type into a similar vector space",
+        "box": [
+            307,
+            754,
+            525,
+            765
+        ],
+        "page": 3
+    },
+    {
+        "text": "Target",
+        "box": [
+            78,
+            63,
+            100,
+            71
+        ],
+        "page": 4
+    },
+    {
+        "text": "Samples",
+        "box": [
+            78,
+            72,
+            106,
+            81
+        ],
+        "page": 4
+    },
+    {
+        "text": "\u2021 unseen seen unseen seen unseen seen",
+        "box": [
+            106,
+            72,
+            286,
+            81
+        ],
+        "page": 4
+    },
+    {
+        "text": "0 samples 20 samples 50 samples",
+        "box": [
+            130,
+            63,
+            281,
+            71
+        ],
+        "page": 4
+    },
+    {
+        "text": "CT",
+        "box": [
+            78,
+            83,
+            88,
+            91
+        ],
+        "page": 4
+    },
+    {
+        "text": "27.10 44.18 50.13 61.21 62.05 69.64",
+        "box": [
+            124,
+            83,
+            287,
+            91
+        ],
+        "page": 4
+    },
+    {
+        "text": "RZT",
+        "box": [
+            78,
+            93,
+            93,
+            101
+        ],
+        "page": 4
+    },
+    {
+        "text": "28.28 47.15 52.56 63.26 63.96 73.10",
+        "box": [
+            124,
+            93,
+            287,
+            101
+        ],
+        "page": 4
+    },
+    {
+        "text": "Coach 32.89 50.78 61.96 73.78 74.65 76.95",
+        "box": [
+            78,
+            103,
+            287,
+            111
+        ],
+        "page": 4
+    },
+    {
+        "text": "Coach+TR 34.09 51.93 64.16 73.85 76.49 80.16",
+        "box": [
+            78,
+            113,
+            287,
+            121
+        ],
+        "page": 4
+    },
+    {
+        "text": "Table 2: Averaged F1-scores for seen and unseen slots",
+        "box": [
+            71,
+            133,
+            290,
+            143
+        ],
+        "page": 4
+    },
+    {
+        "text": "over all target domains. \u2021 represent the number of train-",
+        "box": [
+            72,
+            143,
+            291,
+            155
+        ],
+        "page": 4
+    },
+    {
+        "text": "ing samples utilized for the target domain.",
+        "box": [
+            72,
+            157,
+            240,
+            167
+        ],
+        "page": 4
+    },
+    {
+        "text": "to the representation of this slot type based on Eq",
+        "box": [
+            72,
+            191,
+            290,
+            202
+        ],
+        "page": 4
+    },
+    {
+        "text": "(4). This enables the model to quickly adapt to the",
+        "box": [
+            71,
+            204,
+            290,
+            215
+        ],
+        "page": 4
+    },
+    {
+        "text": "target domain slots.",
+        "box": [
+            72,
+            218,
+            157,
+            229
+        ],
+        "page": 4
+    },
+    {
+        "text": "Analysis on Seen and Unseen Slots",
+        "box": [
+            72,
+            239,
+            234,
+            250
+        ],
+        "page": 4
+    },
+    {
+        "text": "We take a",
+        "box": [
+            245,
+            239,
+            290,
+            250
+        ],
+        "page": 4
+    },
+    {
+        "text": "further step to test the models on seen and unseen",
+        "box": [
+            72,
+            253,
+            290,
+            264
+        ],
+        "page": 4
+    },
+    {
+        "text": "slots in target domains to analyze the effectiveness",
+        "box": [
+            72,
+            266,
+            290,
+            277
+        ],
+        "page": 4
+    },
+    {
+        "text": "of our approaches. To test the performance, we",
+        "box": [
+            72,
+            280,
+            290,
+            291
+        ],
+        "page": 4
+    },
+    {
+        "text": "split the test set into \u201cunseen\u201d and \u201cseen\u201d parts. An",
+        "box": [
+            72,
+            293,
+            290,
+            304
+        ],
+        "page": 4
+    },
+    {
+        "text": "utterance is categorized into the \u201cunseen\u201d part as",
+        "box": [
+            72,
+            307,
+            290,
+            318
+        ],
+        "page": 4
+    },
+    {
+        "text": "long as there is an unseen slot (i.e., the slot does",
+        "box": [
+            72,
+            320,
+            290,
+            331
+        ],
+        "page": 4
+    },
+    {
+        "text": "not exist in the remaining six source domains) in it.",
+        "box": [
+            72,
+            334,
+            292,
+            345
+        ],
+        "page": 4
+    },
+    {
+        "text": "Otherwise we categorize it into the \u201cseen\u201d part. The",
+        "box": [
+            72,
+            348,
+            290,
+            358
+        ],
+        "page": 4
+    },
+    {
+        "text": "results for the \u201cseen\u201d and \u201cunseen\u201d categories are",
+        "box": [
+            72,
+            361,
+            290,
+            372
+        ],
+        "page": 4
+    },
+    {
+        "text": "shown in Table 2. We observe that our approaches",
+        "box": [
+            72,
+            375,
+            290,
+            386
+        ],
+        "page": 4
+    },
+    {
+        "text": "generally improve on both unseen and seen slot",
+        "box": [
+            72,
+            388,
+            290,
+            399
+        ],
+        "page": 4
+    },
+    {
+        "text": "types compared to the baseline models. For the",
+        "box": [
+            72,
+            402,
+            290,
+            413
+        ],
+        "page": 4
+    },
+    {
+        "text": "improvements in the unseen slots, our models are",
+        "box": [
+            72,
+            415,
+            290,
+            426
+        ],
+        "page": 4
+    },
+    {
+        "text": "better able to capture the unseen slots since they",
+        "box": [
+            72,
+            429,
+            290,
+            440
+        ],
+        "page": 4
+    },
+    {
+        "text": "explicitly learn the general pattern of slot entities.",
+        "box": [
+            72,
+            442,
+            292,
+            453
+        ],
+        "page": 4
+    },
+    {
+        "text": "Interestingly, our models also bring large improve-",
+        "box": [
+            72,
+            456,
+            292,
+            467
+        ],
+        "page": 4
+    },
+    {
+        "text": "ments in the seen slot types. We conjecture that it is",
+        "box": [
+            72,
+            469,
+            290,
+            480
+        ],
+        "page": 4
+    },
+    {
+        "text": "also challenging to adapt models to seen slots due",
+        "box": [
+            72,
+            483,
+            290,
+            494
+        ],
+        "page": 4
+    },
+    {
+        "text": "to the large variance between the source and target",
+        "box": [
+            72,
+            497,
+            290,
+            507
+        ],
+        "page": 4
+    },
+    {
+        "text": "domains. For example, slot entities belonging to",
+        "box": [
+            72,
+            510,
+            290,
+            521
+        ],
+        "page": 4
+    },
+    {
+        "text": "the \u201cobject type\u201d in the \u201cRateBook\u201d domain are",
+        "box": [
+            72,
+            524,
+            290,
+            535
+        ],
+        "page": 4
+    },
+    {
+        "text": "different from those in the \u201cSearchCreativeWork\u201d",
+        "box": [
+            72,
+            537,
+            292,
+            548
+        ],
+        "page": 4
+    },
+    {
+        "text": "domain. Hence, the baseline models might fail",
+        "box": [
+            72,
+            551,
+            290,
+            562
+        ],
+        "page": 4
+    },
+    {
+        "text": "to recognize these seen slots in the target domain,",
+        "box": [
+            72,
+            564,
+            291,
+            575
+        ],
+        "page": 4
+    },
+    {
+        "text": "while our approaches can adapt to the seen slot",
+        "box": [
+            71,
+            578,
+            290,
+            589
+        ],
+        "page": 4
+    },
+    {
+        "text": "types more quickly in comparison. In addition,",
+        "box": [
+            72,
+            591,
+            291,
+            602
+        ],
+        "page": 4
+    },
+    {
+        "text": "we observe that template regularization improves",
+        "box": [
+            71,
+            605,
+            290,
+            616
+        ],
+        "page": 4
+    },
+    {
+        "text": "performance in both seen and unseen slots, which",
+        "box": [
+            72,
+            619,
+            290,
+            629
+        ],
+        "page": 4
+    },
+    {
+        "text": "illustrates that clustering representations based on",
+        "box": [
+            72,
+            632,
+            290,
+            643
+        ],
+        "page": 4
+    },
+    {
+        "text": "templates can boost the adaptation ability.",
+        "box": [
+            72,
+            646,
+            254,
+            657
+        ],
+        "page": 4
+    },
+    {
+        "text": "5.2 Cross-domain NER",
+        "box": [
+            72,
+            668,
+            187,
+            679
+        ],
+        "page": 4
+    },
+    {
+        "text": "From Table 3, we see that the Coach framework is",
+        "box": [
+            72,
+            686,
+            290,
+            697
+        ],
+        "page": 4
+    },
+    {
+        "text": "also suitable for the case where there are no unseen",
+        "box": [
+            72,
+            700,
+            290,
+            711
+        ],
+        "page": 4
+    },
+    {
+        "text": "labels in the target domain in both the zero-shot and",
+        "box": [
+            72,
+            713,
+            290,
+            724
+        ],
+        "page": 4
+    },
+    {
+        "text": "few-shot scenarios, while CT and RZT are not as",
+        "box": [
+            72,
+            727,
+            290,
+            738
+        ],
+        "page": 4
+    },
+    {
+        "text": "effective as BiLSTM-CRF. However, we observe",
+        "box": [
+            72,
+            740,
+            290,
+            751
+        ],
+        "page": 4
+    },
+    {
+        "text": "that template regularization loses its effectiveness",
+        "box": [
+            72,
+            754,
+            290,
+            765
+        ],
+        "page": 4
+    },
+    {
+        "text": "Target Samples",
+        "box": [
+            321,
+            63,
+            381,
+            72
+        ],
+        "page": 4
+    },
+    {
+        "text": "0 samples 50 samples",
+        "box": [
+            421,
+            63,
+            511,
+            72
+        ],
+        "page": 4
+    },
+    {
+        "text": "CT (Bapna et al. (2017)) 61.43 65.85",
+        "box": [
+            321,
+            75,
+            500,
+            84
+        ],
+        "page": 4
+    },
+    {
+        "text": "RZT (Shah et al. (2019)) 61.94 65.21",
+        "box": [
+            321,
+            86,
+            500,
+            95
+        ],
+        "page": 4
+    },
+    {
+        "text": "BiLSTM-CRF",
+        "box": [
+            321,
+            98,
+            374,
+            107
+        ],
+        "page": 4
+    },
+    {
+        "text": "61.77 66.57",
+        "box": [
+            430,
+            98,
+            500,
+            107
+        ],
+        "page": 4
+    },
+    {
+        "text": "Coach",
+        "box": [
+            321,
+            109,
+            344,
+            118
+        ],
+        "page": 4
+    },
+    {
+        "text": "64.08 68.35",
+        "box": [
+            430,
+            109,
+            500,
+            118
+        ],
+        "page": 4
+    },
+    {
+        "text": "Coach + TR",
+        "box": [
+            321,
+            120,
+            366,
+            130
+        ],
+        "page": 4
+    },
+    {
+        "text": "64.54",
+        "box": [
+            430,
+            120,
+            450,
+            130
+        ],
+        "page": 4
+    },
+    {
+        "text": "67.45",
+        "box": [
+            479,
+            120,
+            500,
+            130
+        ],
+        "page": 4
+    },
+    {
+        "text": "Table 3: F1-scores on the NER target domain (CBS",
+        "box": [
+            306,
+            142,
+            525,
+            152
+        ],
+        "page": 4
+    },
+    {
+        "text": "SciTech News).",
+        "box": [
+            307,
+            154,
+            369,
+            164
+        ],
+        "page": 4
+    },
+    {
+        "text": "Task",
+        "box": [
+            313,
+            183,
+            330,
+            191
+        ],
+        "page": 4
+    },
+    {
+        "text": "zero-shot",
+        "box": [
+            381,
+            178,
+            412,
+            186
+        ],
+        "page": 4
+    },
+    {
+        "text": "few-shot on 50 samples",
+        "box": [
+            443,
+            178,
+            523,
+            186
+        ],
+        "page": 4
+    },
+    {
+        "text": "sum trs bilstm sum trs bilstm",
+        "box": [
+            361,
+            188,
+            521,
+            196
+        ],
+        "page": 4
+    },
+    {
+        "text": "Slot Filling 33.89 34.33 35.82 73.80 72.66 74.02",
+        "box": [
+            313,
+            198,
+            519,
+            206
+        ],
+        "page": 4
+    },
+    {
+        "text": "NER",
+        "box": [
+            313,
+            208,
+            329,
+            216
+        ],
+        "page": 4
+    },
+    {
+        "text": "63.04 63.29 64.47 66.98 68.04 68.35",
+        "box": [
+            359,
+            208,
+            519,
+            216
+        ],
+        "page": 4
+    },
+    {
+        "text": "Table 4: Ablation study in terms of the methods to en-",
+        "box": [
+            306,
+            228,
+            527,
+            238
+        ],
+        "page": 4
+    },
+    {
+        "text": "code the entity tokens on Coach.",
+        "box": [
+            307,
+            240,
+            437,
+            250
+        ],
+        "page": 4
+    },
+    {
+        "text": "in this task, since the text in NER is relatively more",
+        "box": [
+            307,
+            273,
+            525,
+            284
+        ],
+        "page": 4
+    },
+    {
+        "text": "open, which makes it hard to capture the templates",
+        "box": [
+            307,
+            287,
+            525,
+            298
+        ],
+        "page": 4
+    },
+    {
+        "text": "for each label type.",
+        "box": [
+            307,
+            300,
+            390,
+            311
+        ],
+        "page": 4
+    },
+    {
+        "text": "5.3 Ablation Study",
+        "box": [
+            307,
+            323,
+            402,
+            333
+        ],
+        "page": 4
+    },
+    {
+        "text": "We conduct an ablation study in terms of the meth-",
+        "box": [
+            306,
+            340,
+            527,
+            351
+        ],
+        "page": 4
+    },
+    {
+        "text": "ods to encode the entity tokens (described in Eq.",
+        "box": [
+            307,
+            354,
+            527,
+            365
+        ],
+        "page": 4
+    },
+    {
+        "text": "(3)) to investigate how they affect the performance.",
+        "box": [
+            306,
+            367,
+            527,
+            378
+        ],
+        "page": 4
+    },
+    {
+        "text": "Instead of using BiLSTM, we try two alterna-",
+        "box": [
+            307,
+            381,
+            527,
+            392
+        ],
+        "page": 4
+    },
+    {
+        "text": "tives. One is to use the encoder of Transformer",
+        "box": [
+            307,
+            394,
+            525,
+            405
+        ],
+        "page": 4
+    },
+    {
+        "text": "(trs) (Vaswani et al., 2017), and the other is to",
+        "box": [
+            306,
+            408,
+            525,
+            419
+        ],
+        "page": 4
+    },
+    {
+        "text": "simply sum the hidden states of slot entity tokens.",
+        "box": [
+            307,
+            421,
+            527,
+            432
+        ],
+        "page": 4
+    },
+    {
+        "text": "From Table 4, we can see that there is no significant",
+        "box": [
+            307,
+            435,
+            525,
+            446
+        ],
+        "page": 4
+    },
+    {
+        "text": "performance difference among different methods,",
+        "box": [
+            307,
+            448,
+            526,
+            459
+        ],
+        "page": 4
+    },
+    {
+        "text": "and we observe that using BiLSTM to encode the",
+        "box": [
+            307,
+            462,
+            525,
+            473
+        ],
+        "page": 4
+    },
+    {
+        "text": "entity tokens generally achieves better results.",
+        "box": [
+            307,
+            476,
+            507,
+            486
+        ],
+        "page": 4
+    },
+    {
+        "text": "6 Conclusion",
+        "box": [
+            307,
+            498,
+            382,
+            510
+        ],
+        "page": 4
+    },
+    {
+        "text": "We introduce a new cross-domain slot filling frame-",
+        "box": [
+            306,
+            520,
+            527,
+            531
+        ],
+        "page": 4
+    },
+    {
+        "text": "work to handle the unseen slot type issue. Our",
+        "box": [
+            306,
+            533,
+            525,
+            544
+        ],
+        "page": 4
+    },
+    {
+        "text": "model shares its parameters across all slot types",
+        "box": [
+            307,
+            547,
+            525,
+            558
+        ],
+        "page": 4
+    },
+    {
+        "text": "and learns to predict whether input tokens are slot",
+        "box": [
+            307,
+            561,
+            525,
+            571
+        ],
+        "page": 4
+    },
+    {
+        "text": "entities or not. Then, it detects concrete slot types",
+        "box": [
+            307,
+            574,
+            525,
+            585
+        ],
+        "page": 4
+    },
+    {
+        "text": "for these slot entity tokens based on the slot type",
+        "box": [
+            307,
+            588,
+            525,
+            599
+        ],
+        "page": 4
+    },
+    {
+        "text": "descriptions. Moreover, template regularization is",
+        "box": [
+            307,
+            601,
+            525,
+            612
+        ],
+        "page": 4
+    },
+    {
+        "text": "proposed to improve the adaptation robustness fur-",
+        "box": [
+            307,
+            615,
+            527,
+            626
+        ],
+        "page": 4
+    },
+    {
+        "text": "ther. Experiments show that our model significantly",
+        "box": [
+            307,
+            628,
+            525,
+            639
+        ],
+        "page": 4
+    },
+    {
+        "text": "outperforms existing cross-domain slot filling ap-",
+        "box": [
+            307,
+            642,
+            527,
+            653
+        ],
+        "page": 4
+    },
+    {
+        "text": "proaches, and it also achieves better performance",
+        "box": [
+            307,
+            655,
+            525,
+            666
+        ],
+        "page": 4
+    },
+    {
+        "text": "for the cross-domain NER task, where there is no",
+        "box": [
+            307,
+            669,
+            525,
+            680
+        ],
+        "page": 4
+    },
+    {
+        "text": "unseen label type in the target domain.",
+        "box": [
+            307,
+            682,
+            475,
+            693
+        ],
+        "page": 4
+    },
+    {
+        "text": "Acknowledgments",
+        "box": [
+            307,
+            705,
+            400,
+            717
+        ],
+        "page": 4
+    },
+    {
+        "text": "This work is partially funded by ITF/319/16FP and",
+        "box": [
+            306,
+            727,
+            525,
+            738
+        ],
+        "page": 4
+    },
+    {
+        "text": "MRP/055/18 of the Innovation Technology Com-",
+        "box": [
+            307,
+            740,
+            527,
+            751
+        ],
+        "page": 4
+    },
+    {
+        "text": "mission, the Hong Kong SAR Government.",
+        "box": [
+            307,
+            754,
+            497,
+            765
+        ],
+        "page": 4
+    },
+    {
+        "text": "References",
+        "box": [
+            72,
+            64,
+            127,
+            76
+        ],
+        "page": 5
+    },
+    {
+        "text": "Ankur Bapna, Gokhan T \u00a8ur, Dilek Hakkani-T \u00a8ur, and",
+        "box": [
+            72,
+            84,
+            290,
+            94
+        ],
+        "page": 5
+    },
+    {
+        "text": "Larry Heck. 2017. Towards zero-shot frame seman-",
+        "box": [
+            82,
+            95,
+            291,
+            105
+        ],
+        "page": 5
+    },
+    {
+        "text": "tic parsing for domain scaling. Proc. Interspeech",
+        "box": [
+            82,
+            106,
+            290,
+            116
+        ],
+        "page": 5
+    },
+    {
+        "text": "2017, pages 2476\u20132480.",
+        "box": [
+            82,
+            117,
+            180,
+            127
+        ],
+        "page": 5
+    },
+    {
+        "text": "Piotr Bojanowski, Edouard Grave, Armand Joulin, and",
+        "box": [
+            72,
+            139,
+            290,
+            149
+        ],
+        "page": 5
+    },
+    {
+        "text": "Tomas Mikolov. 2017. Enriching word vectors with",
+        "box": [
+            82,
+            150,
+            290,
+            160
+        ],
+        "page": 5
+    },
+    {
+        "text": "subword information. Transactions of the Associa-",
+        "box": [
+            82,
+            161,
+            291,
+            171
+        ],
+        "page": 5
+    },
+    {
+        "text": "tion for Computational Linguistics, 5:135\u2013146.",
+        "box": [
+            82,
+            172,
+            271,
+            182
+        ],
+        "page": 5
+    },
+    {
+        "text": "Eugene Charniak, Mark Johnson, Micha Elsner, Joseph",
+        "box": [
+            72,
+            194,
+            290,
+            204
+        ],
+        "page": 5
+    },
+    {
+        "text": "Austerweil, David Ellis, Isaac Haxton, Catherine",
+        "box": [
+            82,
+            205,
+            290,
+            215
+        ],
+        "page": 5
+    },
+    {
+        "text": "Hill, R Shrivaths, Jeremy Moore, Michael Pozar,",
+        "box": [
+            82,
+            216,
+            291,
+            226
+        ],
+        "page": 5
+    },
+    {
+        "text": "et al. 2006. Multilevel coarse-to-fine pcfg parsing.",
+        "box": [
+            82,
+            227,
+            292,
+            237
+        ],
+        "page": 5
+    },
+    {
+        "text": "In Proceedings of the Human Language Technology",
+        "box": [
+            82,
+            238,
+            290,
+            248
+        ],
+        "page": 5
+    },
+    {
+        "text": "Conference of the NAACL, Main Conference, pages",
+        "box": [
+            82,
+            249,
+            290,
+            259
+        ],
+        "page": 5
+    },
+    {
+        "text": "168\u2013175.",
+        "box": [
+            82,
+            260,
+            119,
+            270
+        ],
+        "page": 5
+    },
+    {
+        "text": "Alice Coucke, Alaa Saade, Adrien Ball, Th\u00b4eodore",
+        "box": [
+            72,
+            282,
+            290,
+            292
+        ],
+        "page": 5
+    },
+    {
+        "text": "Bluche, Alexandre Caulier, David Leroy, Cl \u00b4ement",
+        "box": [
+            82,
+            293,
+            290,
+            303
+        ],
+        "page": 5
+    },
+    {
+        "text": "Doumouro, Thibault Gisselbrecht, Francesco Calta-",
+        "box": [
+            82,
+            304,
+            291,
+            314
+        ],
+        "page": 5
+    },
+    {
+        "text": "girone, Thibaut Lavril, et al. 2018. Snips voice plat-",
+        "box": [
+            82,
+            315,
+            291,
+            325
+        ],
+        "page": 5
+    },
+    {
+        "text": "form: an embedded spoken language understanding",
+        "box": [
+            82,
+            326,
+            290,
+            336
+        ],
+        "page": 5
+    },
+    {
+        "text": "system for private-by-design voice interfaces. arXiv",
+        "box": [
+            82,
+            337,
+            290,
+            347
+        ],
+        "page": 5
+    },
+    {
+        "text": "preprint arXiv:1805.10190.",
+        "box": [
+            82,
+            348,
+            192,
+            358
+        ],
+        "page": 5
+    },
+    {
+        "text": "Bjarke Felbo, Alan Mislove, Anders S\u00f8gaard, Iyad",
+        "box": [
+            71,
+            370,
+            290,
+            380
+        ],
+        "page": 5
+    },
+    {
+        "text": "Rahwan, and Sune Lehmann. 2017. Using millions",
+        "box": [
+            82,
+            381,
+            290,
+            391
+        ],
+        "page": 5
+    },
+    {
+        "text": "of emoji occurrences to learn any-domain represen-",
+        "box": [
+            82,
+            392,
+            291,
+            402
+        ],
+        "page": 5
+    },
+    {
+        "text": "tations for detecting sentiment, emotion and sarcasm.",
+        "box": [
+            82,
+            403,
+            292,
+            413
+        ],
+        "page": 5
+    },
+    {
+        "text": "In Proceedings of the 2017 Conference on Empiri-",
+        "box": [
+            82,
+            414,
+            291,
+            424
+        ],
+        "page": 5
+    },
+    {
+        "text": "cal Methods in Natural Language Processing, pages",
+        "box": [
+            82,
+            425,
+            290,
+            435
+        ],
+        "page": 5
+    },
+    {
+        "text": "1615\u20131625.",
+        "box": [
+            82,
+            436,
+            129,
+            446
+        ],
+        "page": 5
+    },
+    {
+        "text": "Chih-Wen Goo, Guang Gao, Yun-Kai Hsu, Chih-Li",
+        "box": [
+            71,
+            458,
+            290,
+            468
+        ],
+        "page": 5
+    },
+    {
+        "text": "Huo, Tsung-Chieh Chen, Keng-Wei Hsu, and Yun-",
+        "box": [
+            82,
+            469,
+            291,
+            479
+        ],
+        "page": 5
+    },
+    {
+        "text": "Nung Chen. 2018. Slot-gated modeling for joint",
+        "box": [
+            82,
+            480,
+            290,
+            490
+        ],
+        "page": 5
+    },
+    {
+        "text": "slot filling and intent prediction. In Proceedings of",
+        "box": [
+            82,
+            491,
+            290,
+            501
+        ],
+        "page": 5
+    },
+    {
+        "text": "the 2018 Conference of the North American Chap-",
+        "box": [
+            82,
+            502,
+            291,
+            512
+        ],
+        "page": 5
+    },
+    {
+        "text": "ter of the Association for Computational Linguistics:",
+        "box": [
+            82,
+            513,
+            291,
+            523
+        ],
+        "page": 5
+    },
+    {
+        "text": "Human Language Technologies, Volume 2 (Short Pa-",
+        "box": [
+            82,
+            524,
+            291,
+            534
+        ],
+        "page": 5
+    },
+    {
+        "text": "pers), pages 753\u2013757.",
+        "box": [
+            82,
+            535,
+            170,
+            545
+        ],
+        "page": 5
+    },
+    {
+        "text": "Marco Guerini, Simone Magnolini, Vevake Balaraman,",
+        "box": [
+            72,
+            557,
+            291,
+            567
+        ],
+        "page": 5
+    },
+    {
+        "text": "and Bernardo Magnini. 2018. Toward zero-shot",
+        "box": [
+            82,
+            568,
+            290,
+            578
+        ],
+        "page": 5
+    },
+    {
+        "text": "entity recognition in task-oriented conversational",
+        "box": [
+            82,
+            579,
+            290,
+            589
+        ],
+        "page": 5
+    },
+    {
+        "text": "agents. In Proceedings of the 19th Annual SIG-",
+        "box": [
+            82,
+            590,
+            291,
+            600
+        ],
+        "page": 5
+    },
+    {
+        "text": "dial Meeting on Discourse and Dialogue, pages 317\u2013",
+        "box": [
+            82,
+            601,
+            291,
+            611
+        ],
+        "page": 5
+    },
+    {
+        "text": "326.",
+        "box": [
+            82,
+            612,
+            100,
+            622
+        ],
+        "page": 5
+    },
+    {
+        "text": "Jiang Guo, Darsh Shah, and Regina Barzilay. 2018.",
+        "box": [
+            71,
+            634,
+            292,
+            644
+        ],
+        "page": 5
+    },
+    {
+        "text": "Multi-source domain adaptation with mixture of ex-",
+        "box": [
+            82,
+            645,
+            291,
+            655
+        ],
+        "page": 5
+    },
+    {
+        "text": "perts. In Proceedings of the 2018 Conference on",
+        "box": [
+            82,
+            656,
+            290,
+            666
+        ],
+        "page": 5
+    },
+    {
+        "text": "Empirical Methods in Natural Language Processing,",
+        "box": [
+            82,
+            667,
+            291,
+            677
+        ],
+        "page": 5
+    },
+    {
+        "text": "pages 4694\u20134703.",
+        "box": [
+            82,
+            678,
+            155,
+            688
+        ],
+        "page": 5
+    },
+    {
+        "text": "Kazuma Hashimoto, Yoshimasa Tsuruoka, Richard",
+        "box": [
+            71,
+            700,
+            290,
+            710
+        ],
+        "page": 5
+    },
+    {
+        "text": "Socher, et al. 2017. A joint many-task model: Grow-",
+        "box": [
+            82,
+            711,
+            291,
+            721
+        ],
+        "page": 5
+    },
+    {
+        "text": "ing a neural network for multiple nlp tasks. In Pro-",
+        "box": [
+            82,
+            722,
+            291,
+            732
+        ],
+        "page": 5
+    },
+    {
+        "text": "ceedings of the 2017 Conference on Empirical Meth-",
+        "box": [
+            82,
+            733,
+            291,
+            742
+        ],
+        "page": 5
+    },
+    {
+        "text": "ods in Natural Language Processing, pages 1923\u2013",
+        "box": [
+            82,
+            743,
+            291,
+            754
+        ],
+        "page": 5
+    },
+    {
+        "text": "1933.",
+        "box": [
+            82,
+            755,
+            104,
+            765
+        ],
+        "page": 5
+    },
+    {
+        "text": "Sepp Hochreiter and J \u00a8urgen Schmidhuber. 1997.",
+        "box": [
+            307,
+            65,
+            527,
+            75
+        ],
+        "page": 5
+    },
+    {
+        "text": "Long short-term memory. Neural computation,",
+        "box": [
+            318,
+            76,
+            526,
+            86
+        ],
+        "page": 5
+    },
+    {
+        "text": "9(8):1735\u20131780.",
+        "box": [
+            318,
+            87,
+            384,
+            97
+        ],
+        "page": 5
+    },
+    {
+        "text": "Aaron Jaech, Larry Heck, and Mari Ostendorf. 2016.",
+        "box": [
+            307,
+            108,
+            527,
+            118
+        ],
+        "page": 5
+    },
+    {
+        "text": "Domain adaptation of recurrent neural networks for",
+        "box": [
+            318,
+            119,
+            525,
+            129
+        ],
+        "page": 5
+    },
+    {
+        "text": "natural language understanding. Interspeech 2016,",
+        "box": [
+            318,
+            130,
+            526,
+            140
+        ],
+        "page": 5
+    },
+    {
+        "text": "pages 690\u2013694.",
+        "box": [
+            318,
+            141,
+            380,
+            151
+        ],
+        "page": 5
+    },
+    {
+        "text": "Chen Jia, Xiaobo Liang, and Yue Zhang. 2019. Cross-",
+        "box": [
+            307,
+            162,
+            527,
+            172
+        ],
+        "page": 5
+    },
+    {
+        "text": "domain ner using cross-domain language modeling.",
+        "box": [
+            318,
+            173,
+            527,
+            183
+        ],
+        "page": 5
+    },
+    {
+        "text": "In Proceedings of the 57th Annual Meeting of the",
+        "box": [
+            318,
+            183,
+            525,
+            194
+        ],
+        "page": 5
+    },
+    {
+        "text": "Association for Computational Linguistics, pages",
+        "box": [
+            317,
+            194,
+            525,
+            204
+        ],
+        "page": 5
+    },
+    {
+        "text": "2464\u20132474.",
+        "box": [
+            318,
+            205,
+            365,
+            215
+        ],
+        "page": 5
+    },
+    {
+        "text": "Durk P Kingma, Shakir Mohamed, Danilo Jimenez",
+        "box": [
+            307,
+            226,
+            525,
+            236
+        ],
+        "page": 5
+    },
+    {
+        "text": "Rezende, and Max Welling. 2014. Semi-supervised",
+        "box": [
+            318,
+            237,
+            525,
+            247
+        ],
+        "page": 5
+    },
+    {
+        "text": "learning with deep generative models. In Advances",
+        "box": [
+            318,
+            248,
+            525,
+            258
+        ],
+        "page": 5
+    },
+    {
+        "text": "in neural information processing systems, pages",
+        "box": [
+            318,
+            259,
+            525,
+            269
+        ],
+        "page": 5
+    },
+    {
+        "text": "3581\u20133589.",
+        "box": [
+            318,
+            270,
+            365,
+            280
+        ],
+        "page": 5
+    },
+    {
+        "text": "Guillaume Lample, Miguel Ballesteros, Sandeep Sub-",
+        "box": [
+            307,
+            291,
+            527,
+            301
+        ],
+        "page": 5
+    },
+    {
+        "text": "ramanian, Kazuya Kawakami, and Chris Dyer. 2016.",
+        "box": [
+            318,
+            302,
+            527,
+            312
+        ],
+        "page": 5
+    },
+    {
+        "text": "Neural architectures for named entity recognition.",
+        "box": [
+            318,
+            313,
+            527,
+            323
+        ],
+        "page": 5
+    },
+    {
+        "text": "In Proceedings of the 2016 Conference of the North",
+        "box": [
+            318,
+            323,
+            525,
+            334
+        ],
+        "page": 5
+    },
+    {
+        "text": "American Chapter of the Association for Computa-",
+        "box": [
+            317,
+            334,
+            527,
+            344
+        ],
+        "page": 5
+    },
+    {
+        "text": "tional Linguistics: Human Language Technologies,",
+        "box": [
+            318,
+            345,
+            526,
+            355
+        ],
+        "page": 5
+    },
+    {
+        "text": "pages 260\u2013270.",
+        "box": [
+            318,
+            356,
+            380,
+            366
+        ],
+        "page": 5
+    },
+    {
+        "text": "Guillaume Lample, Myle Ott, Alexis Conneau, Lu-",
+        "box": [
+            307,
+            377,
+            527,
+            387
+        ],
+        "page": 5
+    },
+    {
+        "text": "dovic Denoyer, and MarcAurelio Ranzato. 2018.",
+        "box": [
+            318,
+            388,
+            527,
+            398
+        ],
+        "page": 5
+    },
+    {
+        "text": "Phrase-based & neural unsupervised machine trans-",
+        "box": [
+            318,
+            399,
+            527,
+            409
+        ],
+        "page": 5
+    },
+    {
+        "text": "lation. In Proceedings of the 2018 Conference on",
+        "box": [
+            318,
+            410,
+            525,
+            420
+        ],
+        "page": 5
+    },
+    {
+        "text": "Empirical Methods in Natural Language Processing,",
+        "box": [
+            317,
+            421,
+            526,
+            431
+        ],
+        "page": 5
+    },
+    {
+        "text": "pages 5039\u20135049.",
+        "box": [
+            318,
+            432,
+            390,
+            442
+        ],
+        "page": 5
+    },
+    {
+        "text": "Sungjin Lee and Rahul Jha. 2019. Zero-shot adaptive",
+        "box": [
+            307,
+            453,
+            525,
+            463
+        ],
+        "page": 5
+    },
+    {
+        "text": "transfer for conversational language understanding.",
+        "box": [
+            318,
+            464,
+            527,
+            474
+        ],
+        "page": 5
+    },
+    {
+        "text": "In Proceedings of the AAAI Conference on Artificial",
+        "box": [
+            318,
+            474,
+            525,
+            485
+        ],
+        "page": 5
+    },
+    {
+        "text": "Intelligence, volume 33, pages 6642\u20136649.",
+        "box": [
+            318,
+            485,
+            489,
+            496
+        ],
+        "page": 5
+    },
+    {
+        "text": "Zhaojiang Lin, Zihan Liu, Genta Indra Winata, Samuel",
+        "box": [
+            307,
+            506,
+            525,
+            516
+        ],
+        "page": 5
+    },
+    {
+        "text": "Cahyawijaya, Andrea Madotto, Yejin Bang, Etsuko",
+        "box": [
+            318,
+            517,
+            525,
+            527
+        ],
+        "page": 5
+    },
+    {
+        "text": "Ishii, and Pascale Fung. 2020. Xpersona: Eval-",
+        "box": [
+            318,
+            528,
+            527,
+            538
+        ],
+        "page": 5
+    },
+    {
+        "text": "uating multilingual personalized chatbot. arXiv",
+        "box": [
+            318,
+            539,
+            525,
+            549
+        ],
+        "page": 5
+    },
+    {
+        "text": "preprint arXiv:2003.07568.",
+        "box": [
+            318,
+            550,
+            428,
+            560
+        ],
+        "page": 5
+    },
+    {
+        "text": "Zihan Liu, Jamin Shin, Yan Xu, Genta Indra Winata,",
+        "box": [
+            307,
+            571,
+            526,
+            581
+        ],
+        "page": 5
+    },
+    {
+        "text": "Peng Xu, Andrea Madotto, and Pascale Fung. 2019a.",
+        "box": [
+            318,
+            582,
+            527,
+            592
+        ],
+        "page": 5
+    },
+    {
+        "text": "Zero-shot cross-lingual dialogue systems with trans-",
+        "box": [
+            318,
+            593,
+            527,
+            603
+        ],
+        "page": 5
+    },
+    {
+        "text": "ferable latent variables. In Proceedings of the",
+        "box": [
+            318,
+            603,
+            525,
+            614
+        ],
+        "page": 5
+    },
+    {
+        "text": "2019 Conference on Empirical Methods in Natu-",
+        "box": [
+            317,
+            614,
+            527,
+            624
+        ],
+        "page": 5
+    },
+    {
+        "text": "ral Language Processing and the 9th International",
+        "box": [
+            318,
+            625,
+            525,
+            635
+        ],
+        "page": 5
+    },
+    {
+        "text": "Joint Conference on Natural Language Processing",
+        "box": [
+            317,
+            636,
+            525,
+            646
+        ],
+        "page": 5
+    },
+    {
+        "text": "(EMNLP-IJCNLP), pages 1297\u20131303.",
+        "box": [
+            317,
+            647,
+            470,
+            657
+        ],
+        "page": 5
+    },
+    {
+        "text": "Zihan Liu, Genta Indra Winata, and Pascale Fung.",
+        "box": [
+            307,
+            668,
+            527,
+            678
+        ],
+        "page": 5
+    },
+    {
+        "text": "2020. Zero-resource cross-domain named entity",
+        "box": [
+            318,
+            679,
+            525,
+            689
+        ],
+        "page": 5
+    },
+    {
+        "text": "recognition. arXiv preprint arXiv:2002.05923.",
+        "box": [
+            318,
+            690,
+            504,
+            700
+        ],
+        "page": 5
+    },
+    {
+        "text": "Zihan Liu, Genta Indra Winata, Zhaojiang Lin, Peng",
+        "box": [
+            307,
+            711,
+            525,
+            721
+        ],
+        "page": 5
+    },
+    {
+        "text": "Xu, and Pascale Fung. 2019b. Attention-informed",
+        "box": [
+            317,
+            722,
+            525,
+            732
+        ],
+        "page": 5
+    },
+    {
+        "text": "mixed-language training for zero-shot cross-lingual",
+        "box": [
+            318,
+            733,
+            525,
+            743
+        ],
+        "page": 5
+    },
+    {
+        "text": "task-oriented dialogue systems. arXiv preprint",
+        "box": [
+            318,
+            743,
+            525,
+            754
+        ],
+        "page": 5
+    },
+    {
+        "text": "arXiv:1911.09273.",
+        "box": [
+            318,
+            754,
+            393,
+            765
+        ],
+        "page": 5
+    },
+    {
+        "text": "Sinno Jialin Pan, Xiaochuan Ni, Jian-Tao Sun, Qiang",
+        "box": [
+            72,
+            65,
+            290,
+            75
+        ],
+        "page": 6
+    },
+    {
+        "text": "Yang, and Zheng Chen. 2010. Cross-domain senti-",
+        "box": [
+            82,
+            76,
+            291,
+            86
+        ],
+        "page": 6
+    },
+    {
+        "text": "ment classification via spectral feature alignment. In",
+        "box": [
+            82,
+            87,
+            290,
+            97
+        ],
+        "page": 6
+    },
+    {
+        "text": "Proceedings of the 19th international conference on",
+        "box": [
+            82,
+            98,
+            290,
+            108
+        ],
+        "page": 6
+    },
+    {
+        "text": "World wide web, pages 751\u2013760. ACM.",
+        "box": [
+            82,
+            109,
+            240,
+            119
+        ],
+        "page": 6
+    },
+    {
+        "text": "Slav Petrov. 2011. Coarse-to-fine natural language",
+        "box": [
+            72,
+            129,
+            290,
+            139
+        ],
+        "page": 6
+    },
+    {
+        "text": "processing. Springer Science & Business Media.",
+        "box": [
+            82,
+            140,
+            278,
+            150
+        ],
+        "page": 6
+    },
+    {
+        "text": "Sebastian Ruder and Barbara Plank. 2018. Strong base-",
+        "box": [
+            72,
+            160,
+            291,
+            170
+        ],
+        "page": 6
+    },
+    {
+        "text": "lines for neural semi-supervised learning under do-",
+        "box": [
+            82,
+            171,
+            291,
+            181
+        ],
+        "page": 6
+    },
+    {
+        "text": "main shift. In Proceedings of the 56th Annual Meet-",
+        "box": [
+            82,
+            182,
+            291,
+            192
+        ],
+        "page": 6
+    },
+    {
+        "text": "ing of the Association for Computational Linguistics",
+        "box": [
+            82,
+            193,
+            290,
+            203
+        ],
+        "page": 6
+    },
+    {
+        "text": "(Volume 1: Long Papers), pages 1044\u20131054.",
+        "box": [
+            82,
+            204,
+            259,
+            214
+        ],
+        "page": 6
+    },
+    {
+        "text": "Darsh Shah, Raghav Gupta, Amir Fayazi, and Dilek",
+        "box": [
+            72,
+            224,
+            290,
+            234
+        ],
+        "page": 6
+    },
+    {
+        "text": "Hakkani-Tur. 2019. Robust zero-shot cross-domain",
+        "box": [
+            82,
+            235,
+            290,
+            245
+        ],
+        "page": 6
+    },
+    {
+        "text": "slot filling with example values. In Proceedings of",
+        "box": [
+            82,
+            246,
+            290,
+            256
+        ],
+        "page": 6
+    },
+    {
+        "text": "the 57th Annual Meeting of the Association for Com-",
+        "box": [
+            82,
+            257,
+            291,
+            266
+        ],
+        "page": 6
+    },
+    {
+        "text": "putational Linguistics, pages 5484\u20135490, Florence,",
+        "box": [
+            82,
+            267,
+            291,
+            278
+        ],
+        "page": 6
+    },
+    {
+        "text": "Italy. Association for Computational Linguistics.",
+        "box": [
+            82,
+            279,
+            277,
+            289
+        ],
+        "page": 6
+    },
+    {
+        "text": "Erik F. Tjong Kim Sang and Fien De Meulder.",
+        "box": [
+            72,
+            299,
+            292,
+            309
+        ],
+        "page": 6
+    },
+    {
+        "text": "2003. Introduction to the CoNLL-2003 shared task:",
+        "box": [
+            82,
+            310,
+            291,
+            320
+        ],
+        "page": 6
+    },
+    {
+        "text": "Language-independent named entity recognition. In",
+        "box": [
+            82,
+            321,
+            290,
+            330
+        ],
+        "page": 6
+    },
+    {
+        "text": "Proceedings of the Seventh Conference on Natu-",
+        "box": [
+            82,
+            331,
+            291,
+            341
+        ],
+        "page": 6
+    },
+    {
+        "text": "ral Language Learning at HLT-NAACL 2003, pages",
+        "box": [
+            82,
+            342,
+            290,
+            352
+        ],
+        "page": 6
+    },
+    {
+        "text": "142\u2013147.",
+        "box": [
+            82,
+            353,
+            119,
+            363
+        ],
+        "page": 6
+    },
+    {
+        "text": "Ashish Vaswani, Noam Shazeer, Niki Parmar, Jakob",
+        "box": [
+            72,
+            373,
+            290,
+            383
+        ],
+        "page": 6
+    },
+    {
+        "text": "Uszkoreit, Llion Jones, Aidan N Gomez, \u0141ukasz",
+        "box": [
+            82,
+            384,
+            290,
+            394
+        ],
+        "page": 6
+    },
+    {
+        "text": "Kaiser, and Illia Polosukhin. 2017. Attention is all",
+        "box": [
+            82,
+            395,
+            290,
+            405
+        ],
+        "page": 6
+    },
+    {
+        "text": "you need. In Advances in neural information pro-",
+        "box": [
+            82,
+            406,
+            291,
+            416
+        ],
+        "page": 6
+    },
+    {
+        "text": "cessing systems, pages 5998\u20136008.",
+        "box": [
+            82,
+            417,
+            222,
+            427
+        ],
+        "page": 6
+    },
+    {
+        "text": "Genta Indra Winata, Samuel Cahyawijaya, Zihan Liu,",
+        "box": [
+            72,
+            437,
+            291,
+            447
+        ],
+        "page": 6
+    },
+    {
+        "text": "Zhaojiang Lin, Andrea Madotto, Peng Xu, and",
+        "box": [
+            82,
+            448,
+            290,
+            458
+        ],
+        "page": 6
+    },
+    {
+        "text": "Pascale Fung. 2020. Learning fast adaptation on",
+        "box": [
+            82,
+            459,
+            290,
+            469
+        ],
+        "page": 6
+    },
+    {
+        "text": "cross-accented speech recognition. arXiv preprint",
+        "box": [
+            82,
+            470,
+            290,
+            480
+        ],
+        "page": 6
+    },
+    {
+        "text": "arXiv:2003.01901.",
+        "box": [
+            82,
+            481,
+            158,
+            491
+        ],
+        "page": 6
+    },
+    {
+        "text": "Feifei Zhai, Saloni Potdar, Bing Xiang, and Bowen",
+        "box": [
+            72,
+            501,
+            290,
+            511
+        ],
+        "page": 6
+    },
+    {
+        "text": "Zhou. 2017. Neural models for sequence chunking.",
+        "box": [
+            82,
+            512,
+            292,
+            522
+        ],
+        "page": 6
+    },
+    {
+        "text": "In Thirty-First AAAI Conference on Artificial Intelli-",
+        "box": [
+            82,
+            523,
+            291,
+            533
+        ],
+        "page": 6
+    },
+    {
+        "text": "gence.",
+        "box": [
+            82,
+            533,
+            108,
+            544
+        ],
+        "page": 6
+    },
+    {
+        "text": "Chenwei Zhang, Yaliang Li, Nan Du, Wei Fan, and",
+        "box": [
+            72,
+            554,
+            290,
+            564
+        ],
+        "page": 6
+    },
+    {
+        "text": "Philip Yu. 2019. Joint slot filling and intent detec-",
+        "box": [
+            82,
+            565,
+            291,
+            575
+        ],
+        "page": 6
+    },
+    {
+        "text": "tion via capsule neural networks. In Proceedings of",
+        "box": [
+            82,
+            575,
+            290,
+            586
+        ],
+        "page": 6
+    },
+    {
+        "text": "the 57th Annual Meeting of the Association for Com-",
+        "box": [
+            82,
+            586,
+            291,
+            596
+        ],
+        "page": 6
+    },
+    {
+        "text": "putational Linguistics, pages 5259\u20135267, Florence,",
+        "box": [
+            82,
+            597,
+            291,
+            607
+        ],
+        "page": 6
+    },
+    {
+        "text": "Italy. Association for Computational Linguistics.",
+        "box": [
+            82,
+            608,
+            277,
+            618
+        ],
+        "page": 6
+    },
+    {
+        "text": "Yuchen Zhang, Panupong Pasupat, and Percy Liang.",
+        "box": [
+            72,
+            628,
+            292,
+            638
+        ],
+        "page": 6
+    },
+    {
+        "text": "2017. Macro grammars and holistic triggering for ef-",
+        "box": [
+            82,
+            639,
+            291,
+            649
+        ],
+        "page": 6
+    },
+    {
+        "text": "ficient semantic parsing. In Proceedings of the 2017",
+        "box": [
+            82,
+            650,
+            290,
+            660
+        ],
+        "page": 6
+    },
+    {
+        "text": "Conference on Empirical Methods in Natural Lan-",
+        "box": [
+            82,
+            661,
+            291,
+            671
+        ],
+        "page": 6
+    },
+    {
+        "text": "guage Processing, pages 1214\u20131223.",
+        "box": [
+            82,
+            672,
+            230,
+            682
+        ],
+        "page": 6
+    }
+]

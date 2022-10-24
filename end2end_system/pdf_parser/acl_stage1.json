@@ -1,0 +1,31 @@
+{
+    "/home/intern/jfma/paper_struct_parser/end2end/pdf_parser/acl/2020.acl-main.2.pdf": {
+        "images": [
+            "/home/intern/jfma/paper_struct_parser/end2end/pdf_parser/acl/2020.acl-main.2_vis/0.png",
+            "/home/intern/jfma/paper_struct_parser/end2end/pdf_parser/acl/2020.acl-main.2_vis/1.png",
+            "/home/intern/jfma/paper_struct_parser/end2end/pdf_parser/acl/2020.acl-main.2_vis/2.png",
+            "/home/intern/jfma/paper_struct_parser/end2end/pdf_parser/acl/2020.acl-main.2_vis/3.png",
+            "/home/intern/jfma/paper_struct_parser/end2end/pdf_parser/acl/2020.acl-main.2_vis/4.png",
+            "/home/intern/jfma/paper_struct_parser/end2end/pdf_parser/acl/2020.acl-main.2_vis/5.png",
+            "/home/intern/jfma/paper_struct_parser/end2end/pdf_parser/acl/2020.acl-main.2_vis/6.png",
+            "/home/intern/jfma/paper_struct_parser/end2end/pdf_parser/acl/2020.acl-main.2_vis/7.png",
+            "/home/intern/jfma/paper_struct_parser/end2end/pdf_parser/acl/2020.acl-main.2_vis/8.png",
+            "/home/intern/jfma/paper_struct_parser/end2end/pdf_parser/acl/2020.acl-main.2_vis/9.png",
+            "/home/intern/jfma/paper_struct_parser/end2end/pdf_parser/acl/2020.acl-main.2_vis/10.png",
+            "/home/intern/jfma/paper_struct_parser/end2end/pdf_parser/acl/2020.acl-main.2_vis/11.png"
+        ],
+        "annotation": "/home/intern/jfma/paper_struct_parser/end2end/pdf_parser/acl/2020.acl-main.2.raw.json"
+    },
+    "/home/intern/jfma/paper_struct_parser/end2end/pdf_parser/acl/2020.acl-main.3.pdf": {
+        "images": [
+            "/home/intern/jfma/paper_struct_parser/end2end/pdf_parser/acl/2020.acl-main.3_vis/0.png",
+            "/home/intern/jfma/paper_struct_parser/end2end/pdf_parser/acl/2020.acl-main.3_vis/1.png",
+            "/home/intern/jfma/paper_struct_parser/end2end/pdf_parser/acl/2020.acl-main.3_vis/2.png",
+            "/home/intern/jfma/paper_struct_parser/end2end/pdf_parser/acl/2020.acl-main.3_vis/3.png",
+            "/home/intern/jfma/paper_struct_parser/end2end/pdf_parser/acl/2020.acl-main.3_vis/4.png",
+            "/home/intern/jfma/paper_struct_parser/end2end/pdf_parser/acl/2020.acl-main.3_vis/5.png",
+            "/home/intern/jfma/paper_struct_parser/end2end/pdf_parser/acl/2020.acl-main.3_vis/6.png"
+        ],
+        "annotation": "/home/intern/jfma/paper_struct_parser/end2end/pdf_parser/acl/2020.acl-main.3.raw.json"
+    }
+}

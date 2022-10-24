@@ -1,0 +1,766 @@
+{
+    "title": [
+        "Predicting Depression in Screening Interviews from Latent Categorization",
+        "of Interview Prompts"
+    ],
+    "author": [
+        "Alex Rinaldi",
+        "Jean E. Fox Tree",
+        "Snigdha Chaturvedi"
+    ],
+    "affili": [
+        "Department of Computer Science",
+        "UC Santa Cruz",
+        "Department of Psychology",
+        "UC Santa Cruz",
+        "Department of Computer Science",
+        "University of North Carolina",
+        "at Chapel Hill"
+    ],
+    "mail": [
+        "arinaldi@ucsc.edu",
+        "foxtree@ucsc.edu",
+        "snigdha@cs.unc.edu"
+    ],
+    "sec": [
+        {
+            "label": "sec",
+            "text": "Abstract",
+            "child": [
+                {
+                    "label": "para",
+                    "text": "Despite the pervasiveness of clinical depression in modern society, professional help remains highly stigmatized, inaccessible, and expensive. Accurately diagnosing depression is difficult\u2013 requiring time-intensive interviews, assessments, and analysis. Hence, automated methods that can assess linguistic patterns in these interviews could help psychiatric professionals make faster, more informed decisions about diagnosis. We propose JLPC, a method that analyzes interview transcripts to identify depression while jointly categorizing interview prompts into latent categories. This latent categorization allows the model to identify high-level conversational contexts that influence patterns of language in depressed individuals. We show that the proposed model not only outperforms competitive baselines, but that its latent prompt categories provide psycholinguistic insights about depression."
+                }
+            ]
+        },
+        {
+            "label": "sec",
+            "text": "1 Introduction",
+            "child": [
+                {
+                    "label": "para",
+                    "text": "Depression is a dangerous disease that effects many. A 2017 study by Weinberger et al. (2018) finds that one in five US adults experienced depression symptoms in their lifetime. Weinberger et al. also identify depression as a significant risk factor for suicidal behavior."
+                },
+                {
+                    "label": "para",
+                    "text": "Unfortunately, professional help for depression is not only stigmatized, but also expensive, timeconsuming and inaccessible to a large population. Lakhan et al. (2010) explain that there are no laboratory tests for diagnosing psychiatric disorders; instead these disorders must be identified through screening interviews of potential patients that require time-intensive analysis by medical experts."
+                },
+                {
+                    "label": "para",
+                    "text": "This has motivated developing automated depression detection systems that can provide confidential, inexpensive and timely preliminary triaging that can help individuals in seeking help from medical experts. Such systems can help psychiatric professionals by analyzing interviewees for predictive behavioral indicators that could serve as additional evidence (DeVault et al., 2014)."
+                },
+                {
+                    "label": "para",
+                    "text": "Language is a well-studied behavioral indicator for depression. Psycholinguistic studies by Segrin (1990), Rude et al. (2004), and Andreasen (1976) identify patterns of language in depressed individuals, such as focus on self and detachment from community."
+                },
+                {
+                    "label": "para",
+                    "text": "To capitalize on this source of information, recent work has proposed deep learning models that leverage linguistic features to identify depressed individuals (Mallol-Ragolta et al., 2019). Such deep learning models achieve high performance by uncovering complex, unobservable patterns in data at the cost of transparency."
+                },
+                {
+                    "label": "para",
+                    "text": "However, in the sensitive problem domain of diagnosing psychiatric disorders, a model should offer insight about its functionality in order for it to be useful as a clinical support tool. One way for a model to do this is utilizing the structure of the input (interview transcript) to identify patterns of conversational contexts that can help professionals in understanding how the model behaves in different contexts."
+                },
+                {
+                    "label": "para",
+                    "text": "A typical interview is structured as pairs of prompts and responses such that participant responses follow interviewer prompts (such as \u201cHow have you been feeling lately?\u201d). Intuitively, each interviewer prompt serves as a context that informs how its response should be analyzed. For example, a short response like \u201cyeah\u201d could communicate agreement in response to a question such as \u201cAre you happy you did that?\u201d, but the same response could signal taciturnity or withdrawal (indicators of depression) in response to an encouraging prompt like \u201cNice!\u201d. To enable such contextdependent analysis, the model should be able to group prompts based on the types of conversational context they provide."
+                },
+                {
+                    "label": "para",
+                    "text": "To accomplish this, we propose a neural Joint Latent Prompt Categorization (JLPC ) model that infers latent prompt categories. Depending on a prompt\u2019s category, the model has the flexibility to focus on different signals for depression in the corresponding response. This prompt categorization is learned jointly with the end task of depression prediction."
+                },
+                {
+                    "label": "para",
+                    "text": "Beyond improving prediction accuracy, the latent prompt categorization makes the proposed model more transparent and offers insight for expert analysis. To demonstrate this, we analyze learned prompt categories based on existing psycholinguistic research. We also test existing hypotheses about depressed language with respect to these prompt categories. This not only offers a window into the model\u2019s working, but also can be used to design better clinical support tools that analyze linguistic cues in light of the interviewer prompt context."
+                },
+                {
+                    "label": "para",
+                    "text": "Our key contributions are:"
+                },
+                {
+                    "label": "para",
+                    "text": "\u2022 We propose an end-to-end, data-driven model for predicting depression from interview transcripts that leverages the contextual information provided by interviewer prompts \u2022 Our model jointly learns latent categorizations of prompts to aid prediction"
+                },
+                {
+                    "label": "para",
+                    "text": "\u2022 We conduct robust experiments to show that our model outperforms competitive baselines \u2022 We analyze the model\u2019s behavior against existing psycholinguistic theory surrounding depressed language to demonstrate the interpretability of our model"
+                }
+            ]
+        },
+        {
+            "label": "sec",
+            "text": "2 Joint Latent Prompt Categorization",
+            "child": [
+                {
+                    "label": "para",
+                    "text": "We propose a Joint Latent Prompt Categorization (JLPC) model that jointly learns to predict depression from interview transcripts while grouping interview prompts into latent categories.1."
+                },
+                {
+                    "label": "para",
+                    "text": "The general problem of classifying interview text is defined as follows: let X denote the set of N interview transcripts. Each interview Xi is a sequence of j conversational turns consisting of interviewer\u2019s prompts and participant\u2019s responses: Xi = {(Pij, Rij ) for j = {1...Mi }, where Mi is the number of turns in Xi, Pij is the jth prompt in the ith interview, and Rij is the participant\u2019s response to that prompt. Together, (Pij , Rij ) form the jth turn in ith interview. Each interview Xi is labeled with a ground-truth class Yi \u2208 {1, ..C }, where C is the number of possible labels. In our case, there are two possible labels: depressed or not depressed. Our model, shown in Figure 1, takes as input an interview Xi and outputs the predicted label \u02c6Yi ."
+                },
+                {
+                    "label": "para",
+                    "text": "Our approach assumes that prompts and responses are represented as embeddings Pij \u2208 RE and Rij \u2208 RE respectively. We hypothesize that prompts can be grouped into latent categories (K in number) such that corresponding responses will exhibit unique, useful patterns. To perform a soft assignment of prompts to categories, for each prompt, our model computes a category membership vector hij = [h1ij , \u00b7 \u00b7 \u00b7 , hKij ]. It represents the probability distribution for the jth prompt of the ith interview over each of K latent categories. hij is computed as a function \u03c6 of Pij and trainable parameters \u03b8C I (illustrated as the Category Inference layer in Figure 1): hij = \u03c6(Pij , \u03b8C I ) (1)"
+                },
+                {
+                    "label": "para",
+                    "text": "Based on these category memberships for each prompt, the model then analyzes the corresponding responses so that unique patterns can be learned for each category. Specifically, we form K category-aware response aggregations. Each of these aggregations, \u00afRki \u2208 RE , is a category-aware representation of all responses of the ith interview with respect to the k th category. \u00afRki = 1 Z ki (cid:88) j=1 Mi hkij \u00d7 Rij (2) Z ki = (cid:88) Mi hkij j =1 (3) where, hkij is the kth scalar component of the latent category distribution vector hij and Z ki is a normalizer added to prevent varying signal strength, which interferes with training."
+                },
+                {
+                    "label": "para",
+                    "text": "We then compute the output class probability vector yi as a function \u03c8 of the response aggregations [ \u00afR1i , \u00b7 \u00b7 \u00b7 , \u00afRKi ] and trainable parameters \u03b8D (illustrated as the Decision Layer in Figure 1). yi = \u03c8 ( \u00afR1i , \u00b7 \u00b7 \u00b7 , \u00afRKi , \u03b8D ) (4)"
+                },
+                {
+                    "label": "para",
+                    "text": "The predicted label \u02c6Yi is selected as the class with the highest probability based on yi ."
+                },
+                {
+                    "label": "sec",
+                    "text": "2.1 The Category Inference Layer",
+                    "child": [
+                        {
+                            "label": "para",
+                            "text": "We compute the latent category membership for all prompts in interview i using a feed-forward layer with K outputs and softmax activation: \u03c6(Pij , \u03b8CI ) = \u03c3 (rowj (Pi WCI + BC I )) (5)"
+                        },
+                        {
+                            "label": "para",
+                            "text": "As shown in Equation 1, \u03c6(Pij , \u03b8CI ) produces the desired category membership vector hij over latent categories for the jth prompt of the ith interview. Pi \u2208 RM \u00d7E is defined as [Pi1, \u00b7 \u00b7 \u00b7 , PiM ]T , where M is the maximum conversation length in Xi and Pim = 0E for all Mi < m \u2264 M . PiWC I + BCI computes a matrix where row j is a vector of energies for the latent category distribution for prompt j , and \u03c3 denotes the softmax function. WC I \u2208 RE\u00d7K and BC I \u2208 RK are the trainable parameters for this layer: \u03b8C I = {WC I , BC I }."
+                        }
+                    ]
+                },
+                {
+                    "label": "sec",
+                    "text": "2.2 The Decision Layer",
+                    "child": [
+                        {
+                            "label": "para",
+                            "text": "The Decision Layer models the probabilities for each output class (depressed and not-depressed) using a feed-forward layer over the concatenation \u00afRi of response aggregations [ \u00afR1i , \u00b7 \u00b7 \u00b7 , \u00afRKi ]. This allows each response aggregation \u00afRki to contribute to the final classification through a separate set of trainable parameters. \u03c8 ( \u00afR1i , \u00b7 \u00b7 \u00b7 , \u00afRKi , \u03b8D ) = \u03c3( \u00afRTi WD + BD ) (6)"
+                        },
+                        {
+                            "label": "para",
+                            "text": "As shown in Equation 4, \u03c8 ( \u00afR1i , \u00b7 \u00b7 \u00b7 , \u00afRKi , \u03b8D ) produces the output class probability vector yi. WD \u2208 R(E\u2217K)\u00d7C and BD \u2208 RC are the trainable parameters for the decision layer: \u03b8D = {WD , BD}."
+                        },
+                        {
+                            "label": "para",
+                            "text": "We then compute the cross entropy loss L(Y, \u02c6Y ) between ground truth labels and yi."
+                        }
+                    ]
+                },
+                {
+                    "label": "sec",
+                    "text": "2.3 Entropy regularization",
+                    "child": [
+                        {
+                            "label": "para",
+                            "text": "The model\u2019s learning goal as described above only allows the output prediction error to guide the separation of prompts into useful categories. However, in order to encourage the model to learn distinct categories, we employ entropy regularization (Grandvalet and Bengio, 2005) by penalizing overlap in the latent category distributions for prompts. That is, we compute the following entropy term using components of the category membership vector hij from Equation 1: E(Xi) = ui 1 (cid:88) i=1 N (cid:88) j =1 Mi Ej (Xi ) (7) where, Ej (Xi) = \u2212 (cid:88) K hkij ln hkij (8) k=1 ui = (cid:88) N Mi i=1 (9)"
+                        },
+                        {
+                            "label": "para",
+                            "text": "Finally, the model\u2019s overall learning goal minimizes entropy regularized cross entropy loss: arg min \u03b8 L(Y, \u02c6Y ) + \u03bbE (Xi) where, \u03bb is a hyper-parameter that controls the strength of the entropy regularization term."
+                        }
+                    ]
+                },
+                {
+                    "label": "sec",
+                    "text": "2.4 Leveraging Prompt Representations in the Decision Layer",
+                    "child": [
+                        {
+                            "label": "sec",
+                            "text": "3.1 Preprocessing and Representation",
+                            "child": [
+                                {
+                                    "label": "para",
+                                    "text": "DAIC interview transcripts are split into utterances based on pauses in speech and speaker change, so we concatenate adjacent utterances by the same speaker to achieve a prompt-response structure. We experiment with two types of continuous representations for prompts and responses: averaged word embeddings from the pretrained GloVe model (Pennington et al., 2014), and sentence embeddings from the pretrained BERT model (Devlin et al., 2019). Further details are given in Appendix A.1. Reported results use GloVe embeddings because they led to better validation scores."
+                                }
+                            ]
+                        },
+                        {
+                            "label": "sec",
+                            "text": "3.2 Exclusion of Predictive Prompts",
+                            "child": [
+                                {
+                                    "label": "para",
+                                    "text": "Our preliminary experiments showed that it is possible to achieve better-than-random performance on the depression identification task using only the set of prompts (excluding the responses). This is possibly because the interviewer identified some individuals as potentially depressed during the interview, resulting in predictive follow-up prompts (for example, \u201cHow long ago were you diagnosed?\u201d). To address this, we iteratively remove predictive prompts until the development performance using prompts alone is not significantly better than random (see Appendix A.3). This is to ensure our experiments evaluate the content of prompts and responses rather than fitting to any bias in question selection by the DAIC corpus interviewers, and so are generalizable to other interview scenarios, including future fully-automated ones."
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "label": "sec",
+            "text": "3 Dataset",
+            "child": [
+                {
+                    "label": "para",
+                    "text": "We evaluate our model on the Distress Analysis Interview Corpus (DAIC) (Gratch et al., 2014). DAIC consists of text transcripts of interviews designed to emulate a clinical assessment for depression. The interviews are conducted between human participants and a human-controlled digital avatar. Each interview is labeled with a binary depression rating based on a score threshold for the 9th revision of the Patient Health Questionnaire (PHQ-9). In total, there are 170 interviews, with 49 participants identified as depressed."
+                },
+                {
+                    "label": "para",
+                    "text": "To achieve stable and robust results given the small size of the DAIC dataset, we report performance over 10 separate splits of the dataset into training, validation, and test sets. For each split, 70% is used as training data, and 20% of the training data is set aside as validation data."
+                }
+            ]
+        },
+        {
+            "label": "sec",
+            "text": "4 Experiments",
+            "child": [
+                {
+                    "label": "para",
+                    "text": "We now describe our experiments and analysis."
+                },
+                {
+                    "label": "sec",
+                    "text": "4.1 Baselines",
+                    "child": [
+                        {
+                            "label": "para",
+                            "text": "Our experiments use the following baselines:"
+                        },
+                        {
+                            "label": "para",
+                            "text": "\u2022 The RO baseline only has access to responses. It applies a dense layer to the average of response representations for an interview."
+                        },
+                        {
+                            "label": "para",
+                            "text": "\u2022 The PO baseline only has access to prompts, following the same architecture as RO."
+                        },
+                        {
+                            "label": "para",
+                            "text": "\u2022 The PR baseline has access to both prompts and responses. It applies a dense layer to the average of prompt and response concatenations."
+                        },
+                        {
+                            "label": "para",
+                            "text": "\u2022 BERT refers to the BERT model (Devlin et al., 2019) fine-tuned on our dataset (see Appendix A.2)."
+                        }
+                    ]
+                },
+                {
+                    "label": "sec",
+                    "text": "4.2 Training details",
+                    "child": [
+                        {
+                            "label": "para",
+                            "text": "All models are trained using the Adam optimizer. We use mean validation performance to select hyper-parameter values: number of epochs = 1300, learning rate = 5 \u00d7 10\u22124, number of prompt categories K = 11 and entropy regularization strength \u03bb = 0.1."
+                        }
+                    ]
+                },
+                {
+                    "label": "sec",
+                    "text": "4.3 Quantitative Results",
+                    "child": [
+                        {
+                            "label": "para",
+                            "text": "We computed the F1 scores of the positive (depressed) and negative (not-depressed) classes averaged over the 10 test sets. Given the class imbalance in the DAIC dataset, we compare models using F1 score for the depressed class."
+                        },
+                        {
+                            "label": "para",
+                            "text": "As an additional baseline, we also implemented methods from Mallol-Ragolta et al. (2019) but do not report their performance since their model performs very poorly (close to random) when we consider averaged performance over 10 test sets. This is likely because of the large number of parameters required by the hierarchical attention model."
+                        },
+                        {
+                            "label": "para",
+                            "text": "Table 1 summarizes our results. The belowrandom performance of the PO baseline is expected, since the prompts indicative of depression were removed as described in Section 3.2. This indicates the remaining prompts, by themselves, are not sufficient to accurately classify interviews. The RO model performs better, indicating the response information is more useful. The PR baseline improves over the RO baseline indicating that"
+                        },
+                        {
+                            "label": "para",
+                            "text": "JLPC and JLPCPost outperform the baselines, with JLPCPost achieving a statistically significant improvement over both the PR and BERT baselines (p < 0.05).2 This indicates the utility of our prompt-category aware analysis of the interviews."
+                        }
+                    ]
+                },
+                {
+                    "label": "sec",
+                    "text": "4.4 Ablation study",
+                    "child": [
+                        {
+                            "label": "para",
+                            "text": "We analyzed how the prompt categorization and entropy regularization contribute to our model\u2019s validation performance. The contributions of each component are visualized in Figure 2. Our analysis shows that while both components are important, latent prompt categorization yields the highest contribution to the model\u2019s performance."
+                        }
+                    ]
+                },
+                {
+                    "label": "sec",
+                    "text": "4.5 Analyzing Prompt Categories",
+                    "child": [
+                        {
+                            "label": "para",
+                            "text": "Beyond improving classification performance, the latent categorization of prompts yields insight about conversational contexts relevant for analyzing language patterns in depressed individuals."
+                        },
+                        {
+                            "label": "para",
+                            "text": "To explore the learned categories, we isolate interviews from the complete corpus that are correctly labeled by our best-performing model. We say that the model \u201cassigns\u201d an interview prompt to a given category if the prompt\u2019s membership for that category (Equation 1) is stronger than for other categories. We now describe the various prompts assigned to different categories.3"
+                        },
+                        {
+                            "label": "para",
+                            "text": "Firstly, all prompts that are questions like \u201cTell me more about that\u201d, \u201cWhen was the last time you had an argument?\u201d, etc. are grouped together into a single category, which we refer to as the Starters category. Previous work has identified usefulness of such questions as conversation starters since they assist in creating a sense of closeness (Mcallister et al., 2004; Heritage and Robinson, 2006)."
+                        },
+                        {
+                            "label": "para",
+                            "text": "Secondly, there are several categories reserved exclusively for certain backchannels. Backchannels are short utterances that punctuate longer turns by another conversational participant (Yngve, 1970; Goodwin, 1986; Bavelas et al., 2000). Specifically, the model assigns the backchannels \u201cmhm,\u201d \u201cmm,\u201d \u201cnice,\u201d and \u201cawesome\u201d each to separate categories. Research shows that it is indeed useful to consider the effects different types of backchannels separately. For example, Bavelas et al. (2000) propose a distinction between specific backchannels (such as \u201cnice\u201d and \u201cawesome\u201d) and generic backchannels (such as \u201cmm\u201d and \u201cmhm\u201d), and Tolins and Fox Tree (2014) demonstrated that each backchannel type serves a different purpose in conversation."
+                        },
+                        {
+                            "label": "para",
+                            "text": "Thirdly, apart from starters and backchannels, the model isolates one specific prompt - \u201cHave you been diagnosed with depression?\u201d4 into a separate category. Clearly, this is an important prompt and it is encouraging to see that the model isolates it as useful. Interestingly, the model assigns the backchannel \u201caw\u201d to the same category as \u201cHave you been diagnosed with depression?\u201d suggesting that responses to both prompts yield similar signals for depression."
+                        },
+                        {
+                            "label": "para",
+                            "text": "Lastly, the remaining five categories are empty - no prompt in the corpus has maximum salience with any of them. A likely explanation for this observation stems from the choice of normalizing factor Z ki in Equation 3: it causes \u00afRki to regress to the unweighted average of response embeddings when all prompts in an interview have low salience with category k. Repeated empty categories then function as an \u201censemble model\u201d for the average response embeddings, potentially improving predictive performance."
+                        }
+                    ]
+                },
+                {
+                    "label": "sec",
+                    "text": "4.6 Category-based Analysis of Responses",
+                    "child": [
+                        {
+                            "label": "para",
+                            "text": "The prompt categories inferred by our JLPCPost model enable us to take a data-driven approach to investigating the following category-specific psycholinguistic hypotheses about depression:"
+                        },
+                        {
+                            "label": "sec",
+                            "text": "H1",
+                            "child": [
+                                {
+                                    "label": "para",
+                                    "text": "Depression correlates with social skill deficits (Segrin, 1990)"
+                                }
+                            ]
+                        },
+                        {
+                            "label": "sec",
+                            "text": "H2",
+                            "child": [
+                                {
+                                    "label": "para",
+                                    "text": "Depressed language is vague and qualified (Andreasen, 1976)"
+                                }
+                            ]
+                        },
+                        {
+                            "label": "sec",
+                            "text": "H3",
+                            "child": [
+                                {
+                                    "label": "para",
+                                    "text": "Depressed language is self-focused and detached from community (Rude et al., 2004)"
+                                },
+                                {
+                                    "label": "para",
+                                    "text": "For hypothesis H1, we evaluate measures of social skill in responses to different categories of prompts. While research in psychology uses several visual, linguistic and paralinguistic indicators of social skills, in this paper we focus on two indicators that are measurable in our data: average response length in tokens and the rate of spoken-language fillers and discourse markers usage.5 The first measure - response length - can be seen as a basic measure of taciturnity. The second measure - usage of fillers and discourse markers - can be used as proxy for conversational skills, since speakers use these terms to manage conversations (Fox Tree, 2010). Christenfeld (1995) and Lake et al. (2011) also find that discourse marker usage correlates with social skill. Following is the list of fillers and discourse markers: \u201cum\u201d, \u201cuh\u201d, \u201cyou know\u201d, \u201cwell\u201d, \u201coh\u201d, \u201cso\u201d, \u201cI mean\u201d, and \u201clike\u201d."
+                                },
+                                {
+                                    "label": "para",
+                                    "text": "Table 2 shows the values of these measures for social skill for responses to backchannels and starters categories. We found that both measures were significantly lower for responses to starters-category prompts for depressed participants as opposed to not-depressed participants (p < 0.05). However, the measures showed no significant difference between depressed and notdepressed individuals for responses to categories representing backchannels (\u201cmhm,\u201d \u201cmm,\u201d \u201cawesome,\u201d and \u201cnice\u201d). Note that a conversation usually begins with prompts from the starters category and thereafter backchannels are used to encourage the speaker to continue speaking (Goodwin, 1986). Given this, our results suggest that depressed individuals in the given population indeed initially demonstrate poorer social skills than notdepressed individuals, but the effect levels off as the interviewer encourages them to keep speaking using backchannels. Given this, our results suggest that depressed individuals in the given population indeed initially demonstrate poorer social skills than not depressed individuals, but the effect stops being visible as the conversation continues, either because the depressed individuals become more comfortable talking or because the interviewers\u2019 encouragement through backchannels elicits more contributions."
+                                },
+                                {
+                                    "label": "para",
+                                    "text": "Hypotheses H2 and H3 - regarding qualified language and self-focus, respectively - involve semantic qualities of depressed language. To explore these hypotheses, we use a reverse engineering approach to determine salient words for depression in responses to each prompt category."
+                                },
+                                {
+                                    "label": "para",
+                                    "text": "We describe this reverse engineering approach as follows: since the aggregated representation of an individual\u2019s responses in a category ( \u00afRki computed in Equation 2) resides in the same vector space as individual word embeddings, we can identify words in our corpus that produce the strongest (positive) signal for depression in various categories. 6 We refer to these as signal words. Signal words are ranked not by their frequency in the dataset, but by their predictive potential the strength of association between the word\u2019s semantic representation and a given category. We evaluate hypotheses H2 and H3 by observing semantic similarities between these signal words and the language themes identified by the hypotheses. Selections from the top 10 signal words for depression associated with categories corresponding to starters, specific backchannels, and generic backchannels are shown in Figure 3."
+                                },
+                                {
+                                    "label": "para",
+                                    "text": "Figure 3 shows hypothesis H2 is supported by signal words in responses to generic backchannels; words such as \u201ctheoretical\u201d and \u201cplausible\u201d constitute qualified language, and in the context of generic backchannels, the proposed model identifies them as predictive of depression. Similarly, hypothesis H3 is also supported in responses to generic backchannels. The model identifies words related to community (\u201ckids,\u201d \u201cneighborhood,\u201d \u201cwe\u201d) as strong negative signals for depression, supporting that depressed language reflects detachment from community."
+                                },
+                                {
+                                    "label": "para",
+                                    "text": "However, the model only focuses on these semantic themes in responses to generic backchannel categories. As we found in our evaluation of hypothesis H1, the model localizes cues for depression to specific contexts. Signal words for depression in responses to the starters category are more reflective of our findings for hypothesis H1: the model focuses on short, low-semantic-content words that could indicate social skill deficit. For example, Figure 3 shows we identified \u201cwow\u201d as a signal word for the starters category. In one example from the corpus, a depressed participant uses \u201cwow\u201d to express uncomfortability with an emotional question: the interviewer asks, \u201cTell me about the last time you were really happy,\u201d and the interviewee responds, \u201cwow (laughter) um.\u201d"
+                                },
+                                {
+                                    "label": "para",
+                                    "text": "For responses to specific backchannels, strong signal words reflect themes of goals and desires (\u201cwished,\u201d \u201cmission,\u201d \u201caccomplished\u201d). Psychologists have observed a correlation between depression and goal commitment and pursuit (Vergara and Roberts, 2011; Klossek, 2015), and our finding indicates that depressed individuals discuss goal-related themes as response to specific backchannels."
+                                },
+                                {
+                                    "label": "para",
+                                    "text": "Overall, our model\u2019s design not only helps in reducing its opacity but also informs psycholinguistic analysis, making it more useful as part of an informed decision-making process. Our analysis indicates that even though research has shown strong correlation between depression and various interpersonal factors such as social skills, self-focus and usage of qualified language, clinical support tools should focus on these factors in light of conversational cues."
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "label": "sec",
+                    "text": "4.7 Sources of Error",
+                    "child": [
+                        {
+                            "label": "para",
+                            "text": "In this section, we analyze major sources of error. We apply a similar reverse engineering method as in Section 4.6. For prompts in each category, we consider corresponding responses that result in strong incorrect signals (false positive or false negative) based on the category\u2019s weights in the decision layer. We focus on the categories with the most significance presence in the dataset: the categories corresponding to starters, the \u201cmhm\u201d backchannel, and the prompt \u201cHave you been diagnosed with depression?\u201d."
+                        },
+                        {
+                            "label": "para",
+                            "text": "For the starters category, false positive-signal responses tend to contain a high presence of fillers and discourse markers (\u201cuh,\u201d \u201chuh,\u201d \u201cpost mm traumatic stress uh no uh uh,\u201d \u201chmm\u201d). It is possible that because the model learned to focus on short, low-semantic-content responses, it incorrectly correlates presence of fillers and discourse markers with depression. For the \u201cmhm\u201d category, we identified several false negatives, in which the responses included concrete words like \u201cuh nice environment\u201d, \u201cI love the landscape\u201d, and \u201cI love the waters\u201d. Since the \u201cmhm\u201d category focuses on vague, qualified language to predict depression (see Figure 3), the presence of concrete words in these responses could have misled the model. For the \u201cHave you been diagnosed with depression?\u201d category, the misclassified interviews contained short responses to this prompt like \u201cso,\u201d \u201cnever,\u201d \u201cyes,\u201d \u201cyeah,\u201d and \u201cno,\u201d as well as statements containing the word \u201cdepression.\u201d For this category, the model seems to incorrectly correlate short responses and direct mentions of depression with the depressed class."
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "label": "sec",
+            "text": "5 Related Work",
+            "child": [
+                {
+                    "label": "para",
+                    "text": "Much work exists at the intersection of natural language processing (NLP), psycholinguistics, and clinical psychology. For example, exploring correlations between counselor-patient interaction dynamics and counseling outcomes (Althoff et al., 2016); studying linguistic development of mental healthcare counsellors (Zhang et al., 2019); identifying differences in how people disclose mental illnesses across gender and culture (De Choudhury et al., 2017); predicting a variety of mental health conditions from social media posts (Sekulic and Strube, 2019; De Choudhury et al., 2013a; Guntuku et al., 2019; Coppersmith et al., 2014); and analyzing well-being (Smith et al., 2016) and distress (Buechel et al., 2018)."
+                },
+                {
+                    "label": "para",
+                    "text": "Specifically, many researchers have used NLP methods for identifying depression (Morales et al., 2017). They focus on for predicting depression from Twitter posts (Resnik et al., 2015; De Choudhury et al., 2013b; Jamil et al., 2017), Facebook updates (Schwartz et al., 2014), student essays (Resnik et al., 2013), etc."
+                },
+                {
+                    "label": "para",
+                    "text": "Previous works have also focused on predicting depression severity from screening interview data (Yang et al., 2016; Sun et al., 2017; Pampouchidou et al., 2016). Unlike ours, these approaches rely on audio, visual, and text input."
+                },
+                {
+                    "label": "para",
+                    "text": "More recent approaches are based on deep learning. Yang et al. (2017) propose a CNNbased model leveraging jointly trained paragraph vectorizations, Al Hanai et al. (2018) propose an LSTM-based model fusing audio features with Doc2Vec representations of response text, Makiuchi et al. (2019) combine LSTM and CNN components, and Mallol-Ragolta et al. (2019) propose a model that uses a hierarchical attention mechanism. However, these approaches are more opaque and difficult to interpret."
+                },
+                {
+                    "label": "para",
+                    "text": "Other approaches are similar to ours in the sense that they utilize the structure provided by interview prompts. Al Hanai et al. (2018) and Gong and Poellabauer (2017) propose models that extract separate sets of features for responses to each unique prompt in their corpus. However, these approaches require manually identifying unique prompts. Our model can instead automatically learn new, task-specific categorization of prompts. Lubis et al. (2018) perform a K-means clustering of prompt to assign prompts to latent dialogue act categories. These are used as features in a neural dialogue system. Our approach expands upon this idea of incorporating a separate unsupervised clustering step by allowing the learning goal to influence the clustering. Our approach is also related to that of Chaturvedi et al. (2014) in that it automatically categorizes various parts of the conversation. However, they use domain-specific handcrafted features and discrete latent variables for this categorization. Our approach instead can leverage the neural architecture to automatically identify features useful for this categorization."
+                },
+                {
+                    "label": "para",
+                    "text": "To the best of our knowledge, our approach is the first deep learning approach that jointly categorizes prompts to learn context-dependent patterns in responses."
+                }
+            ]
+        },
+        {
+            "label": "sec",
+            "text": "6 Conclusion",
+            "child": [
+                {
+                    "label": "para",
+                    "text": "This paper addressed the problem of identifying depression from interview transcripts. The proposed model analyzes the participant\u2019s responses in light of various categories of prompts provided by the interviewer. The model jointly learns these prompt categories while identifying depression. We show that the model outperforms competitive baselines and we use the prompt categorization to investigate various psycholinguistic hypotheses."
+                },
+                {
+                    "label": "para",
+                    "text": "Depression prediction is a difficult task which requires especially trained experts to conduct interviews and do their detailed analysis (Lakhan et al., 2010). While the absolute performance of our model is low for immediate practical deployment, it improves upon existing methods and at the same time, unlike modern methods, provides insight about the model\u2019s workflow. For example, our findings show how language of depressed individuals changes when interviewers use backchannels to encourage continued speech. We hope that this combination will encourage the research community to make more progress in this direction. Future work can further investigate temporal patterns in how language used by depressed people evolves over the course of an interaction."
+                }
+            ]
+        },
+        {
+            "label": "sec",
+            "text": "References",
+            "child": [
+                {
+                    "label": "para",
+                    "text": "Tuka Al Hanai, Mohammad Ghassemi, and James Glass. 2018. Detecting Depression with Audio/Text Sequence Modeling of Interviews. In Interspeech 2018, 19th Annual Conference of the International Speech Communication Association, Hyderabad, India, 2-6 September 2018, pages 1716\u20131720."
+                },
+                {
+                    "label": "para",
+                    "text": "Tim Althoff, Kevin Clark, and Jure Leskovec. 2016. Large-scale Analysis of Counseling Conversations: An Application of Natural Language Processing to Mental Health. Transactions of the Association for Computational Linguistics, 4:463\u2013476."
+                },
+                {
+                    "label": "para",
+                    "text": "Nancy J. C. Andreasen. 1976. Linguistic Analysis of Speech in Affective Disorders. Archives of General Psychiatry, 33(11):1361."
+                },
+                {
+                    "label": "para",
+                    "text": "Janet B. Bavelas, Linda Coates, and Trudy Johnson. 2000. Listeners as co-narrators. Journal of Personality and Social Psychology, 79(6):941\u2013952."
+                },
+                {
+                    "label": "para",
+                    "text": "Sven Buechel, Anneke Buffone, Barry Slaff, Lyle Ungar, and Jo \u02dcao Sedoc. 2018. Modeling Empathy and Distress in Reaction to News Stories. In Proceedings of the 2018 Conference on Empirical Methods in Natural Language Processing, Brussels, Belgium, October 31 - November 4, 2018, pages 4758\u20134765."
+                },
+                {
+                    "label": "para",
+                    "text": "Snigdha Chaturvedi, Dan Goldwasser, and Hal Daum \u00b4e III. 2014. Predicting instructor\u2019s intervention in MOOC forums. In Proceedings of the 52nd Annual Meeting of the Association for Computational Linguistics (Volume 1: Long Papers), pages 1501\u20131511, Baltimore, Maryland. Association for Computational Linguistics."
+                },
+                {
+                    "label": "para",
+                    "text": "Nicholas Christenfeld. 1995. Does it hurt to say um? Journal of Nonverbal Behavior, 19:171\u2013186."
+                },
+                {
+                    "label": "para",
+                    "text": "Glen Coppersmith, Mark Dredze, and Craig Harman. 2014. Quantifying Mental Health Signals in Twitter. In Proceedings of the Workshop on Computational Linguistics and Clinical Psychology: From Linguistic Signal to Clinical Reality, pages 51\u201360, Baltimore, Maryland, USA. Association for Computational Linguistics."
+                },
+                {
+                    "label": "para",
+                    "text": "Munmun De Choudhury, Scott Counts, and Eric Horvitz. 2013a. Predicting postpartum changes in emotion and behavior via social media. In 2013 ACM SIGCHI Conference on Human Factors in Computing Systems, CHI \u201913, Paris, France, April 27 - May 2, 2013, pages 3267\u20133276."
+                },
+                {
+                    "label": "para",
+                    "text": "Munmun De Choudhury, Michael Gamon, Scott Counts, and Eric Horvitz. 2013b. Predicting Depression via Social Media. In Proceedings of the Seventh International Conference on Weblogs and Social Media, ICWSM 2013, Cambridge, Massachusetts, USA, July 8-11, 2013."
+                },
+                {
+                    "label": "para",
+                    "text": "Munmun De Choudhury, Sanket S. Sharma, Tomaz Logar, Wouter Eekhout, and Ren \u00b4e Clausen Nielsen. 2017. Gender and Cross-Cultural Differences in Social Media Disclosures of Mental Illness. In Proceedings of the 2017 ACM Conference on Computer Supported Cooperative Work and Social Computing - CSCW \u201917, pages 353\u2013369, Portland, Oregon, USA. ACM Press."
+                },
+                {
+                    "label": "para",
+                    "text": "David DeVault, Ron Artstein, Grace Benn, Teresa Dey, Edward Fast, Alesia Gainer, Kallirroi Georgila, Jonathan Gratch, Arno Hartholt, Margaux Lhommet, Gale M. Lucas, Stacy Marsella, Fabrizio Morbini, Angela Nazarian, Stefan Scherer, Giota Stratou, Apar Suri, David R. Traum, Rachel Wood, Yuyu Xu, Albert A. Rizzo, and Louis-Philippe Morency. 2014. SimSensei Kiosk: A Virtual Human Interviewer for Healthcare Decision Support. In International conference on Autonomous Agents and Multi-Agent Systems, AAMAS \u201914, Paris, France, May 5-9, 2014, pages 1061\u20131068."
+                },
+                {
+                    "label": "para",
+                    "text": "Jacob Devlin, Ming-Wei Chang, Kenton Lee, and Kristina Toutanova. 2019. BERT: Pre-training of Deep Bidirectional Transformers for Language Understanding. In Proceedings of the 2019 Conference of the North American Chapter of the Association for Computational Linguistics: Human Language Technologies, NAACL-HLT 2019, Minneapolis, MN, USA, June 2-7, 2019, Volume 1 (Long and Short Papers), pages 4171\u20134186."
+                },
+                {
+                    "label": "para",
+                    "text": "Jean E. Fox Tree. 2010. Discourse Markers across Speakers and Settings. Language and Linguistics Compass, 4(5):269\u2013281."
+                },
+                {
+                    "label": "para",
+                    "text": "Yuan Gong and Christian Poellabauer. 2017. Topic Modeling Based Multi-modal Depression Detection. In Proceedings of the 7th Annual Workshop on Audio/Visual Emotion Challenge - AVEC \u201917, pages 69\u201376, Mountain View, California, USA. ACM Press."
+                },
+                {
+                    "label": "para",
+                    "text": "Charles Goodwin. 1986. Between and within: Alternative sequential treatments of continuers and assessments. Human Studies, 9(2-3):205\u2013217."
+                },
+                {
+                    "label": "para",
+                    "text": "Yves Grandvalet and Yoshua Bengio. 2005. Semisupervised Learning by Entropy Minimization. page 8."
+                },
+                {
+                    "label": "para",
+                    "text": "Jonathan Gratch, Ron Artstein, Gale Lucas, Giota Stratou, Stefan Scherer, Angela Nazarian, Rachel Wood, Jill Boberg, David DeVault, Stacy Marsella, David Traum, Skip Rizzo, and Louis-Philippe Morency. 2014. The Distress Analysis Interview Corpus of human and computer interviews. In Proceedings of the Ninth International Conference on Language Resources and Evaluation, LREC 2014, Reykjavik, Iceland, May 26-31, 2014, pages 3123\u20133128."
+                },
+                {
+                    "label": "para",
+                    "text": "Sharath Chandra Guntuku, Daniel Preotiuc-Pietro, Johannes C. Eichstaedt, and Lyle H. Ungar. 2019. What Twitter Profile and Posted Images Reveal about Depression and Anxiety. In Proceedings of the Thirteenth International Conference on Web and Social Media, ICWSM 2019, Munich, Germany, June 11-14, 2019, pages 236\u2013246."
+                },
+                {
+                    "label": "para",
+                    "text": "John Heritage and Jeffrey Robinson. 2006. The Structure of Patients\u2019 Presenting Concerns: Physicians\u2019 Opening Questions. Health communication, 19:89\u2013 102."
+                },
+                {
+                    "label": "para",
+                    "text": "Zunaira Jamil, Diana Inkpen, Prasadith Buddhitha, and Kenton White. 2017. Monitoring Tweets for Depression to Detect At-risk Users. In Proceedings of the Fourth Workshop on Computational Linguistics and Clinical Psychology \u2014 From Linguistic Signal to Clinical Reality, pages 32\u201340, Vancouver, BC. Association for Computational Linguistics."
+                },
+                {
+                    "label": "para",
+                    "text": "Ulrike Klossek. 2015. The Role of Goals and Goal Orientation as Predisposing Factors for Depression. Ph.D. thesis, University of Exeter."
+                },
+                {
+                    "label": "para",
+                    "text": "Johanna K. Lake, Karin R. Humphreys, and Shannon Cardy. 2011. Listener vs. speaker-oriented aspects of speech: Studying the disfluencies of individuals with autism spectrum disorders. Psychonomic Bulletin & Review, 18(1):135\u2013140."
+                },
+                {
+                    "label": "para",
+                    "text": "Shaheen E Lakhan, Karen Vieira, and Elissa Hamlat. 2010. Biomarkers in psychiatry: drawbacks and potential for misuse. International Archives of Medicine, 3(1):1."
+                },
+                {
+                    "label": "para",
+                    "text": "Nurul Lubis, Sakriani Sakti, Koichiro Yoshino, and Satoshi Nakamura. 2018. Unsupervised Counselor Dialogue Clustering for Positive Emotion Elicitation in Neural Dialogue System. In Proceedings of the 19th Annual SIGdial Meeting on Discourse and Dialogue, pages 161\u2013170, Melbourne, Australia. Association for Computational Linguistics."
+                },
+                {
+                    "label": "para",
+                    "text": "Mariana Rodrigues Makiuchi, Tifani Warnita, Kuniaki Uto, and Koichi Shinoda. 2019. Multimodal Fusion of BERT-CNN and Gated CNN Representations for Depression Detection. In Proceedings of the 9th International on Audio/Visual Emotion Challenge and Workshop - AVEC \u201919, pages 55\u201363, Nice, France. ACM Press."
+                },
+                {
+                    "label": "para",
+                    "text": "Adria Mallol-Ragolta, Ziping Zhao, Lukas Stappen, Nicholas Cummins, and Bj \u00a8orn W. Schuller. 2019. A Hierarchical Attention Network-Based Approach for Depression Detection from Transcribed Clinical Interviews. In Interspeech 2019, pages 221\u2013225. ISCA."
+                },
+                {
+                    "label": "para",
+                    "text": "Margaret Mcallister, Beth Matarasso, Barbara Dixon, and C Shepperd. 2004. Conversation starters: reexamining and reconstructing first encounters within the therapeutic relationship. Journal of Psychiatric and Mental Health Nursing, 11."
+                },
+                {
+                    "label": "para",
+                    "text": "Michelle Morales, Stefan Scherer, and Rivka Levitan. 2017. A Cross-modal Review of Indicators for Depression Detection Systems. In Proceedings of the Fourth Workshop on Computational Linguistics and Clinical Psychology \u2014 From Linguistic Signal to Clinical Reality, pages 1\u201312, Vancouver, BC. Association for Computational Linguistics."
+                },
+                {
+                    "label": "para",
+                    "text": "Anastasia Pampouchidou, Kostas Marias, Fan Yang, Manolis Tsiknakis, Olympia Simantiraki, Amir Fazlollahi, Matthew Pediaditis, Dimitris Manousos, Alexandros Roniotis, Georgios Giannakakis, Fabrice Meriaudeau, and Panagiotis Simos. 2016. Depression Assessment by Fusing High and Low Level Features from Audio, Video, and Text. In Proceedings of the 6th International Workshop on Audio/Visual Emotion Challenge - AVEC \u201916, pages 27\u201334, Amsterdam, The Netherlands. ACM Press."
+                },
+                {
+                    "label": "para",
+                    "text": "Jeffrey Pennington, Richard Socher, and Christopher D. Manning. 2014. Glove: Global Vectors for Word Representation. In Proceedings of the 2014 Conference on Empirical Methods in Natural Language Processing, EMNLP 2014, October 25-29, 2014, Doha, Qatar, A meeting of SIGDAT, a Special Interest Group of the ACL, pages 1532\u20131543."
+                },
+                {
+                    "label": "para",
+                    "text": "Philip Resnik, William Armstrong, Leonardo Claudino, Thang Nguyen, Viet-An Nguyen, and Jordan Boyd-Graber. 2015. Beyond LDA: Exploring Supervised Topic Modeling for Depression-Related Language in Twitter. In Proceedings of the 2nd Workshop on Computational Linguistics and Clinical Psychology: From Linguistic Signal to Clinical Reality, pages 99\u2013107, Denver, Colorado. Association for Computational Linguistics."
+                },
+                {
+                    "label": "para",
+                    "text": "Philip Resnik, Anderson Garron, and Rebecca Resnik. 2013. Using Topic Modeling to Improve Prediction of Neuroticism and Depression in College Students. In Proceedings of the 2013 Conference on Empirical Methods in Natural Language Processing, pages 1348\u20131353, Seattle, Washington, USA. Association for Computational Linguistics."
+                },
+                {
+                    "label": "para",
+                    "text": "Stephanie Rude, Eva-Maria Gortner, and James Pennebaker. 2004. Language use of depressed and depression-vulnerable college students. Cognition & Emotion, 18(8):1121\u20131133."
+                },
+                {
+                    "label": "para",
+                    "text": "H. Andrew Schwartz, Johannes Eichstaedt, Margaret L. Kern, Gregory Park, Maarten Sap, David Stillwell, Michal Kosinski, and Lyle Ungar. 2014. Towards Assessing Changes in Degree of Depression through Facebook. In Proceedings of the Workshop on Computational Linguistics and Clinical Psychology: From Linguistic Signal to Clinical Reality, pages 118\u2013125, Baltimore, Maryland, USA. Association for Computational Linguistics."
+                },
+                {
+                    "label": "para",
+                    "text": "Chris Segrin. 1990. A meta-analytic review of social skill deficits in depression. Communication Monographs, 57(4):292\u2013308."
+                },
+                {
+                    "label": "para",
+                    "text": "Ivan Sekulic and Michael Strube. 2019. Adapting Deep Learning Methods for Mental Health Prediction on Social Media. In Proceedings of the 5th Workshop on Noisy User-generated Text (W-NUT 2019), pages 322\u2013327, Hong Kong, China. Association for Computational Linguistics."
+                },
+                {
+                    "label": "para",
+                    "text": "Laura Smith, Salvatore Giorgi, Rishi Solanki, Johannes Eichstaedt, H. Andrew Schwartz, Muhammad Abdul-Mageed, Anneke Buffone, and Lyle Ungar. 2016. Does \u2018well-being\u2019 translate on Twitter? In Proceedings of the 2016 Conference on Empirical Methods in Natural Language Processing, pages 2042\u20132047, Austin, Texas. Association for Computational Linguistics."
+                },
+                {
+                    "label": "para",
+                    "text": "Bo Sun, Yinghui Zhang, Jun He, Lejun Yu, Qihua Xu, Dongliang Li, and Zhaoying Wang. 2017. A Random Forest Regression Method With Selected-Text Feature For Depression Assessment. In Proceedings of the 7th Annual Workshop on Audio/Visual Emotion Challenge - AVEC \u201917, pages 61\u201368, Mountain View, California, USA. ACM Press."
+                },
+                {
+                    "label": "para",
+                    "text": "Jackson Tolins and Jean E. Fox Tree. 2014. Addressee backchannels steer narrative development. Journal of Pragmatics, 70:152\u2013164."
+                },
+                {
+                    "label": "para",
+                    "text": "Chrystal Vergara and John E. Roberts. 2011. Motivation and goal orientation in vulnerability to depression. Cognition and Emotion, 25(7):1281\u20131290."
+                },
+                {
+                    "label": "para",
+                    "text": "A. H. Weinberger, M. Gbedemah, A. M. Martinez, D. Nash, S. Galea, and R. D. Goodwin. 2018. Trends in depression prevalence in the USA from 2005 to 2015: widening disparities in vulnerable groups. Psychological Medicine, 48(8):1308\u20131315."
+                },
+                {
+                    "label": "para",
+                    "text": "Le Yang, Dongmei Jiang, Lang He, Ercheng Pei, Meshia C \u00b4edric Oveneke, and Hichem Sahli. 2016. Decision Tree Based Depression Classification from Audio Video and Language Information. In Proceedings of the 6th International Workshop on Audio/Visual Emotion Challenge - AVEC \u201916, pages 89\u201396, Amsterdam, The Netherlands. ACM Press."
+                },
+                {
+                    "label": "para",
+                    "text": "Le Yang, Dongmei Jiang, Xiaohan Xia, Ercheng Pei, Meshia C \u00b4edric Oveneke, and Hichem Sahli. 2017. Multimodal Measurement of Depression Using Deep Learning Models. In Proceedings of the 7th Annual Workshop on Audio/Visual Emotion Challenge - AVEC \u201917, pages 53\u201359, Mountain View, California, USA. ACM Press."
+                },
+                {
+                    "label": "para",
+                    "text": "V. H. Yngve. 1970. On getting a word in edgewise. In Chicago Linguistics Society, 6th Meeting, pages 567\u2013578."
+                },
+                {
+                    "label": "para",
+                    "text": "Justine Zhang, Robert Filbin, Christine Morrison, Jaclyn Weiser, and Cristian Danescu-Niculescu-Mizil. 2019. Finding Your Voice: The Linguistic Development of Mental Health Counselors. In Proceedings of the 57th Conference of the Association for Computational Linguistics, ACL 2019, Florence, Italy, July 28- August 2, 2019, Volume 1: Long Papers, pages 946\u2013947."
+                }
+            ]
+        },
+        {
+            "label": "sec",
+            "text": "A Appendices",
+            "child": [
+                {
+                    "label": "sec",
+                    "text": "A.1 Continuous representation of utterances",
+                    "child": [
+                        {
+                            "label": "para",
+                            "text": "For continuous representation using the GloVe model, we use the pretrained 100-dimensional embeddings (Pennington et al., 2014). The representation of an utterance is computed as the average of embeddings for words in the utterance, with 0100 used to represent words not in the pretrained vocabulary. Based on the pretrained vocabulary, contractions (e.g. \u201ccan\u2019t\u201d) are decomposed. For continuous representation with the BERT model, utterances are split into sequences of sub-word tokens following the authors\u2019 specifications (Devlin et al., 2019), and the pretrained BERT (Base, Uncased) model computes a 768dimensional position-dependent representation."
+                        }
+                    ]
+                },
+                {
+                    "label": "sec",
+                    "text": "A.2 Training the BERT Model",
+                    "child": [
+                        {
+                            "label": "para",
+                            "text": "For the BERT model, all interviews were truncated to fit the maximum sequence length of the pretrained BERT model (Base, Uncased): 512 subword tokens. Truncation occurs by alternating between removing prompt and response tokens until the interview length in tokens is adequate."
+                        },
+                        {
+                            "label": "para",
+                            "text": "Devlin et al. (2019) suggest trying a limited number of combinations of learning rate and training epochs to optimize the BERT classification model. Specifically, the paper recommends combinations of 2, 3, or 4 epochs and learning rates of 2E-5, 3E-5, and 5E-5. We noted that validation and test scores were surprisingly low (significantly below random) using these combinations, and posited that the small number of suggested epochs could have resulted from the authors only evaluating BERT on certain types of datasets. Accordingly, we evaluated up to 50 epochs with the suggested learning rates and selected a learning rate of 2E-5 with 15 epochs based on validation results."
+                        }
+                    ]
+                },
+                {
+                    "label": "sec",
+                    "text": "A.3 Exclusion of prompts",
+                    "child": [
+                        {
+                            "label": "para",
+                            "text": "The goal of removing prompts is to prevent a classifier from identifying participants as depressed based on certain prompts simply being present in the interview, such as \u201cHow long ago were you diagnosed [with depression]?\u201d While some prompts are clear indicators, early tests showed that even with these prompts removed, other prompts were predictors for the participant being depressed for no obvious reason, indicating a bias in the design in the interview. Rather than using arbitrary means to determine whether prompts could be predictive, we used a machine-learning based algorithm to identify and remove predictive prompts from interviews."
+                        },
+                        {
+                            "label": "para",
+                            "text": "After the division of interviews into turns as described in Section 3.1, we extracted the set of distinct prompts Pdistinct from all interviews (with no additional preprocessing). We then iteratively performed 10 logistic regression experiments using the same set of splits described in Section 4.2. In a given experiment, each interview was represented as an indicator vector with |Pdistinct| dimensions, such that position p is set to 1 if prompt p \u2208 {1, \u00b7 \u00b7 \u00b7 , |Pdistinct|} is present in the interview, and 0 otherwise. Logistic Regression was optimized on the vector representations for the training interviews. The predicted F1 score for the depressed class on the validation set was recorded for each experiment. fixes were ignored, then both the prompt and its corresponding response were removed from the interview before training. This resulted in an removing an average of 13.64 turns from each inter-"
+                        },
+                        {
+                            "label": "para",
+                            "text": "The average weight vector for the 10 Logistic regression models was computed. The prompt corresponding to the highest weight was removed from Pdistinct and added to a separate set D of predictive prompts. The process was repeated until the mean validation F1 score was less than the random baseline for the dataset (see Section 4.3). view in the dataset."
+                        },
+                        {
+                            "label": "para",
+                            "text": "The final set of 31 prompts D had to be removed from the dataset before the baselines and proposed approaches could be evaluated. The design of the DAIC interview posed a challenge, however: the same prompt can appear in many interviews, but preceded by unique interjections by the interviewer, such as \u201cmhm,\u201d \u201cnice,\u201d and \u201cI see\u201d. We refer to this interjections as \u201cprefixes.\u201d We manually compiled a list of 37 prefixes that commonly reoccur in interviews. For all interviews, if a prompt from Pdistinct occurred in the interview after pre-"
+                        }
+                    ]
+                }
+            ]
+        }
+    ],
+    "fig": [
+        {
+            "box": [
+                71.0,
+                57.0,
+                526.0,
+                253.0
+            ],
+            "page": 2,
+            "caption": "Figure 1: The architecture of our JLPC model with K = 3. For each prompt Pij in interview i, the Category Inference layer computes a latent category membership vector, hij . These are used as weights to form K separate Category-Aware Response Aggregations, which in turn are used by the Decision Layer to predict the output."
+        },
+        {
+            "box": [
+                327.0,
+                61.0,
+                501.0,
+                165.0
+            ],
+            "page": 4,
+            "caption": "Figure 2: Ablation study on validation set demonstrating the importance of prompt categorization and entropy regularization for our model. the combination of prompt and response information is informative. The BERT model, which also has access to prompts and responses, shows a reasonable improvement over all baselines."
+        },
+        {
+            "box": [
+                304.0,
+                64.0,
+                528.0,
+                231.0
+            ],
+            "page": 6,
+            "caption": "Figure 3: Signal words associated with language in depressed individuals. Columns represent various types of prompts (Starters, Generic Backchannels and Specific Backchannels). The bottom half shows ranked lists of signal words from the responses. Blue words are strongly indicative and red words are least indicative of depression."
+        }
+    ],
+    "tab": [
+        {
+            "box": [
+                68.0,
+                59.0,
+                285.0,
+                188.0
+            ],
+            "page": 4,
+            "caption": "Table 1: Mean F1 scores for the positive (depressed) and negative (not depressed) across the 10 test sets. Standard deviation is reported in parentheses. Two of the proposed models, JLPC and JLPCPost, improve over baselines including the BERT fine-tuned model (Devlin et al., 2019), with the JLPCPost achieving a statistically significant improvement (p < 0.05)."
+        },
+        {
+            "box": [
+                304.0,
+                59.0,
+                524.0,
+                120.0
+            ],
+            "page": 5,
+            "caption": "Table 2: Indicators for social skills: mean response length (RL) and discourse marker/filler rates (DMF) for responses to prompts in starters and backchannel (collectively representing \u201cmhm\u201d, \u201cmm\u201d, \u201cnice\u201d, and \u201cawesome\u201d) categories, for depressed (D) and notdepressed (ND) participants. Statistically significant differences are underlined (p < 0.05). Both measures are significantly lower for the depressed class for responses to starters, but not to backchannels."
+        }
+    ],
+    "foot": [],
+    "fnote": [
+        "1 Code and instructions for reproducing our results",
+        "are available at https://github.com/alexwgr/",
+        "LatentPromptRelease",
+        "2 Statistical significance is calculated from the test predic-",
+        "tion using two-sided T-test for independent samples of scores",
+        "3 To verify consistency of prompt categorization, we rerun",
+        "the model with multiple initialization and they all yielded the",
+        "same general trends as described in the paper.",
+        "4 Note that this prompt was not removed in Section 3.2",
+        "since by itself, the prompt\u2019s presence is not predictive of de-",
+        "pression (without considering the response).",
+        "5 We compute this measure as the ratio of discourse",
+        "marker and filler occurrences to number of tokens, averaged",
+        "over responses.",
+        "6 A word\u2019s signal strength is computed for a given cate-",
+        "gory k by taking the dot product of the word\u2019s embedding",
+        "with the weights in the decision layer corresponding to cat-",
+        "egory k. Large positive numbers correspond to positive pre-",
+        "dictions and vice versa. Since the Decision Layer is a dot",
+        "product with all response aggregations, it is intuitive to com-",
+        "pute prediction strength for a group of categories by adding",
+        "together prediction strengths from individual groups."
+    ]
+}
