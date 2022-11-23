@@ -1,0 +1,4300 @@
+[
+    {
+        "text": "Role Semantics for Better Models of Implicit Discourse Relations",
+        "box": [
+            70,
+            112,
+            524,
+            129
+        ],
+        "class": "title",
+        "page": 0,
+        "is_meta": true,
+        "parent_id": -1,
+        "relation": "meta"
+    },
+    {
+        "text": "Michael Roth",
+        "box": [
+            264,
+            146,
+            330,
+            158
+        ],
+        "class": "author",
+        "page": 0,
+        "is_meta": true,
+        "parent_id": -1,
+        "relation": "meta"
+    },
+    {
+        "text": "Department of Language Science and Technology, Saarland University",
+        "box": [
+            128,
+            160,
+            467,
+            172
+        ],
+        "class": "fstline",
+        "page": 0,
+        "is_meta": false,
+        "parent_id": -1,
+        "relation": "contain"
+    },
+    {
+        "text": "mroth@coli.uni-sb.de",
+        "box": [
+            225,
+            173,
+            369,
+            185
+        ],
+        "class": "mail",
+        "page": 0,
+        "is_meta": true,
+        "parent_id": -1,
+        "relation": "meta"
+    },
+    {
+        "text": "Abstract",
+        "box": [
+            279,
+            225,
+            316,
+            235
+        ],
+        "class": "sec1",
+        "page": 0,
+        "is_meta": false,
+        "parent_id": -1,
+        "relation": "contain"
+    },
+    {
+        "text": "Predicting the structure of a discourse is challenging because relations between discourse segments",
+        "box": [
+            98,
+            242,
+            497,
+            252
+        ],
+        "class": "fstline",
+        "page": 0,
+        "is_meta": false,
+        "parent_id": 4,
+        "relation": "contain"
+    },
+    {
+        "text": "are often implicit and thus hard to distinguish computationally. I extend previous work to classify",
+        "box": [
+            98,
+            254,
+            497,
+            264
+        ],
+        "class": "para",
+        "page": 0,
+        "is_meta": false,
+        "parent_id": 5,
+        "relation": "connect"
+    },
+    {
+        "text": "implicit discourse relations by introducing a novel set of features on the level of semantic roles. My",
+        "box": [
+            98,
+            266,
+            497,
+            276
+        ],
+        "class": "para",
+        "page": 0,
+        "is_meta": false,
+        "parent_id": 6,
+        "relation": "connect"
+    },
+    {
+        "text": "results demonstrate that such features are helpful, yielding results competitive with other feature-rich",
+        "box": [
+            98,
+            278,
+            497,
+            288
+        ],
+        "class": "para",
+        "page": 0,
+        "is_meta": false,
+        "parent_id": 7,
+        "relation": "connect"
+    },
+    {
+        "text": "approaches on the PDTB. My main contribution is an analysis of improvements that can be traced",
+        "box": [
+            98,
+            290,
+            497,
+            300
+        ],
+        "class": "para",
+        "page": 0,
+        "is_meta": false,
+        "parent_id": 8,
+        "relation": "connect"
+    },
+    {
+        "text": "back to role-based features, providing insights into why and when role semantics is helpful.",
+        "box": [
+            98,
+            302,
+            462,
+            312
+        ],
+        "class": "para",
+        "page": 0,
+        "is_meta": false,
+        "parent_id": 9,
+        "relation": "connect"
+    },
+    {
+        "text": "1 Introduction",
+        "box": [
+            70,
+            341,
+            170,
+            356
+        ],
+        "class": "sec1",
+        "page": 0,
+        "is_meta": false,
+        "parent_id": 4,
+        "relation": "equality"
+    },
+    {
+        "text": "Understanding natural language texts involves, inter alia, correctly identifying coherent segments and the",
+        "box": [
+            70,
+            369,
+            524,
+            380
+        ],
+        "class": "fstline",
+        "page": 0,
+        "is_meta": false,
+        "parent_id": 11,
+        "relation": "contain"
+    },
+    {
+        "text": "relations that hold between them. Recognizing discourse relations is an important part of this process",
+        "box": [
+            70,
+            382,
+            524,
+            393
+        ],
+        "class": "para",
+        "page": 0,
+        "is_meta": false,
+        "parent_id": 12,
+        "relation": "connect"
+    },
+    {
+        "text": "because such relations not only conceptualize which parts of a text belong together but also how they are",
+        "box": [
+            70,
+            396,
+            524,
+            407
+        ],
+        "class": "para",
+        "page": 0,
+        "is_meta": false,
+        "parent_id": 13,
+        "relation": "connect"
+    },
+    {
+        "text": "related. Apart from direct applications in text analysis (e.g., discourse parsing), recognizing discourse",
+        "box": [
+            70,
+            410,
+            524,
+            420
+        ],
+        "class": "para",
+        "page": 0,
+        "is_meta": false,
+        "parent_id": 14,
+        "relation": "connect"
+    },
+    {
+        "text": "relations has further proven a useful preprocessing step for a range of downstream tasks (Louis et al.,",
+        "box": [
+            70,
+            423,
+            525,
+            434
+        ],
+        "class": "para",
+        "page": 0,
+        "is_meta": false,
+        "parent_id": 15,
+        "relation": "connect"
+    },
+    {
+        "text": "2010; Guzm\u00b4an et al., 2014; Narasimhan and Barzilay, 2015; Chandrasekaran et al., 2017, inter alia).",
+        "box": [
+            70,
+            437,
+            508,
+            448
+        ],
+        "class": "para",
+        "page": 0,
+        "is_meta": false,
+        "parent_id": 16,
+        "relation": "connect"
+    },
+    {
+        "text": "From a computational perspective, it has been shown that recognizing discourse relations can be",
+        "box": [
+            87,
+            450,
+            524,
+            461
+        ],
+        "class": "fstline",
+        "page": 0,
+        "is_meta": false,
+        "parent_id": 12,
+        "relation": "equality"
+    },
+    {
+        "text": "performed with high accuracy when explicit discourse markers are available (Pitler et al., 2008). However,",
+        "box": [
+            70,
+            464,
+            525,
+            475
+        ],
+        "class": "para",
+        "page": 0,
+        "is_meta": false,
+        "parent_id": 18,
+        "relation": "connect"
+    },
+    {
+        "text": "classifying relations without explicit markers, so-called implicit discourse relations, has persisted as a",
+        "box": [
+            70,
+            477,
+            524,
+            488
+        ],
+        "class": "para",
+        "page": 0,
+        "is_meta": false,
+        "parent_id": 19,
+        "relation": "connect"
+    },
+    {
+        "text": "difficult task to date (cf. Xue et al., 2016). One of the main challenges, as identified in Lin et al. (2009), is",
+        "box": [
+            70,
+            491,
+            524,
+            502
+        ],
+        "class": "para",
+        "page": 0,
+        "is_meta": false,
+        "parent_id": 20,
+        "relation": "connect"
+    },
+    {
+        "text": "the need to perform inference over two discourse segments. In this paper, I propose a new set of features",
+        "box": [
+            70,
+            504,
+            524,
+            515
+        ],
+        "class": "para",
+        "page": 0,
+        "is_meta": false,
+        "parent_id": 21,
+        "relation": "connect"
+    },
+    {
+        "text": "based on semantic roles to address this challenge. These features are meant to provide a shallow form of",
+        "box": [
+            70,
+            518,
+            524,
+            529
+        ],
+        "class": "para",
+        "page": 0,
+        "is_meta": false,
+        "parent_id": 22,
+        "relation": "connect"
+    },
+    {
+        "text": "semantic representation, which might help a classifier to make better informed classification decisions. I",
+        "box": [
+            70,
+            531,
+            524,
+            542
+        ],
+        "class": "para",
+        "page": 0,
+        "is_meta": false,
+        "parent_id": 23,
+        "relation": "connect"
+    },
+    {
+        "text": "argue that role semantic representations are particularly well-suited for this task because different types",
+        "box": [
+            70,
+            545,
+            524,
+            556
+        ],
+        "class": "para",
+        "page": 0,
+        "is_meta": false,
+        "parent_id": 24,
+        "relation": "connect"
+    },
+    {
+        "text": "of discourse relations are defined over the propositions that they connect. For example, definitions in",
+        "box": [
+            70,
+            559,
+            524,
+            569
+        ],
+        "class": "para",
+        "page": 0,
+        "is_meta": false,
+        "parent_id": 25,
+        "relation": "connect"
+    },
+    {
+        "text": "the Penn Discourse TreeBank 2.0 annotation manual (Prasad et al., 2007) explicitly refer to role-level",
+        "box": [
+            70,
+            572,
+            524,
+            583
+        ],
+        "class": "para",
+        "page": 0,
+        "is_meta": false,
+        "parent_id": 26,
+        "relation": "connect"
+    },
+    {
+        "text": "concepts such as events, situations and involved participants. In Rhetorical Structure Theory (Mann and",
+        "box": [
+            70,
+            586,
+            524,
+            597
+        ],
+        "class": "para",
+        "page": 0,
+        "is_meta": false,
+        "parent_id": 27,
+        "relation": "connect"
+    },
+    {
+        "text": "Thompson, 1988), some definitions contain references to concepts akin to proto-roles (e.g. \u201csomeone\u2019s",
+        "box": [
+            70,
+            599,
+            524,
+            610
+        ],
+        "class": "para",
+        "page": 0,
+        "is_meta": false,
+        "parent_id": 28,
+        "relation": "connect"
+    },
+    {
+        "text": "deliberate action\u201d). To illustrate the usefulness of role semantics for the classification of implicit discourse",
+        "box": [
+            70,
+            613,
+            524,
+            624
+        ],
+        "class": "para",
+        "page": 0,
+        "is_meta": false,
+        "parent_id": 29,
+        "relation": "connect"
+    },
+    {
+        "text": "relations, consider the two sentenes shown in Example (1):",
+        "box": [
+            70,
+            626,
+            327,
+            637
+        ],
+        "class": "para",
+        "page": 0,
+        "is_meta": false,
+        "parent_id": 30,
+        "relation": "connect"
+    },
+    {
+        "text": "(1) a. \u201cMr. Brady phoned Mr. Greenspan, . . . \u201d",
+        "box": [
+            69,
+            650,
+            272,
+            661
+        ],
+        "class": "para",
+        "page": 0,
+        "is_meta": false,
+        "parent_id": 31,
+        "relation": "connect"
+    },
+    {
+        "text": "b. \u201cHe continued to work the phones through the weekend.\u201d",
+        "box": [
+            84,
+            664,
+            346,
+            675
+        ],
+        "class": "para",
+        "page": 0,
+        "is_meta": false,
+        "parent_id": 32,
+        "relation": "connect"
+    },
+    {
+        "text": "Relation: then, Temporal.Asynchronous.Precedence (source: wsj 2413.pdtb)",
+        "box": [
+            98,
+            677,
+            528,
+            692
+        ],
+        "class": "fstline",
+        "page": 0,
+        "is_meta": false,
+        "parent_id": 18,
+        "relation": "equality"
+    },
+    {
+        "text": "In terms of frame-semantic representation (Fillmore, 1976), the roles involved in the second sentence",
+        "box": [
+            87,
+            702,
+            524,
+            713
+        ],
+        "class": "fstline",
+        "page": 0,
+        "is_meta": false,
+        "parent_id": 34,
+        "relation": "equality"
+    },
+    {
+        "text": "can be identified as an Ongoing activity (the argument of \u201ccontinue\u201d), a definite Duration and a",
+        "box": [
+            70,
+            714,
+            524,
+            726
+        ],
+        "class": "para",
+        "page": 0,
+        "is_meta": false,
+        "parent_id": 35,
+        "relation": "connect"
+    },
+    {
+        "text": "pronominal Agent.1 These cues indicate a sequence of situations with the same actor, making it likely",
+        "box": [
+            70,
+            727,
+            524,
+            740
+        ],
+        "class": "para",
+        "page": 0,
+        "is_meta": false,
+        "parent_id": 36,
+        "relation": "connect"
+    },
+    {
+        "text": "that a Temporal relation holds to the previous sentence.",
+        "box": [
+            70,
+            742,
+            311,
+            753
+        ],
+        "class": "para",
+        "page": 0,
+        "is_meta": false,
+        "parent_id": 37,
+        "relation": "connect"
+    },
+    {
+        "text": "1 Roles based on FrameNet, see http://framenet.icsi.berkeley.edu/.",
+        "box": [
+            83,
+            762,
+            382,
+            772
+        ],
+        "class": "fnote",
+        "page": 0,
+        "is_meta": true,
+        "parent_id": -1,
+        "relation": "meta"
+    },
+    {
+        "text": "2 Discourse Relation Classification with Feature-rich Models",
+        "box": [
+            70,
+            70,
+            452,
+            84
+        ],
+        "class": "sec1",
+        "page": 1,
+        "is_meta": false,
+        "parent_id": 11,
+        "relation": "equality"
+    },
+    {
+        "text": "The task addressed in this paper is to determine the discourse relations that hold between two implicitly",
+        "box": [
+            70,
+            98,
+            524,
+            109
+        ],
+        "class": "fstline",
+        "page": 1,
+        "is_meta": false,
+        "parent_id": 40,
+        "relation": "contain"
+    },
+    {
+        "text": "related discourse segments. In this section, I introduce a combined model for this task that aggregates",
+        "box": [
+            70,
+            111,
+            524,
+            122
+        ],
+        "class": "para",
+        "page": 1,
+        "is_meta": false,
+        "parent_id": 41,
+        "relation": "connect"
+    },
+    {
+        "text": "outputs from multiple simpler models (2.1), each of which uses only one type of feature. I then introduce",
+        "box": [
+            70,
+            125,
+            524,
+            136
+        ],
+        "class": "para",
+        "page": 1,
+        "is_meta": false,
+        "parent_id": 42,
+        "relation": "connect"
+    },
+    {
+        "text": "new feature sets based on semantic roles (2.2).",
+        "box": [
+            70,
+            138,
+            273,
+            149
+        ],
+        "class": "para",
+        "page": 1,
+        "is_meta": false,
+        "parent_id": 43,
+        "relation": "connect"
+    },
+    {
+        "text": "2.1 Model and Previous Features",
+        "box": [
+            70,
+            167,
+            246,
+            179
+        ],
+        "class": "sec2",
+        "page": 1,
+        "is_meta": false,
+        "parent_id": 40,
+        "relation": "contain"
+    },
+    {
+        "text": "My motivation for a model combination derives from the observation that different types of features",
+        "box": [
+            70,
+            189,
+            524,
+            200
+        ],
+        "class": "fstline",
+        "page": 1,
+        "is_meta": false,
+        "parent_id": 45,
+        "relation": "contain"
+    },
+    {
+        "text": "from the literature greatly vary with respect to the associated number of feature instances and how well",
+        "box": [
+            70,
+            203,
+            524,
+            214
+        ],
+        "class": "para",
+        "page": 1,
+        "is_meta": false,
+        "parent_id": 46,
+        "relation": "connect"
+    },
+    {
+        "text": "they generalize. Consequently, there is no unique set of hyperparameters (e.g. level of regularization,",
+        "box": [
+            70,
+            216,
+            525,
+            227
+        ],
+        "class": "para",
+        "page": 1,
+        "is_meta": false,
+        "parent_id": 47,
+        "relation": "connect"
+    },
+    {
+        "text": "thresholding) that works best for all feature types. The proposed combined model consists of two steps",
+        "box": [
+            70,
+            230,
+            524,
+            241
+        ],
+        "class": "para",
+        "page": 1,
+        "is_meta": false,
+        "parent_id": 48,
+        "relation": "connect"
+    },
+    {
+        "text": "to make use of information from inherently diverse feature types. First, I train simple discourse relation",
+        "box": [
+            70,
+            243,
+            524,
+            254
+        ],
+        "class": "para",
+        "page": 1,
+        "is_meta": false,
+        "parent_id": 49,
+        "relation": "connect"
+    },
+    {
+        "text": "classifiers that only use one feature type each. Outputs from multiple classifiers are then combined using",
+        "box": [
+            70,
+            257,
+            524,
+            268
+        ],
+        "class": "para",
+        "page": 1,
+        "is_meta": false,
+        "parent_id": 50,
+        "relation": "connect"
+    },
+    {
+        "text": "averaging as a simple but effective form of model combination.2",
+        "box": [
+            70,
+            269,
+            351,
+            281
+        ],
+        "class": "para",
+        "page": 1,
+        "is_meta": false,
+        "parent_id": 51,
+        "relation": "connect"
+    },
+    {
+        "text": "I formalize the classification of an instance i with respect to a discourse relation r as follows. Given a",
+        "box": [
+            87,
+            284,
+            524,
+            295
+        ],
+        "class": "fstline",
+        "page": 1,
+        "is_meta": false,
+        "parent_id": 46,
+        "relation": "equality"
+    },
+    {
+        "text": "set of n feature types, feature values are extracted and a set of simple classifiers cr,1 . . . cr,n are trained. At",
+        "box": [
+            70,
+            297,
+            524,
+            309
+        ],
+        "class": "para",
+        "page": 1,
+        "is_meta": false,
+        "parent_id": 53,
+        "relation": "connect"
+    },
+    {
+        "text": "test time, each classifier outputs an individual score score cr,j (i) \u2208 [0, 1]. Decisions of multiple classifiers",
+        "box": [
+            70,
+            311,
+            524,
+            324
+        ],
+        "class": "para",
+        "page": 1,
+        "is_meta": false,
+        "parent_id": 54,
+        "relation": "connect"
+    },
+    {
+        "text": "are then aggregated by computing the arithmetic mean of the individual scores. As single classifiers, I use",
+        "box": [
+            70,
+            325,
+            524,
+            335
+        ],
+        "class": "para",
+        "page": 1,
+        "is_meta": false,
+        "parent_id": 55,
+        "relation": "connect"
+    },
+    {
+        "text": "logistic regression models with L2 loss, as implemented in the LIBLINEAR toolkit (Mu-Chu et al., 2015).",
+        "box": [
+            70,
+            338,
+            526,
+            349
+        ],
+        "class": "para",
+        "page": 1,
+        "is_meta": false,
+        "parent_id": 56,
+        "relation": "connect"
+    },
+    {
+        "text": "Accordingly, the aggregated model predicts a relation r for instance i iff 1n \u03a3j=1...nscore cr,j (i) > 0.5.",
+        "box": [
+            70,
+            349,
+            512,
+            366
+        ],
+        "class": "para",
+        "page": 1,
+        "is_meta": false,
+        "parent_id": 57,
+        "relation": "connect"
+    },
+    {
+        "text": "The following list provides an overview of all feature sets from the literature that I reimplemented for",
+        "box": [
+            87,
+            365,
+            524,
+            376
+        ],
+        "class": "fstline",
+        "page": 1,
+        "is_meta": false,
+        "parent_id": 53,
+        "relation": "equality"
+    },
+    {
+        "text": "the described approach, and gives the total number of features for each type.",
+        "box": [
+            70,
+            379,
+            403,
+            390
+        ],
+        "class": "para",
+        "page": 1,
+        "is_meta": false,
+        "parent_id": 59,
+        "relation": "connect"
+    },
+    {
+        "text": "First/Last. Set of indicators for the first and last words in each discourse segment. In case of Example (1),",
+        "box": [
+            70,
+            408,
+            525,
+            419
+        ],
+        "class": "fstline",
+        "page": 1,
+        "is_meta": false,
+        "parent_id": 59,
+        "relation": "equality"
+    },
+    {
+        "text": "instances of this feature set include 1:FIRST:Mr., 2:FIRST:He, etc. (for details, see Pitler et al.,",
+        "box": [
+            70,
+            421,
+            525,
+            433
+        ],
+        "class": "para",
+        "page": 1,
+        "is_meta": false,
+        "parent_id": 61,
+        "relation": "connect"
+    },
+    {
+        "text": "2009). ca. 74 000 features",
+        "box": [
+            70,
+            435,
+            523,
+            451
+        ],
+        "class": "para",
+        "page": 1,
+        "is_meta": false,
+        "parent_id": 62,
+        "relation": "connect"
+    },
+    {
+        "text": "Dates and number. Indicator features for the number of date and number expressions in each discourse",
+        "box": [
+            70,
+            465,
+            524,
+            476
+        ],
+        "class": "fstline",
+        "page": 1,
+        "is_meta": false,
+        "parent_id": 61,
+        "relation": "equality"
+    },
+    {
+        "text": "segment (e.g. 1:DATE:0; see Pitler et al., 2009). ca. 10 000",
+        "box": [
+            70,
+            478,
+            526,
+            494
+        ],
+        "class": "para",
+        "page": 1,
+        "is_meta": false,
+        "parent_id": 64,
+        "relation": "connect"
+    },
+    {
+        "text": "Production rules. Features on production rules used to construct each discourse segment\u2019s constituency",
+        "box": [
+            70,
+            508,
+            524,
+            519
+        ],
+        "class": "fstline",
+        "page": 1,
+        "is_meta": false,
+        "parent_id": 64,
+        "relation": "equality"
+    },
+    {
+        "text": "tree (e.g. 1:S NP VP; see Lin et al., 2009). ca. 78 000",
+        "box": [
+            70,
+            521,
+            525,
+            534
+        ],
+        "class": "para",
+        "page": 1,
+        "is_meta": false,
+        "parent_id": 66,
+        "relation": "connect"
+    },
+    {
+        "text": "Verb features. Indicators for the main verb, its tense/modality and average verb phrase length (e.g.",
+        "box": [
+            70,
+            551,
+            526,
+            562
+        ],
+        "class": "fstline",
+        "page": 1,
+        "is_meta": false,
+        "parent_id": 66,
+        "relation": "equality"
+    },
+    {
+        "text": "1:VERB:phone, 2:TENSE:past; see Park and Cardie, 2012). ca. 20 000",
+        "box": [
+            70,
+            564,
+            526,
+            578
+        ],
+        "class": "para",
+        "page": 1,
+        "is_meta": false,
+        "parent_id": 68,
+        "relation": "connect"
+    },
+    {
+        "text": "Coreference. Set of features that indicate coreferring mentions, as predicted by Stanford CoreNLP (Lee",
+        "box": [
+            70,
+            594,
+            524,
+            605
+        ],
+        "class": "fstline",
+        "page": 1,
+        "is_meta": false,
+        "parent_id": 68,
+        "relation": "equality"
+    },
+    {
+        "text": "et al., 2013), across two related discourse segments (see Rutherford and Xue, 2014). ca. 10 000",
+        "box": [
+            70,
+            607,
+            528,
+            620
+        ],
+        "class": "para",
+        "page": 1,
+        "is_meta": false,
+        "parent_id": 70,
+        "relation": "connect"
+    },
+    {
+        "text": "Brown clusters. Feature sets indicating precomputed Brown cluster IDs (Turian et al., 2010) of words",
+        "box": [
+            70,
+            637,
+            524,
+            648
+        ],
+        "class": "fstline",
+        "page": 1,
+        "is_meta": false,
+        "parent_id": 70,
+        "relation": "equality"
+    },
+    {
+        "text": "occurring in each discourse segment (e.g. 2:11100110; see Braud and Denis, 2015). 200\u20136 400",
+        "box": [
+            70,
+            650,
+            524,
+            662
+        ],
+        "class": "para",
+        "page": 1,
+        "is_meta": false,
+        "parent_id": 72,
+        "relation": "connect"
+    },
+    {
+        "text": "Pairwise Brown clusters. Pairwise Brown cluster IDs indicating word pairs across two related discourse",
+        "box": [
+            70,
+            680,
+            524,
+            691
+        ],
+        "class": "fstline",
+        "page": 1,
+        "is_meta": false,
+        "parent_id": 72,
+        "relation": "equality"
+    },
+    {
+        "text": "segments (e.g. 11110110x11000100; see Braud and Denis, 2015). up to 10 million",
+        "box": [
+            70,
+            693,
+            524,
+            708
+        ],
+        "class": "para",
+        "page": 1,
+        "is_meta": false,
+        "parent_id": 74,
+        "relation": "connect"
+    },
+    {
+        "text": "2 Sum/averaging is used here because of its simplicity and robustness (Kittler et al., 1998). Due to the small development set",
+        "box": [
+            83,
+            714,
+            524,
+            724
+        ],
+        "class": "fnote",
+        "page": 1,
+        "is_meta": true,
+        "parent_id": -1,
+        "relation": "meta"
+    },
+    {
+        "text": "size, methods with additional parameters may tend to overfit.",
+        "box": [
+            70,
+            726,
+            289,
+            735
+        ],
+        "class": "opara",
+        "page": 1,
+        "is_meta": true,
+        "parent_id": 76,
+        "relation": "connect"
+    },
+    {
+        "text": "2.2 Features based on Semantic Roles",
+        "box": [
+            70,
+            72,
+            270,
+            84
+        ],
+        "class": "sec2",
+        "page": 2,
+        "is_meta": false,
+        "parent_id": 45,
+        "relation": "equality"
+    },
+    {
+        "text": "As new features, I propose to utilize the semantic roles identified in a pair of discourse segments. I define",
+        "box": [
+            70,
+            94,
+            524,
+            105
+        ],
+        "class": "fstline",
+        "page": 2,
+        "is_meta": false,
+        "parent_id": 78,
+        "relation": "contain"
+    },
+    {
+        "text": "two variants of this feature type: one based on FrameNet (Ruppenhofer et al., 2010) and one based on",
+        "box": [
+            70,
+            107,
+            524,
+            118
+        ],
+        "class": "para",
+        "page": 2,
+        "is_meta": false,
+        "parent_id": 79,
+        "relation": "connect"
+    },
+    {
+        "text": "PropBank (Palmer et al., 2005). All features are computed automatically using a state-of-the-art semantic",
+        "box": [
+            70,
+            121,
+            524,
+            132
+        ],
+        "class": "para",
+        "page": 2,
+        "is_meta": false,
+        "parent_id": 80,
+        "relation": "connect"
+    },
+    {
+        "text": "role labeler (Roth, 2016; Roth and Lapata, 2016). Each variant includes both raw labels as well as a",
+        "box": [
+            70,
+            134,
+            524,
+            145
+        ],
+        "class": "para",
+        "page": 2,
+        "is_meta": false,
+        "parent_id": 81,
+        "relation": "connect"
+    },
+    {
+        "text": "combination of the label and the filler word to which the label is assigned. To reduce sparsity, filler words",
+        "box": [
+            70,
+            148,
+            524,
+            159
+        ],
+        "class": "para",
+        "page": 2,
+        "is_meta": false,
+        "parent_id": 82,
+        "relation": "connect"
+    },
+    {
+        "text": "are always represented by pre-computed Brown cluster IDs (Turian et al., 2010). The list below provides",
+        "box": [
+            70,
+            161,
+            524,
+            172
+        ],
+        "class": "para",
+        "page": 2,
+        "is_meta": false,
+        "parent_id": 83,
+        "relation": "connect"
+    },
+    {
+        "text": "additional details as well as example instances based on the sentences shown in Example (1).",
+        "box": [
+            70,
+            175,
+            476,
+            186
+        ],
+        "class": "para",
+        "page": 2,
+        "is_meta": false,
+        "parent_id": 84,
+        "relation": "connect"
+    },
+    {
+        "text": "FrameNet roles. This feature set indicates all frame elements that are identified in a pair of related dis-",
+        "box": [
+            70,
+            204,
+            526,
+            215
+        ],
+        "class": "fstline",
+        "page": 2,
+        "is_meta": false,
+        "parent_id": 79,
+        "relation": "equality"
+    },
+    {
+        "text": "course segments. For instance, two frame element fillers are identified in the phrase he continued to work:",
+        "box": [
+            70,
+            217,
+            525,
+            229
+        ],
+        "class": "para",
+        "page": 2,
+        "is_meta": false,
+        "parent_id": 86,
+        "relation": "connect"
+    },
+    {
+        "text": "he is the Agent of the frame evoked by the verb work, and work itself fills the Ongoing activity",
+        "box": [
+            70,
+            231,
+            524,
+            242
+        ],
+        "class": "para",
+        "page": 2,
+        "is_meta": false,
+        "parent_id": 87,
+        "relation": "connect"
+    },
+    {
+        "text": "element of the frame evoked by continue. To compute features for he, the Brown cluster ID of the word",
+        "box": [
+            70,
+            245,
+            524,
+            256
+        ],
+        "class": "para",
+        "page": 2,
+        "is_meta": false,
+        "parent_id": 88,
+        "relation": "connect"
+    },
+    {
+        "text": "is looked up (11100110) and it is determined that the word occurs in the 2nd discourse segment in",
+        "box": [
+            70,
+            258,
+            524,
+            269
+        ],
+        "class": "para",
+        "page": 2,
+        "is_meta": false,
+        "parent_id": 89,
+        "relation": "connect"
+    },
+    {
+        "text": "Example (1). Accordingly, the indicator features that represent he and its semantic role in this case are",
+        "box": [
+            70,
+            272,
+            524,
+            283
+        ],
+        "class": "para",
+        "page": 2,
+        "is_meta": false,
+        "parent_id": 90,
+        "relation": "connect"
+    },
+    {
+        "text": "2:Agent and 2:Agent:11100110.3 ca. 37 000",
+        "box": [
+            70,
+            284,
+            528,
+            299
+        ],
+        "class": "para",
+        "page": 2,
+        "is_meta": false,
+        "parent_id": 91,
+        "relation": "connect"
+    },
+    {
+        "text": "PropBank roles. Analogous to the FrameNet features, this feature set consists of indicators for PropBank",
+        "box": [
+            70,
+            304,
+            524,
+            315
+        ],
+        "class": "fstline",
+        "page": 2,
+        "is_meta": false,
+        "parent_id": 86,
+        "relation": "equality"
+    },
+    {
+        "text": "labels. Because argument labels in PropBank (A0. . . A5) are only meaningful with respect to a given",
+        "box": [
+            70,
+            317,
+            524,
+            328
+        ],
+        "class": "para",
+        "page": 2,
+        "is_meta": false,
+        "parent_id": 93,
+        "relation": "connect"
+    },
+    {
+        "text": "predicate, I define two conjoined versions of this feature type: one takes into account the predicate\u2019s",
+        "box": [
+            70,
+            331,
+            524,
+            342
+        ],
+        "class": "para",
+        "page": 2,
+        "is_meta": false,
+        "parent_id": 94,
+        "relation": "connect"
+    },
+    {
+        "text": "class in VerbNet (Kipper et al., 2008) and one the predicate lemma itself (e.g., 2:work-73.2 A0 and",
+        "box": [
+            70,
+            344,
+            524,
+            355
+        ],
+        "class": "para",
+        "page": 2,
+        "is_meta": false,
+        "parent_id": 95,
+        "relation": "connect"
+    },
+    {
+        "text": "2:work A0:11100110, resp.). In each variant, predicate-independent labels (modifiers such as time",
+        "box": [
+            70,
+            357,
+            524,
+            369
+        ],
+        "class": "para",
+        "page": 2,
+        "is_meta": false,
+        "parent_id": 96,
+        "relation": "connect"
+    },
+    {
+        "text": "and location) are optionally considered in the same representation format. ca. 560 000",
+        "box": [
+            70,
+            371,
+            526,
+            382
+        ],
+        "class": "para",
+        "page": 2,
+        "is_meta": false,
+        "parent_id": 97,
+        "relation": "connect"
+    },
+    {
+        "text": "3 Experiments",
+        "box": [
+            70,
+            404,
+            170,
+            418
+        ],
+        "class": "sec1",
+        "page": 2,
+        "is_meta": false,
+        "parent_id": 40,
+        "relation": "equality"
+    },
+    {
+        "text": "I evaluate the proposed model on version 2.0 of the Penn Discourse Treebank (PDTB, Prasad et al.,",
+        "box": [
+            70,
+            431,
+            525,
+            442
+        ],
+        "class": "fstline",
+        "page": 2,
+        "is_meta": false,
+        "parent_id": 99,
+        "relation": "contain"
+    },
+    {
+        "text": "2008). To ensure a fair comparison, I use the same preprocessing and weighting techniques as well as",
+        "box": [
+            70,
+            445,
+            524,
+            456
+        ],
+        "class": "para",
+        "page": 2,
+        "is_meta": false,
+        "parent_id": 100,
+        "relation": "connect"
+    },
+    {
+        "text": "the same data instances as previous work (Rutherford and Xue, 2014; Braud and Denis, 2015). That is,",
+        "box": [
+            70,
+            458,
+            525,
+            469
+        ],
+        "class": "para",
+        "page": 2,
+        "is_meta": false,
+        "parent_id": 101,
+        "relation": "connect"
+    },
+    {
+        "text": "each instance is a pair of implicitly related discourse segments as annotated in the PDTB corpus. Sections",
+        "box": [
+            70,
+            472,
+            524,
+            483
+        ],
+        "class": "para",
+        "page": 2,
+        "is_meta": false,
+        "parent_id": 102,
+        "relation": "connect"
+    },
+    {
+        "text": "2\u201320 of the corpus are used for training, 21\u201322 for testing, and all other sections for development.",
+        "box": [
+            70,
+            485,
+            497,
+            496
+        ],
+        "class": "para",
+        "page": 2,
+        "is_meta": false,
+        "parent_id": 103,
+        "relation": "connect"
+    },
+    {
+        "text": "Baseline and comparison models. I use three variants of the proposed model to directly examine the",
+        "box": [
+            70,
+            515,
+            524,
+            526
+        ],
+        "class": "fstline",
+        "page": 2,
+        "is_meta": false,
+        "parent_id": 100,
+        "relation": "equality"
+    },
+    {
+        "text": "utility of semantic roles and combining classifiers. The first two models are instances of the feature-rich",
+        "box": [
+            70,
+            528,
+            524,
+            539
+        ],
+        "class": "para",
+        "page": 2,
+        "is_meta": false,
+        "parent_id": 105,
+        "relation": "connect"
+    },
+    {
+        "text": "model described in Section 2, with hyperparameter tuning and feature selection done on the training and",
+        "box": [
+            70,
+            542,
+            524,
+            553
+        ],
+        "class": "para",
+        "page": 2,
+        "is_meta": false,
+        "parent_id": 106,
+        "relation": "connect"
+    },
+    {
+        "text": "development sets: AverageFeats uses a combination of feature sets described in subsection 2.1, whereas",
+        "box": [
+            70,
+            555,
+            524,
+            566
+        ],
+        "class": "para",
+        "page": 2,
+        "is_meta": false,
+        "parent_id": 107,
+        "relation": "connect"
+    },
+    {
+        "text": "AverageFeats+SRL also uses the role-level features from subsection 2.2. Note that for each type of role set",
+        "box": [
+            70,
+            569,
+            524,
+            580
+        ],
+        "class": "para",
+        "page": 2,
+        "is_meta": false,
+        "parent_id": 108,
+        "relation": "connect"
+    },
+    {
+        "text": "at most one feature representation is chosen. All feature sets are selected based on the best performance",
+        "box": [
+            70,
+            582,
+            524,
+            593
+        ],
+        "class": "para",
+        "page": 2,
+        "is_meta": false,
+        "parent_id": 109,
+        "relation": "connect"
+    },
+    {
+        "text": "on the development set. The third model, AllFeats, is a baseline logistic regression classifier that uses all",
+        "box": [
+            70,
+            596,
+            524,
+            607
+        ],
+        "class": "para",
+        "page": 2,
+        "is_meta": false,
+        "parent_id": 110,
+        "relation": "connect"
+    },
+    {
+        "text": "best development feature sets at the same time.",
+        "box": [
+            70,
+            609,
+            275,
+            620
+        ],
+        "class": "para",
+        "page": 2,
+        "is_meta": false,
+        "parent_id": 111,
+        "relation": "connect"
+    },
+    {
+        "text": "For comparison, I consider a range of current state-of-the-art models. The best feature-rich models",
+        "box": [
+            87,
+            623,
+            524,
+            634
+        ],
+        "class": "fstline",
+        "page": 2,
+        "is_meta": false,
+        "parent_id": 105,
+        "relation": "equality"
+    },
+    {
+        "text": "(Rutherford and Xue, 2014; Braud and Denis, 2015) use a range of binary indicator features largely",
+        "box": [
+            70,
+            637,
+            524,
+            647
+        ],
+        "class": "para",
+        "page": 2,
+        "is_meta": false,
+        "parent_id": 113,
+        "relation": "connect"
+    },
+    {
+        "text": "identical to the features described in Section 2.1. The most notable difference to this work is that",
+        "box": [
+            70,
+            650,
+            524,
+            661
+        ],
+        "class": "para",
+        "page": 2,
+        "is_meta": false,
+        "parent_id": 114,
+        "relation": "connect"
+    },
+    {
+        "text": "Rutherford and Xue use a small list of coreference patterns in addition to features that simply indicate",
+        "box": [
+            70,
+            664,
+            524,
+            675
+        ],
+        "class": "para",
+        "page": 2,
+        "is_meta": false,
+        "parent_id": 115,
+        "relation": "connect"
+    },
+    {
+        "text": "coreferring mention counts. Neural-network models (Zhang et al., 2015; Liu and Li, 2016; Qin et al.,",
+        "box": [
+            70,
+            677,
+            525,
+            688
+        ],
+        "class": "para",
+        "page": 2,
+        "is_meta": false,
+        "parent_id": 116,
+        "relation": "connect"
+    },
+    {
+        "text": "2016) use attention or convolution mechanisms to identify important words and word spans in each",
+        "box": [
+            70,
+            691,
+            524,
+            702
+        ],
+        "class": "para",
+        "page": 2,
+        "is_meta": false,
+        "parent_id": 117,
+        "relation": "connect"
+    },
+    {
+        "text": "discourse segment. They then predict the discourse relation based on a composition function applied over",
+        "box": [
+            70,
+            704,
+            524,
+            715
+        ],
+        "class": "para",
+        "page": 2,
+        "is_meta": false,
+        "parent_id": 118,
+        "relation": "connect"
+    },
+    {
+        "text": "representations of important words. All of the comparison models use the same training and test instances",
+        "box": [
+            70,
+            718,
+            524,
+            729
+        ],
+        "class": "para",
+        "page": 2,
+        "is_meta": false,
+        "parent_id": 119,
+        "relation": "connect"
+    },
+    {
+        "text": "as this work and are directly comparable.",
+        "box": [
+            70,
+            731,
+            250,
+            742
+        ],
+        "class": "para",
+        "page": 2,
+        "is_meta": false,
+        "parent_id": 120,
+        "relation": "connect"
+    },
+    {
+        "text": "3 I also experimented with feature conjunctions in order to explicitly model semantic interactions between two discourse",
+        "box": [
+            82,
+            751,
+            523,
+            761
+        ],
+        "class": "fnote",
+        "page": 2,
+        "is_meta": true,
+        "parent_id": -1,
+        "relation": "meta"
+    },
+    {
+        "text": "segments. However, such conjuctions consistently reduced development performance, probably due to sparsity.",
+        "box": [
+            70,
+            763,
+            469,
+            772
+        ],
+        "class": "opara",
+        "page": 2,
+        "is_meta": true,
+        "parent_id": 122,
+        "relation": "connect"
+    },
+    {
+        "text": "comp cont exp tempNeural network modelsZhang et al. (2015) 33.2 52.0 69.6 30.5Liu and Li (2016) 36.7 54.5 70.4 38.8Qin et al. (2016) 41.6 57.3 71.5 35.4Recent feature-rich modelsRutherford and Xue (2014) 39.7 54.4 70.2 28.7Braud and Denis (2015) 36.4 55.8 67.4 29.3This work\u2019s modelsAverageFeats 36.3 55.9 69.4 30.5AverageFeats+SRL 37.0 56.3 69.4 32.1AllFeats 34.5 51.3 60.4 26.8",
+        "box": [
+            63,
+            67,
+            292,
+            258
+        ],
+        "class": "tab",
+        "page": 3,
+        "is_meta": false,
+        "parent_id": -1,
+        "relation": "contain"
+    },
+    {
+        "text": "Table 1: One-vs-all results in F1-score on",
+        "box": [
+            70,
+            266,
+            288,
+            278
+        ],
+        "class": "tabcap",
+        "page": 3,
+        "is_meta": false,
+        "parent_id": 124,
+        "relation": "contain"
+    },
+    {
+        "text": "the four PDTB top-level relations (comparison,",
+        "box": [
+            70,
+            279,
+            289,
+            290
+        ],
+        "class": "opara",
+        "page": 3,
+        "is_meta": false,
+        "parent_id": 125,
+        "relation": "connect"
+    },
+    {
+        "text": "contingency, expansion and temporal). Best overall",
+        "box": [
+            70,
+            293,
+            288,
+            304
+        ],
+        "class": "opara",
+        "page": 3,
+        "is_meta": false,
+        "parent_id": 126,
+        "relation": "connect"
+    },
+    {
+        "text": "results are marked in bold, best results by feature-",
+        "box": [
+            70,
+            307,
+            290,
+            317
+        ],
+        "class": "opara",
+        "page": 3,
+        "is_meta": false,
+        "parent_id": 127,
+        "relation": "connect"
+    },
+    {
+        "text": "rich models are underlined.",
+        "box": [
+            70,
+            320,
+            190,
+            331
+        ],
+        "class": "opara",
+        "page": 3,
+        "is_meta": false,
+        "parent_id": 128,
+        "relation": "connect"
+    },
+    {
+        "text": "Role name Position WeightRequest segment 1 +1.13061Addressee segment 1 +0.90852Relative time segment 1 +0.85555Stuff segment 2 +0.79267Success or failure segment 2 +0.69008Unattr information segment 2 +0.66578Agent segment 1 +0.39992Agent segment 2 \u22120.68378",
+        "box": [
+            302,
+            108,
+            525,
+            259
+        ],
+        "class": "tab",
+        "page": 3,
+        "is_meta": false,
+        "parent_id": -1,
+        "relation": "contain"
+    },
+    {
+        "text": "Table 2: List of indicator features on FrameNet",
+        "box": [
+            306,
+            266,
+            519,
+            277
+        ],
+        "class": "tabcap",
+        "page": 3,
+        "is_meta": false,
+        "parent_id": 130,
+        "relation": "contain"
+    },
+    {
+        "text": "frame elements that received a high weight for",
+        "box": [
+            306,
+            280,
+            520,
+            291
+        ],
+        "class": "opara",
+        "page": 3,
+        "is_meta": false,
+        "parent_id": 131,
+        "relation": "connect"
+    },
+    {
+        "text": "recognizing the discourse relation Contingency.",
+        "box": [
+            306,
+            293,
+            514,
+            304
+        ],
+        "class": "opara",
+        "page": 3,
+        "is_meta": false,
+        "parent_id": 132,
+        "relation": "connect"
+    },
+    {
+        "text": "Results. Table 1 lists F1 -scores for each of the top-level relations in the PDTB test set. Note that",
+        "box": [
+            70,
+            351,
+            524,
+            363
+        ],
+        "class": "fstline",
+        "page": 3,
+        "is_meta": false,
+        "parent_id": 113,
+        "relation": "equality"
+    },
+    {
+        "text": "multiple relation types can apply to one relation instance. Hence, instead of one 4-way classification,",
+        "box": [
+            70,
+            365,
+            525,
+            376
+        ],
+        "class": "para",
+        "page": 3,
+        "is_meta": false,
+        "parent_id": 134,
+        "relation": "connect"
+    },
+    {
+        "text": "this task is traditionally separated into four binary tasks. The results show that AverageFeats performs",
+        "box": [
+            70,
+            378,
+            524,
+            389
+        ],
+        "class": "para",
+        "page": 3,
+        "is_meta": false,
+        "parent_id": 135,
+        "relation": "connect"
+    },
+    {
+        "text": "competitively with other feature-rich models for discourse relation classification. Additional features on",
+        "box": [
+            70,
+            392,
+            524,
+            403
+        ],
+        "class": "para",
+        "page": 3,
+        "is_meta": false,
+        "parent_id": 136,
+        "relation": "connect"
+    },
+    {
+        "text": "semantic roles improve performance for all but one relation. In the cases in which semantic roles are",
+        "box": [
+            70,
+            405,
+            524,
+            416
+        ],
+        "class": "para",
+        "page": 3,
+        "is_meta": false,
+        "parent_id": 137,
+        "relation": "connect"
+    },
+    {
+        "text": "helpful, both FrameNet-based and PropBank-based feature sets are selected. Two of the four scores by",
+        "box": [
+            70,
+            419,
+            524,
+            430
+        ],
+        "class": "para",
+        "page": 3,
+        "is_meta": false,
+        "parent_id": 138,
+        "relation": "connect"
+    },
+    {
+        "text": "AverageFeats+SRL represent the best reported results with a feature-rich model. The performance of",
+        "box": [
+            70,
+            432,
+            524,
+            443
+        ],
+        "class": "para",
+        "page": 3,
+        "is_meta": false,
+        "parent_id": 139,
+        "relation": "connect"
+    },
+    {
+        "text": "AllFeats is consistently worse than those of other recent models. This complies with my hypothesis that",
+        "box": [
+            70,
+            446,
+            524,
+            457
+        ],
+        "class": "para",
+        "page": 3,
+        "is_meta": false,
+        "parent_id": 140,
+        "relation": "connect"
+    },
+    {
+        "text": "hyperparameters tuned for one single model do not generalize well across different feature types.",
+        "box": [
+            70,
+            460,
+            494,
+            470
+        ],
+        "class": "para",
+        "page": 3,
+        "is_meta": false,
+        "parent_id": 141,
+        "relation": "connect"
+    },
+    {
+        "text": "Discussion. One advantage of simple classification models based on binary features is that predictions",
+        "box": [
+            70,
+            489,
+            524,
+            500
+        ],
+        "class": "fstline",
+        "page": 3,
+        "is_meta": false,
+        "parent_id": 134,
+        "relation": "equality"
+    },
+    {
+        "text": "based on learned feature weights can easily be interpreted. In the following, I take a closer look at",
+        "box": [
+            70,
+            503,
+            524,
+            513
+        ],
+        "class": "para",
+        "page": 3,
+        "is_meta": false,
+        "parent_id": 143,
+        "relation": "connect"
+    },
+    {
+        "text": "classification instances that the model AverageFeats+SRL got correct but that were misclassified by the",
+        "box": [
+            70,
+            516,
+            524,
+            527
+        ],
+        "class": "para",
+        "page": 3,
+        "is_meta": false,
+        "parent_id": 144,
+        "relation": "connect"
+    },
+    {
+        "text": "other models. The weights of the features that apply in these examples provide insights as to how and",
+        "box": [
+            70,
+            530,
+            524,
+            541
+        ],
+        "class": "para",
+        "page": 3,
+        "is_meta": false,
+        "parent_id": 145,
+        "relation": "connect"
+    },
+    {
+        "text": "when semantic roles are beneficial. For simplicity, I focus the discussion on FrameNet roles (i.e. frame",
+        "box": [
+            70,
+            543,
+            524,
+            554
+        ],
+        "class": "para",
+        "page": 3,
+        "is_meta": false,
+        "parent_id": 146,
+        "relation": "connect"
+    },
+    {
+        "text": "element types).",
+        "box": [
+            70,
+            557,
+            137,
+            568
+        ],
+        "class": "para",
+        "page": 3,
+        "is_meta": false,
+        "parent_id": 147,
+        "relation": "connect"
+    },
+    {
+        "text": "For the implicit relation Contingency, the learned feature weights indicate that its prediction becomes",
+        "box": [
+            87,
+            570,
+            524,
+            581
+        ],
+        "class": "fstline",
+        "page": 3,
+        "is_meta": false,
+        "parent_id": 143,
+        "relation": "equality"
+    },
+    {
+        "text": "more likely when an Agent is identified in the first discourse segment (high positive feature weight)",
+        "box": [
+            70,
+            583,
+            525,
+            595
+        ],
+        "class": "para",
+        "page": 3,
+        "is_meta": false,
+        "parent_id": 149,
+        "relation": "connect"
+    },
+    {
+        "text": "but not in the second segment (negative feature weight). This seems to reflect the fact that most of these",
+        "box": [
+            70,
+            597,
+            524,
+            608
+        ],
+        "class": "para",
+        "page": 3,
+        "is_meta": false,
+        "parent_id": 150,
+        "relation": "connect"
+    },
+    {
+        "text": "relations connect a cause and a result, as shown for instance in Example (2).",
+        "box": [
+            70,
+            611,
+            402,
+            622
+        ],
+        "class": "para",
+        "page": 3,
+        "is_meta": false,
+        "parent_id": 151,
+        "relation": "connect"
+    },
+    {
+        "text": "(2) \u201c. . . traders can buy or sell even when they don\u2019t have a customer order . . . [as a result] liquidity",
+        "box": [
+            79,
+            636,
+            524,
+            647
+        ],
+        "class": "fstline",
+        "page": 3,
+        "is_meta": false,
+        "parent_id": 149,
+        "relation": "equality"
+    },
+    {
+        "text": "becomes a severe problem for thinly traded contracts . . . \u201d (wsj 2110.pdtb)",
+        "box": [
+            98,
+            649,
+            527,
+            664
+        ],
+        "class": "para",
+        "page": 3,
+        "is_meta": false,
+        "parent_id": 153,
+        "relation": "connect"
+    },
+    {
+        "text": "Semantic roles are helpful in such cases because they provide a means to distinguish events initiated",
+        "box": [
+            87,
+            676,
+            524,
+            686
+        ],
+        "class": "fstline",
+        "page": 3,
+        "is_meta": false,
+        "parent_id": 153,
+        "relation": "equality"
+    },
+    {
+        "text": "by someone (the cause) from simple states (the result). A list of features that seem to contribute to this",
+        "box": [
+            70,
+            689,
+            524,
+            700
+        ],
+        "class": "para",
+        "page": 3,
+        "is_meta": false,
+        "parent_id": 155,
+        "relation": "connect"
+    },
+    {
+        "text": "distinction, as identified by their associated feature weights, are given in Table 2.",
+        "box": [
+            70,
+            703,
+            423,
+            714
+        ],
+        "class": "para",
+        "page": 3,
+        "is_meta": false,
+        "parent_id": 156,
+        "relation": "connect"
+    },
+    {
+        "text": "The feature weights assigned in role-based classifiers for other discourse relations are overall smaller",
+        "box": [
+            87,
+            716,
+            524,
+            727
+        ],
+        "class": "fstline",
+        "page": 3,
+        "is_meta": false,
+        "parent_id": 155,
+        "relation": "equality"
+    },
+    {
+        "text": "and thus harder to interpret. Still, certain trends can be observed. For example, I find that co-occurrences",
+        "box": [
+            70,
+            730,
+            524,
+            741
+        ],
+        "class": "para",
+        "page": 3,
+        "is_meta": false,
+        "parent_id": 158,
+        "relation": "connect"
+    },
+    {
+        "text": "of specific roles in both connected discourse segments may indicate a Comparison. Example (3) shows",
+        "box": [
+            70,
+            743,
+            524,
+            754
+        ],
+        "class": "para",
+        "page": 3,
+        "is_meta": false,
+        "parent_id": 159,
+        "relation": "connect"
+    },
+    {
+        "text": "one such instance, in which the role Purpose has been identified in both segments (assigned feature",
+        "box": [
+            70,
+            756,
+            524,
+            768
+        ],
+        "class": "para",
+        "page": 3,
+        "is_meta": false,
+        "parent_id": 160,
+        "relation": "connect"
+    },
+    {
+        "text": "weight: +0.117). Other roles, for which the same pattern of weights are observed include, among others,",
+        "box": [
+            70,
+            73,
+            525,
+            84
+        ],
+        "class": "para",
+        "page": 4,
+        "is_meta": false,
+        "parent_id": 161,
+        "relation": "connect"
+    },
+    {
+        "text": "Theme (+0.435) and Businesses (+0.254).",
+        "box": [
+            70,
+            86,
+            279,
+            97
+        ],
+        "class": "para",
+        "page": 4,
+        "is_meta": false,
+        "parent_id": 162,
+        "relation": "connect"
+    },
+    {
+        "text": "(3) \u201cHer goal: to top 300 ad pages ... [but] whether she can meet that ambitious goal is still far from",
+        "box": [
+            76,
+            112,
+            524,
+            123
+        ],
+        "class": "fstline",
+        "page": 4,
+        "is_meta": false,
+        "parent_id": 158,
+        "relation": "equality"
+    },
+    {
+        "text": "certain.\u201d (wsj 2109.pdtb)",
+        "box": [
+            98,
+            125,
+            527,
+            139
+        ],
+        "class": "para",
+        "page": 4,
+        "is_meta": false,
+        "parent_id": 164,
+        "relation": "connect"
+    },
+    {
+        "text": "Concerning the Temporal relation, high feature weights are learned for specific FrameNet roles,",
+        "box": [
+            87,
+            151,
+            525,
+            162
+        ],
+        "class": "fstline",
+        "page": 4,
+        "is_meta": false,
+        "parent_id": 164,
+        "relation": "equality"
+    },
+    {
+        "text": "such as Activity start in the first discourse segment (+1.654) and Process end in the second",
+        "box": [
+            70,
+            164,
+            524,
+            175
+        ],
+        "class": "para",
+        "page": 4,
+        "is_meta": false,
+        "parent_id": 166,
+        "relation": "connect"
+    },
+    {
+        "text": "segment (+1.116). Even though these feature weights seem to be intuitive, they only lead to marginal",
+        "box": [
+            70,
+            178,
+            524,
+            189
+        ],
+        "class": "para",
+        "page": 4,
+        "is_meta": false,
+        "parent_id": 167,
+        "relation": "connect"
+    },
+    {
+        "text": "improvements to the absolute classification performance, presumably because textual order in discourse",
+        "box": [
+            70,
+            192,
+            524,
+            202
+        ],
+        "class": "para",
+        "page": 4,
+        "is_meta": false,
+        "parent_id": 168,
+        "relation": "connect"
+    },
+    {
+        "text": "not necessarily represents linear temporal order (\u201cbefore\u201d vs. \u201cafter\u201d). Higher gains could be achieved if",
+        "box": [
+            70,
+            205,
+            524,
+            216
+        ],
+        "class": "para",
+        "page": 4,
+        "is_meta": false,
+        "parent_id": 169,
+        "relation": "connect"
+    },
+    {
+        "text": "training and evaluation was performed on more specific relation annotations but such instances are too",
+        "box": [
+            70,
+            219,
+            524,
+            230
+        ],
+        "class": "para",
+        "page": 4,
+        "is_meta": false,
+        "parent_id": 170,
+        "relation": "connect"
+    },
+    {
+        "text": "rare in practice for the feature-rich classifiers to learn robust generalizations: For example, the current",
+        "box": [
+            70,
+            232,
+            524,
+            243
+        ],
+        "class": "para",
+        "page": 4,
+        "is_meta": false,
+        "parent_id": 171,
+        "relation": "connect"
+    },
+    {
+        "text": "version of the Penn Discourse Treebank contains a total of only 151 implicit relation instances of the",
+        "box": [
+            70,
+            246,
+            524,
+            257
+        ],
+        "class": "para",
+        "page": 4,
+        "is_meta": false,
+        "parent_id": 172,
+        "relation": "connect"
+    },
+    {
+        "text": "discourse relation Temporal.Asynchronous.Succession.",
+        "box": [
+            70,
+            259,
+            309,
+            270
+        ],
+        "class": "para",
+        "page": 4,
+        "is_meta": false,
+        "parent_id": 173,
+        "relation": "connect"
+    },
+    {
+        "text": "4 Related Work",
+        "box": [
+            70,
+            292,
+            177,
+            306
+        ],
+        "class": "sec1",
+        "page": 4,
+        "is_meta": false,
+        "parent_id": 99,
+        "relation": "equality"
+    },
+    {
+        "text": "The task of predicting implicit discourse relations was first introduced in the context of implicit and explicit",
+        "box": [
+            70,
+            319,
+            524,
+            330
+        ],
+        "class": "fstline",
+        "page": 4,
+        "is_meta": false,
+        "parent_id": 175,
+        "relation": "contain"
+    },
+    {
+        "text": "relation classification (Marcu and Echihabi, 2002). Pitler et al. (2009) were the first to address implicit",
+        "box": [
+            70,
+            333,
+            524,
+            344
+        ],
+        "class": "para",
+        "page": 4,
+        "is_meta": false,
+        "parent_id": 176,
+        "relation": "connect"
+    },
+    {
+        "text": "relations specifically. They applied a Naive Bayes model with a range of binary features. Follow-up work",
+        "box": [
+            70,
+            346,
+            524,
+            357
+        ],
+        "class": "para",
+        "page": 4,
+        "is_meta": false,
+        "parent_id": 177,
+        "relation": "connect"
+    },
+    {
+        "text": "examined different methods for feature selection (Lin et al., 2009; Park and Cardie, 2012) as well as",
+        "box": [
+            70,
+            360,
+            524,
+            371
+        ],
+        "class": "para",
+        "page": 4,
+        "is_meta": false,
+        "parent_id": 178,
+        "relation": "connect"
+    },
+    {
+        "text": "novel feature types based on pairs of word classes/clusters, entity mentions, and word embeddings (Biran",
+        "box": [
+            70,
+            373,
+            524,
+            384
+        ],
+        "class": "para",
+        "page": 4,
+        "is_meta": false,
+        "parent_id": 179,
+        "relation": "connect"
+    },
+    {
+        "text": "and McKeown, 2013; Louis et al., 2010; Braud and Denis, 2015). Further improvements were made via",
+        "box": [
+            70,
+            387,
+            524,
+            398
+        ],
+        "class": "para",
+        "page": 4,
+        "is_meta": false,
+        "parent_id": 180,
+        "relation": "connect"
+    },
+    {
+        "text": "multi-task learning (Lan et al., 2013) and training data expansion (Rutherford and Xue, 2015).",
+        "box": [
+            70,
+            401,
+            481,
+            411
+        ],
+        "class": "para",
+        "page": 4,
+        "is_meta": false,
+        "parent_id": 181,
+        "relation": "connect"
+    },
+    {
+        "text": "In recent years, a myriad of neural-network based models have been proposed for the task of recogniz-",
+        "box": [
+            87,
+            414,
+            526,
+            425
+        ],
+        "class": "fstline",
+        "page": 4,
+        "is_meta": false,
+        "parent_id": 176,
+        "relation": "equality"
+    },
+    {
+        "text": "ing implicit discourse relations (Ji and Eisenstein, 2014; Zhang et al., 2015; Liu and Li, 2016; Qin et al.,",
+        "box": [
+            70,
+            428,
+            525,
+            439
+        ],
+        "class": "para",
+        "page": 4,
+        "is_meta": false,
+        "parent_id": 183,
+        "relation": "connect"
+    },
+    {
+        "text": "2017, inter alia). Models of this kind have a high expressive power and generally outperform methods that",
+        "box": [
+            70,
+            441,
+            524,
+            452
+        ],
+        "class": "para",
+        "page": 4,
+        "is_meta": false,
+        "parent_id": 184,
+        "relation": "connect"
+    },
+    {
+        "text": "rely on manual feature engineering. However, being able to trace back improvements to individual features",
+        "box": [
+            70,
+            455,
+            524,
+            466
+        ],
+        "class": "para",
+        "page": 4,
+        "is_meta": false,
+        "parent_id": 185,
+        "relation": "connect"
+    },
+    {
+        "text": "was key to my discussion in Section 3. Recent results in downstream NLP tasks indicate that neural",
+        "box": [
+            70,
+            468,
+            524,
+            479
+        ],
+        "class": "para",
+        "page": 4,
+        "is_meta": false,
+        "parent_id": 186,
+        "relation": "connect"
+    },
+    {
+        "text": "network models can perform better when incorporating binary features (Cheng et al., 2016; Sennrich and",
+        "box": [
+            70,
+            482,
+            524,
+            493
+        ],
+        "class": "para",
+        "page": 4,
+        "is_meta": false,
+        "parent_id": 187,
+        "relation": "connect"
+    },
+    {
+        "text": "Haddow, 2016, inter alia).",
+        "box": [
+            70,
+            495,
+            184,
+            506
+        ],
+        "class": "para",
+        "page": 4,
+        "is_meta": false,
+        "parent_id": 188,
+        "relation": "connect"
+    },
+    {
+        "text": "5 Conclusions",
+        "box": [
+            70,
+            528,
+            166,
+            542
+        ],
+        "class": "sec1",
+        "page": 4,
+        "is_meta": false,
+        "parent_id": 175,
+        "relation": "equality"
+    },
+    {
+        "text": "I proposed a simple model combination for discourse relation classification that aggregates outputs from",
+        "box": [
+            70,
+            555,
+            524,
+            566
+        ],
+        "class": "fstline",
+        "page": 4,
+        "is_meta": false,
+        "parent_id": 190,
+        "relation": "contain"
+    },
+    {
+        "text": "multiple classifiers. Several classifiers use novel features based on automatic semantic role labeling.",
+        "box": [
+            70,
+            569,
+            526,
+            580
+        ],
+        "class": "para",
+        "page": 4,
+        "is_meta": false,
+        "parent_id": 191,
+        "relation": "connect"
+    },
+    {
+        "text": "I have shown that such features improve classification performance and provide shallow insights into",
+        "box": [
+            70,
+            582,
+            524,
+            593
+        ],
+        "class": "para",
+        "page": 4,
+        "is_meta": false,
+        "parent_id": 192,
+        "relation": "connect"
+    },
+    {
+        "text": "relationships between role semantics and discourse semantics.",
+        "box": [
+            70,
+            596,
+            342,
+            607
+        ],
+        "class": "para",
+        "page": 4,
+        "is_meta": false,
+        "parent_id": 193,
+        "relation": "connect"
+    },
+    {
+        "text": "In the future, I plan to apply more sophisticated methods of model ensembling. I would like to",
+        "box": [
+            87,
+            610,
+            524,
+            620
+        ],
+        "class": "fstline",
+        "page": 4,
+        "is_meta": false,
+        "parent_id": 191,
+        "relation": "equality"
+    },
+    {
+        "text": "investigate whether neural network approaches to discourse relation classification can also benefit from",
+        "box": [
+            70,
+            623,
+            524,
+            634
+        ],
+        "class": "para",
+        "page": 4,
+        "is_meta": false,
+        "parent_id": 195,
+        "relation": "connect"
+    },
+    {
+        "text": "structural information in the form of semantic roles. I believe this to be a promising research direction",
+        "box": [
+            70,
+            637,
+            524,
+            648
+        ],
+        "class": "para",
+        "page": 4,
+        "is_meta": false,
+        "parent_id": 196,
+        "relation": "connect"
+    },
+    {
+        "text": "especially because of the small size of available training data, which presumably makes it difficult for a",
+        "box": [
+            70,
+            650,
+            524,
+            661
+        ],
+        "class": "para",
+        "page": 4,
+        "is_meta": false,
+        "parent_id": 197,
+        "relation": "connect"
+    },
+    {
+        "text": "neural network to learn any higher level structures by itself.",
+        "box": [
+            70,
+            664,
+            330,
+            675
+        ],
+        "class": "para",
+        "page": 4,
+        "is_meta": false,
+        "parent_id": 198,
+        "relation": "connect"
+    },
+    {
+        "text": "Acknowledgements",
+        "box": [
+            70,
+            696,
+            189,
+            710
+        ],
+        "class": "sec1",
+        "page": 4,
+        "is_meta": false,
+        "parent_id": 190,
+        "relation": "equality"
+    },
+    {
+        "text": "This research was supported in part by the Cluster of Excellence \u201cMultimodal Computing and Interaction\u201d",
+        "box": [
+            70,
+            724,
+            526,
+            735
+        ],
+        "class": "fstline",
+        "page": 4,
+        "is_meta": false,
+        "parent_id": 200,
+        "relation": "contain"
+    },
+    {
+        "text": "of the German Excellence Initiative, and by a DFG Research Fellowship (RO 4848/1-1).",
+        "box": [
+            70,
+            737,
+            456,
+            748
+        ],
+        "class": "para",
+        "page": 4,
+        "is_meta": false,
+        "parent_id": 201,
+        "relation": "connect"
+    },
+    {
+        "text": "References",
+        "box": [
+            70,
+            70,
+            137,
+            84
+        ],
+        "class": "sec1",
+        "page": 5,
+        "is_meta": false,
+        "parent_id": 200,
+        "relation": "equality"
+    },
+    {
+        "text": "Biran, O. and K. McKeown (2013). Aggregated word pair features for implicit discourse relation",
+        "box": [
+            70,
+            98,
+            524,
+            109
+        ],
+        "class": "fstline",
+        "page": 5,
+        "is_meta": false,
+        "parent_id": 203,
+        "relation": "contain"
+    },
+    {
+        "text": "disambiguation. In Proceedings of the 51st Annual Meeting of the Association for Computational",
+        "box": [
+            81,
+            111,
+            524,
+            122
+        ],
+        "class": "para",
+        "page": 5,
+        "is_meta": false,
+        "parent_id": 204,
+        "relation": "connect"
+    },
+    {
+        "text": "Linguistics (Volume 2: Short Papers), Sofia, Bulgaria, pp. 69\u201373.",
+        "box": [
+            81,
+            124,
+            365,
+            136
+        ],
+        "class": "para",
+        "page": 5,
+        "is_meta": false,
+        "parent_id": 205,
+        "relation": "connect"
+    },
+    {
+        "text": "Braud, C. and P. Denis (2015). Comparing word representations for implicit discourse relation classifica-",
+        "box": [
+            70,
+            147,
+            526,
+            158
+        ],
+        "class": "fstline",
+        "page": 5,
+        "is_meta": false,
+        "parent_id": 204,
+        "relation": "equality"
+    },
+    {
+        "text": "tion. In Proceedings of the 2015 Conference on Empirical Methods in Natural Language Processing,",
+        "box": [
+            81,
+            160,
+            525,
+            171
+        ],
+        "class": "para",
+        "page": 5,
+        "is_meta": false,
+        "parent_id": 207,
+        "relation": "connect"
+    },
+    {
+        "text": "Lisbon, Portugal, pp. 2201\u20132211.",
+        "box": [
+            81,
+            174,
+            228,
+            185
+        ],
+        "class": "para",
+        "page": 5,
+        "is_meta": false,
+        "parent_id": 208,
+        "relation": "connect"
+    },
+    {
+        "text": "Chandrasekaran, M. K., C. Demmans Epp, M.-Y. Kan, and D. Litman (2017). Using discourse signals",
+        "box": [
+            70,
+            196,
+            524,
+            207
+        ],
+        "class": "fstline",
+        "page": 5,
+        "is_meta": false,
+        "parent_id": 207,
+        "relation": "equality"
+    },
+    {
+        "text": "for robust instructor intervention prediction. In 31st AAAI Conference on Artificial Intelligence, San",
+        "box": [
+            81,
+            210,
+            524,
+            221
+        ],
+        "class": "para",
+        "page": 5,
+        "is_meta": false,
+        "parent_id": 210,
+        "relation": "connect"
+    },
+    {
+        "text": "Francisco, California. to appear.",
+        "box": [
+            81,
+            223,
+            222,
+            234
+        ],
+        "class": "para",
+        "page": 5,
+        "is_meta": false,
+        "parent_id": 211,
+        "relation": "connect"
+    },
+    {
+        "text": "Cheng, H.-T., L. Koc, J. Harmsen, T. Shaked, T. Chandra, H. Aradhye, G. Anderson, G. Corrado, W. Chai,",
+        "box": [
+            70,
+            246,
+            525,
+            257
+        ],
+        "class": "fstline",
+        "page": 5,
+        "is_meta": false,
+        "parent_id": 210,
+        "relation": "equality"
+    },
+    {
+        "text": "M. Ispir, et al. (2016). Wide & deep learning for recommender systems. In Proceedings of the 1st",
+        "box": [
+            81,
+            259,
+            524,
+            270
+        ],
+        "class": "para",
+        "page": 5,
+        "is_meta": false,
+        "parent_id": 213,
+        "relation": "connect"
+    },
+    {
+        "text": "Workshop on Deep Learning for Recommender Systems, Boston, Massachusetts, pp. 7\u201310.",
+        "box": [
+            80,
+            273,
+            475,
+            284
+        ],
+        "class": "para",
+        "page": 5,
+        "is_meta": false,
+        "parent_id": 214,
+        "relation": "connect"
+    },
+    {
+        "text": "Fillmore, C. J. (1976). Frame semantics and the nature of language. In Annals of the New York Academy",
+        "box": [
+            70,
+            295,
+            524,
+            306
+        ],
+        "class": "fstline",
+        "page": 5,
+        "is_meta": false,
+        "parent_id": 213,
+        "relation": "equality"
+    },
+    {
+        "text": "of Sciences: Conference on the Origin and Development of Language and Speech, Volume 280, pp.",
+        "box": [
+            81,
+            308,
+            526,
+            320
+        ],
+        "class": "para",
+        "page": 5,
+        "is_meta": false,
+        "parent_id": 216,
+        "relation": "connect"
+    },
+    {
+        "text": "20\u201332.",
+        "box": [
+            81,
+            322,
+            111,
+            333
+        ],
+        "class": "para",
+        "page": 5,
+        "is_meta": false,
+        "parent_id": 217,
+        "relation": "connect"
+    },
+    {
+        "text": "Guzm\u00b4an, F., S. Joty, L. M`arquez, and P. Nakov (2014). Using discourse structure improves machine",
+        "box": [
+            70,
+            345,
+            524,
+            355
+        ],
+        "class": "fstline",
+        "page": 5,
+        "is_meta": false,
+        "parent_id": 216,
+        "relation": "equality"
+    },
+    {
+        "text": "translation evaluation. In Proceedings of the 52nd Annual Meeting of the Association for Computational",
+        "box": [
+            81,
+            358,
+            524,
+            369
+        ],
+        "class": "para",
+        "page": 5,
+        "is_meta": false,
+        "parent_id": 219,
+        "relation": "connect"
+    },
+    {
+        "text": "Linguistics (Volume 1: Long Papers), Baltimore, Maryland, pp. 687\u2013698.",
+        "box": [
+            81,
+            371,
+            401,
+            383
+        ],
+        "class": "para",
+        "page": 5,
+        "is_meta": false,
+        "parent_id": 220,
+        "relation": "connect"
+    },
+    {
+        "text": "Ji, Y. and J. Eisenstein (2014). Representation learning for text-level discourse parsing. In Proceedings of",
+        "box": [
+            70,
+            394,
+            524,
+            405
+        ],
+        "class": "fstline",
+        "page": 5,
+        "is_meta": false,
+        "parent_id": 219,
+        "relation": "equality"
+    },
+    {
+        "text": "the 52nd Annual Meeting of the Association for Computational Linguistics (Volume 1: Long Papers),",
+        "box": [
+            81,
+            407,
+            525,
+            418
+        ],
+        "class": "para",
+        "page": 5,
+        "is_meta": false,
+        "parent_id": 222,
+        "relation": "connect"
+    },
+    {
+        "text": "Baltimore, Maryland, pp. 13\u201324.",
+        "box": [
+            81,
+            421,
+            225,
+            432
+        ],
+        "class": "para",
+        "page": 5,
+        "is_meta": false,
+        "parent_id": 223,
+        "relation": "connect"
+    },
+    {
+        "text": "Kipper, K., A. Korhonen, N. Ryant, and M. Palmer (2008). A large-scale classification of english verbs.",
+        "box": [
+            70,
+            443,
+            526,
+            454
+        ],
+        "class": "fstline",
+        "page": 5,
+        "is_meta": false,
+        "parent_id": 222,
+        "relation": "equality"
+    },
+    {
+        "text": "Language Resources and Evaluation Journal 42(1), 21\u201340.",
+        "box": [
+            81,
+            457,
+            339,
+            468
+        ],
+        "class": "para",
+        "page": 5,
+        "is_meta": false,
+        "parent_id": 225,
+        "relation": "connect"
+    },
+    {
+        "text": "Kittler, J., M. Hatef, R. P. Duin, and J. Matas (1998). On combining classifiers. IEEE Transactions on",
+        "box": [
+            70,
+            479,
+            524,
+            490
+        ],
+        "class": "fstline",
+        "page": 5,
+        "is_meta": false,
+        "parent_id": 225,
+        "relation": "equality"
+    },
+    {
+        "text": "Pattern Analysis and Machine Intelligence 20(3), 226\u2013239.",
+        "box": [
+            81,
+            492,
+            339,
+            504
+        ],
+        "class": "para",
+        "page": 5,
+        "is_meta": false,
+        "parent_id": 227,
+        "relation": "connect"
+    },
+    {
+        "text": "Lan, M., Y. Xu, and Z. Niu (2013). Leveraging synthetic discourse data via multi-task learning for",
+        "box": [
+            70,
+            515,
+            524,
+            526
+        ],
+        "class": "fstline",
+        "page": 5,
+        "is_meta": false,
+        "parent_id": 227,
+        "relation": "equality"
+    },
+    {
+        "text": "implicit discourse relation recognition. In Proceedings of the 51st Annual Meeting of the Association",
+        "box": [
+            81,
+            528,
+            524,
+            539
+        ],
+        "class": "para",
+        "page": 5,
+        "is_meta": false,
+        "parent_id": 229,
+        "relation": "connect"
+    },
+    {
+        "text": "for Computational Linguistics (Volume 1: Long Papers), Sofia, Bulgaria, pp. 476\u2013485.",
+        "box": [
+            81,
+            542,
+            459,
+            553
+        ],
+        "class": "para",
+        "page": 5,
+        "is_meta": false,
+        "parent_id": 230,
+        "relation": "connect"
+    },
+    {
+        "text": "Lee, H., A. Chang, Y. Peirsman, N. Chambers, M. Surdeanu, and D. Jurafsky (2013). Deterministic",
+        "box": [
+            70,
+            564,
+            524,
+            575
+        ],
+        "class": "fstline",
+        "page": 5,
+        "is_meta": false,
+        "parent_id": 229,
+        "relation": "equality"
+    },
+    {
+        "text": "coreference resolution based on entity-centric, precision-ranked rules. Computational Linguistics 39(4),",
+        "box": [
+            81,
+            578,
+            525,
+            589
+        ],
+        "class": "para",
+        "page": 5,
+        "is_meta": false,
+        "parent_id": 232,
+        "relation": "connect"
+    },
+    {
+        "text": "885\u2013916.",
+        "box": [
+            81,
+            592,
+            122,
+            602
+        ],
+        "class": "para",
+        "page": 5,
+        "is_meta": false,
+        "parent_id": 233,
+        "relation": "connect"
+    },
+    {
+        "text": "Lin, Z., M.-Y. Kan, and H. T. Ng (2009). Recognizing implicit discourse relations in the Penn Dis-",
+        "box": [
+            70,
+            614,
+            526,
+            625
+        ],
+        "class": "fstline",
+        "page": 5,
+        "is_meta": false,
+        "parent_id": 232,
+        "relation": "equality"
+    },
+    {
+        "text": "course Treebank. In Proceedings of the 2009 Conference on Empirical Methods in Natural Language",
+        "box": [
+            81,
+            627,
+            524,
+            638
+        ],
+        "class": "para",
+        "page": 5,
+        "is_meta": false,
+        "parent_id": 235,
+        "relation": "connect"
+    },
+    {
+        "text": "Processing, Singapore, pp. 343\u2013351.",
+        "box": [
+            81,
+            641,
+            241,
+            652
+        ],
+        "class": "para",
+        "page": 5,
+        "is_meta": false,
+        "parent_id": 236,
+        "relation": "connect"
+    },
+    {
+        "text": "Liu, Y. and S. Li (2016). Recognizing implicit discourse relations via repeated reading: Neural networks",
+        "box": [
+            70,
+            663,
+            524,
+            674
+        ],
+        "class": "fstline",
+        "page": 5,
+        "is_meta": false,
+        "parent_id": 235,
+        "relation": "equality"
+    },
+    {
+        "text": "with multi-level attention. In Proceedings of the 2016 Conference on Empirical Methods in Natural",
+        "box": [
+            81,
+            676,
+            524,
+            688
+        ],
+        "class": "para",
+        "page": 5,
+        "is_meta": false,
+        "parent_id": 238,
+        "relation": "connect"
+    },
+    {
+        "text": "Language Processing, Austin, Texas, pp. 1224\u20131233.",
+        "box": [
+            81,
+            690,
+            314,
+            701
+        ],
+        "class": "para",
+        "page": 5,
+        "is_meta": false,
+        "parent_id": 239,
+        "relation": "connect"
+    },
+    {
+        "text": "Louis, A., A. Joshi, and A. Nenkova (2010). Discourse indicators for content selection in summarization.",
+        "box": [
+            70,
+            713,
+            526,
+            723
+        ],
+        "class": "fstline",
+        "page": 5,
+        "is_meta": false,
+        "parent_id": 238,
+        "relation": "equality"
+    },
+    {
+        "text": "In Proceedings of the SIGDIAL 2010 Conference, Tokyo, Japan, pp. 147\u2013156.",
+        "box": [
+            81,
+            726,
+            421,
+            737
+        ],
+        "class": "para",
+        "page": 5,
+        "is_meta": false,
+        "parent_id": 241,
+        "relation": "connect"
+    },
+    {
+        "text": "Louis, A., A. Joshi, R. Prasad, and A. Nenkova (2010). Using entity features to classify implicit discourse",
+        "box": [
+            70,
+            748,
+            524,
+            759
+        ],
+        "class": "fstline",
+        "page": 5,
+        "is_meta": false,
+        "parent_id": 241,
+        "relation": "equality"
+    },
+    {
+        "text": "relations. In Proceedings of the SIGDIAL 2010 Conference, Tokyo, Japan, pp. 59\u201362.",
+        "box": [
+            81,
+            762,
+            455,
+            773
+        ],
+        "class": "para",
+        "page": 5,
+        "is_meta": false,
+        "parent_id": 243,
+        "relation": "connect"
+    },
+    {
+        "text": "Mann, W. C. and S. A. Thompson (1988). Rhetorical structure theory. Toward a functional theory of text",
+        "box": [
+            70,
+            73,
+            524,
+            84
+        ],
+        "class": "fstline",
+        "page": 6,
+        "is_meta": false,
+        "parent_id": 243,
+        "relation": "equality"
+    },
+    {
+        "text": "organization. Text 8(3), 243\u2013281.",
+        "box": [
+            81,
+            86,
+            227,
+            97
+        ],
+        "class": "para",
+        "page": 6,
+        "is_meta": false,
+        "parent_id": 245,
+        "relation": "connect"
+    },
+    {
+        "text": "Marcu, D. and A. Echihabi (2002). An unsupervised approach to recognizing discourse relations. In",
+        "box": [
+            70,
+            109,
+            524,
+            120
+        ],
+        "class": "fstline",
+        "page": 6,
+        "is_meta": false,
+        "parent_id": 245,
+        "relation": "equality"
+    },
+    {
+        "text": "Proceedings of 40th Annual Meeting of the Association for Computational Linguistics, Philadelphia,",
+        "box": [
+            81,
+            122,
+            525,
+            133
+        ],
+        "class": "para",
+        "page": 6,
+        "is_meta": false,
+        "parent_id": 247,
+        "relation": "connect"
+    },
+    {
+        "text": "Pennsylvania, pp. 368\u2013375.",
+        "box": [
+            81,
+            136,
+            202,
+            147
+        ],
+        "class": "para",
+        "page": 6,
+        "is_meta": false,
+        "parent_id": 248,
+        "relation": "connect"
+    },
+    {
+        "text": "Mu-Chu, L., C. Wei-Lin, and L. Chih-Jen (2015). Fast matrix-vector multiplications for large-scale",
+        "box": [
+            70,
+            158,
+            524,
+            169
+        ],
+        "class": "fstline",
+        "page": 6,
+        "is_meta": false,
+        "parent_id": 247,
+        "relation": "equality"
+    },
+    {
+        "text": "logistic regression on shared-memory systems. In IEEE International Conference on Data Mining,",
+        "box": [
+            81,
+            172,
+            525,
+            183
+        ],
+        "class": "para",
+        "page": 6,
+        "is_meta": false,
+        "parent_id": 250,
+        "relation": "connect"
+    },
+    {
+        "text": "Atlantic City, New Jersey.",
+        "box": [
+            81,
+            186,
+            194,
+            196
+        ],
+        "class": "para",
+        "page": 6,
+        "is_meta": false,
+        "parent_id": 251,
+        "relation": "connect"
+    },
+    {
+        "text": "Narasimhan, K. and R. Barzilay (2015). Machine comprehension with discourse relations. In Proceedings",
+        "box": [
+            70,
+            208,
+            524,
+            219
+        ],
+        "class": "fstline",
+        "page": 6,
+        "is_meta": false,
+        "parent_id": 250,
+        "relation": "equality"
+    },
+    {
+        "text": "of the 53rd Annual Meeting of the Association for Computational Linguistics and the 7th International",
+        "box": [
+            81,
+            221,
+            524,
+            232
+        ],
+        "class": "para",
+        "page": 6,
+        "is_meta": false,
+        "parent_id": 253,
+        "relation": "connect"
+    },
+    {
+        "text": "Joint Conference on Natural Language Processing (Volume 1: Long Papers), Beijing, China, pp.",
+        "box": [
+            81,
+            235,
+            526,
+            246
+        ],
+        "class": "para",
+        "page": 6,
+        "is_meta": false,
+        "parent_id": 254,
+        "relation": "connect"
+    },
+    {
+        "text": "1253\u20131262.",
+        "box": [
+            80,
+            249,
+            132,
+            260
+        ],
+        "class": "para",
+        "page": 6,
+        "is_meta": false,
+        "parent_id": 255,
+        "relation": "connect"
+    },
+    {
+        "text": "Palmer, M., D. Gildea, and P. Kingsbury (2005). The Proposition bank: An annotated corpus of semantic",
+        "box": [
+            70,
+            271,
+            524,
+            282
+        ],
+        "class": "fstline",
+        "page": 6,
+        "is_meta": false,
+        "parent_id": 253,
+        "relation": "equality"
+    },
+    {
+        "text": "roles. Computational Linguistics 31(1), 71\u2013106.",
+        "box": [
+            81,
+            285,
+            292,
+            296
+        ],
+        "class": "para",
+        "page": 6,
+        "is_meta": false,
+        "parent_id": 257,
+        "relation": "connect"
+    },
+    {
+        "text": "Park, J. and C. Cardie (2012). Improving implicit discourse relation recognition through feature set",
+        "box": [
+            70,
+            307,
+            524,
+            318
+        ],
+        "class": "fstline",
+        "page": 6,
+        "is_meta": false,
+        "parent_id": 257,
+        "relation": "equality"
+    },
+    {
+        "text": "optimization. In Proceedings of the 13th Annual Meeting of the Special Interest Group on Discourse",
+        "box": [
+            81,
+            321,
+            524,
+            332
+        ],
+        "class": "para",
+        "page": 6,
+        "is_meta": false,
+        "parent_id": 259,
+        "relation": "connect"
+    },
+    {
+        "text": "and Dialogue, Seoul, South Korea, pp. 108\u2013112.",
+        "box": [
+            81,
+            334,
+            294,
+            345
+        ],
+        "class": "para",
+        "page": 6,
+        "is_meta": false,
+        "parent_id": 260,
+        "relation": "connect"
+    },
+    {
+        "text": "Pitler, E., A. Louis, and A. Nenkova (2009). Automatic sense prediction for implicit discourse relations",
+        "box": [
+            70,
+            357,
+            524,
+            368
+        ],
+        "class": "fstline",
+        "page": 6,
+        "is_meta": false,
+        "parent_id": 259,
+        "relation": "equality"
+    },
+    {
+        "text": "in text. In Proceedings of the Joint Conference of the 47th Annual Meeting of the ACL and the 4th",
+        "box": [
+            81,
+            370,
+            524,
+            381
+        ],
+        "class": "para",
+        "page": 6,
+        "is_meta": false,
+        "parent_id": 262,
+        "relation": "connect"
+    },
+    {
+        "text": "International Joint Conference on Natural Language Processing of the AFNLP, Suntec, Singapore, pp.",
+        "box": [
+            81,
+            384,
+            526,
+            395
+        ],
+        "class": "para",
+        "page": 6,
+        "is_meta": false,
+        "parent_id": 263,
+        "relation": "connect"
+    },
+    {
+        "text": "683\u2013691.",
+        "box": [
+            81,
+            398,
+            122,
+            408
+        ],
+        "class": "para",
+        "page": 6,
+        "is_meta": false,
+        "parent_id": 264,
+        "relation": "connect"
+    },
+    {
+        "text": "Pitler, E., M. Raghupathy, H. Mehta, A. Nenkova, A. Lee, and A. Joshi (2008). Easily identifiable",
+        "box": [
+            70,
+            420,
+            524,
+            431
+        ],
+        "class": "fstline",
+        "page": 6,
+        "is_meta": false,
+        "parent_id": 262,
+        "relation": "equality"
+    },
+    {
+        "text": "discourse relations. In Coling 2008: Companion volume: Posters, Manchester, United Kingdom, pp.",
+        "box": [
+            81,
+            433,
+            526,
+            445
+        ],
+        "class": "para",
+        "page": 6,
+        "is_meta": false,
+        "parent_id": 266,
+        "relation": "connect"
+    },
+    {
+        "text": "87\u201390.",
+        "box": [
+            81,
+            447,
+            111,
+            458
+        ],
+        "class": "para",
+        "page": 6,
+        "is_meta": false,
+        "parent_id": 267,
+        "relation": "connect"
+    },
+    {
+        "text": "Prasad, R., N. Dinesh, A. Lee, E. Miltsakaki, L. Robaldo, A. K. Joshi, and B. L. Webber (2008). The Penn",
+        "box": [
+            70,
+            470,
+            524,
+            481
+        ],
+        "class": "fstline",
+        "page": 6,
+        "is_meta": false,
+        "parent_id": 266,
+        "relation": "equality"
+    },
+    {
+        "text": "Discourse TreeBank 2.0. In Proceedings of the Sixth International Conference on Language Resources",
+        "box": [
+            81,
+            483,
+            524,
+            494
+        ],
+        "class": "para",
+        "page": 6,
+        "is_meta": false,
+        "parent_id": 269,
+        "relation": "connect"
+    },
+    {
+        "text": "and Evaluation (LREC-2008), Marrakesh, Marocco.",
+        "box": [
+            81,
+            497,
+            309,
+            508
+        ],
+        "class": "para",
+        "page": 6,
+        "is_meta": false,
+        "parent_id": 270,
+        "relation": "connect"
+    },
+    {
+        "text": "Prasad, R., E. Miltsakaki, N. Dinesh, A. Lee, A. Joshi, L. Robaldo, and B. Webber (2007). The penn",
+        "box": [
+            70,
+            519,
+            524,
+            530
+        ],
+        "class": "fstline",
+        "page": 6,
+        "is_meta": false,
+        "parent_id": 269,
+        "relation": "equality"
+    },
+    {
+        "text": "discourse treebank 2.0 annotation manual. Technical report.",
+        "box": [
+            81,
+            533,
+            343,
+            544
+        ],
+        "class": "para",
+        "page": 6,
+        "is_meta": false,
+        "parent_id": 272,
+        "relation": "connect"
+    },
+    {
+        "text": "Qin, L., Z. Zhang, and H. Zhao (2016). A stacking gated neural architecture for implicit discourse relation",
+        "box": [
+            70,
+            555,
+            524,
+            566
+        ],
+        "class": "fstline",
+        "page": 6,
+        "is_meta": false,
+        "parent_id": 272,
+        "relation": "equality"
+    },
+    {
+        "text": "classification. In Proceedings of the 2016 Conference on Empirical Methods in Natural Language",
+        "box": [
+            81,
+            569,
+            524,
+            580
+        ],
+        "class": "para",
+        "page": 6,
+        "is_meta": false,
+        "parent_id": 274,
+        "relation": "connect"
+    },
+    {
+        "text": "Processing, Austin, Texas, pp. 2263\u20132270.",
+        "box": [
+            81,
+            582,
+            268,
+            593
+        ],
+        "class": "para",
+        "page": 6,
+        "is_meta": false,
+        "parent_id": 275,
+        "relation": "connect"
+    },
+    {
+        "text": "Qin, L., Z. Zhang, H. Zhao, Z. Hu, and E. Xing (2017). Adversarial connective-exploiting networks",
+        "box": [
+            70,
+            605,
+            524,
+            616
+        ],
+        "class": "fstline",
+        "page": 6,
+        "is_meta": false,
+        "parent_id": 274,
+        "relation": "equality"
+    },
+    {
+        "text": "for implicit discourse relation classification. In Proceedings of the 55th Annual Meeting of the",
+        "box": [
+            81,
+            618,
+            524,
+            629
+        ],
+        "class": "para",
+        "page": 6,
+        "is_meta": false,
+        "parent_id": 277,
+        "relation": "connect"
+    },
+    {
+        "text": "Association for Computational Linguistics (Volume 1: Long Papers), Vancouver, Canada, pp. 1006\u2013",
+        "box": [
+            81,
+            632,
+            526,
+            643
+        ],
+        "class": "para",
+        "page": 6,
+        "is_meta": false,
+        "parent_id": 278,
+        "relation": "connect"
+    },
+    {
+        "text": "1017. Association for Computational Linguistics.",
+        "box": [
+            80,
+            646,
+            296,
+            657
+        ],
+        "class": "para",
+        "page": 6,
+        "is_meta": false,
+        "parent_id": 279,
+        "relation": "connect"
+    },
+    {
+        "text": "Roth, M. (2016). Improving frame semantic parsing via dependency path embeddings. In Book of",
+        "box": [
+            70,
+            668,
+            524,
+            679
+        ],
+        "class": "fstline",
+        "page": 6,
+        "is_meta": false,
+        "parent_id": 277,
+        "relation": "equality"
+    },
+    {
+        "text": "Abstracts of the 9th International Conference on Construction Grammar, Juiz de Fora, Brazil, pp.",
+        "box": [
+            81,
+            681,
+            526,
+            693
+        ],
+        "class": "para",
+        "page": 6,
+        "is_meta": false,
+        "parent_id": 281,
+        "relation": "connect"
+    },
+    {
+        "text": "165\u2013167.",
+        "box": [
+            80,
+            695,
+            121,
+            706
+        ],
+        "class": "para",
+        "page": 6,
+        "is_meta": false,
+        "parent_id": 282,
+        "relation": "connect"
+    },
+    {
+        "text": "Roth, M. and M. Lapata (2016). Neural semantic role labeling with dependency path embeddings. In",
+        "box": [
+            70,
+            718,
+            524,
+            729
+        ],
+        "class": "fstline",
+        "page": 6,
+        "is_meta": false,
+        "parent_id": 281,
+        "relation": "equality"
+    },
+    {
+        "text": "Proceedings of the 54th Annual Meeting of the Association for Computational Linguistics (Volume 1:",
+        "box": [
+            81,
+            731,
+            526,
+            742
+        ],
+        "class": "para",
+        "page": 6,
+        "is_meta": false,
+        "parent_id": 284,
+        "relation": "connect"
+    },
+    {
+        "text": "Long Papers), Berlin, Germany, pp. 1192\u20131202.",
+        "box": [
+            81,
+            745,
+            291,
+            756
+        ],
+        "class": "para",
+        "page": 6,
+        "is_meta": false,
+        "parent_id": 285,
+        "relation": "connect"
+    },
+    {
+        "text": "Ruppenhofer, J., M. Ellsworth, M. R. L. Petruck, C. R. Johnson, and J. Scheffczyk (2010). FrameNet II:",
+        "box": [
+            70,
+            73,
+            525,
+            84
+        ],
+        "class": "fstline",
+        "page": 7,
+        "is_meta": false,
+        "parent_id": 284,
+        "relation": "equality"
+    },
+    {
+        "text": "Extended Theory and Practice. Technical report, International Computer Science Institute.",
+        "box": [
+            81,
+            86,
+            476,
+            97
+        ],
+        "class": "para",
+        "page": 7,
+        "is_meta": false,
+        "parent_id": 287,
+        "relation": "connect"
+    },
+    {
+        "text": "Rutherford, A. and N. Xue (2014). Discovering implicit discourse relations through brown cluster pair",
+        "box": [
+            70,
+            109,
+            524,
+            120
+        ],
+        "class": "fstline",
+        "page": 7,
+        "is_meta": false,
+        "parent_id": 287,
+        "relation": "equality"
+    },
+    {
+        "text": "representation and coreference patterns. In Proceedings of the 14th Conference of the European Chapter",
+        "box": [
+            81,
+            122,
+            524,
+            133
+        ],
+        "class": "para",
+        "page": 7,
+        "is_meta": false,
+        "parent_id": 289,
+        "relation": "connect"
+    },
+    {
+        "text": "of the Association for Computational Linguistics, Gothenburg, Sweden, pp. 645\u2013654.",
+        "box": [
+            81,
+            136,
+            454,
+            147
+        ],
+        "class": "para",
+        "page": 7,
+        "is_meta": false,
+        "parent_id": 290,
+        "relation": "connect"
+    },
+    {
+        "text": "Rutherford, A. and N. Xue (2015). Improving the inference of implicit discourse relations via classifying",
+        "box": [
+            70,
+            158,
+            524,
+            169
+        ],
+        "class": "fstline",
+        "page": 7,
+        "is_meta": false,
+        "parent_id": 289,
+        "relation": "equality"
+    },
+    {
+        "text": "explicit discourse connectives. In Proceedings of the 2015 Conference of the North American Chapter",
+        "box": [
+            81,
+            172,
+            524,
+            183
+        ],
+        "class": "para",
+        "page": 7,
+        "is_meta": false,
+        "parent_id": 292,
+        "relation": "connect"
+    },
+    {
+        "text": "of the Association for Computational Linguistics: Human Language Technologies, Denver, Colorado,",
+        "box": [
+            81,
+            185,
+            525,
+            196
+        ],
+        "class": "para",
+        "page": 7,
+        "is_meta": false,
+        "parent_id": 293,
+        "relation": "connect"
+    },
+    {
+        "text": "pp. 799\u2013808.",
+        "box": [
+            81,
+            199,
+            139,
+            210
+        ],
+        "class": "para",
+        "page": 7,
+        "is_meta": false,
+        "parent_id": 294,
+        "relation": "connect"
+    },
+    {
+        "text": "Sennrich, R. and B. Haddow (2016). Linguistic input features improve neural machine translation. In",
+        "box": [
+            70,
+            222,
+            524,
+            233
+        ],
+        "class": "fstline",
+        "page": 7,
+        "is_meta": false,
+        "parent_id": 292,
+        "relation": "equality"
+    },
+    {
+        "text": "Proceedings of the First Conference on Machine Translation, Berlin, Germany, pp. 83\u201391.",
+        "box": [
+            81,
+            235,
+            475,
+            246
+        ],
+        "class": "para",
+        "page": 7,
+        "is_meta": false,
+        "parent_id": 296,
+        "relation": "connect"
+    },
+    {
+        "text": "Turian, J., L.-A. Ratinov, and Y. Bengio (2010). Word representations: A simple and general method",
+        "box": [
+            70,
+            258,
+            524,
+            269
+        ],
+        "class": "fstline",
+        "page": 7,
+        "is_meta": false,
+        "parent_id": 296,
+        "relation": "equality"
+    },
+    {
+        "text": "for semi-supervised learning. In Proceedings of the 48th Annual Meeting of the Association for",
+        "box": [
+            81,
+            271,
+            524,
+            282
+        ],
+        "class": "para",
+        "page": 7,
+        "is_meta": false,
+        "parent_id": 298,
+        "relation": "connect"
+    },
+    {
+        "text": "Computational Linguistics, Uppsala, Sweden, pp. 384\u2013394.",
+        "box": [
+            81,
+            285,
+            341,
+            296
+        ],
+        "class": "para",
+        "page": 7,
+        "is_meta": false,
+        "parent_id": 299,
+        "relation": "connect"
+    },
+    {
+        "text": "Xue, N., H. T. Ng, S. Pradhan, A. Rutherford, B. Webber, C. Wang, and H. Wang (2016). Conll 2016",
+        "box": [
+            70,
+            307,
+            524,
+            318
+        ],
+        "class": "fstline",
+        "page": 7,
+        "is_meta": false,
+        "parent_id": 298,
+        "relation": "equality"
+    },
+    {
+        "text": "shared task on multilingual shallow discourse parsing. In Proceedings of the CoNLL-16 shared task,",
+        "box": [
+            81,
+            321,
+            525,
+            332
+        ],
+        "class": "para",
+        "page": 7,
+        "is_meta": false,
+        "parent_id": 301,
+        "relation": "connect"
+    },
+    {
+        "text": "Berlin, Germany, pp. 1\u201319.",
+        "box": [
+            81,
+            334,
+            200,
+            345
+        ],
+        "class": "para",
+        "page": 7,
+        "is_meta": false,
+        "parent_id": 302,
+        "relation": "connect"
+    },
+    {
+        "text": "Zhang, B., J. Su, D. Xiong, Y. Lu, H. Duan, and J. Yao (2015). Shallow convolutional neural network for",
+        "box": [
+            70,
+            357,
+            524,
+            368
+        ],
+        "class": "fstline",
+        "page": 7,
+        "is_meta": false,
+        "parent_id": 301,
+        "relation": "equality"
+    },
+    {
+        "text": "implicit discourse relation recognition. In Proceedings of the 2015 Conference on Empirical Methods",
+        "box": [
+            81,
+            370,
+            524,
+            381
+        ],
+        "class": "para",
+        "page": 7,
+        "is_meta": false,
+        "parent_id": 304,
+        "relation": "connect"
+    },
+    {
+        "text": "in Natural Language Processing, Lisbon, Portugal, pp. 2230\u20132235.",
+        "box": [
+            81,
+            384,
+            375,
+            395
+        ],
+        "class": "para",
+        "page": 7,
+        "is_meta": false,
+        "parent_id": 305,
+        "relation": "connect"
+    }
+]

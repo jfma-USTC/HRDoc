@@ -1,0 +1,7997 @@
+[
+    {
+        "text": "Learning to Understand Child-directed and Adult-directed Speech",
+        "box": [
+            95,
+            70,
+            502,
+            84
+        ],
+        "class": "title",
+        "page": 0,
+        "is_meta": true,
+        "line_id": 0,
+        "parent_id": -1,
+        "relation": "meta"
+    },
+    {
+        "text": "Lieke Gelderloos",
+        "box": [
+            107,
+            119,
+            194,
+            131
+        ],
+        "class": "author",
+        "page": 0,
+        "is_meta": true,
+        "line_id": 1,
+        "parent_id": -1,
+        "relation": "meta"
+    },
+    {
+        "text": "Tilburg University",
+        "box": [
+            106,
+            133,
+            194,
+            145
+        ],
+        "class": "affili",
+        "page": 0,
+        "is_meta": true,
+        "line_id": 2,
+        "parent_id": -1,
+        "relation": "meta"
+    },
+    {
+        "text": "l.j.gelderloos@uvt.nl",
+        "box": [
+            75,
+            147,
+            227,
+            160
+        ],
+        "class": "mail",
+        "page": 0,
+        "is_meta": true,
+        "line_id": 3,
+        "parent_id": -1,
+        "relation": "meta"
+    },
+    {
+        "text": "Grzegorz Chrupa\u0142a",
+        "box": [
+            248,
+            119,
+            350,
+            132
+        ],
+        "class": "author",
+        "page": 0,
+        "is_meta": true,
+        "line_id": 4,
+        "parent_id": -1,
+        "relation": "meta"
+    },
+    {
+        "text": "Tilburg University",
+        "box": [
+            254,
+            133,
+            342,
+            145
+        ],
+        "class": "affili",
+        "page": 0,
+        "is_meta": true,
+        "line_id": 5,
+        "parent_id": -1,
+        "relation": "meta"
+    },
+    {
+        "text": "g.chrupala@uvt.nl",
+        "box": [
+            237,
+            147,
+            359,
+            159
+        ],
+        "class": "mail",
+        "page": 0,
+        "is_meta": true,
+        "line_id": 6,
+        "parent_id": -1,
+        "relation": "meta"
+    },
+    {
+        "text": "Afra Alishahi",
+        "box": [
+            413,
+            119,
+            482,
+            131
+        ],
+        "class": "author",
+        "page": 0,
+        "is_meta": true,
+        "line_id": 7,
+        "parent_id": -1,
+        "relation": "meta"
+    },
+    {
+        "text": "Tilburg University",
+        "box": [
+            404,
+            133,
+            492,
+            145
+        ],
+        "class": "affili",
+        "page": 0,
+        "is_meta": true,
+        "line_id": 8,
+        "parent_id": -1,
+        "relation": "meta"
+    },
+    {
+        "text": "a.alishahi@uvt.nl",
+        "box": [
+            387,
+            147,
+            509,
+            159
+        ],
+        "class": "mail",
+        "page": 0,
+        "is_meta": true,
+        "line_id": 9,
+        "parent_id": -1,
+        "relation": "meta"
+    },
+    {
+        "text": "Abstract",
+        "box": [
+            158,
+            224,
+            203,
+            235
+        ],
+        "class": "sec1",
+        "page": 0,
+        "is_meta": false,
+        "line_id": 10,
+        "parent_id": -1,
+        "relation": "contain"
+    },
+    {
+        "text": "Speech directed to children differs from adult-",
+        "box": [
+            87,
+            245,
+            275,
+            256
+        ],
+        "class": "fstline",
+        "page": 0,
+        "is_meta": false,
+        "line_id": 11,
+        "parent_id": 10,
+        "relation": "contain"
+    },
+    {
+        "text": "directed speech in linguistic aspects such as",
+        "box": [
+            89,
+            257,
+            274,
+            268
+        ],
+        "class": "para",
+        "page": 0,
+        "is_meta": false,
+        "line_id": 12,
+        "parent_id": 11,
+        "relation": "connect"
+    },
+    {
+        "text": "repetition, word choice, and sentence length,",
+        "box": [
+            89,
+            269,
+            275,
+            279
+        ],
+        "class": "para",
+        "page": 0,
+        "is_meta": false,
+        "line_id": 13,
+        "parent_id": 12,
+        "relation": "connect"
+    },
+    {
+        "text": "as well as in aspects of the speech signal it-",
+        "box": [
+            89,
+            281,
+            275,
+            291
+        ],
+        "class": "para",
+        "page": 0,
+        "is_meta": false,
+        "line_id": 14,
+        "parent_id": 13,
+        "relation": "connect"
+    },
+    {
+        "text": "self, such as prosodic and phonemic varia-",
+        "box": [
+            89,
+            293,
+            276,
+            303
+        ],
+        "class": "para",
+        "page": 0,
+        "is_meta": false,
+        "line_id": 15,
+        "parent_id": 14,
+        "relation": "connect"
+    },
+    {
+        "text": "tion. Human language acquisition research",
+        "box": [
+            89,
+            305,
+            273,
+            314
+        ],
+        "class": "para",
+        "page": 0,
+        "is_meta": false,
+        "line_id": 16,
+        "parent_id": 15,
+        "relation": "connect"
+    },
+    {
+        "text": "indicates that child-directed speech helps lan-",
+        "box": [
+            89,
+            316,
+            274,
+            326
+        ],
+        "class": "para",
+        "page": 0,
+        "is_meta": false,
+        "line_id": 17,
+        "parent_id": 16,
+        "relation": "connect"
+    },
+    {
+        "text": "guage learners. This study explores the ef-",
+        "box": [
+            89,
+            328,
+            274,
+            338
+        ],
+        "class": "para",
+        "page": 0,
+        "is_meta": false,
+        "line_id": 18,
+        "parent_id": 17,
+        "relation": "connect"
+    },
+    {
+        "text": "fect of child-directed speech when learning to",
+        "box": [
+            89,
+            340,
+            273,
+            350
+        ],
+        "class": "para",
+        "page": 0,
+        "is_meta": false,
+        "line_id": 19,
+        "parent_id": 18,
+        "relation": "connect"
+    },
+    {
+        "text": "extract semantic information from speech di-",
+        "box": [
+            89,
+            352,
+            274,
+            362
+        ],
+        "class": "para",
+        "page": 0,
+        "is_meta": false,
+        "line_id": 20,
+        "parent_id": 19,
+        "relation": "connect"
+    },
+    {
+        "text": "rectly. We compare the task performance of",
+        "box": [
+            89,
+            364,
+            273,
+            374
+        ],
+        "class": "para",
+        "page": 0,
+        "is_meta": false,
+        "line_id": 21,
+        "parent_id": 20,
+        "relation": "connect"
+    },
+    {
+        "text": "models trained on adult-directed speech (ADS)",
+        "box": [
+            89,
+            376,
+            273,
+            386
+        ],
+        "class": "para",
+        "page": 0,
+        "is_meta": false,
+        "line_id": 22,
+        "parent_id": 21,
+        "relation": "connect"
+    },
+    {
+        "text": "and child-directed speech (CDS). We find in-",
+        "box": [
+            89,
+            388,
+            274,
+            398
+        ],
+        "class": "para",
+        "page": 0,
+        "is_meta": false,
+        "line_id": 23,
+        "parent_id": 22,
+        "relation": "connect"
+    },
+    {
+        "text": "dications that CDS helps in the initial stages",
+        "box": [
+            89,
+            400,
+            273,
+            410
+        ],
+        "class": "para",
+        "page": 0,
+        "is_meta": false,
+        "line_id": 24,
+        "parent_id": 23,
+        "relation": "connect"
+    },
+    {
+        "text": "of learning, but eventually, models trained on",
+        "box": [
+            89,
+            412,
+            273,
+            422
+        ],
+        "class": "para",
+        "page": 0,
+        "is_meta": false,
+        "line_id": 25,
+        "parent_id": 24,
+        "relation": "connect"
+    },
+    {
+        "text": "ADS reach comparable task performance, and",
+        "box": [
+            88,
+            424,
+            273,
+            434
+        ],
+        "class": "para",
+        "page": 0,
+        "is_meta": false,
+        "line_id": 26,
+        "parent_id": 25,
+        "relation": "connect"
+    },
+    {
+        "text": "generalize better. The results suggest that this",
+        "box": [
+            89,
+            436,
+            273,
+            446
+        ],
+        "class": "para",
+        "page": 0,
+        "is_meta": false,
+        "line_id": 27,
+        "parent_id": 26,
+        "relation": "connect"
+    },
+    {
+        "text": "is at least partially due to linguistic rather than",
+        "box": [
+            89,
+            448,
+            273,
+            458
+        ],
+        "class": "para",
+        "page": 0,
+        "is_meta": false,
+        "line_id": 28,
+        "parent_id": 27,
+        "relation": "connect"
+    },
+    {
+        "text": "acoustic properties of the two registers, as we",
+        "box": [
+            89,
+            460,
+            273,
+            470
+        ],
+        "class": "para",
+        "page": 0,
+        "is_meta": false,
+        "line_id": 29,
+        "parent_id": 28,
+        "relation": "connect"
+    },
+    {
+        "text": "see the same pattern when looking at models",
+        "box": [
+            89,
+            472,
+            273,
+            482
+        ],
+        "class": "para",
+        "page": 0,
+        "is_meta": false,
+        "line_id": 30,
+        "parent_id": 29,
+        "relation": "connect"
+    },
+    {
+        "text": "trained on acoustically comparable synthetic",
+        "box": [
+            89,
+            484,
+            273,
+            494
+        ],
+        "class": "para",
+        "page": 0,
+        "is_meta": false,
+        "line_id": 31,
+        "parent_id": 30,
+        "relation": "connect"
+    },
+    {
+        "text": "speech.",
+        "box": [
+            89,
+            496,
+            118,
+            506
+        ],
+        "class": "para",
+        "page": 0,
+        "is_meta": false,
+        "line_id": 32,
+        "parent_id": 31,
+        "relation": "connect"
+    },
+    {
+        "text": "1 Introduction",
+        "box": [
+            72,
+            516,
+            154,
+            528
+        ],
+        "class": "sec1",
+        "page": 0,
+        "is_meta": false,
+        "line_id": 33,
+        "parent_id": 10,
+        "relation": "equality"
+    },
+    {
+        "text": "Speech directed to children (CDS) differs from",
+        "box": [
+            72,
+            537,
+            290,
+            548
+        ],
+        "class": "fstline",
+        "page": 0,
+        "is_meta": false,
+        "line_id": 34,
+        "parent_id": 33,
+        "relation": "contain"
+    },
+    {
+        "text": "adult-directed speech (ADS) in many aspects. Lin-",
+        "box": [
+            72,
+            551,
+            292,
+            562
+        ],
+        "class": "para",
+        "page": 0,
+        "is_meta": false,
+        "line_id": 35,
+        "parent_id": 34,
+        "relation": "connect"
+    },
+    {
+        "text": "guistic differences include the number of words per",
+        "box": [
+            72,
+            564,
+            290,
+            575
+        ],
+        "class": "para",
+        "page": 0,
+        "is_meta": false,
+        "line_id": 36,
+        "parent_id": 35,
+        "relation": "connect"
+    },
+    {
+        "text": "utterance, with utterances in CDS being consider-",
+        "box": [
+            72,
+            578,
+            292,
+            589
+        ],
+        "class": "para",
+        "page": 0,
+        "is_meta": false,
+        "line_id": 37,
+        "parent_id": 36,
+        "relation": "connect"
+    },
+    {
+        "text": "ably shorter than utterances in ADS, and repetition,",
+        "box": [
+            72,
+            591,
+            291,
+            602
+        ],
+        "class": "para",
+        "page": 0,
+        "is_meta": false,
+        "line_id": 38,
+        "parent_id": 37,
+        "relation": "connect"
+    },
+    {
+        "text": "which is more common in child-directed speech.",
+        "box": [
+            71,
+            605,
+            292,
+            616
+        ],
+        "class": "para",
+        "page": 0,
+        "is_meta": false,
+        "line_id": 39,
+        "parent_id": 38,
+        "relation": "connect"
+    },
+    {
+        "text": "There are also paralinguistic, acoustic factors that",
+        "box": [
+            71,
+            618,
+            290,
+            629
+        ],
+        "class": "para",
+        "page": 0,
+        "is_meta": false,
+        "line_id": 40,
+        "parent_id": 39,
+        "relation": "connect"
+    },
+    {
+        "text": "characterize child-directed speech: people speak-",
+        "box": [
+            72,
+            632,
+            292,
+            643
+        ],
+        "class": "para",
+        "page": 0,
+        "is_meta": false,
+        "line_id": 41,
+        "parent_id": 40,
+        "relation": "connect"
+    },
+    {
+        "text": "ing to children typically use a higher pitch and",
+        "box": [
+            72,
+            646,
+            290,
+            656
+        ],
+        "class": "para",
+        "page": 0,
+        "is_meta": false,
+        "line_id": 42,
+        "parent_id": 41,
+        "relation": "connect"
+    },
+    {
+        "text": "exaggerated intonation.",
+        "box": [
+            72,
+            659,
+            174,
+            670
+        ],
+        "class": "para",
+        "page": 0,
+        "is_meta": false,
+        "line_id": 43,
+        "parent_id": 42,
+        "relation": "connect"
+    },
+    {
+        "text": "It has been argued that the properties of CDS",
+        "box": [
+            82,
+            673,
+            290,
+            684
+        ],
+        "class": "fstline",
+        "page": 0,
+        "is_meta": false,
+        "line_id": 44,
+        "parent_id": 34,
+        "relation": "equality"
+    },
+    {
+        "text": "help perception or comprehension. Kuhl et al.",
+        "box": [
+            72,
+            686,
+            292,
+            697
+        ],
+        "class": "para",
+        "page": 0,
+        "is_meta": false,
+        "line_id": 45,
+        "parent_id": 44,
+        "relation": "connect"
+    },
+    {
+        "text": "(1997) propose that CDS is optimized for learn-",
+        "box": [
+            71,
+            699,
+            292,
+            711
+        ],
+        "class": "para",
+        "page": 0,
+        "is_meta": false,
+        "line_id": 46,
+        "parent_id": 45,
+        "relation": "connect"
+    },
+    {
+        "text": "ability. Optimal learnability may, but does not",
+        "box": [
+            72,
+            713,
+            290,
+            724
+        ],
+        "class": "para",
+        "page": 0,
+        "is_meta": false,
+        "line_id": 47,
+        "parent_id": 46,
+        "relation": "connect"
+    },
+    {
+        "text": "necessarily align with optimization for perception",
+        "box": [
+            72,
+            727,
+            290,
+            738
+        ],
+        "class": "para",
+        "page": 0,
+        "is_meta": false,
+        "line_id": 48,
+        "parent_id": 47,
+        "relation": "connect"
+    },
+    {
+        "text": "or comprehension. Although speech with lower",
+        "box": [
+            72,
+            740,
+            290,
+            751
+        ],
+        "class": "para",
+        "page": 0,
+        "is_meta": false,
+        "line_id": 49,
+        "parent_id": 48,
+        "relation": "connect"
+    },
+    {
+        "text": "variability may be easiest to learn to understand,",
+        "box": [
+            71,
+            754,
+            291,
+            765
+        ],
+        "class": "para",
+        "page": 0,
+        "is_meta": false,
+        "line_id": 50,
+        "parent_id": 49,
+        "relation": "connect"
+    },
+    {
+        "text": "higher variability may provide more learning oppor-",
+        "box": [
+            307,
+            223,
+            528,
+            235
+        ],
+        "class": "para",
+        "page": 0,
+        "is_meta": false,
+        "line_id": 51,
+        "parent_id": 50,
+        "relation": "connect"
+    },
+    {
+        "text": "tunities, leading to more complete language knowl-",
+        "box": [
+            307,
+            238,
+            528,
+            251
+        ],
+        "class": "para",
+        "page": 0,
+        "is_meta": false,
+        "line_id": 52,
+        "parent_id": 51,
+        "relation": "connect"
+    },
+    {
+        "text": "edge.",
+        "box": [
+            307,
+            252,
+            331,
+            264
+        ],
+        "class": "para",
+        "page": 0,
+        "is_meta": false,
+        "line_id": 53,
+        "parent_id": 52,
+        "relation": "connect"
+    },
+    {
+        "text": "In this paper, we explore how learning to extract",
+        "box": [
+            318,
+            266,
+            525,
+            277
+        ],
+        "class": "fstline",
+        "page": 0,
+        "is_meta": false,
+        "line_id": 54,
+        "parent_id": 44,
+        "relation": "equality"
+    },
+    {
+        "text": "meaning from speech differs when learning from",
+        "box": [
+            307,
+            279,
+            525,
+            290
+        ],
+        "class": "para",
+        "page": 0,
+        "is_meta": false,
+        "line_id": 55,
+        "parent_id": 54,
+        "relation": "connect"
+    },
+    {
+        "text": "CDS and ADS. We discuss task performance on",
+        "box": [
+            307,
+            293,
+            525,
+            304
+        ],
+        "class": "para",
+        "page": 0,
+        "is_meta": false,
+        "line_id": 56,
+        "parent_id": 55,
+        "relation": "connect"
+    },
+    {
+        "text": "the training register as well as generalization across",
+        "box": [
+            307,
+            306,
+            525,
+            317
+        ],
+        "class": "para",
+        "page": 0,
+        "is_meta": false,
+        "line_id": 57,
+        "parent_id": 56,
+        "relation": "connect"
+    },
+    {
+        "text": "registers. To tease apart the effect of acoustic and",
+        "box": [
+            307,
+            320,
+            525,
+            331
+        ],
+        "class": "para",
+        "page": 0,
+        "is_meta": false,
+        "line_id": 58,
+        "parent_id": 57,
+        "relation": "connect"
+    },
+    {
+        "text": "linguistic differences, we also report on models",
+        "box": [
+            307,
+            334,
+            525,
+            344
+        ],
+        "class": "para",
+        "page": 0,
+        "is_meta": false,
+        "line_id": 59,
+        "parent_id": 58,
+        "relation": "connect"
+    },
+    {
+        "text": "trained on synthesized speech, in which linguistic",
+        "box": [
+            307,
+            347,
+            525,
+            358
+        ],
+        "class": "para",
+        "page": 0,
+        "is_meta": false,
+        "line_id": 60,
+        "parent_id": 59,
+        "relation": "connect"
+    },
+    {
+        "text": "differences between the registers are retained, but",
+        "box": [
+            307,
+            361,
+            525,
+            372
+        ],
+        "class": "para",
+        "page": 0,
+        "is_meta": false,
+        "line_id": 61,
+        "parent_id": 60,
+        "relation": "connect"
+    },
+    {
+        "text": "the acoustic properties are similar.",
+        "box": [
+            307,
+            374,
+            456,
+            385
+        ],
+        "class": "para",
+        "page": 0,
+        "is_meta": false,
+        "line_id": 62,
+        "parent_id": 61,
+        "relation": "connect"
+    },
+    {
+        "text": "2 Related work",
+        "box": [
+            307,
+            400,
+            393,
+            412
+        ],
+        "class": "sec1",
+        "page": 0,
+        "is_meta": false,
+        "line_id": 63,
+        "parent_id": 33,
+        "relation": "equality"
+    },
+    {
+        "text": "2.1 Child directed speech and learnability",
+        "box": [
+            307,
+            423,
+            509,
+            434
+        ],
+        "class": "sec2",
+        "page": 0,
+        "is_meta": false,
+        "line_id": 64,
+        "parent_id": 63,
+        "relation": "contain"
+    },
+    {
+        "text": "The characteristics of child-directed speech are a",
+        "box": [
+            306,
+            442,
+            525,
+            453
+        ],
+        "class": "fstline",
+        "page": 0,
+        "is_meta": false,
+        "line_id": 65,
+        "parent_id": 64,
+        "relation": "contain"
+    },
+    {
+        "text": "major topic of study in language acquisition re-",
+        "box": [
+            307,
+            456,
+            527,
+            467
+        ],
+        "class": "para",
+        "page": 0,
+        "is_meta": false,
+        "line_id": 66,
+        "parent_id": 65,
+        "relation": "connect"
+    },
+    {
+        "text": "search. For a comprehensive overview, see Soder-",
+        "box": [
+            307,
+            469,
+            527,
+            480
+        ],
+        "class": "para",
+        "page": 0,
+        "is_meta": false,
+        "line_id": 67,
+        "parent_id": 66,
+        "relation": "connect"
+    },
+    {
+        "text": "strom (2007) and Clark (2009, Ch. 2, p. 32-41).",
+        "box": [
+            307,
+            483,
+            527,
+            494
+        ],
+        "class": "para",
+        "page": 0,
+        "is_meta": false,
+        "line_id": 68,
+        "parent_id": 67,
+        "relation": "connect"
+    },
+    {
+        "text": "With regards to acoustics, CDS is reported to have",
+        "box": [
+            306,
+            496,
+            525,
+            507
+        ],
+        "class": "para",
+        "page": 0,
+        "is_meta": false,
+        "line_id": 69,
+        "parent_id": 68,
+        "relation": "connect"
+    },
+    {
+        "text": "exaggerated intonation and a slower speech rate",
+        "box": [
+            307,
+            510,
+            525,
+            521
+        ],
+        "class": "para",
+        "page": 0,
+        "is_meta": false,
+        "line_id": 70,
+        "parent_id": 69,
+        "relation": "connect"
+    },
+    {
+        "text": "(Fernald et al., 1989). Kuhl et al. (1997) show",
+        "box": [
+            306,
+            524,
+            525,
+            534
+        ],
+        "class": "para",
+        "page": 0,
+        "is_meta": false,
+        "line_id": 71,
+        "parent_id": 70,
+        "relation": "connect"
+    },
+    {
+        "text": "that CDS contains more \u2018extreme\u2019 realizations of",
+        "box": [
+            307,
+            537,
+            525,
+            548
+        ],
+        "class": "para",
+        "page": 0,
+        "is_meta": false,
+        "line_id": 72,
+        "parent_id": 71,
+        "relation": "connect"
+    },
+    {
+        "text": "vowels. McMurray et al. (2013) show that these",
+        "box": [
+            307,
+            551,
+            525,
+            562
+        ],
+        "class": "para",
+        "page": 0,
+        "is_meta": false,
+        "line_id": 73,
+        "parent_id": 72,
+        "relation": "connect"
+    },
+    {
+        "text": "increased means are accompanied by increased",
+        "box": [
+            307,
+            564,
+            525,
+            575
+        ],
+        "class": "para",
+        "page": 0,
+        "is_meta": false,
+        "line_id": 74,
+        "parent_id": 73,
+        "relation": "connect"
+    },
+    {
+        "text": "variance, and argue that any learning advantage",
+        "box": [
+            307,
+            578,
+            525,
+            589
+        ],
+        "class": "para",
+        "page": 0,
+        "is_meta": false,
+        "line_id": 75,
+        "parent_id": 74,
+        "relation": "connect"
+    },
+    {
+        "text": "of CDS due to extreme vowel realizations is coun-",
+        "box": [
+            307,
+            591,
+            527,
+            602
+        ],
+        "class": "para",
+        "page": 0,
+        "is_meta": false,
+        "line_id": 76,
+        "parent_id": 75,
+        "relation": "connect"
+    },
+    {
+        "text": "teracted by increased variance. However, it has",
+        "box": [
+            307,
+            605,
+            525,
+            616
+        ],
+        "class": "para",
+        "page": 0,
+        "is_meta": false,
+        "line_id": 77,
+        "parent_id": 76,
+        "relation": "connect"
+    },
+    {
+        "text": "also been argued that increased variance may be",
+        "box": [
+            307,
+            618,
+            525,
+            629
+        ],
+        "class": "para",
+        "page": 0,
+        "is_meta": false,
+        "line_id": 78,
+        "parent_id": 77,
+        "relation": "connect"
+    },
+    {
+        "text": "beneficial to learning in the long run, as it gives",
+        "box": [
+            307,
+            632,
+            525,
+            643
+        ],
+        "class": "para",
+        "page": 0,
+        "is_meta": false,
+        "line_id": 79,
+        "parent_id": 78,
+        "relation": "connect"
+    },
+    {
+        "text": "the learner a more complete set of examples for",
+        "box": [
+            307,
+            646,
+            525,
+            656
+        ],
+        "class": "para",
+        "page": 0,
+        "is_meta": false,
+        "line_id": 80,
+        "parent_id": 79,
+        "relation": "connect"
+    },
+    {
+        "text": "a category, which helps generalization. Guevara-",
+        "box": [
+            307,
+            659,
+            527,
+            670
+        ],
+        "class": "para",
+        "page": 0,
+        "is_meta": false,
+        "line_id": 81,
+        "parent_id": 80,
+        "relation": "connect"
+    },
+    {
+        "text": "Rukoz et al. (2018) show that word forms in child-",
+        "box": [
+            307,
+            673,
+            527,
+            684
+        ],
+        "class": "para",
+        "page": 0,
+        "is_meta": false,
+        "line_id": 82,
+        "parent_id": 81,
+        "relation": "connect"
+    },
+    {
+        "text": "directed speech are acoustically more diverse. At",
+        "box": [
+            307,
+            686,
+            525,
+            697
+        ],
+        "class": "para",
+        "page": 0,
+        "is_meta": false,
+        "line_id": 83,
+        "parent_id": 82,
+        "relation": "connect"
+    },
+    {
+        "text": "the utterance level, child-directed language con-",
+        "box": [
+            307,
+            700,
+            527,
+            711
+        ],
+        "class": "para",
+        "page": 0,
+        "is_meta": false,
+        "line_id": 84,
+        "parent_id": 83,
+        "relation": "connect"
+    },
+    {
+        "text": "sists of shorter sentences and simpler syntax (New-",
+        "box": [
+            307,
+            713,
+            527,
+            724
+        ],
+        "class": "para",
+        "page": 0,
+        "is_meta": false,
+        "line_id": 85,
+        "parent_id": 84,
+        "relation": "connect"
+    },
+    {
+        "text": "port et al., 1977; Fernald et al., 1989), and words",
+        "box": [
+            307,
+            727,
+            525,
+            738
+        ],
+        "class": "para",
+        "page": 0,
+        "is_meta": false,
+        "line_id": 86,
+        "parent_id": 85,
+        "relation": "connect"
+    },
+    {
+        "text": "more often appear in isolation (Ratner and Rooney,",
+        "box": [
+            307,
+            740,
+            526,
+            751
+        ],
+        "class": "para",
+        "page": 0,
+        "is_meta": false,
+        "line_id": 87,
+        "parent_id": 86,
+        "relation": "connect"
+    },
+    {
+        "text": "2001).",
+        "box": [
+            307,
+            754,
+            335,
+            765
+        ],
+        "class": "para",
+        "page": 0,
+        "is_meta": false,
+        "line_id": 88,
+        "parent_id": 87,
+        "relation": "connect"
+    },
+    {
+        "text": "1",
+        "box": [
+            296,
+            777,
+            301,
+            787
+        ],
+        "class": "foot",
+        "page": 0,
+        "is_meta": true,
+        "line_id": 89,
+        "parent_id": -1,
+        "relation": "meta"
+    },
+    {
+        "text": "Proceedings of the 58th Annual Meeting of the Association for Computational Linguistics, pages 1\u20136",
+        "box": [
+            116,
+            794,
+            478,
+            803
+        ],
+        "class": "foot",
+        "page": 0,
+        "is_meta": true,
+        "line_id": 90,
+        "parent_id": -1,
+        "relation": "meta"
+    },
+    {
+        "text": "July 5 - 10, 2020. (cid:13)c 2020 Association for Computational Linguistics",
+        "box": [
+            173,
+            805,
+            421,
+            814
+        ],
+        "class": "foot",
+        "page": 0,
+        "is_meta": true,
+        "line_id": 91,
+        "parent_id": -1,
+        "relation": "meta"
+    },
+    {
+        "text": "Studies on home recordings show that the avail-",
+        "box": [
+            82,
+            65,
+            292,
+            76
+        ],
+        "class": "fstline",
+        "page": 1,
+        "is_meta": false,
+        "line_id": 92,
+        "parent_id": 65,
+        "relation": "equality"
+    },
+    {
+        "text": "ability of CDS input accounts for differences in",
+        "box": [
+            72,
+            78,
+            290,
+            89
+        ],
+        "class": "para",
+        "page": 1,
+        "is_meta": false,
+        "line_id": 93,
+        "parent_id": 92,
+        "relation": "connect"
+    },
+    {
+        "text": "vocabulary growth between learners, whereas over-",
+        "box": [
+            71,
+            92,
+            292,
+            103
+        ],
+        "class": "para",
+        "page": 1,
+        "is_meta": false,
+        "line_id": 94,
+        "parent_id": 93,
+        "relation": "connect"
+    },
+    {
+        "text": "heard speech is unrelated (Hoff, 2003; Weisleder",
+        "box": [
+            72,
+            105,
+            290,
+            116
+        ],
+        "class": "para",
+        "page": 1,
+        "is_meta": false,
+        "line_id": 95,
+        "parent_id": 94,
+        "relation": "connect"
+    },
+    {
+        "text": "and Fernald, 2013). This does not necessarily mean",
+        "box": [
+            72,
+            119,
+            290,
+            130
+        ],
+        "class": "para",
+        "page": 1,
+        "is_meta": false,
+        "line_id": 96,
+        "parent_id": 95,
+        "relation": "connect"
+    },
+    {
+        "text": "that it is easier to learn from CDS. Psycholinguistic",
+        "box": [
+            72,
+            132,
+            290,
+            143
+        ],
+        "class": "para",
+        "page": 1,
+        "is_meta": false,
+        "line_id": 97,
+        "parent_id": 96,
+        "relation": "connect"
+    },
+    {
+        "text": "research has shown that infants across the world",
+        "box": [
+            72,
+            146,
+            290,
+            157
+        ],
+        "class": "para",
+        "page": 1,
+        "is_meta": false,
+        "line_id": 98,
+        "parent_id": 97,
+        "relation": "connect"
+    },
+    {
+        "text": "show a CDS preference, paying more attention to",
+        "box": [
+            72,
+            160,
+            290,
+            170
+        ],
+        "class": "para",
+        "page": 1,
+        "is_meta": false,
+        "line_id": 99,
+        "parent_id": 98,
+        "relation": "connect"
+    },
+    {
+        "text": "it than to ADS (ManyBabies Consortium, 2020).",
+        "box": [
+            72,
+            173,
+            292,
+            184
+        ],
+        "class": "para",
+        "page": 1,
+        "is_meta": false,
+        "line_id": 100,
+        "parent_id": 99,
+        "relation": "connect"
+    },
+    {
+        "text": "Learning advantages of CDS in children may there-",
+        "box": [
+            72,
+            187,
+            292,
+            198
+        ],
+        "class": "para",
+        "page": 1,
+        "is_meta": false,
+        "line_id": 101,
+        "parent_id": 100,
+        "relation": "connect"
+    },
+    {
+        "text": "fore simply be because they grant it more attention,",
+        "box": [
+            72,
+            200,
+            291,
+            211
+        ],
+        "class": "para",
+        "page": 1,
+        "is_meta": false,
+        "line_id": 102,
+        "parent_id": 101,
+        "relation": "connect"
+    },
+    {
+        "text": "rather than to properties of CDS that are advanta-",
+        "box": [
+            72,
+            214,
+            292,
+            225
+        ],
+        "class": "para",
+        "page": 1,
+        "is_meta": false,
+        "line_id": 103,
+        "parent_id": 102,
+        "relation": "connect"
+    },
+    {
+        "text": "geous for learning. Computational models, how-",
+        "box": [
+            72,
+            227,
+            292,
+            238
+        ],
+        "class": "para",
+        "page": 1,
+        "is_meta": false,
+        "line_id": 104,
+        "parent_id": 103,
+        "relation": "connect"
+    },
+    {
+        "text": "ever, have no choice in where they allocate atten-",
+        "box": [
+            72,
+            241,
+            292,
+            252
+        ],
+        "class": "para",
+        "page": 1,
+        "is_meta": false,
+        "line_id": 105,
+        "parent_id": 104,
+        "relation": "connect"
+    },
+    {
+        "text": "tion. Any learning advantages we find of either",
+        "box": [
+            72,
+            254,
+            290,
+            265
+        ],
+        "class": "para",
+        "page": 1,
+        "is_meta": false,
+        "line_id": 106,
+        "parent_id": 105,
+        "relation": "connect"
+    },
+    {
+        "text": "ADS or CDS in computational studies must be due",
+        "box": [
+            71,
+            268,
+            290,
+            279
+        ],
+        "class": "para",
+        "page": 1,
+        "is_meta": false,
+        "line_id": 107,
+        "parent_id": 106,
+        "relation": "connect"
+    },
+    {
+        "text": "to properties that make speech in that register more",
+        "box": [
+            72,
+            282,
+            290,
+            292
+        ],
+        "class": "para",
+        "page": 1,
+        "is_meta": false,
+        "line_id": 108,
+        "parent_id": 107,
+        "relation": "connect"
+    },
+    {
+        "text": "learnable to the model.",
+        "box": [
+            72,
+            295,
+            171,
+            306
+        ],
+        "class": "para",
+        "page": 1,
+        "is_meta": false,
+        "line_id": 109,
+        "parent_id": 108,
+        "relation": "connect"
+    },
+    {
+        "text": "There has been some computational work com-",
+        "box": [
+            82,
+            310,
+            292,
+            321
+        ],
+        "class": "fstline",
+        "page": 1,
+        "is_meta": false,
+        "line_id": 110,
+        "parent_id": 92,
+        "relation": "equality"
+    },
+    {
+        "text": "paring learning from ADS and CDS at the level of",
+        "box": [
+            72,
+            324,
+            290,
+            335
+        ],
+        "class": "para",
+        "page": 1,
+        "is_meta": false,
+        "line_id": 111,
+        "parent_id": 110,
+        "relation": "connect"
+    },
+    {
+        "text": "word learning and phonetic learning. Studies on",
+        "box": [
+            71,
+            337,
+            290,
+            348
+        ],
+        "class": "para",
+        "page": 1,
+        "is_meta": false,
+        "line_id": 112,
+        "parent_id": 111,
+        "relation": "connect"
+    },
+    {
+        "text": "segmentability use algorithms that learn to identify",
+        "box": [
+            72,
+            351,
+            290,
+            362
+        ],
+        "class": "para",
+        "page": 1,
+        "is_meta": false,
+        "line_id": 113,
+        "parent_id": 112,
+        "relation": "connect"
+    },
+    {
+        "text": "word units, with some studies reporting higher seg-",
+        "box": [
+            71,
+            364,
+            292,
+            375
+        ],
+        "class": "para",
+        "page": 1,
+        "is_meta": false,
+        "line_id": 114,
+        "parent_id": 113,
+        "relation": "connect"
+    },
+    {
+        "text": "mentability for CDS (Batchelder, 2002; Daland and",
+        "box": [
+            72,
+            378,
+            290,
+            389
+        ],
+        "class": "para",
+        "page": 1,
+        "is_meta": false,
+        "line_id": 115,
+        "parent_id": 114,
+        "relation": "connect"
+    },
+    {
+        "text": "Pierrehumbert, 2011), while Cristia et al. (2019) re-",
+        "box": [
+            72,
+            392,
+            292,
+            402
+        ],
+        "class": "para",
+        "page": 1,
+        "is_meta": false,
+        "line_id": 116,
+        "parent_id": 115,
+        "relation": "connect"
+    },
+    {
+        "text": "port mixed results. Kirchhoff and Schimmel (2005)",
+        "box": [
+            72,
+            405,
+            291,
+            416
+        ],
+        "class": "para",
+        "page": 1,
+        "is_meta": false,
+        "line_id": 117,
+        "parent_id": 116,
+        "relation": "connect"
+    },
+    {
+        "text": "train HMM-based speech recognition systems on",
+        "box": [
+            72,
+            419,
+            290,
+            430
+        ],
+        "class": "para",
+        "page": 1,
+        "is_meta": false,
+        "line_id": 118,
+        "parent_id": 117,
+        "relation": "connect"
+    },
+    {
+        "text": "CDS and ADS, and test on matched and crossed",
+        "box": [
+            72,
+            432,
+            290,
+            443
+        ],
+        "class": "para",
+        "page": 1,
+        "is_meta": false,
+        "line_id": 119,
+        "parent_id": 118,
+        "relation": "connect"
+    },
+    {
+        "text": "test sets. They find that both ADS and CDS trained",
+        "box": [
+            72,
+            446,
+            290,
+            457
+        ],
+        "class": "para",
+        "page": 1,
+        "is_meta": false,
+        "line_id": 120,
+        "parent_id": 119,
+        "relation": "connect"
+    },
+    {
+        "text": "systems perform best on the matching test set, but",
+        "box": [
+            72,
+            459,
+            290,
+            470
+        ],
+        "class": "para",
+        "page": 1,
+        "is_meta": false,
+        "line_id": 121,
+        "parent_id": 120,
+        "relation": "connect"
+    },
+    {
+        "text": "CDS trained systems perform better on ADS than",
+        "box": [
+            72,
+            473,
+            290,
+            484
+        ],
+        "class": "para",
+        "page": 1,
+        "is_meta": false,
+        "line_id": 122,
+        "parent_id": 121,
+        "relation": "connect"
+    },
+    {
+        "text": "systems trained on ADS peform on CDS. They",
+        "box": [
+            72,
+            486,
+            290,
+            497
+        ],
+        "class": "para",
+        "page": 1,
+        "is_meta": false,
+        "line_id": 123,
+        "parent_id": 122,
+        "relation": "connect"
+    },
+    {
+        "text": "show that this is likely caused by phonetic classes",
+        "box": [
+            72,
+            500,
+            290,
+            511
+        ],
+        "class": "para",
+        "page": 1,
+        "is_meta": false,
+        "line_id": 124,
+        "parent_id": 123,
+        "relation": "connect"
+    },
+    {
+        "text": "have larger overlaps in CDS.",
+        "box": [
+            72,
+            514,
+            197,
+            524
+        ],
+        "class": "para",
+        "page": 1,
+        "is_meta": false,
+        "line_id": 125,
+        "parent_id": 124,
+        "relation": "connect"
+    },
+    {
+        "text": "To the authors\u2019 knowledge, the current work is",
+        "box": [
+            82,
+            529,
+            290,
+            540
+        ],
+        "class": "fstline",
+        "page": 1,
+        "is_meta": false,
+        "line_id": 126,
+        "parent_id": 110,
+        "relation": "equality"
+    },
+    {
+        "text": "the first to computationally explore learnability dif-",
+        "box": [
+            72,
+            542,
+            292,
+            553
+        ],
+        "class": "para",
+        "page": 1,
+        "is_meta": false,
+        "line_id": 127,
+        "parent_id": 126,
+        "relation": "connect"
+    },
+    {
+        "text": "ferences between ADS and CDS considering the",
+        "box": [
+            72,
+            556,
+            290,
+            567
+        ],
+        "class": "para",
+        "page": 1,
+        "is_meta": false,
+        "line_id": 128,
+        "parent_id": 127,
+        "relation": "connect"
+    },
+    {
+        "text": "process of speech comprehension as a whole: from",
+        "box": [
+            72,
+            569,
+            290,
+            580
+        ],
+        "class": "para",
+        "page": 1,
+        "is_meta": false,
+        "line_id": 129,
+        "parent_id": 128,
+        "relation": "connect"
+    },
+    {
+        "text": "audio to semantic information.",
+        "box": [
+            72,
+            583,
+            205,
+            594
+        ],
+        "class": "para",
+        "page": 1,
+        "is_meta": false,
+        "line_id": 130,
+        "parent_id": 129,
+        "relation": "connect"
+    },
+    {
+        "text": "2.2 Speech recognition with non-linguistic",
+        "box": [
+            72,
+            611,
+            274,
+            622
+        ],
+        "class": "sec2",
+        "page": 1,
+        "is_meta": false,
+        "line_id": 131,
+        "parent_id": 64,
+        "relation": "equality"
+    },
+    {
+        "text": "supervision",
+        "box": [
+            96,
+            625,
+            149,
+            636
+        ],
+        "class": "opara",
+        "page": 1,
+        "is_meta": false,
+        "line_id": 132,
+        "parent_id": 131,
+        "relation": "connect"
+    },
+    {
+        "text": "In recent years, several studies have worked on",
+        "box": [
+            72,
+            646,
+            290,
+            656
+        ],
+        "class": "fstline",
+        "page": 1,
+        "is_meta": false,
+        "line_id": 133,
+        "parent_id": 131,
+        "relation": "contain"
+    },
+    {
+        "text": "machine learning tasks in which models directly",
+        "box": [
+            72,
+            659,
+            290,
+            670
+        ],
+        "class": "para",
+        "page": 1,
+        "is_meta": false,
+        "line_id": 134,
+        "parent_id": 133,
+        "relation": "connect"
+    },
+    {
+        "text": "extract semantic information from speech, without",
+        "box": [
+            72,
+            673,
+            290,
+            684
+        ],
+        "class": "para",
+        "page": 1,
+        "is_meta": false,
+        "line_id": 135,
+        "parent_id": 134,
+        "relation": "connect"
+    },
+    {
+        "text": "feedback on the word, character, or phoneme level.",
+        "box": [
+            72,
+            686,
+            292,
+            697
+        ],
+        "class": "para",
+        "page": 1,
+        "is_meta": false,
+        "line_id": 136,
+        "parent_id": 135,
+        "relation": "connect"
+    },
+    {
+        "text": "Most prominently, work on \u2018weakly supervised\u2019",
+        "box": [
+            72,
+            700,
+            292,
+            711
+        ],
+        "class": "para",
+        "page": 1,
+        "is_meta": false,
+        "line_id": 137,
+        "parent_id": 136,
+        "relation": "connect"
+    },
+    {
+        "text": "speech recognition includes work in which accom-",
+        "box": [
+            72,
+            713,
+            292,
+            724
+        ],
+        "class": "para",
+        "page": 1,
+        "is_meta": false,
+        "line_id": 138,
+        "parent_id": 137,
+        "relation": "connect"
+    },
+    {
+        "text": "panying visual information is used as a proxy for",
+        "box": [
+            72,
+            727,
+            290,
+            738
+        ],
+        "class": "para",
+        "page": 1,
+        "is_meta": false,
+        "line_id": 139,
+        "parent_id": 138,
+        "relation": "connect"
+    },
+    {
+        "text": "semantic information. By grounding speech in vi-",
+        "box": [
+            72,
+            740,
+            292,
+            751
+        ],
+        "class": "para",
+        "page": 1,
+        "is_meta": false,
+        "line_id": 140,
+        "parent_id": 139,
+        "relation": "connect"
+    },
+    {
+        "text": "sual information accompanying it, models can learn",
+        "box": [
+            72,
+            754,
+            290,
+            765
+        ],
+        "class": "para",
+        "page": 1,
+        "is_meta": false,
+        "line_id": 141,
+        "parent_id": 140,
+        "relation": "connect"
+    },
+    {
+        "text": "to extract visually relevant semantic information",
+        "box": [
+            307,
+            65,
+            525,
+            76
+        ],
+        "class": "para",
+        "page": 1,
+        "is_meta": false,
+        "line_id": 142,
+        "parent_id": 141,
+        "relation": "connect"
+    },
+    {
+        "text": "from speech, without needing symbolic annotation",
+        "box": [
+            307,
+            78,
+            525,
+            89
+        ],
+        "class": "para",
+        "page": 1,
+        "is_meta": false,
+        "line_id": 143,
+        "parent_id": 142,
+        "relation": "connect"
+    },
+    {
+        "text": "(Harwath et al., 2016; Harwath and Glass, 2017;",
+        "box": [
+            306,
+            92,
+            526,
+            103
+        ],
+        "class": "para",
+        "page": 1,
+        "is_meta": false,
+        "line_id": 144,
+        "parent_id": 143,
+        "relation": "connect"
+    },
+    {
+        "text": "Chrupa\u0142a et al., 2017; Merkx et al., 2019).",
+        "box": [
+            307,
+            105,
+            490,
+            116
+        ],
+        "class": "para",
+        "page": 1,
+        "is_meta": false,
+        "line_id": 145,
+        "parent_id": 144,
+        "relation": "connect"
+    },
+    {
+        "text": "The topic is of interest for automatic speech",
+        "box": [
+            318,
+            119,
+            525,
+            130
+        ],
+        "class": "fstline",
+        "page": 1,
+        "is_meta": false,
+        "line_id": 146,
+        "parent_id": 133,
+        "relation": "equality"
+    },
+    {
+        "text": "recognition, as it provides potential ways of train-",
+        "box": [
+            307,
+            132,
+            527,
+            143
+        ],
+        "class": "para",
+        "page": 1,
+        "is_meta": false,
+        "line_id": 147,
+        "parent_id": 146,
+        "relation": "connect"
+    },
+    {
+        "text": "ing speech recognition without the need for vast",
+        "box": [
+            307,
+            146,
+            525,
+            157
+        ],
+        "class": "para",
+        "page": 1,
+        "is_meta": false,
+        "line_id": 148,
+        "parent_id": 147,
+        "relation": "connect"
+    },
+    {
+        "text": "amounts of annotation. The utilization of non-",
+        "box": [
+            307,
+            160,
+            527,
+            170
+        ],
+        "class": "para",
+        "page": 1,
+        "is_meta": false,
+        "line_id": 149,
+        "parent_id": 148,
+        "relation": "connect"
+    },
+    {
+        "text": "linguistic information as supervision is particularly",
+        "box": [
+            307,
+            173,
+            525,
+            184
+        ],
+        "class": "para",
+        "page": 1,
+        "is_meta": false,
+        "line_id": 150,
+        "parent_id": 149,
+        "relation": "connect"
+    },
+    {
+        "text": "useful for low-resource languages. For the purpose",
+        "box": [
+            307,
+            187,
+            525,
+            198
+        ],
+        "class": "para",
+        "page": 1,
+        "is_meta": false,
+        "line_id": 151,
+        "parent_id": 150,
+        "relation": "connect"
+    },
+    {
+        "text": "of this study, however, we are interested in this",
+        "box": [
+            307,
+            200,
+            525,
+            211
+        ],
+        "class": "para",
+        "page": 1,
+        "is_meta": false,
+        "line_id": 152,
+        "parent_id": 151,
+        "relation": "connect"
+    },
+    {
+        "text": "set of problems because of the parallel to human",
+        "box": [
+            307,
+            214,
+            525,
+            225
+        ],
+        "class": "para",
+        "page": 1,
+        "is_meta": false,
+        "line_id": 153,
+        "parent_id": 152,
+        "relation": "connect"
+    },
+    {
+        "text": "language acquisition. A language learning child",
+        "box": [
+            307,
+            227,
+            525,
+            238
+        ],
+        "class": "para",
+        "page": 1,
+        "is_meta": false,
+        "line_id": 154,
+        "parent_id": 153,
+        "relation": "connect"
+    },
+    {
+        "text": "does not receive explicit feedback on the words or",
+        "box": [
+            307,
+            241,
+            525,
+            252
+        ],
+        "class": "para",
+        "page": 1,
+        "is_meta": false,
+        "line_id": 155,
+        "parent_id": 154,
+        "relation": "connect"
+    },
+    {
+        "text": "phonemes it perceives. Rather, they learn to infer",
+        "box": [
+            307,
+            254,
+            525,
+            265
+        ],
+        "class": "para",
+        "page": 1,
+        "is_meta": false,
+        "line_id": 156,
+        "parent_id": 155,
+        "relation": "connect"
+    },
+    {
+        "text": "these structural properties of language, with at their",
+        "box": [
+            307,
+            268,
+            525,
+            279
+        ],
+        "class": "para",
+        "page": 1,
+        "is_meta": false,
+        "line_id": 157,
+        "parent_id": 156,
+        "relation": "connect"
+    },
+    {
+        "text": "disposal only the speech signal itself and its weak",
+        "box": [
+            307,
+            282,
+            525,
+            292
+        ],
+        "class": "para",
+        "page": 1,
+        "is_meta": false,
+        "line_id": 158,
+        "parent_id": 157,
+        "relation": "connect"
+    },
+    {
+        "text": "and messy links to the outer world.",
+        "box": [
+            307,
+            295,
+            460,
+            306
+        ],
+        "class": "para",
+        "page": 1,
+        "is_meta": false,
+        "line_id": 159,
+        "parent_id": 158,
+        "relation": "connect"
+    },
+    {
+        "text": "3 Task",
+        "box": [
+            307,
+            318,
+            349,
+            330
+        ],
+        "class": "sec1",
+        "page": 1,
+        "is_meta": false,
+        "line_id": 160,
+        "parent_id": 63,
+        "relation": "equality"
+    },
+    {
+        "text": "The task is to match speech to a semantic repre-",
+        "box": [
+            306,
+            340,
+            527,
+            351
+        ],
+        "class": "fstline",
+        "page": 1,
+        "is_meta": false,
+        "line_id": 161,
+        "parent_id": 160,
+        "relation": "contain"
+    },
+    {
+        "text": "sentation of the language it contains, intuitively",
+        "box": [
+            307,
+            353,
+            525,
+            364
+        ],
+        "class": "para",
+        "page": 1,
+        "is_meta": false,
+        "line_id": 162,
+        "parent_id": 161,
+        "relation": "connect"
+    },
+    {
+        "text": "\u2018grounding\u2019 it to the semantic context. The design",
+        "box": [
+            305,
+            367,
+            525,
+            378
+        ],
+        "class": "para",
+        "page": 1,
+        "is_meta": false,
+        "line_id": 163,
+        "parent_id": 162,
+        "relation": "connect"
+    },
+    {
+        "text": "of this task is inspired by work in visual grounding.",
+        "box": [
+            307,
+            380,
+            527,
+            391
+        ],
+        "class": "para",
+        "page": 1,
+        "is_meta": false,
+        "line_id": 164,
+        "parent_id": 163,
+        "relation": "connect"
+    },
+    {
+        "text": "However, the availability of CDS data accompa-",
+        "box": [
+            307,
+            394,
+            527,
+            405
+        ],
+        "class": "para",
+        "page": 1,
+        "is_meta": false,
+        "line_id": 165,
+        "parent_id": 164,
+        "relation": "connect"
+    },
+    {
+        "text": "nied by visual data is very limited. Instead of visual",
+        "box": [
+            307,
+            407,
+            525,
+            418
+        ],
+        "class": "para",
+        "page": 1,
+        "is_meta": false,
+        "line_id": 166,
+        "parent_id": 165,
+        "relation": "connect"
+    },
+    {
+        "text": "representation, we use semantic sentence embed-",
+        "box": [
+            307,
+            421,
+            527,
+            432
+        ],
+        "class": "para",
+        "page": 1,
+        "is_meta": false,
+        "line_id": 167,
+        "parent_id": 166,
+        "relation": "connect"
+    },
+    {
+        "text": "dings of the transcriptions. Rather than training our",
+        "box": [
+            307,
+            434,
+            525,
+            445
+        ],
+        "class": "para",
+        "page": 1,
+        "is_meta": false,
+        "line_id": 168,
+        "parent_id": 167,
+        "relation": "connect"
+    },
+    {
+        "text": "model to imagine the visual context accompanying",
+        "box": [
+            307,
+            448,
+            525,
+            459
+        ],
+        "class": "para",
+        "page": 1,
+        "is_meta": false,
+        "line_id": 169,
+        "parent_id": 168,
+        "relation": "connect"
+    },
+    {
+        "text": "an utterance, as in visual grounding, we train it to",
+        "box": [
+            307,
+            462,
+            525,
+            472
+        ],
+        "class": "para",
+        "page": 1,
+        "is_meta": false,
+        "line_id": 170,
+        "parent_id": 169,
+        "relation": "connect"
+    },
+    {
+        "text": "imagine the semantic content. Note that since the",
+        "box": [
+            307,
+            475,
+            525,
+            486
+        ],
+        "class": "para",
+        "page": 1,
+        "is_meta": false,
+        "line_id": 171,
+        "parent_id": 170,
+        "relation": "connect"
+    },
+    {
+        "text": "semantic embeddings are based on the transcrip-",
+        "box": [
+            307,
+            489,
+            527,
+            500
+        ],
+        "class": "para",
+        "page": 1,
+        "is_meta": false,
+        "line_id": 172,
+        "parent_id": 171,
+        "relation": "connect"
+    },
+    {
+        "text": "tions of the sentences themselves, they have a much",
+        "box": [
+            307,
+            502,
+            525,
+            513
+        ],
+        "class": "para",
+        "page": 1,
+        "is_meta": false,
+        "line_id": 173,
+        "parent_id": 172,
+        "relation": "connect"
+    },
+    {
+        "text": "closer relation to the sentences than visual context",
+        "box": [
+            307,
+            516,
+            525,
+            527
+        ],
+        "class": "para",
+        "page": 1,
+        "is_meta": false,
+        "line_id": 174,
+        "parent_id": 173,
+        "relation": "connect"
+    },
+    {
+        "text": "representations would have.",
+        "box": [
+            307,
+            529,
+            428,
+            540
+        ],
+        "class": "para",
+        "page": 1,
+        "is_meta": false,
+        "line_id": 175,
+        "parent_id": 174,
+        "relation": "connect"
+    },
+    {
+        "text": "The semantic sentence representations were ob-",
+        "box": [
+            318,
+            543,
+            527,
+            554
+        ],
+        "class": "fstline",
+        "page": 1,
+        "is_meta": false,
+        "line_id": 176,
+        "parent_id": 161,
+        "relation": "equality"
+    },
+    {
+        "text": "tained using SBERT, a BERT-based architecture",
+        "box": [
+            307,
+            556,
+            525,
+            567
+        ],
+        "class": "para",
+        "page": 1,
+        "is_meta": false,
+        "line_id": 177,
+        "parent_id": 176,
+        "relation": "connect"
+    },
+    {
+        "text": "that yields sentence embeddings, which was fine-",
+        "box": [
+            307,
+            570,
+            527,
+            581
+        ],
+        "class": "para",
+        "page": 1,
+        "is_meta": false,
+        "line_id": 178,
+        "parent_id": 177,
+        "relation": "connect"
+    },
+    {
+        "text": "tuned on the STS benchmark of SemEval (Reimers",
+        "box": [
+            307,
+            583,
+            525,
+            594
+        ],
+        "class": "para",
+        "page": 1,
+        "is_meta": false,
+        "line_id": 179,
+        "parent_id": 178,
+        "relation": "connect"
+    },
+    {
+        "text": "and Gurevych, 2019). This particular encoding was",
+        "box": [
+            307,
+            597,
+            525,
+            608
+        ],
+        "class": "para",
+        "page": 1,
+        "is_meta": false,
+        "line_id": 180,
+        "parent_id": 179,
+        "relation": "connect"
+    },
+    {
+        "text": "chosen because it harnesses the semantic strength",
+        "box": [
+            307,
+            611,
+            525,
+            621
+        ],
+        "class": "para",
+        "page": 1,
+        "is_meta": false,
+        "line_id": 181,
+        "parent_id": 180,
+        "relation": "connect"
+    },
+    {
+        "text": "of BERT (Devlin et al., 2019) in an encoding of",
+        "box": [
+            307,
+            624,
+            525,
+            635
+        ],
+        "class": "para",
+        "page": 1,
+        "is_meta": false,
+        "line_id": 182,
+        "parent_id": 181,
+        "relation": "connect"
+    },
+    {
+        "text": "the sentence as a whole. Speech is converted Mel-",
+        "box": [
+            307,
+            638,
+            527,
+            649
+        ],
+        "class": "para",
+        "page": 1,
+        "is_meta": false,
+        "line_id": 183,
+        "parent_id": 182,
+        "relation": "connect"
+    },
+    {
+        "text": "frequency cepstrum coefficients.",
+        "box": [
+            307,
+            651,
+            448,
+            662
+        ],
+        "class": "para",
+        "page": 1,
+        "is_meta": false,
+        "line_id": 184,
+        "parent_id": 183,
+        "relation": "connect"
+    },
+    {
+        "text": "4 Data",
+        "box": [
+            307,
+            674,
+            349,
+            686
+        ],
+        "class": "sec1",
+        "page": 1,
+        "is_meta": false,
+        "line_id": 185,
+        "parent_id": 160,
+        "relation": "equality"
+    },
+    {
+        "text": "4.1 Natural speech: NewmanRatner corpus",
+        "box": [
+            307,
+            696,
+            516,
+            707
+        ],
+        "class": "sec2",
+        "page": 1,
+        "is_meta": false,
+        "line_id": 186,
+        "parent_id": 185,
+        "relation": "contain"
+    },
+    {
+        "text": "Since we are interested in the effect of learning",
+        "box": [
+            307,
+            713,
+            525,
+            724
+        ],
+        "class": "fstline",
+        "page": 1,
+        "is_meta": false,
+        "line_id": 187,
+        "parent_id": 186,
+        "relation": "contain"
+    },
+    {
+        "text": "from child- versus adult directed speech, we se-",
+        "box": [
+            307,
+            727,
+            527,
+            738
+        ],
+        "class": "para",
+        "page": 1,
+        "is_meta": false,
+        "line_id": 188,
+        "parent_id": 187,
+        "relation": "connect"
+    },
+    {
+        "text": "lect data that differs in register, but is otherwise",
+        "box": [
+            307,
+            740,
+            525,
+            751
+        ],
+        "class": "para",
+        "page": 1,
+        "is_meta": false,
+        "line_id": 189,
+        "parent_id": 188,
+        "relation": "connect"
+    },
+    {
+        "text": "as comparable as possible. The NewmanRatner",
+        "box": [
+            307,
+            754,
+            525,
+            765
+        ],
+        "class": "para",
+        "page": 1,
+        "is_meta": false,
+        "line_id": 190,
+        "parent_id": 189,
+        "relation": "connect"
+    },
+    {
+        "text": "2",
+        "box": [
+            296,
+            777,
+            301,
+            787
+        ],
+        "class": "foot",
+        "page": 1,
+        "is_meta": true,
+        "line_id": 191,
+        "parent_id": -1,
+        "relation": "meta"
+    },
+    {
+        "text": "Table 1: Descriptive statistics of the data",
+        "box": [
+            70,
+            59,
+            296,
+            162
+        ],
+        "class": "tab",
+        "page": 2,
+        "is_meta": false,
+        "line_id": 192,
+        "parent_id": -1,
+        "relation": "contain"
+    },
+    {
+        "text": "Table 1: Descriptive statistics of the data",
+        "box": [
+            99,
+            175,
+            262,
+            185
+        ],
+        "class": "tabcap",
+        "page": 2,
+        "is_meta": false,
+        "line_id": 193,
+        "parent_id": 192,
+        "relation": "contain"
+    },
+    {
+        "text": "corpus contains annotated recordings of caregivers",
+        "box": [
+            72,
+            209,
+            290,
+            220
+        ],
+        "class": "para",
+        "page": 2,
+        "is_meta": false,
+        "line_id": 194,
+        "parent_id": 190,
+        "relation": "connect"
+    },
+    {
+        "text": "in conversation with their children and with exper-",
+        "box": [
+            72,
+            223,
+            292,
+            234
+        ],
+        "class": "para",
+        "page": 2,
+        "is_meta": false,
+        "line_id": 195,
+        "parent_id": 194,
+        "relation": "connect"
+    },
+    {
+        "text": "imenters (Newman et al., 2016). This dataset is",
+        "box": [
+            72,
+            237,
+            290,
+            247
+        ],
+        "class": "para",
+        "page": 2,
+        "is_meta": false,
+        "line_id": 196,
+        "parent_id": 195,
+        "relation": "connect"
+    },
+    {
+        "text": "suitable to our set-up, as it contains a reasonable",
+        "box": [
+            72,
+            250,
+            290,
+            261
+        ],
+        "class": "para",
+        "page": 2,
+        "is_meta": false,
+        "line_id": 197,
+        "parent_id": 196,
+        "relation": "connect"
+    },
+    {
+        "text": "amount of transcribed CDS and ADS by the same",
+        "box": [
+            72,
+            264,
+            290,
+            275
+        ],
+        "class": "para",
+        "page": 2,
+        "is_meta": false,
+        "line_id": 198,
+        "parent_id": 197,
+        "relation": "connect"
+    },
+    {
+        "text": "speakers, which is rare; and it is in English, for",
+        "box": [
+            72,
+            277,
+            290,
+            288
+        ],
+        "class": "para",
+        "page": 2,
+        "is_meta": false,
+        "line_id": 199,
+        "parent_id": 198,
+        "relation": "connect"
+    },
+    {
+        "text": "which pretrained state-of-the-art language models",
+        "box": [
+            71,
+            291,
+            290,
+            302
+        ],
+        "class": "para",
+        "page": 2,
+        "is_meta": false,
+        "line_id": 200,
+        "parent_id": 199,
+        "relation": "connect"
+    },
+    {
+        "text": "such as (S)BERT (Devlin et al., 2019; Reimers and",
+        "box": [
+            72,
+            304,
+            290,
+            315
+        ],
+        "class": "para",
+        "page": 2,
+        "is_meta": false,
+        "line_id": 201,
+        "parent_id": 200,
+        "relation": "connect"
+    },
+    {
+        "text": "Gurevych, 2019) are readily available.",
+        "box": [
+            72,
+            318,
+            239,
+            329
+        ],
+        "class": "para",
+        "page": 2,
+        "is_meta": false,
+        "line_id": 202,
+        "parent_id": 201,
+        "relation": "connect"
+    },
+    {
+        "text": "Child-directed speech in the NewmanRatner cor-",
+        "box": [
+            82,
+            332,
+            292,
+            343
+        ],
+        "class": "fstline",
+        "page": 2,
+        "is_meta": false,
+        "line_id": 203,
+        "parent_id": 187,
+        "relation": "equality"
+    },
+    {
+        "text": "pus takes place in free play between caregiver and",
+        "box": [
+            72,
+            345,
+            290,
+            356
+        ],
+        "class": "para",
+        "page": 2,
+        "is_meta": false,
+        "line_id": 204,
+        "parent_id": 203,
+        "relation": "connect"
+    },
+    {
+        "text": "child, whereas adult-directed speech is uttered in",
+        "box": [
+            72,
+            359,
+            290,
+            370
+        ],
+        "class": "para",
+        "page": 2,
+        "is_meta": false,
+        "line_id": 205,
+        "parent_id": 204,
+        "relation": "connect"
+    },
+    {
+        "text": "the context of an interview. Stretches of speech",
+        "box": [
+            72,
+            372,
+            290,
+            383
+        ],
+        "class": "para",
+        "page": 2,
+        "is_meta": false,
+        "line_id": 206,
+        "parent_id": 205,
+        "relation": "connect"
+    },
+    {
+        "text": "have been transcribed containing one or more utter-",
+        "box": [
+            72,
+            386,
+            292,
+            397
+        ],
+        "class": "para",
+        "page": 2,
+        "is_meta": false,
+        "line_id": 207,
+        "parent_id": 206,
+        "relation": "connect"
+    },
+    {
+        "text": "ances. We selected only utterances by caregivers",
+        "box": [
+            72,
+            400,
+            290,
+            410
+        ],
+        "class": "para",
+        "page": 2,
+        "is_meta": false,
+        "line_id": 208,
+        "parent_id": 207,
+        "relation": "connect"
+    },
+    {
+        "text": "and excluded segments with multiple speakers. As",
+        "box": [
+            72,
+            413,
+            290,
+            424
+        ],
+        "class": "para",
+        "page": 2,
+        "is_meta": false,
+        "line_id": 209,
+        "parent_id": 208,
+        "relation": "connect"
+    },
+    {
+        "text": "the CDS portion of the corpus is larger than the",
+        "box": [
+            72,
+            427,
+            290,
+            438
+        ],
+        "class": "para",
+        "page": 2,
+        "is_meta": false,
+        "line_id": 210,
+        "parent_id": 209,
+        "relation": "connect"
+    },
+    {
+        "text": "ADS portion, we randomly selected 21,465 CDS",
+        "box": [
+            71,
+            440,
+            290,
+            451
+        ],
+        "class": "para",
+        "page": 2,
+        "is_meta": false,
+        "line_id": 211,
+        "parent_id": 210,
+        "relation": "connect"
+    },
+    {
+        "text": "segments, matching the number of ADS segments",
+        "box": [
+            72,
+            454,
+            290,
+            465
+        ],
+        "class": "para",
+        "page": 2,
+        "is_meta": false,
+        "line_id": 212,
+        "parent_id": 211,
+        "relation": "connect"
+    },
+    {
+        "text": "by caregivers. Validation and test sets of 1,000 seg-",
+        "box": [
+            72,
+            467,
+            292,
+            478
+        ],
+        "class": "para",
+        "page": 2,
+        "is_meta": false,
+        "line_id": 213,
+        "parent_id": 212,
+        "relation": "connect"
+    },
+    {
+        "text": "ments were held out, while the remaining 19,465",
+        "box": [
+            72,
+            481,
+            290,
+            492
+        ],
+        "class": "para",
+        "page": 2,
+        "is_meta": false,
+        "line_id": 214,
+        "parent_id": 213,
+        "relation": "connect"
+    },
+    {
+        "text": "segments were used for training.",
+        "box": [
+            72,
+            494,
+            213,
+            505
+        ],
+        "class": "para",
+        "page": 2,
+        "is_meta": false,
+        "line_id": 215,
+        "parent_id": 214,
+        "relation": "connect"
+    },
+    {
+        "text": "Table 1 lists some characteristic statistics of the",
+        "box": [
+            82,
+            508,
+            290,
+            519
+        ],
+        "class": "fstline",
+        "page": 2,
+        "is_meta": false,
+        "line_id": 216,
+        "parent_id": 203,
+        "relation": "equality"
+    },
+    {
+        "text": "CDS and ADS samples that were used. The ADS",
+        "box": [
+            72,
+            522,
+            290,
+            533
+        ],
+        "class": "para",
+        "page": 2,
+        "is_meta": false,
+        "line_id": 217,
+        "parent_id": 216,
+        "relation": "connect"
+    },
+    {
+        "text": "sample contains a larger vocabulary than the CDS",
+        "box": [
+            72,
+            536,
+            290,
+            546
+        ],
+        "class": "para",
+        "page": 2,
+        "is_meta": false,
+        "line_id": 218,
+        "parent_id": 217,
+        "relation": "connect"
+    },
+    {
+        "text": "sample. On average, ADS segments contain more",
+        "box": [
+            72,
+            549,
+            290,
+            560
+        ],
+        "class": "para",
+        "page": 2,
+        "is_meta": false,
+        "line_id": 219,
+        "parent_id": 218,
+        "relation": "connect"
+    },
+    {
+        "text": "than twice as many words, although they are only",
+        "box": [
+            72,
+            563,
+            290,
+            574
+        ],
+        "class": "para",
+        "page": 2,
+        "is_meta": false,
+        "line_id": 220,
+        "parent_id": 219,
+        "relation": "connect"
+    },
+    {
+        "text": "88 milliseconds longer on average. Therefore, the",
+        "box": [
+            72,
+            576,
+            290,
+            587
+        ],
+        "class": "para",
+        "page": 2,
+        "is_meta": false,
+        "line_id": 221,
+        "parent_id": 220,
+        "relation": "connect"
+    },
+    {
+        "text": "number of words per second is twice as high in",
+        "box": [
+            72,
+            590,
+            290,
+            601
+        ],
+        "class": "para",
+        "page": 2,
+        "is_meta": false,
+        "line_id": 222,
+        "parent_id": 221,
+        "relation": "connect"
+    },
+    {
+        "text": "ADS as it is in CDS.",
+        "box": [
+            71,
+            603,
+            161,
+            614
+        ],
+        "class": "para",
+        "page": 2,
+        "is_meta": false,
+        "line_id": 223,
+        "parent_id": 222,
+        "relation": "connect"
+    },
+    {
+        "text": "4.2 Synthetic speech",
+        "box": [
+            72,
+            627,
+            173,
+            638
+        ],
+        "class": "sec2",
+        "page": 2,
+        "is_meta": false,
+        "line_id": 224,
+        "parent_id": 186,
+        "relation": "equality"
+    },
+    {
+        "text": "To tease apart effects of the acoustic properties of",
+        "box": [
+            71,
+            646,
+            290,
+            656
+        ],
+        "class": "fstline",
+        "page": 2,
+        "is_meta": false,
+        "line_id": 225,
+        "parent_id": 224,
+        "relation": "contain"
+    },
+    {
+        "text": "speech and properties of the language itself, we",
+        "box": [
+            72,
+            659,
+            290,
+            670
+        ],
+        "class": "para",
+        "page": 2,
+        "is_meta": false,
+        "line_id": 226,
+        "parent_id": 225,
+        "relation": "connect"
+    },
+    {
+        "text": "repeat the experiment using synthesized version of",
+        "box": [
+            72,
+            673,
+            290,
+            684
+        ],
+        "class": "para",
+        "page": 2,
+        "is_meta": false,
+        "line_id": 227,
+        "parent_id": 226,
+        "relation": "connect"
+    },
+    {
+        "text": "the ADS and CDS corpora. For this variant, we",
+        "box": [
+            72,
+            686,
+            290,
+            697
+        ],
+        "class": "para",
+        "page": 2,
+        "is_meta": false,
+        "line_id": 228,
+        "parent_id": 227,
+        "relation": "connect"
+    },
+    {
+        "text": "feed the transcriptions to the Google text2speech",
+        "box": [
+            72,
+            700,
+            290,
+            711
+        ],
+        "class": "para",
+        "page": 2,
+        "is_meta": false,
+        "line_id": 229,
+        "parent_id": 228,
+        "relation": "connect"
+    },
+    {
+        "text": "API, using the 6 available US English WaveNet",
+        "box": [
+            71,
+            713,
+            290,
+            724
+        ],
+        "class": "para",
+        "page": 2,
+        "is_meta": false,
+        "line_id": 230,
+        "parent_id": 229,
+        "relation": "connect"
+    },
+    {
+        "text": "voices (van den Oord et al., 2016). Note that the",
+        "box": [
+            71,
+            727,
+            290,
+            738
+        ],
+        "class": "para",
+        "page": 2,
+        "is_meta": false,
+        "line_id": 231,
+        "parent_id": 230,
+        "relation": "connect"
+    },
+    {
+        "text": "synthetic speech is much cleaner than the natural",
+        "box": [
+            72,
+            740,
+            290,
+            751
+        ],
+        "class": "para",
+        "page": 2,
+        "is_meta": false,
+        "line_id": 232,
+        "parent_id": 231,
+        "relation": "connect"
+    },
+    {
+        "text": "speech, which was recorded using a microphone",
+        "box": [
+            72,
+            754,
+            290,
+            765
+        ],
+        "class": "para",
+        "page": 2,
+        "is_meta": false,
+        "line_id": 233,
+        "parent_id": 232,
+        "relation": "connect"
+    },
+    {
+        "text": "attached to clothing of the caregiver, and contains",
+        "box": [
+            307,
+            65,
+            525,
+            76
+        ],
+        "class": "para",
+        "page": 2,
+        "is_meta": false,
+        "line_id": 234,
+        "parent_id": 233,
+        "relation": "connect"
+    },
+    {
+        "text": "a lot of silence, noise, and fluctuations in volume",
+        "box": [
+            307,
+            78,
+            525,
+            89
+        ],
+        "class": "para",
+        "page": 2,
+        "is_meta": false,
+        "line_id": 235,
+        "parent_id": 234,
+        "relation": "connect"
+    },
+    {
+        "text": "of the speech.",
+        "box": [
+            307,
+            92,
+            367,
+            103
+        ],
+        "class": "para",
+        "page": 2,
+        "is_meta": false,
+        "line_id": 236,
+        "parent_id": 235,
+        "relation": "connect"
+    },
+    {
+        "text": "Since synthetic speech for ADS and CDS is gen-",
+        "box": [
+            318,
+            106,
+            527,
+            117
+        ],
+        "class": "fstline",
+        "page": 2,
+        "is_meta": false,
+        "line_id": 237,
+        "parent_id": 225,
+        "relation": "equality"
+    },
+    {
+        "text": "erated using the same pipeline, the acoustic proper-",
+        "box": [
+            307,
+            120,
+            527,
+            130
+        ],
+        "class": "para",
+        "page": 2,
+        "is_meta": false,
+        "line_id": 238,
+        "parent_id": 237,
+        "relation": "connect"
+    },
+    {
+        "text": "ties of these samples are comparable, but linguistic",
+        "box": [
+            307,
+            133,
+            525,
+            144
+        ],
+        "class": "para",
+        "page": 2,
+        "is_meta": false,
+        "line_id": 239,
+        "parent_id": 238,
+        "relation": "connect"
+    },
+    {
+        "text": "differences between them are retained. Differences",
+        "box": [
+            307,
+            147,
+            525,
+            158
+        ],
+        "class": "para",
+        "page": 2,
+        "is_meta": false,
+        "line_id": 240,
+        "parent_id": 239,
+        "relation": "connect"
+    },
+    {
+        "text": "remain in the vocabulary size, number of words per",
+        "box": [
+            307,
+            160,
+            525,
+            171
+        ],
+        "class": "para",
+        "page": 2,
+        "is_meta": false,
+        "line_id": 241,
+        "parent_id": 240,
+        "relation": "connect"
+    },
+    {
+        "text": "utterance and type token ratio, but the number of",
+        "box": [
+            307,
+            174,
+            525,
+            185
+        ],
+        "class": "para",
+        "page": 2,
+        "is_meta": false,
+        "line_id": 242,
+        "parent_id": 241,
+        "relation": "connect"
+    },
+    {
+        "text": "words per second is now comparable. This means",
+        "box": [
+            306,
+            187,
+            525,
+            198
+        ],
+        "class": "para",
+        "page": 2,
+        "is_meta": false,
+        "line_id": 243,
+        "parent_id": 242,
+        "relation": "connect"
+    },
+    {
+        "text": "the length of utterances is much larger for synthetic",
+        "box": [
+            307,
+            201,
+            525,
+            212
+        ],
+        "class": "para",
+        "page": 2,
+        "is_meta": false,
+        "line_id": 244,
+        "parent_id": 243,
+        "relation": "connect"
+    },
+    {
+        "text": "ADS sentences, since the average ADS sentence",
+        "box": [
+            306,
+            214,
+            525,
+            225
+        ],
+        "class": "para",
+        "page": 2,
+        "is_meta": false,
+        "line_id": 245,
+        "parent_id": 244,
+        "relation": "connect"
+    },
+    {
+        "text": "contains approximately twice as many words as the",
+        "box": [
+            307,
+            228,
+            525,
+            239
+        ],
+        "class": "para",
+        "page": 2,
+        "is_meta": false,
+        "line_id": 246,
+        "parent_id": 245,
+        "relation": "connect"
+    },
+    {
+        "text": "average CDS sentence.",
+        "box": [
+            307,
+            241,
+            407,
+            252
+        ],
+        "class": "para",
+        "page": 2,
+        "is_meta": false,
+        "line_id": 247,
+        "parent_id": 246,
+        "relation": "connect"
+    },
+    {
+        "text": "5 Model",
+        "box": [
+            307,
+            266,
+            357,
+            278
+        ],
+        "class": "sec1",
+        "page": 2,
+        "is_meta": false,
+        "line_id": 248,
+        "parent_id": 185,
+        "relation": "equality"
+    },
+    {
+        "text": "The model and training set-up is based on Merkx",
+        "box": [
+            306,
+            290,
+            525,
+            301
+        ],
+        "class": "fstline",
+        "page": 2,
+        "is_meta": false,
+        "line_id": 249,
+        "parent_id": 248,
+        "relation": "contain"
+    },
+    {
+        "text": "et al. (2019). This model is suited to our task, as",
+        "box": [
+            307,
+            303,
+            525,
+            314
+        ],
+        "class": "para",
+        "page": 2,
+        "is_meta": false,
+        "line_id": 250,
+        "parent_id": 249,
+        "relation": "connect"
+    },
+    {
+        "text": "it allows to learn to extract semantic information",
+        "box": [
+            307,
+            317,
+            525,
+            328
+        ],
+        "class": "para",
+        "page": 2,
+        "is_meta": false,
+        "line_id": 251,
+        "parent_id": 250,
+        "relation": "connect"
+    },
+    {
+        "text": "from speech by grounding it in another modality,",
+        "box": [
+            307,
+            330,
+            526,
+            341
+        ],
+        "class": "para",
+        "page": 2,
+        "is_meta": false,
+        "line_id": 252,
+        "parent_id": 251,
+        "relation": "connect"
+    },
+    {
+        "text": "without requiring the speech to be segmented. The",
+        "box": [
+            306,
+            344,
+            525,
+            355
+        ],
+        "class": "para",
+        "page": 2,
+        "is_meta": false,
+        "line_id": 253,
+        "parent_id": 252,
+        "relation": "connect"
+    },
+    {
+        "text": "speech encoder comprises a convolutional filter",
+        "box": [
+            307,
+            357,
+            525,
+            368
+        ],
+        "class": "para",
+        "page": 2,
+        "is_meta": false,
+        "line_id": 254,
+        "parent_id": 253,
+        "relation": "connect"
+    },
+    {
+        "text": "over the speech input, feeding into a stack of 4",
+        "box": [
+            307,
+            371,
+            525,
+            382
+        ],
+        "class": "para",
+        "page": 2,
+        "is_meta": false,
+        "line_id": 255,
+        "parent_id": 254,
+        "relation": "connect"
+    },
+    {
+        "text": "bidirectional-GRU layers followed by an attention",
+        "box": [
+            307,
+            385,
+            525,
+            395
+        ],
+        "class": "para",
+        "page": 2,
+        "is_meta": false,
+        "line_id": 256,
+        "parent_id": 255,
+        "relation": "connect"
+    },
+    {
+        "text": "operator. The difference in our set-up is the use",
+        "box": [
+            307,
+            398,
+            525,
+            409
+        ],
+        "class": "para",
+        "page": 2,
+        "is_meta": false,
+        "line_id": 257,
+        "parent_id": 256,
+        "relation": "connect"
+    },
+    {
+        "text": "of SBERT sentence embeddings instead of visual",
+        "box": [
+            307,
+            412,
+            525,
+            423
+        ],
+        "class": "para",
+        "page": 2,
+        "is_meta": false,
+        "line_id": 258,
+        "parent_id": 257,
+        "relation": "connect"
+    },
+    {
+        "text": "feature vectors. Using a margin loss, the model is",
+        "box": [
+            307,
+            425,
+            525,
+            436
+        ],
+        "class": "para",
+        "page": 2,
+        "is_meta": false,
+        "line_id": 259,
+        "parent_id": 258,
+        "relation": "connect"
+    },
+    {
+        "text": "trained to make the cosine distance between true",
+        "box": [
+            307,
+            439,
+            525,
+            450
+        ],
+        "class": "para",
+        "page": 2,
+        "is_meta": false,
+        "line_id": 260,
+        "parent_id": 259,
+        "relation": "connect"
+    },
+    {
+        "text": "pairs of speech segments and SBERT embeddings",
+        "box": [
+            307,
+            452,
+            525,
+            463
+        ],
+        "class": "para",
+        "page": 2,
+        "is_meta": false,
+        "line_id": 261,
+        "parent_id": 260,
+        "relation": "connect"
+    },
+    {
+        "text": "smaller than that between random counterparts.",
+        "box": [
+            307,
+            466,
+            527,
+            477
+        ],
+        "class": "para",
+        "page": 2,
+        "is_meta": false,
+        "line_id": 262,
+        "parent_id": 261,
+        "relation": "connect"
+    },
+    {
+        "text": "We train for 50 epochs and following Merkx et al.",
+        "box": [
+            306,
+            479,
+            527,
+            490
+        ],
+        "class": "para",
+        "page": 2,
+        "is_meta": false,
+        "line_id": 263,
+        "parent_id": 262,
+        "relation": "connect"
+    },
+    {
+        "text": "(2019) we use a cyclic learning rate schedule.1",
+        "box": [
+            306,
+            491,
+            510,
+            504
+        ],
+        "class": "para",
+        "page": 2,
+        "is_meta": false,
+        "line_id": 264,
+        "parent_id": 263,
+        "relation": "connect"
+    },
+    {
+        "text": "6 Results",
+        "box": [
+            307,
+            518,
+            362,
+            530
+        ],
+        "class": "sec1",
+        "page": 2,
+        "is_meta": false,
+        "line_id": 265,
+        "parent_id": 248,
+        "relation": "equality"
+    },
+    {
+        "text": "6.1 Performance",
+        "box": [
+            307,
+            541,
+            391,
+            552
+        ],
+        "class": "sec2",
+        "page": 2,
+        "is_meta": false,
+        "line_id": 266,
+        "parent_id": 265,
+        "relation": "contain"
+    },
+    {
+        "text": "Trained models are evaluated by ranking all SBERT",
+        "box": [
+            306,
+            560,
+            525,
+            571
+        ],
+        "class": "fstline",
+        "page": 2,
+        "is_meta": false,
+        "line_id": 267,
+        "parent_id": 266,
+        "relation": "contain"
+    },
+    {
+        "text": "embeddings in the test set by cosine distance to",
+        "box": [
+            307,
+            573,
+            525,
+            584
+        ],
+        "class": "para",
+        "page": 2,
+        "is_meta": false,
+        "line_id": 268,
+        "parent_id": 267,
+        "relation": "connect"
+    },
+    {
+        "text": "speech encodings. Reported metrics are recall@1,",
+        "box": [
+            307,
+            587,
+            526,
+            598
+        ],
+        "class": "para",
+        "page": 2,
+        "is_meta": false,
+        "line_id": 269,
+        "parent_id": 268,
+        "relation": "connect"
+    },
+    {
+        "text": "recall@5, and recall@10, which are the proportion",
+        "box": [
+            307,
+            600,
+            525,
+            611
+        ],
+        "class": "para",
+        "page": 2,
+        "is_meta": false,
+        "line_id": 270,
+        "parent_id": 269,
+        "relation": "connect"
+    },
+    {
+        "text": "of cases in which the correct SBERT embedding is",
+        "box": [
+            307,
+            614,
+            525,
+            625
+        ],
+        "class": "para",
+        "page": 2,
+        "is_meta": false,
+        "line_id": 271,
+        "parent_id": 270,
+        "relation": "connect"
+    },
+    {
+        "text": "among the top 1, 5, or 10 most similar ones; and",
+        "box": [
+            307,
+            628,
+            525,
+            638
+        ],
+        "class": "para",
+        "page": 2,
+        "is_meta": false,
+        "line_id": 272,
+        "parent_id": 271,
+        "relation": "connect"
+    },
+    {
+        "text": "the median rank of the correct SBERT embedding.",
+        "box": [
+            307,
+            641,
+            527,
+            652
+        ],
+        "class": "para",
+        "page": 2,
+        "is_meta": false,
+        "line_id": 273,
+        "parent_id": 272,
+        "relation": "connect"
+    },
+    {
+        "text": "Test results are reported for the training epoch for",
+        "box": [
+            306,
+            655,
+            525,
+            666
+        ],
+        "class": "para",
+        "page": 2,
+        "is_meta": false,
+        "line_id": 274,
+        "parent_id": 273,
+        "relation": "connect"
+    },
+    {
+        "text": "which recall@1 is highest on validation data. We",
+        "box": [
+            306,
+            668,
+            525,
+            679
+        ],
+        "class": "para",
+        "page": 2,
+        "is_meta": false,
+        "line_id": 275,
+        "parent_id": 274,
+        "relation": "connect"
+    },
+    {
+        "text": "have trained 3 differently randomly initialized runs",
+        "box": [
+            307,
+            682,
+            525,
+            693
+        ],
+        "class": "para",
+        "page": 2,
+        "is_meta": false,
+        "line_id": 276,
+        "parent_id": 275,
+        "relation": "connect"
+    },
+    {
+        "text": "for all four datasets, and report the average scores",
+        "box": [
+            307,
+            695,
+            525,
+            706
+        ],
+        "class": "para",
+        "page": 2,
+        "is_meta": false,
+        "line_id": 277,
+        "parent_id": 276,
+        "relation": "connect"
+    },
+    {
+        "text": "on the test split of the dataset the model was trained",
+        "box": [
+            307,
+            709,
+            525,
+            720
+        ],
+        "class": "para",
+        "page": 2,
+        "is_meta": false,
+        "line_id": 278,
+        "parent_id": 277,
+        "relation": "connect"
+    },
+    {
+        "text": "on, as well as its CDS or ADS counterpart, and a",
+        "box": [
+            307,
+            722,
+            525,
+            733
+        ],
+        "class": "para",
+        "page": 2,
+        "is_meta": false,
+        "line_id": 279,
+        "parent_id": 278,
+        "relation": "connect"
+    },
+    {
+        "text": "1Code is available through Github:",
+        "box": [
+            319,
+            744,
+            444,
+            754
+        ],
+        "class": "fnote",
+        "page": 2,
+        "is_meta": true,
+        "line_id": 280,
+        "parent_id": -1,
+        "relation": "meta"
+    },
+    {
+        "text": "https://github.com/lgelderloos/cds ads",
+        "box": [
+            307,
+            755,
+            509,
+            764
+        ],
+        "class": "opara",
+        "page": 2,
+        "is_meta": true,
+        "line_id": 281,
+        "parent_id": 280,
+        "relation": "connect"
+    },
+    {
+        "text": "3",
+        "box": [
+            296,
+            777,
+            301,
+            787
+        ],
+        "class": "foot",
+        "page": 2,
+        "is_meta": true,
+        "line_id": 282,
+        "parent_id": -1,
+        "relation": "meta"
+    },
+    {
+        "text": "Table 2: Test performance of models trained on natural",
+        "box": [
+            74,
+            63,
+            288,
+            205
+        ],
+        "class": "tab",
+        "page": 3,
+        "is_meta": false,
+        "line_id": 283,
+        "parent_id": -1,
+        "relation": "contain"
+    },
+    {
+        "text": "Table 2: Test performance of models trained on natural",
+        "box": [
+            71,
+            214,
+            290,
+            224
+        ],
+        "class": "tabcap",
+        "page": 3,
+        "is_meta": false,
+        "line_id": 284,
+        "parent_id": 283,
+        "relation": "contain"
+    },
+    {
+        "text": "speech",
+        "box": [
+            72,
+            226,
+            99,
+            236
+        ],
+        "class": "opara",
+        "page": 3,
+        "is_meta": false,
+        "line_id": 285,
+        "parent_id": 284,
+        "relation": "connect"
+    },
+    {
+        "text": "Table 3: Test performance of models trained on syn-",
+        "box": [
+            72,
+            246,
+            288,
+            390
+        ],
+        "class": "tab",
+        "page": 3,
+        "is_meta": false,
+        "line_id": 286,
+        "parent_id": -1,
+        "relation": "contain"
+    },
+    {
+        "text": "Table 3: Test performance of models trained on syn-",
+        "box": [
+            71,
+            399,
+            291,
+            409
+        ],
+        "class": "tabcap",
+        "page": 3,
+        "is_meta": false,
+        "line_id": 287,
+        "parent_id": 286,
+        "relation": "contain"
+    },
+    {
+        "text": "thetic speech",
+        "box": [
+            72,
+            411,
+            123,
+            421
+        ],
+        "class": "opara",
+        "page": 3,
+        "is_meta": false,
+        "line_id": 288,
+        "parent_id": 287,
+        "relation": "connect"
+    },
+    {
+        "text": "combined test set, which is simply the union of the",
+        "box": [
+            72,
+            453,
+            290,
+            463
+        ],
+        "class": "para",
+        "page": 3,
+        "is_meta": false,
+        "line_id": 289,
+        "parent_id": 279,
+        "relation": "connect"
+    },
+    {
+        "text": "two.",
+        "box": [
+            72,
+            466,
+            90,
+            477
+        ],
+        "class": "para",
+        "page": 3,
+        "is_meta": false,
+        "line_id": 290,
+        "parent_id": 289,
+        "relation": "connect"
+    },
+    {
+        "text": "As can be observed in table 2, on the com-",
+        "box": [
+            82,
+            481,
+            292,
+            492
+        ],
+        "class": "fstline",
+        "page": 3,
+        "is_meta": false,
+        "line_id": 291,
+        "parent_id": 267,
+        "relation": "equality"
+    },
+    {
+        "text": "bined test set, models trained on adult directed",
+        "box": [
+            72,
+            495,
+            290,
+            506
+        ],
+        "class": "para",
+        "page": 3,
+        "is_meta": false,
+        "line_id": 292,
+        "parent_id": 291,
+        "relation": "connect"
+    },
+    {
+        "text": "speech slightly outperform models trained on child-",
+        "box": [
+            72,
+            508,
+            292,
+            519
+        ],
+        "class": "para",
+        "page": 3,
+        "is_meta": false,
+        "line_id": 293,
+        "parent_id": 292,
+        "relation": "connect"
+    },
+    {
+        "text": "directed speech. However, models in the two reg-",
+        "box": [
+            72,
+            522,
+            292,
+            533
+        ],
+        "class": "para",
+        "page": 3,
+        "is_meta": false,
+        "line_id": 294,
+        "parent_id": 293,
+        "relation": "connect"
+    },
+    {
+        "text": "isters perform very similarly when we test them",
+        "box": [
+            72,
+            535,
+            290,
+            546
+        ],
+        "class": "para",
+        "page": 3,
+        "is_meta": false,
+        "line_id": 295,
+        "parent_id": 294,
+        "relation": "connect"
+    },
+    {
+        "text": "on the test set in the same register, with ADS hav-",
+        "box": [
+            72,
+            549,
+            292,
+            560
+        ],
+        "class": "para",
+        "page": 3,
+        "is_meta": false,
+        "line_id": 296,
+        "parent_id": 295,
+        "relation": "connect"
+    },
+    {
+        "text": "ing higher recall@1, but CDS scoring better on",
+        "box": [
+            72,
+            563,
+            290,
+            573
+        ],
+        "class": "para",
+        "page": 3,
+        "is_meta": false,
+        "line_id": 297,
+        "parent_id": 296,
+        "relation": "connect"
+    },
+    {
+        "text": "the other metrics. When we test ADS models on",
+        "box": [
+            72,
+            576,
+            290,
+            587
+        ],
+        "class": "para",
+        "page": 3,
+        "is_meta": false,
+        "line_id": 298,
+        "parent_id": 297,
+        "relation": "connect"
+    },
+    {
+        "text": "CDS, performance is lower than that of models that",
+        "box": [
+            72,
+            590,
+            290,
+            601
+        ],
+        "class": "para",
+        "page": 3,
+        "is_meta": false,
+        "line_id": 299,
+        "parent_id": 298,
+        "relation": "connect"
+    },
+    {
+        "text": "have been trained on CDS. However, the drop on",
+        "box": [
+            72,
+            603,
+            290,
+            614
+        ],
+        "class": "para",
+        "page": 3,
+        "is_meta": false,
+        "line_id": 300,
+        "parent_id": 299,
+        "relation": "connect"
+    },
+    {
+        "text": "ADS between models trained on ADS and models",
+        "box": [
+            71,
+            617,
+            290,
+            628
+        ],
+        "class": "para",
+        "page": 3,
+        "is_meta": false,
+        "line_id": 301,
+        "parent_id": 300,
+        "relation": "connect"
+    },
+    {
+        "text": "trained on CDS is even larger. The better perfor-",
+        "box": [
+            72,
+            630,
+            292,
+            641
+        ],
+        "class": "para",
+        "page": 3,
+        "is_meta": false,
+        "line_id": 302,
+        "parent_id": 301,
+        "relation": "connect"
+    },
+    {
+        "text": "mance on the combined test set, then, seems to",
+        "box": [
+            72,
+            644,
+            290,
+            655
+        ],
+        "class": "para",
+        "page": 3,
+        "is_meta": false,
+        "line_id": 303,
+        "parent_id": 302,
+        "relation": "connect"
+    },
+    {
+        "text": "come from ADS models generalizing better to CDS",
+        "box": [
+            72,
+            657,
+            290,
+            668
+        ],
+        "class": "para",
+        "page": 3,
+        "is_meta": false,
+        "line_id": 304,
+        "parent_id": 303,
+        "relation": "connect"
+    },
+    {
+        "text": "than the other way around.",
+        "box": [
+            72,
+            671,
+            188,
+            682
+        ],
+        "class": "para",
+        "page": 3,
+        "is_meta": false,
+        "line_id": 305,
+        "parent_id": 304,
+        "relation": "connect"
+    },
+    {
+        "text": "General performance of all models trained and",
+        "box": [
+            82,
+            686,
+            290,
+            697
+        ],
+        "class": "fstline",
+        "page": 3,
+        "is_meta": false,
+        "line_id": 306,
+        "parent_id": 291,
+        "relation": "equality"
+    },
+    {
+        "text": "tested on synthetic speech, which is much cleaner",
+        "box": [
+            72,
+            700,
+            290,
+            711
+        ],
+        "class": "para",
+        "page": 3,
+        "is_meta": false,
+        "line_id": 307,
+        "parent_id": 306,
+        "relation": "connect"
+    },
+    {
+        "text": "than the natural speech and more similar across reg-",
+        "box": [
+            72,
+            713,
+            292,
+            724
+        ],
+        "class": "para",
+        "page": 3,
+        "is_meta": false,
+        "line_id": 308,
+        "parent_id": 307,
+        "relation": "connect"
+    },
+    {
+        "text": "isters, is much higher than performance on natural",
+        "box": [
+            72,
+            727,
+            290,
+            738
+        ],
+        "class": "para",
+        "page": 3,
+        "is_meta": false,
+        "line_id": 309,
+        "parent_id": 308,
+        "relation": "connect"
+    },
+    {
+        "text": "speech (see table 3). However, the same pattern",
+        "box": [
+            72,
+            740,
+            290,
+            751
+        ],
+        "class": "para",
+        "page": 3,
+        "is_meta": false,
+        "line_id": 310,
+        "parent_id": 309,
+        "relation": "connect"
+    },
+    {
+        "text": "can be observed: on the combined test set, ADS",
+        "box": [
+            72,
+            754,
+            290,
+            765
+        ],
+        "class": "para",
+        "page": 3,
+        "is_meta": false,
+        "line_id": 311,
+        "parent_id": 310,
+        "relation": "connect"
+    },
+    {
+        "text": "Figure 1: Validation performance in early training on",
+        "box": [
+            307,
+            65,
+            525,
+            204
+        ],
+        "class": "fig",
+        "page": 3,
+        "is_meta": false,
+        "line_id": 312,
+        "parent_id": -1,
+        "relation": "contain"
+    },
+    {
+        "text": "Figure 1: Validation performance in early training on",
+        "box": [
+            307,
+            218,
+            525,
+            228
+        ],
+        "class": "figcap",
+        "page": 3,
+        "is_meta": false,
+        "line_id": 313,
+        "parent_id": 312,
+        "relation": "contain"
+    },
+    {
+        "text": "natural speech",
+        "box": [
+            307,
+            230,
+            364,
+            240
+        ],
+        "class": "opara",
+        "page": 3,
+        "is_meta": false,
+        "line_id": 314,
+        "parent_id": 313,
+        "relation": "connect"
+    },
+    {
+        "text": "Figure 2: Validation performance in early training on",
+        "box": [
+            310,
+            249,
+            525,
+            389
+        ],
+        "class": "fig",
+        "page": 3,
+        "is_meta": false,
+        "line_id": 315,
+        "parent_id": -1,
+        "relation": "contain"
+    },
+    {
+        "text": "Figure 2: Validation performance in early training on",
+        "box": [
+            307,
+            403,
+            525,
+            413
+        ],
+        "class": "figcap",
+        "page": 3,
+        "is_meta": false,
+        "line_id": 316,
+        "parent_id": 315,
+        "relation": "contain"
+    },
+    {
+        "text": "synthetic speech",
+        "box": [
+            307,
+            415,
+            372,
+            425
+        ],
+        "class": "opara",
+        "page": 3,
+        "is_meta": false,
+        "line_id": 317,
+        "parent_id": 316,
+        "relation": "connect"
+    },
+    {
+        "text": "models perform better than CDS models. When",
+        "box": [
+            307,
+            450,
+            525,
+            461
+        ],
+        "class": "para",
+        "page": 3,
+        "is_meta": false,
+        "line_id": 318,
+        "parent_id": 311,
+        "relation": "connect"
+    },
+    {
+        "text": "tested on the register they were trained on, the mod-",
+        "box": [
+            307,
+            464,
+            527,
+            475
+        ],
+        "class": "para",
+        "page": 3,
+        "is_meta": false,
+        "line_id": 319,
+        "parent_id": 318,
+        "relation": "connect"
+    },
+    {
+        "text": "els perform similarly, but models trained on ADS",
+        "box": [
+            307,
+            477,
+            525,
+            488
+        ],
+        "class": "para",
+        "page": 3,
+        "is_meta": false,
+        "line_id": 320,
+        "parent_id": 319,
+        "relation": "connect"
+    },
+    {
+        "text": "perform better when tested on CDS than the other",
+        "box": [
+            307,
+            491,
+            525,
+            502
+        ],
+        "class": "para",
+        "page": 3,
+        "is_meta": false,
+        "line_id": 321,
+        "parent_id": 320,
+        "relation": "connect"
+    },
+    {
+        "text": "way around.",
+        "box": [
+            306,
+            505,
+            360,
+            515
+        ],
+        "class": "para",
+        "page": 3,
+        "is_meta": false,
+        "line_id": 322,
+        "parent_id": 321,
+        "relation": "connect"
+    },
+    {
+        "text": "To summarize, models trained on ADS and CDS",
+        "box": [
+            318,
+            519,
+            525,
+            530
+        ],
+        "class": "fstline",
+        "page": 3,
+        "is_meta": false,
+        "line_id": 323,
+        "parent_id": 306,
+        "relation": "equality"
+    },
+    {
+        "text": "reach comparable scores when evaluated on the",
+        "box": [
+            307,
+            533,
+            525,
+            544
+        ],
+        "class": "para",
+        "page": 3,
+        "is_meta": false,
+        "line_id": 324,
+        "parent_id": 323,
+        "relation": "connect"
+    },
+    {
+        "text": "same register they are trained on. However, training",
+        "box": [
+            307,
+            546,
+            525,
+            557
+        ],
+        "class": "para",
+        "page": 3,
+        "is_meta": false,
+        "line_id": 325,
+        "parent_id": 324,
+        "relation": "connect"
+    },
+    {
+        "text": "on ADS leads to knowledge that generalizes better",
+        "box": [
+            307,
+            560,
+            525,
+            571
+        ],
+        "class": "para",
+        "page": 3,
+        "is_meta": false,
+        "line_id": 326,
+        "parent_id": 325,
+        "relation": "connect"
+    },
+    {
+        "text": "than training on CDS does. This pattern holds even",
+        "box": [
+            307,
+            573,
+            525,
+            584
+        ],
+        "class": "para",
+        "page": 3,
+        "is_meta": false,
+        "line_id": 327,
+        "parent_id": 326,
+        "relation": "connect"
+    },
+    {
+        "text": "when training and evaluating on synthetic speech,",
+        "box": [
+            306,
+            587,
+            526,
+            598
+        ],
+        "class": "para",
+        "page": 3,
+        "is_meta": false,
+        "line_id": 328,
+        "parent_id": 327,
+        "relation": "connect"
+    },
+    {
+        "text": "when the two registers are acoustically similar.",
+        "box": [
+            306,
+            600,
+            511,
+            611
+        ],
+        "class": "para",
+        "page": 3,
+        "is_meta": false,
+        "line_id": 329,
+        "parent_id": 328,
+        "relation": "connect"
+    },
+    {
+        "text": "6.2 Learning trajectories",
+        "box": [
+            307,
+            626,
+            430,
+            637
+        ],
+        "class": "sec2",
+        "page": 3,
+        "is_meta": false,
+        "line_id": 330,
+        "parent_id": 266,
+        "relation": "equality"
+    },
+    {
+        "text": "Learnability is not just about eventual attainment:",
+        "box": [
+            307,
+            646,
+            527,
+            656
+        ],
+        "class": "fstline",
+        "page": 3,
+        "is_meta": false,
+        "line_id": 331,
+        "parent_id": 330,
+        "relation": "contain"
+    },
+    {
+        "text": "it is also about the process of learning itself. Al-",
+        "box": [
+            307,
+            659,
+            527,
+            670
+        ],
+        "class": "para",
+        "page": 3,
+        "is_meta": false,
+        "line_id": 332,
+        "parent_id": 331,
+        "relation": "connect"
+    },
+    {
+        "text": "though ADS and CDS models eventually perform",
+        "box": [
+            307,
+            673,
+            525,
+            684
+        ],
+        "class": "para",
+        "page": 3,
+        "is_meta": false,
+        "line_id": 333,
+        "parent_id": 332,
+        "relation": "connect"
+    },
+    {
+        "text": "similarly, this is not necessarily the case during",
+        "box": [
+            307,
+            686,
+            525,
+            697
+        ],
+        "class": "para",
+        "page": 3,
+        "is_meta": false,
+        "line_id": 334,
+        "parent_id": 333,
+        "relation": "connect"
+    },
+    {
+        "text": "the training process. Figures 1 and 2 show the tra-",
+        "box": [
+            307,
+            700,
+            527,
+            711
+        ],
+        "class": "para",
+        "page": 3,
+        "is_meta": false,
+        "line_id": 335,
+        "parent_id": 334,
+        "relation": "connect"
+    },
+    {
+        "text": "jectory of recall performance on the validation set",
+        "box": [
+            307,
+            713,
+            525,
+            724
+        ],
+        "class": "para",
+        "page": 3,
+        "is_meta": false,
+        "line_id": 336,
+        "parent_id": 335,
+        "relation": "connect"
+    },
+    {
+        "text": "after the first 10 epochs of training. During these",
+        "box": [
+            307,
+            727,
+            525,
+            738
+        ],
+        "class": "para",
+        "page": 3,
+        "is_meta": false,
+        "line_id": 337,
+        "parent_id": 336,
+        "relation": "connect"
+    },
+    {
+        "text": "early stages of learning, the models trained on ADS",
+        "box": [
+            307,
+            740,
+            525,
+            751
+        ],
+        "class": "para",
+        "page": 3,
+        "is_meta": false,
+        "line_id": 338,
+        "parent_id": 337,
+        "relation": "connect"
+    },
+    {
+        "text": "(dotted lines) are outperformed by those trained on",
+        "box": [
+            306,
+            754,
+            525,
+            765
+        ],
+        "class": "para",
+        "page": 3,
+        "is_meta": false,
+        "line_id": 339,
+        "parent_id": 338,
+        "relation": "connect"
+    },
+    {
+        "text": "4",
+        "box": [
+            296,
+            777,
+            301,
+            787
+        ],
+        "class": "foot",
+        "page": 3,
+        "is_meta": true,
+        "line_id": 340,
+        "parent_id": -1,
+        "relation": "meta"
+    },
+    {
+        "text": "CDS (solid lines). This pattern is more pronounced",
+        "box": [
+            72,
+            65,
+            290,
+            76
+        ],
+        "class": "para",
+        "page": 4,
+        "is_meta": false,
+        "line_id": 341,
+        "parent_id": 339,
+        "relation": "connect"
+    },
+    {
+        "text": "in the models trained on synthetic speech, but also",
+        "box": [
+            72,
+            78,
+            290,
+            89
+        ],
+        "class": "para",
+        "page": 4,
+        "is_meta": false,
+        "line_id": 342,
+        "parent_id": 341,
+        "relation": "connect"
+    },
+    {
+        "text": "present for models trained on natural speech. After",
+        "box": [
+            72,
+            92,
+            290,
+            103
+        ],
+        "class": "para",
+        "page": 4,
+        "is_meta": false,
+        "line_id": 343,
+        "parent_id": 342,
+        "relation": "connect"
+    },
+    {
+        "text": "five epochs of training, average recall@1 is 0.12 for",
+        "box": [
+            72,
+            105,
+            290,
+            116
+        ],
+        "class": "para",
+        "page": 4,
+        "is_meta": false,
+        "line_id": 344,
+        "parent_id": 343,
+        "relation": "connect"
+    },
+    {
+        "text": "CDS models and 0.09 for ADS models. For models",
+        "box": [
+            72,
+            119,
+            290,
+            130
+        ],
+        "class": "para",
+        "page": 4,
+        "is_meta": false,
+        "line_id": 345,
+        "parent_id": 344,
+        "relation": "connect"
+    },
+    {
+        "text": "trained on synthetic speech, average recall@1 on",
+        "box": [
+            72,
+            132,
+            290,
+            143
+        ],
+        "class": "para",
+        "page": 4,
+        "is_meta": false,
+        "line_id": 346,
+        "parent_id": 345,
+        "relation": "connect"
+    },
+    {
+        "text": "validation data is 0.51 for ADS models and 0.59",
+        "box": [
+            71,
+            146,
+            290,
+            157
+        ],
+        "class": "para",
+        "page": 4,
+        "is_meta": false,
+        "line_id": 347,
+        "parent_id": 346,
+        "relation": "connect"
+    },
+    {
+        "text": "for CDS models. In later stages of training, models",
+        "box": [
+            72,
+            160,
+            290,
+            170
+        ],
+        "class": "para",
+        "page": 4,
+        "is_meta": false,
+        "line_id": 348,
+        "parent_id": 347,
+        "relation": "connect"
+    },
+    {
+        "text": "trained on ADS outperform CDS models on valida-",
+        "box": [
+            72,
+            173,
+            292,
+            184
+        ],
+        "class": "para",
+        "page": 4,
+        "is_meta": false,
+        "line_id": 349,
+        "parent_id": 348,
+        "relation": "connect"
+    },
+    {
+        "text": "tion data. At epoch 40, close to the optimally per-",
+        "box": [
+            72,
+            187,
+            292,
+            198
+        ],
+        "class": "para",
+        "page": 4,
+        "is_meta": false,
+        "line_id": 350,
+        "parent_id": 349,
+        "relation": "connect"
+    },
+    {
+        "text": "forming epoch for most models, average recall@1",
+        "box": [
+            72,
+            200,
+            291,
+            211
+        ],
+        "class": "para",
+        "page": 4,
+        "is_meta": false,
+        "line_id": 351,
+        "parent_id": 350,
+        "relation": "connect"
+    },
+    {
+        "text": "is 0.31 for ADS models and 0.28 for CDS models,",
+        "box": [
+            72,
+            214,
+            291,
+            225
+        ],
+        "class": "para",
+        "page": 4,
+        "is_meta": false,
+        "line_id": 352,
+        "parent_id": 351,
+        "relation": "connect"
+    },
+    {
+        "text": "and 0.86 and 0.81 for the synthetic counterparts,",
+        "box": [
+            72,
+            227,
+            291,
+            238
+        ],
+        "class": "para",
+        "page": 4,
+        "is_meta": false,
+        "line_id": 353,
+        "parent_id": 352,
+        "relation": "connect"
+    },
+    {
+        "text": "respectively.",
+        "box": [
+            72,
+            241,
+            126,
+            252
+        ],
+        "class": "para",
+        "page": 4,
+        "is_meta": false,
+        "line_id": 354,
+        "parent_id": 353,
+        "relation": "connect"
+    },
+    {
+        "text": "Although models trained on adult-directed",
+        "box": [
+            82,
+            255,
+            290,
+            266
+        ],
+        "class": "fstline",
+        "page": 4,
+        "is_meta": false,
+        "line_id": 355,
+        "parent_id": 331,
+        "relation": "equality"
+    },
+    {
+        "text": "speech eventually catch up with models trained",
+        "box": [
+            72,
+            269,
+            290,
+            280
+        ],
+        "class": "para",
+        "page": 4,
+        "is_meta": false,
+        "line_id": 356,
+        "parent_id": 355,
+        "relation": "connect"
+    },
+    {
+        "text": "on child-directed speech, CDS models learn more",
+        "box": [
+            72,
+            282,
+            290,
+            293
+        ],
+        "class": "para",
+        "page": 4,
+        "is_meta": false,
+        "line_id": 357,
+        "parent_id": 356,
+        "relation": "connect"
+    },
+    {
+        "text": "quickly at the start.",
+        "box": [
+            72,
+            296,
+            155,
+            307
+        ],
+        "class": "para",
+        "page": 4,
+        "is_meta": false,
+        "line_id": 358,
+        "parent_id": 357,
+        "relation": "connect"
+    },
+    {
+        "text": "7 Discussion",
+        "box": [
+            72,
+            322,
+            143,
+            334
+        ],
+        "class": "sec1",
+        "page": 4,
+        "is_meta": false,
+        "line_id": 359,
+        "parent_id": 265,
+        "relation": "equality"
+    },
+    {
+        "text": "We find indications that learning to extract mean-",
+        "box": [
+            71,
+            346,
+            292,
+            357
+        ],
+        "class": "fstline",
+        "page": 4,
+        "is_meta": false,
+        "line_id": 360,
+        "parent_id": 359,
+        "relation": "contain"
+    },
+    {
+        "text": "ing from speech is initially faster when learning",
+        "box": [
+            72,
+            359,
+            290,
+            370
+        ],
+        "class": "para",
+        "page": 4,
+        "is_meta": false,
+        "line_id": 361,
+        "parent_id": 360,
+        "relation": "connect"
+    },
+    {
+        "text": "from child-directed speech, but learning from adult-",
+        "box": [
+            72,
+            373,
+            292,
+            384
+        ],
+        "class": "para",
+        "page": 4,
+        "is_meta": false,
+        "line_id": 362,
+        "parent_id": 361,
+        "relation": "connect"
+    },
+    {
+        "text": "directed speech eventually leads to similar task per-",
+        "box": [
+            72,
+            386,
+            292,
+            397
+        ],
+        "class": "para",
+        "page": 4,
+        "is_meta": false,
+        "line_id": 363,
+        "parent_id": 362,
+        "relation": "connect"
+    },
+    {
+        "text": "formance on the training register, and better gener-",
+        "box": [
+            72,
+            400,
+            292,
+            411
+        ],
+        "class": "para",
+        "page": 4,
+        "is_meta": false,
+        "line_id": 364,
+        "parent_id": 363,
+        "relation": "connect"
+    },
+    {
+        "text": "alization to the other register. The effect is present",
+        "box": [
+            72,
+            413,
+            290,
+            424
+        ],
+        "class": "para",
+        "page": 4,
+        "is_meta": false,
+        "line_id": 365,
+        "parent_id": 364,
+        "relation": "connect"
+    },
+    {
+        "text": "both in models trained on natural speech and in",
+        "box": [
+            72,
+            427,
+            290,
+            438
+        ],
+        "class": "para",
+        "page": 4,
+        "is_meta": false,
+        "line_id": 366,
+        "parent_id": 365,
+        "relation": "connect"
+    },
+    {
+        "text": "models trained on synthetic speech, suggesting that",
+        "box": [
+            72,
+            441,
+            290,
+            451
+        ],
+        "class": "para",
+        "page": 4,
+        "is_meta": false,
+        "line_id": 367,
+        "parent_id": 366,
+        "relation": "connect"
+    },
+    {
+        "text": "it is at least partly due to differences in the language",
+        "box": [
+            72,
+            454,
+            290,
+            465
+        ],
+        "class": "para",
+        "page": 4,
+        "is_meta": false,
+        "line_id": 368,
+        "parent_id": 367,
+        "relation": "connect"
+    },
+    {
+        "text": "itself, rather than acoustic properties of the speech",
+        "box": [
+            72,
+            468,
+            290,
+            479
+        ],
+        "class": "para",
+        "page": 4,
+        "is_meta": false,
+        "line_id": 369,
+        "parent_id": 368,
+        "relation": "connect"
+    },
+    {
+        "text": "register.",
+        "box": [
+            72,
+            481,
+            106,
+            492
+        ],
+        "class": "para",
+        "page": 4,
+        "is_meta": false,
+        "line_id": 370,
+        "parent_id": 369,
+        "relation": "connect"
+    },
+    {
+        "text": "Our finding that models trained on ADS gen-",
+        "box": [
+            82,
+            496,
+            292,
+            507
+        ],
+        "class": "fstline",
+        "page": 4,
+        "is_meta": false,
+        "line_id": 371,
+        "parent_id": 360,
+        "relation": "equality"
+    },
+    {
+        "text": "eralize better to CDS than the other way around",
+        "box": [
+            72,
+            509,
+            290,
+            520
+        ],
+        "class": "para",
+        "page": 4,
+        "is_meta": false,
+        "line_id": 372,
+        "parent_id": 371,
+        "relation": "connect"
+    },
+    {
+        "text": "contrasts with the findings of Kirchhoff and Schim-",
+        "box": [
+            72,
+            523,
+            292,
+            534
+        ],
+        "class": "para",
+        "page": 4,
+        "is_meta": false,
+        "line_id": 373,
+        "parent_id": 372,
+        "relation": "connect"
+    },
+    {
+        "text": "mel (2005). Our results are in contrast to the idea",
+        "box": [
+            72,
+            536,
+            290,
+            547
+        ],
+        "class": "para",
+        "page": 4,
+        "is_meta": false,
+        "line_id": 374,
+        "parent_id": 373,
+        "relation": "connect"
+    },
+    {
+        "text": "that CDS is optimized for leading to the most valu-",
+        "box": [
+            72,
+            550,
+            292,
+            561
+        ],
+        "class": "para",
+        "page": 4,
+        "is_meta": false,
+        "line_id": 375,
+        "parent_id": 374,
+        "relation": "connect"
+    },
+    {
+        "text": "able knowledge, as it is the models trained on ADS",
+        "box": [
+            72,
+            563,
+            290,
+            574
+        ],
+        "class": "para",
+        "page": 4,
+        "is_meta": false,
+        "line_id": 376,
+        "parent_id": 375,
+        "relation": "connect"
+    },
+    {
+        "text": "that lead to better generalization. Our finding that",
+        "box": [
+            72,
+            577,
+            290,
+            588
+        ],
+        "class": "para",
+        "page": 4,
+        "is_meta": false,
+        "line_id": 377,
+        "parent_id": 376,
+        "relation": "connect"
+    },
+    {
+        "text": "learning is initially faster for CDS is more in line",
+        "box": [
+            72,
+            590,
+            290,
+            601
+        ],
+        "class": "para",
+        "page": 4,
+        "is_meta": false,
+        "line_id": 378,
+        "parent_id": 377,
+        "relation": "connect"
+    },
+    {
+        "text": "with the idea of learnability as \u2018easy to learn\u2019.",
+        "box": [
+            71,
+            604,
+            271,
+            615
+        ],
+        "class": "para",
+        "page": 4,
+        "is_meta": false,
+        "line_id": 379,
+        "parent_id": 378,
+        "relation": "connect"
+    },
+    {
+        "text": "The better generalization of models trained on",
+        "box": [
+            82,
+            618,
+            290,
+            629
+        ],
+        "class": "fstline",
+        "page": 4,
+        "is_meta": false,
+        "line_id": 380,
+        "parent_id": 371,
+        "relation": "equality"
+    },
+    {
+        "text": "ADS may be due to ADS having higher lexical and",
+        "box": [
+            71,
+            632,
+            290,
+            643
+        ],
+        "class": "para",
+        "page": 4,
+        "is_meta": false,
+        "line_id": 381,
+        "parent_id": 380,
+        "relation": "connect"
+    },
+    {
+        "text": "semantic variability, reflected in the larger vocab-",
+        "box": [
+            72,
+            646,
+            292,
+            656
+        ],
+        "class": "para",
+        "page": 4,
+        "is_meta": false,
+        "line_id": 382,
+        "parent_id": 381,
+        "relation": "connect"
+    },
+    {
+        "text": "ulary and higher number of words per utterance.",
+        "box": [
+            72,
+            659,
+            292,
+            670
+        ],
+        "class": "para",
+        "page": 4,
+        "is_meta": false,
+        "line_id": 383,
+        "parent_id": 382,
+        "relation": "connect"
+    },
+    {
+        "text": "Since there is simply more to learn, learning to per-",
+        "box": [
+            72,
+            673,
+            292,
+            684
+        ],
+        "class": "para",
+        "page": 4,
+        "is_meta": false,
+        "line_id": 384,
+        "parent_id": 383,
+        "relation": "connect"
+    },
+    {
+        "text": "form the task is more difficult on ADS, but it leads",
+        "box": [
+            72,
+            686,
+            290,
+            697
+        ],
+        "class": "para",
+        "page": 4,
+        "is_meta": false,
+        "line_id": 385,
+        "parent_id": 384,
+        "relation": "connect"
+    },
+    {
+        "text": "to more valuable knowledge. It is also possible",
+        "box": [
+            72,
+            700,
+            290,
+            711
+        ],
+        "class": "para",
+        "page": 4,
+        "is_meta": false,
+        "line_id": 386,
+        "parent_id": 385,
+        "relation": "connect"
+    },
+    {
+        "text": "that SBERT is better suited to encode the semantic",
+        "box": [
+            72,
+            713,
+            290,
+            724
+        ],
+        "class": "para",
+        "page": 4,
+        "is_meta": false,
+        "line_id": 387,
+        "parent_id": 386,
+        "relation": "connect"
+    },
+    {
+        "text": "content of ADS, as ADS uterrances are likely to be",
+        "box": [
+            72,
+            727,
+            290,
+            738
+        ],
+        "class": "para",
+        "page": 4,
+        "is_meta": false,
+        "line_id": 388,
+        "parent_id": 387,
+        "relation": "connect"
+    },
+    {
+        "text": "more similar to the sentences SBERT was trained",
+        "box": [
+            72,
+            740,
+            290,
+            751
+        ],
+        "class": "para",
+        "page": 4,
+        "is_meta": false,
+        "line_id": 389,
+        "parent_id": 388,
+        "relation": "connect"
+    },
+    {
+        "text": "on than CDS utterances are.",
+        "box": [
+            72,
+            754,
+            194,
+            765
+        ],
+        "class": "para",
+        "page": 4,
+        "is_meta": false,
+        "line_id": 390,
+        "parent_id": 389,
+        "relation": "connect"
+    },
+    {
+        "text": "We must be prudent in drawing conclusions from",
+        "box": [
+            318,
+            65,
+            525,
+            76
+        ],
+        "class": "fstline",
+        "page": 4,
+        "is_meta": false,
+        "line_id": 391,
+        "parent_id": 380,
+        "relation": "equality"
+    },
+    {
+        "text": "the apparent effects we see in this study, as the re-",
+        "box": [
+            307,
+            78,
+            527,
+            89
+        ],
+        "class": "para",
+        "page": 4,
+        "is_meta": false,
+        "line_id": 392,
+        "parent_id": 391,
+        "relation": "connect"
+    },
+    {
+        "text": "sults on different datasets cannot be interpreted as",
+        "box": [
+            307,
+            92,
+            525,
+            103
+        ],
+        "class": "para",
+        "page": 4,
+        "is_meta": false,
+        "line_id": 393,
+        "parent_id": 392,
+        "relation": "connect"
+    },
+    {
+        "text": "being on the same scale. Although all metrics are",
+        "box": [
+            307,
+            105,
+            525,
+            116
+        ],
+        "class": "para",
+        "page": 4,
+        "is_meta": false,
+        "line_id": 394,
+        "parent_id": 393,
+        "relation": "connect"
+    },
+    {
+        "text": "based on a rank of the same number of competi-",
+        "box": [
+            307,
+            119,
+            527,
+            130
+        ],
+        "class": "para",
+        "page": 4,
+        "is_meta": false,
+        "line_id": 395,
+        "parent_id": 394,
+        "relation": "connect"
+    },
+    {
+        "text": "tors, the distribution of similarities and differences",
+        "box": [
+            307,
+            132,
+            525,
+            143
+        ],
+        "class": "para",
+        "page": 4,
+        "is_meta": false,
+        "line_id": 396,
+        "parent_id": 395,
+        "relation": "connect"
+    },
+    {
+        "text": "between the semantic representations of these com-",
+        "box": [
+            307,
+            146,
+            527,
+            157
+        ],
+        "class": "para",
+        "page": 4,
+        "is_meta": false,
+        "line_id": 397,
+        "parent_id": 396,
+        "relation": "connect"
+    },
+    {
+        "text": "petitors may differ across datasets. The combined",
+        "box": [
+            307,
+            160,
+            525,
+            170
+        ],
+        "class": "para",
+        "page": 4,
+        "is_meta": false,
+        "line_id": 398,
+        "parent_id": 397,
+        "relation": "connect"
+    },
+    {
+        "text": "test set scores are more directly comparable, but",
+        "box": [
+            307,
+            173,
+            525,
+            184
+        ],
+        "class": "para",
+        "page": 4,
+        "is_meta": false,
+        "line_id": 399,
+        "parent_id": 398,
+        "relation": "connect"
+    },
+    {
+        "text": "ideally, we would like to compare the generaliza-",
+        "box": [
+            307,
+            187,
+            527,
+            198
+        ],
+        "class": "para",
+        "page": 4,
+        "is_meta": false,
+        "line_id": 400,
+        "parent_id": 399,
+        "relation": "connect"
+    },
+    {
+        "text": "tion of both models on an independent test set.",
+        "box": [
+            307,
+            200,
+            510,
+            211
+        ],
+        "class": "para",
+        "page": 4,
+        "is_meta": false,
+        "line_id": 401,
+        "parent_id": 400,
+        "relation": "connect"
+    },
+    {
+        "text": "In future work, we intend to curate a test set",
+        "box": [
+            318,
+            214,
+            525,
+            225
+        ],
+        "class": "fstline",
+        "page": 4,
+        "is_meta": false,
+        "line_id": 402,
+        "parent_id": 391,
+        "relation": "equality"
+    },
+    {
+        "text": "with data from separate sources, which can serve",
+        "box": [
+            306,
+            227,
+            525,
+            238
+        ],
+        "class": "para",
+        "page": 4,
+        "is_meta": false,
+        "line_id": 403,
+        "parent_id": 402,
+        "relation": "connect"
+    },
+    {
+        "text": "as a benchmark for the models we study. We in-",
+        "box": [
+            307,
+            241,
+            527,
+            252
+        ],
+        "class": "para",
+        "page": 4,
+        "is_meta": false,
+        "line_id": 404,
+        "parent_id": 403,
+        "relation": "connect"
+    },
+    {
+        "text": "tend to explore how a curriculum of CDS followed",
+        "box": [
+            307,
+            254,
+            525,
+            265
+        ],
+        "class": "para",
+        "page": 4,
+        "is_meta": false,
+        "line_id": 405,
+        "parent_id": 404,
+        "relation": "connect"
+    },
+    {
+        "text": "by ADS affects learning trajectories and outcomes.",
+        "box": [
+            307,
+            268,
+            527,
+            279
+        ],
+        "class": "para",
+        "page": 4,
+        "is_meta": false,
+        "line_id": 406,
+        "parent_id": 405,
+        "relation": "connect"
+    },
+    {
+        "text": "We also intend to use tools for interpreting the",
+        "box": [
+            306,
+            282,
+            525,
+            292
+        ],
+        "class": "para",
+        "page": 4,
+        "is_meta": false,
+        "line_id": 407,
+        "parent_id": 406,
+        "relation": "connect"
+    },
+    {
+        "text": "knowledge encoded in neural networks (such as di-",
+        "box": [
+            307,
+            295,
+            527,
+            306
+        ],
+        "class": "para",
+        "page": 4,
+        "is_meta": false,
+        "line_id": 408,
+        "parent_id": 407,
+        "relation": "connect"
+    },
+    {
+        "text": "agnostic classifiers and representational similarity",
+        "box": [
+            307,
+            309,
+            525,
+            320
+        ],
+        "class": "para",
+        "page": 4,
+        "is_meta": false,
+        "line_id": 409,
+        "parent_id": 408,
+        "relation": "connect"
+    },
+    {
+        "text": "analysis) to investigate the emergent representation",
+        "box": [
+            307,
+            322,
+            525,
+            333
+        ],
+        "class": "para",
+        "page": 4,
+        "is_meta": false,
+        "line_id": 410,
+        "parent_id": 409,
+        "relation": "connect"
+    },
+    {
+        "text": "of linguistic units such as phonemes and words.",
+        "box": [
+            307,
+            336,
+            515,
+            347
+        ],
+        "class": "para",
+        "page": 4,
+        "is_meta": false,
+        "line_id": 411,
+        "parent_id": 410,
+        "relation": "connect"
+    },
+    {
+        "text": "References",
+        "box": [
+            307,
+            371,
+            362,
+            383
+        ],
+        "class": "sec1",
+        "page": 4,
+        "is_meta": false,
+        "line_id": 412,
+        "parent_id": 359,
+        "relation": "equality"
+    },
+    {
+        "text": "Eleanor O. Batchelder. 2002. Bootstrapping the lexi-",
+        "box": [
+            307,
+            390,
+            527,
+            400
+        ],
+        "class": "fstline",
+        "page": 4,
+        "is_meta": false,
+        "line_id": 413,
+        "parent_id": 412,
+        "relation": "contain"
+    },
+    {
+        "text": "con: A computational model of infant speech seg-",
+        "box": [
+            318,
+            401,
+            527,
+            411
+        ],
+        "class": "para",
+        "page": 4,
+        "is_meta": false,
+        "line_id": 414,
+        "parent_id": 413,
+        "relation": "connect"
+    },
+    {
+        "text": "mentation. Cognition, 83(2):167\u2013206.",
+        "box": [
+            318,
+            411,
+            470,
+            421
+        ],
+        "class": "para",
+        "page": 4,
+        "is_meta": false,
+        "line_id": 415,
+        "parent_id": 414,
+        "relation": "connect"
+    },
+    {
+        "text": "Grzegorz Chrupa\u0142a, Lieke Gelderloos, and Afra Al-",
+        "box": [
+            307,
+            430,
+            527,
+            440
+        ],
+        "class": "fstline",
+        "page": 4,
+        "is_meta": false,
+        "line_id": 416,
+        "parent_id": 413,
+        "relation": "equality"
+    },
+    {
+        "text": "ishahi. 2017. Representations of language in a",
+        "box": [
+            318,
+            441,
+            525,
+            451
+        ],
+        "class": "para",
+        "page": 4,
+        "is_meta": false,
+        "line_id": 417,
+        "parent_id": 416,
+        "relation": "connect"
+    },
+    {
+        "text": "model of visually grounded speech signal. In Pro-",
+        "box": [
+            318,
+            452,
+            527,
+            462
+        ],
+        "class": "para",
+        "page": 4,
+        "is_meta": false,
+        "line_id": 418,
+        "parent_id": 417,
+        "relation": "connect"
+    },
+    {
+        "text": "ceedings of the 55th Annual Meeting of the Associa-",
+        "box": [
+            318,
+            463,
+            527,
+            473
+        ],
+        "class": "para",
+        "page": 4,
+        "is_meta": false,
+        "line_id": 419,
+        "parent_id": 418,
+        "relation": "connect"
+    },
+    {
+        "text": "tion for Computational Linguistics (Volume 1: Long",
+        "box": [
+            318,
+            474,
+            525,
+            484
+        ],
+        "class": "para",
+        "page": 4,
+        "is_meta": false,
+        "line_id": 420,
+        "parent_id": 419,
+        "relation": "connect"
+    },
+    {
+        "text": "Papers), pages 613\u2013622.",
+        "box": [
+            317,
+            485,
+            416,
+            495
+        ],
+        "class": "para",
+        "page": 4,
+        "is_meta": false,
+        "line_id": 421,
+        "parent_id": 420,
+        "relation": "connect"
+    },
+    {
+        "text": "Eve V. Clark. 2009. First language acquisition, 2nd",
+        "box": [
+            307,
+            504,
+            525,
+            514
+        ],
+        "class": "fstline",
+        "page": 4,
+        "is_meta": false,
+        "line_id": 422,
+        "parent_id": 416,
+        "relation": "equality"
+    },
+    {
+        "text": "edition. Cambridge University Press, Cambridge.",
+        "box": [
+            318,
+            515,
+            515,
+            525
+        ],
+        "class": "para",
+        "page": 4,
+        "is_meta": false,
+        "line_id": 423,
+        "parent_id": 422,
+        "relation": "connect"
+    },
+    {
+        "text": "Alejandrina Cristia, Emmanuel Dupoux, Nan Bern-",
+        "box": [
+            307,
+            534,
+            527,
+            544
+        ],
+        "class": "fstline",
+        "page": 4,
+        "is_meta": false,
+        "line_id": 424,
+        "parent_id": 422,
+        "relation": "equality"
+    },
+    {
+        "text": "stein Ratner, and Melanie Soderstrom. 2019. Seg-",
+        "box": [
+            318,
+            545,
+            527,
+            555
+        ],
+        "class": "para",
+        "page": 4,
+        "is_meta": false,
+        "line_id": 425,
+        "parent_id": 424,
+        "relation": "connect"
+    },
+    {
+        "text": "mentability differences between child-directed and",
+        "box": [
+            318,
+            556,
+            525,
+            566
+        ],
+        "class": "para",
+        "page": 4,
+        "is_meta": false,
+        "line_id": 426,
+        "parent_id": 425,
+        "relation": "connect"
+    },
+    {
+        "text": "adult-directed speech: A systematic test with an eco-",
+        "box": [
+            318,
+            567,
+            527,
+            577
+        ],
+        "class": "para",
+        "page": 4,
+        "is_meta": false,
+        "line_id": 427,
+        "parent_id": 426,
+        "relation": "connect"
+    },
+    {
+        "text": "logically valid corpus. Open Mind, 3:13\u201322.",
+        "box": [
+            318,
+            577,
+            495,
+            588
+        ],
+        "class": "para",
+        "page": 4,
+        "is_meta": false,
+        "line_id": 428,
+        "parent_id": 427,
+        "relation": "connect"
+    },
+    {
+        "text": "Robert Daland and Janet B. Pierrehumbert. 2011.",
+        "box": [
+            307,
+            596,
+            527,
+            606
+        ],
+        "class": "fstline",
+        "page": 4,
+        "is_meta": false,
+        "line_id": 429,
+        "parent_id": 424,
+        "relation": "equality"
+    },
+    {
+        "text": "Learning diphone-based segmentation. Cognitive",
+        "box": [
+            318,
+            607,
+            525,
+            617
+        ],
+        "class": "para",
+        "page": 4,
+        "is_meta": false,
+        "line_id": 430,
+        "parent_id": 429,
+        "relation": "connect"
+    },
+    {
+        "text": "science, 35(1):119\u2013155.",
+        "box": [
+            318,
+            618,
+            414,
+            628
+        ],
+        "class": "para",
+        "page": 4,
+        "is_meta": false,
+        "line_id": 431,
+        "parent_id": 430,
+        "relation": "connect"
+    },
+    {
+        "text": "Jacob Devlin, Ming-Wei Chang, Kenton Lee, and",
+        "box": [
+            307,
+            637,
+            525,
+            647
+        ],
+        "class": "fstline",
+        "page": 4,
+        "is_meta": false,
+        "line_id": 432,
+        "parent_id": 429,
+        "relation": "equality"
+    },
+    {
+        "text": "Kristina Toutanova. 2019. BERT: Pre-training of",
+        "box": [
+            318,
+            648,
+            525,
+            658
+        ],
+        "class": "para",
+        "page": 4,
+        "is_meta": false,
+        "line_id": 433,
+        "parent_id": 432,
+        "relation": "connect"
+    },
+    {
+        "text": "deep bidirectional transformers for language under-",
+        "box": [
+            318,
+            659,
+            527,
+            669
+        ],
+        "class": "para",
+        "page": 4,
+        "is_meta": false,
+        "line_id": 434,
+        "parent_id": 433,
+        "relation": "connect"
+    },
+    {
+        "text": "standing. In Proceedings of the 2019 Conference of",
+        "box": [
+            318,
+            670,
+            525,
+            680
+        ],
+        "class": "para",
+        "page": 4,
+        "is_meta": false,
+        "line_id": 435,
+        "parent_id": 434,
+        "relation": "connect"
+    },
+    {
+        "text": "the North American Chapter of the Association for",
+        "box": [
+            318,
+            681,
+            525,
+            691
+        ],
+        "class": "para",
+        "page": 4,
+        "is_meta": false,
+        "line_id": 436,
+        "parent_id": 435,
+        "relation": "connect"
+    },
+    {
+        "text": "Computational Linguistics: Human Language Tech-",
+        "box": [
+            317,
+            692,
+            527,
+            702
+        ],
+        "class": "para",
+        "page": 4,
+        "is_meta": false,
+        "line_id": 437,
+        "parent_id": 436,
+        "relation": "connect"
+    },
+    {
+        "text": "nologies, Volume 1 (Long and Short Papers), pages",
+        "box": [
+            318,
+            703,
+            525,
+            713
+        ],
+        "class": "para",
+        "page": 4,
+        "is_meta": false,
+        "line_id": 438,
+        "parent_id": 437,
+        "relation": "connect"
+    },
+    {
+        "text": "4171\u20134186.",
+        "box": [
+            317,
+            714,
+            365,
+            724
+        ],
+        "class": "para",
+        "page": 4,
+        "is_meta": false,
+        "line_id": 439,
+        "parent_id": 438,
+        "relation": "connect"
+    },
+    {
+        "text": "Anne Fernald, Traute Taeschner, Judy Dunn,",
+        "box": [
+            307,
+            733,
+            526,
+            743
+        ],
+        "class": "fstline",
+        "page": 4,
+        "is_meta": false,
+        "line_id": 440,
+        "parent_id": 432,
+        "relation": "equality"
+    },
+    {
+        "text": "Mechthild Papousek, Be\u00b4ne\u00b4dicte de Boysson-",
+        "box": [
+            318,
+            744,
+            527,
+            754
+        ],
+        "class": "para",
+        "page": 4,
+        "is_meta": false,
+        "line_id": 441,
+        "parent_id": 440,
+        "relation": "connect"
+    },
+    {
+        "text": "Bardies, and Ikuko Fukui. 1989. A cross-language",
+        "box": [
+            318,
+            755,
+            525,
+            765
+        ],
+        "class": "para",
+        "page": 4,
+        "is_meta": false,
+        "line_id": 442,
+        "parent_id": 441,
+        "relation": "connect"
+    },
+    {
+        "text": "5",
+        "box": [
+            296,
+            777,
+            301,
+            787
+        ],
+        "class": "foot",
+        "page": 4,
+        "is_meta": true,
+        "line_id": 443,
+        "parent_id": -1,
+        "relation": "meta"
+    },
+    {
+        "text": "study of prosodic modifications in mothers\u2019 and",
+        "box": [
+            82,
+            65,
+            290,
+            75
+        ],
+        "class": "para",
+        "page": 5,
+        "is_meta": false,
+        "line_id": 444,
+        "parent_id": 442,
+        "relation": "connect"
+    },
+    {
+        "text": "fathers\u2019 speech to preverbal infants. Journal of child",
+        "box": [
+            82,
+            76,
+            290,
+            86
+        ],
+        "class": "para",
+        "page": 5,
+        "is_meta": false,
+        "line_id": 445,
+        "parent_id": 444,
+        "relation": "connect"
+    },
+    {
+        "text": "language, 16(3):477\u2013501.",
+        "box": [
+            82,
+            87,
+            186,
+            97
+        ],
+        "class": "para",
+        "page": 5,
+        "is_meta": false,
+        "line_id": 446,
+        "parent_id": 445,
+        "relation": "connect"
+    },
+    {
+        "text": "Adriana Guevara-Rukoz, Alejandrina Cristia, Bog-",
+        "box": [
+            72,
+            110,
+            291,
+            120
+        ],
+        "class": "fstline",
+        "page": 5,
+        "is_meta": false,
+        "line_id": 447,
+        "parent_id": 440,
+        "relation": "equality"
+    },
+    {
+        "text": "dan Ludusan, Roland Thiolli`ere, Andrew Martin,",
+        "box": [
+            82,
+            121,
+            291,
+            131
+        ],
+        "class": "para",
+        "page": 5,
+        "is_meta": false,
+        "line_id": 448,
+        "parent_id": 447,
+        "relation": "connect"
+    },
+    {
+        "text": "Reiko Mazuka, and Emmanuel Dupoux. 2018. Are",
+        "box": [
+            82,
+            132,
+            290,
+            142
+        ],
+        "class": "para",
+        "page": 5,
+        "is_meta": false,
+        "line_id": 449,
+        "parent_id": 448,
+        "relation": "connect"
+    },
+    {
+        "text": "words easier to learn from infant- than adult-directed",
+        "box": [
+            82,
+            143,
+            290,
+            153
+        ],
+        "class": "para",
+        "page": 5,
+        "is_meta": false,
+        "line_id": 450,
+        "parent_id": 449,
+        "relation": "connect"
+    },
+    {
+        "text": "speech? a quantitative corpus-based investigation.",
+        "box": [
+            82,
+            154,
+            292,
+            164
+        ],
+        "class": "para",
+        "page": 5,
+        "is_meta": false,
+        "line_id": 451,
+        "parent_id": 450,
+        "relation": "connect"
+    },
+    {
+        "text": "Cognitive Science, 42(5):1586\u20131617.",
+        "box": [
+            82,
+            165,
+            230,
+            175
+        ],
+        "class": "para",
+        "page": 5,
+        "is_meta": false,
+        "line_id": 452,
+        "parent_id": 451,
+        "relation": "connect"
+    },
+    {
+        "text": "David Harwath and James Glass. 2017. Learning word-",
+        "box": [
+            72,
+            188,
+            291,
+            198
+        ],
+        "class": "fstline",
+        "page": 5,
+        "is_meta": false,
+        "line_id": 453,
+        "parent_id": 447,
+        "relation": "equality"
+    },
+    {
+        "text": "like units from joint audio-visual analysis. In Pro-",
+        "box": [
+            82,
+            199,
+            291,
+            209
+        ],
+        "class": "para",
+        "page": 5,
+        "is_meta": false,
+        "line_id": 454,
+        "parent_id": 453,
+        "relation": "connect"
+    },
+    {
+        "text": "ceedings of the 55th Annual Meeting of the Associa-",
+        "box": [
+            82,
+            210,
+            291,
+            220
+        ],
+        "class": "para",
+        "page": 5,
+        "is_meta": false,
+        "line_id": 455,
+        "parent_id": 454,
+        "relation": "connect"
+    },
+    {
+        "text": "tion for Computational Linguistics (Volume 1: Long",
+        "box": [
+            82,
+            221,
+            290,
+            231
+        ],
+        "class": "para",
+        "page": 5,
+        "is_meta": false,
+        "line_id": 456,
+        "parent_id": 455,
+        "relation": "connect"
+    },
+    {
+        "text": "Papers), pages 506\u2013517.",
+        "box": [
+            82,
+            232,
+            180,
+            242
+        ],
+        "class": "para",
+        "page": 5,
+        "is_meta": false,
+        "line_id": 457,
+        "parent_id": 456,
+        "relation": "connect"
+    },
+    {
+        "text": "David Harwath, Antonio Torralba, and James Glass.",
+        "box": [
+            72,
+            255,
+            292,
+            265
+        ],
+        "class": "fstline",
+        "page": 5,
+        "is_meta": false,
+        "line_id": 458,
+        "parent_id": 453,
+        "relation": "equality"
+    },
+    {
+        "text": "2016. Unsupervised learning of spoken language",
+        "box": [
+            82,
+            266,
+            290,
+            276
+        ],
+        "class": "para",
+        "page": 5,
+        "is_meta": false,
+        "line_id": 459,
+        "parent_id": 458,
+        "relation": "connect"
+    },
+    {
+        "text": "with visual context. In Advances in Neural Infor-",
+        "box": [
+            82,
+            276,
+            291,
+            287
+        ],
+        "class": "para",
+        "page": 5,
+        "is_meta": false,
+        "line_id": 460,
+        "parent_id": 459,
+        "relation": "connect"
+    },
+    {
+        "text": "mation Processing Systems 29, pages 1858\u20131866.",
+        "box": [
+            82,
+            287,
+            280,
+            298
+        ],
+        "class": "para",
+        "page": 5,
+        "is_meta": false,
+        "line_id": 461,
+        "parent_id": 460,
+        "relation": "connect"
+    },
+    {
+        "text": "Erika Hoff. 2003. The specificity of environmental in-",
+        "box": [
+            72,
+            310,
+            291,
+            320
+        ],
+        "class": "fstline",
+        "page": 5,
+        "is_meta": false,
+        "line_id": 462,
+        "parent_id": 458,
+        "relation": "equality"
+    },
+    {
+        "text": "fluence: Socioeconomic status affects early vocabu-",
+        "box": [
+            82,
+            321,
+            291,
+            331
+        ],
+        "class": "para",
+        "page": 5,
+        "is_meta": false,
+        "line_id": 463,
+        "parent_id": 462,
+        "relation": "connect"
+    },
+    {
+        "text": "lary development via maternal speech. Child Devel-",
+        "box": [
+            82,
+            332,
+            291,
+            342
+        ],
+        "class": "para",
+        "page": 5,
+        "is_meta": false,
+        "line_id": 464,
+        "parent_id": 463,
+        "relation": "connect"
+    },
+    {
+        "text": "opment, 74(5):1368\u20131378.",
+        "box": [
+            82,
+            343,
+            188,
+            353
+        ],
+        "class": "para",
+        "page": 5,
+        "is_meta": false,
+        "line_id": 465,
+        "parent_id": 464,
+        "relation": "connect"
+    },
+    {
+        "text": "Katrin Kirchhoff and Steven Schimmel. 2005. Sta-",
+        "box": [
+            72,
+            366,
+            291,
+            376
+        ],
+        "class": "fstline",
+        "page": 5,
+        "is_meta": false,
+        "line_id": 466,
+        "parent_id": 462,
+        "relation": "equality"
+    },
+    {
+        "text": "tistical properties of infant-directed versus adult-",
+        "box": [
+            82,
+            377,
+            291,
+            387
+        ],
+        "class": "para",
+        "page": 5,
+        "is_meta": false,
+        "line_id": 467,
+        "parent_id": 466,
+        "relation": "connect"
+    },
+    {
+        "text": "directed speech: Insights from speech recognition.",
+        "box": [
+            82,
+            388,
+            292,
+            398
+        ],
+        "class": "para",
+        "page": 5,
+        "is_meta": false,
+        "line_id": 468,
+        "parent_id": 467,
+        "relation": "connect"
+    },
+    {
+        "text": "The Journal of the Acoustical Society of America,",
+        "box": [
+            82,
+            399,
+            291,
+            409
+        ],
+        "class": "para",
+        "page": 5,
+        "is_meta": false,
+        "line_id": 469,
+        "parent_id": 468,
+        "relation": "connect"
+    },
+    {
+        "text": "117(4):2238\u20132246.",
+        "box": [
+            82,
+            410,
+            158,
+            420
+        ],
+        "class": "para",
+        "page": 5,
+        "is_meta": false,
+        "line_id": 470,
+        "parent_id": 469,
+        "relation": "connect"
+    },
+    {
+        "text": "Patricia K. Kuhl, Jean E. Andruski, Inna A. Chistovich,",
+        "box": [
+            72,
+            433,
+            291,
+            443
+        ],
+        "class": "fstline",
+        "page": 5,
+        "is_meta": false,
+        "line_id": 471,
+        "parent_id": 466,
+        "relation": "equality"
+    },
+    {
+        "text": "Ludmilla A. Chistovich, Elena V. Kozhevnikova,",
+        "box": [
+            82,
+            444,
+            291,
+            454
+        ],
+        "class": "para",
+        "page": 5,
+        "is_meta": false,
+        "line_id": 472,
+        "parent_id": 471,
+        "relation": "connect"
+    },
+    {
+        "text": "Viktoria L. Ryskina, Elvira I. Stolyarova, Ulla Sund-",
+        "box": [
+            82,
+            455,
+            291,
+            465
+        ],
+        "class": "para",
+        "page": 5,
+        "is_meta": false,
+        "line_id": 473,
+        "parent_id": 472,
+        "relation": "connect"
+    },
+    {
+        "text": "berg, and Francisco Lacerda. 1997. Cross-language",
+        "box": [
+            82,
+            466,
+            290,
+            476
+        ],
+        "class": "para",
+        "page": 5,
+        "is_meta": false,
+        "line_id": 474,
+        "parent_id": 473,
+        "relation": "connect"
+    },
+    {
+        "text": "analysis of phonetic units in language addressed to",
+        "box": [
+            82,
+            477,
+            290,
+            487
+        ],
+        "class": "para",
+        "page": 5,
+        "is_meta": false,
+        "line_id": 475,
+        "parent_id": 474,
+        "relation": "connect"
+    },
+    {
+        "text": "infants. Science, 277(5326):684\u2013686.",
+        "box": [
+            82,
+            488,
+            233,
+            498
+        ],
+        "class": "para",
+        "page": 5,
+        "is_meta": false,
+        "line_id": 476,
+        "parent_id": 475,
+        "relation": "connect"
+    },
+    {
+        "text": "The ManyBabies Consortium. 2020. Quantifying",
+        "box": [
+            72,
+            511,
+            290,
+            521
+        ],
+        "class": "fstline",
+        "page": 5,
+        "is_meta": false,
+        "line_id": 477,
+        "parent_id": 471,
+        "relation": "equality"
+    },
+    {
+        "text": "sources of variability in infancy research using",
+        "box": [
+            82,
+            522,
+            290,
+            532
+        ],
+        "class": "para",
+        "page": 5,
+        "is_meta": false,
+        "line_id": 478,
+        "parent_id": 477,
+        "relation": "connect"
+    },
+    {
+        "text": "the infant-directed-speech preference. Advances in",
+        "box": [
+            82,
+            532,
+            290,
+            543
+        ],
+        "class": "para",
+        "page": 5,
+        "is_meta": false,
+        "line_id": 479,
+        "parent_id": 478,
+        "relation": "connect"
+    },
+    {
+        "text": "Methods and Practices in Psychological Science,",
+        "box": [
+            82,
+            543,
+            291,
+            553
+        ],
+        "class": "para",
+        "page": 5,
+        "is_meta": false,
+        "line_id": 480,
+        "parent_id": 479,
+        "relation": "connect"
+    },
+    {
+        "text": "3(1):24\u201352.",
+        "box": [
+            82,
+            554,
+            129,
+            564
+        ],
+        "class": "para",
+        "page": 5,
+        "is_meta": false,
+        "line_id": 481,
+        "parent_id": 480,
+        "relation": "connect"
+    },
+    {
+        "text": "Bob McMurray, Kristine A. Kovack-Lesh, Dresden",
+        "box": [
+            72,
+            577,
+            290,
+            587
+        ],
+        "class": "fstline",
+        "page": 5,
+        "is_meta": false,
+        "line_id": 482,
+        "parent_id": 477,
+        "relation": "equality"
+    },
+    {
+        "text": "Goodwin, and William McEchron. 2013. Infant di-",
+        "box": [
+            82,
+            588,
+            291,
+            598
+        ],
+        "class": "para",
+        "page": 5,
+        "is_meta": false,
+        "line_id": 483,
+        "parent_id": 482,
+        "relation": "connect"
+    },
+    {
+        "text": "rected speech and the development of speech percep-",
+        "box": [
+            82,
+            599,
+            291,
+            609
+        ],
+        "class": "para",
+        "page": 5,
+        "is_meta": false,
+        "line_id": 484,
+        "parent_id": 483,
+        "relation": "connect"
+    },
+    {
+        "text": "tion: Enhancing development or an unintended con-",
+        "box": [
+            82,
+            610,
+            291,
+            620
+        ],
+        "class": "para",
+        "page": 5,
+        "is_meta": false,
+        "line_id": 485,
+        "parent_id": 484,
+        "relation": "connect"
+    },
+    {
+        "text": "sequence? Cognition, 129(2):362 \u2013 378.",
+        "box": [
+            82,
+            621,
+            244,
+            631
+        ],
+        "class": "para",
+        "page": 5,
+        "is_meta": false,
+        "line_id": 486,
+        "parent_id": 485,
+        "relation": "connect"
+    },
+    {
+        "text": "Danny Merkx, Stefan L. Frank, and Mirjam Ernes-",
+        "box": [
+            72,
+            644,
+            291,
+            654
+        ],
+        "class": "fstline",
+        "page": 5,
+        "is_meta": false,
+        "line_id": 487,
+        "parent_id": 482,
+        "relation": "equality"
+    },
+    {
+        "text": "tus. 2019. Language Learning Using Speech to Im-",
+        "box": [
+            82,
+            655,
+            291,
+            665
+        ],
+        "class": "para",
+        "page": 5,
+        "is_meta": false,
+        "line_id": 488,
+        "parent_id": 487,
+        "relation": "connect"
+    },
+    {
+        "text": "age Retrieval. In Proceedings of Interspeech 2019,",
+        "box": [
+            82,
+            666,
+            291,
+            676
+        ],
+        "class": "para",
+        "page": 5,
+        "is_meta": false,
+        "line_id": 489,
+        "parent_id": 488,
+        "relation": "connect"
+    },
+    {
+        "text": "pages 1841\u20131845.",
+        "box": [
+            82,
+            677,
+            155,
+            687
+        ],
+        "class": "para",
+        "page": 5,
+        "is_meta": false,
+        "line_id": 490,
+        "parent_id": 489,
+        "relation": "connect"
+    },
+    {
+        "text": "Rochelle S. Newman, Meredith L. Rowe, and Nan",
+        "box": [
+            72,
+            700,
+            290,
+            710
+        ],
+        "class": "fstline",
+        "page": 5,
+        "is_meta": false,
+        "line_id": 491,
+        "parent_id": 487,
+        "relation": "equality"
+    },
+    {
+        "text": "Bernstein Ratner. 2016. Input and uptake at 7",
+        "box": [
+            82,
+            711,
+            290,
+            721
+        ],
+        "class": "para",
+        "page": 5,
+        "is_meta": false,
+        "line_id": 492,
+        "parent_id": 491,
+        "relation": "connect"
+    },
+    {
+        "text": "months predicts toddler vocabulary: the role of",
+        "box": [
+            82,
+            722,
+            290,
+            732
+        ],
+        "class": "para",
+        "page": 5,
+        "is_meta": false,
+        "line_id": 493,
+        "parent_id": 492,
+        "relation": "connect"
+    },
+    {
+        "text": "child-directed speech and infant processing skills in",
+        "box": [
+            82,
+            733,
+            290,
+            743
+        ],
+        "class": "para",
+        "page": 5,
+        "is_meta": false,
+        "line_id": 494,
+        "parent_id": 493,
+        "relation": "connect"
+    },
+    {
+        "text": "language development. Journal of Child Language,",
+        "box": [
+            82,
+            743,
+            291,
+            754
+        ],
+        "class": "para",
+        "page": 5,
+        "is_meta": false,
+        "line_id": 495,
+        "parent_id": 494,
+        "relation": "connect"
+    },
+    {
+        "text": "43(5):1158\u20131173.",
+        "box": [
+            82,
+            755,
+            154,
+            765
+        ],
+        "class": "para",
+        "page": 5,
+        "is_meta": false,
+        "line_id": 496,
+        "parent_id": 495,
+        "relation": "connect"
+    },
+    {
+        "text": "Elissa Newport, Henry Gleitman, and Lila Gleitman.",
+        "box": [
+            307,
+            65,
+            527,
+            75
+        ],
+        "class": "fstline",
+        "page": 5,
+        "is_meta": false,
+        "line_id": 497,
+        "parent_id": 491,
+        "relation": "equality"
+    },
+    {
+        "text": "1977. Mother, I\u2019d rather do it myself: Some ef-",
+        "box": [
+            317,
+            76,
+            527,
+            86
+        ],
+        "class": "para",
+        "page": 5,
+        "is_meta": false,
+        "line_id": 498,
+        "parent_id": 497,
+        "relation": "connect"
+    },
+    {
+        "text": "fects and noneffects of maternal speech style. In",
+        "box": [
+            318,
+            87,
+            525,
+            97
+        ],
+        "class": "para",
+        "page": 5,
+        "is_meta": false,
+        "line_id": 499,
+        "parent_id": 498,
+        "relation": "connect"
+    },
+    {
+        "text": "Catherine E. Snow and Charles A. Ferguson, editors,",
+        "box": [
+            318,
+            98,
+            526,
+            108
+        ],
+        "class": "para",
+        "page": 5,
+        "is_meta": false,
+        "line_id": 500,
+        "parent_id": 499,
+        "relation": "connect"
+    },
+    {
+        "text": "Talking to children: Language input and acquisition,",
+        "box": [
+            317,
+            109,
+            526,
+            119
+        ],
+        "class": "para",
+        "page": 5,
+        "is_meta": false,
+        "line_id": 501,
+        "parent_id": 500,
+        "relation": "connect"
+    },
+    {
+        "text": "pages 109\u2013149. Cambridge University Press, Cam-",
+        "box": [
+            318,
+            120,
+            527,
+            130
+        ],
+        "class": "para",
+        "page": 5,
+        "is_meta": false,
+        "line_id": 502,
+        "parent_id": 501,
+        "relation": "connect"
+    },
+    {
+        "text": "bridge.",
+        "box": [
+            318,
+            131,
+            346,
+            141
+        ],
+        "class": "para",
+        "page": 5,
+        "is_meta": false,
+        "line_id": 503,
+        "parent_id": 502,
+        "relation": "connect"
+    },
+    {
+        "text": "Aron van den Oord, Sander Dieleman, Heiga Zen,",
+        "box": [
+            307,
+            151,
+            526,
+            161
+        ],
+        "class": "fstline",
+        "page": 5,
+        "is_meta": false,
+        "line_id": 504,
+        "parent_id": 497,
+        "relation": "equality"
+    },
+    {
+        "text": "Karen Simonyan, Oriol Vinyals, Alexander Graves,",
+        "box": [
+            318,
+            162,
+            526,
+            172
+        ],
+        "class": "para",
+        "page": 5,
+        "is_meta": false,
+        "line_id": 505,
+        "parent_id": 504,
+        "relation": "connect"
+    },
+    {
+        "text": "Nal Kalchbrenner, Andrew Senior, and Koray",
+        "box": [
+            318,
+            173,
+            525,
+            183
+        ],
+        "class": "para",
+        "page": 5,
+        "is_meta": false,
+        "line_id": 506,
+        "parent_id": 505,
+        "relation": "connect"
+    },
+    {
+        "text": "Kavukcuoglu. 2016. WaveNet: A generative model",
+        "box": [
+            318,
+            184,
+            525,
+            194
+        ],
+        "class": "para",
+        "page": 5,
+        "is_meta": false,
+        "line_id": 507,
+        "parent_id": 506,
+        "relation": "connect"
+    },
+    {
+        "text": "for raw audio. arXiv:1609.03499.",
+        "box": [
+            318,
+            195,
+            452,
+            205
+        ],
+        "class": "para",
+        "page": 5,
+        "is_meta": false,
+        "line_id": 508,
+        "parent_id": 507,
+        "relation": "connect"
+    },
+    {
+        "text": "Nan Bernstein Ratner and Becky Rooney. 2001. How",
+        "box": [
+            307,
+            215,
+            525,
+            225
+        ],
+        "class": "fstline",
+        "page": 5,
+        "is_meta": false,
+        "line_id": 509,
+        "parent_id": 504,
+        "relation": "equality"
+    },
+    {
+        "text": "accessible is the lexicon in Motherese? In",
+        "box": [
+            318,
+            226,
+            525,
+            236
+        ],
+        "class": "para",
+        "page": 5,
+        "is_meta": false,
+        "line_id": 510,
+        "parent_id": 509,
+        "relation": "connect"
+    },
+    {
+        "text": "Ju\u00a8rgen Weissenborn and Barbara Ho\u00a8hle, editors, Ap-",
+        "box": [
+            317,
+            237,
+            527,
+            247
+        ],
+        "class": "para",
+        "page": 5,
+        "is_meta": false,
+        "line_id": 511,
+        "parent_id": 510,
+        "relation": "connect"
+    },
+    {
+        "text": "proaches to Bootstrapping: Phonological, lexical,",
+        "box": [
+            318,
+            248,
+            527,
+            258
+        ],
+        "class": "para",
+        "page": 5,
+        "is_meta": false,
+        "line_id": 512,
+        "parent_id": 511,
+        "relation": "connect"
+    },
+    {
+        "text": "syntactic and neurophysiological aspects of early",
+        "box": [
+            318,
+            259,
+            525,
+            268
+        ],
+        "class": "para",
+        "page": 5,
+        "is_meta": false,
+        "line_id": 513,
+        "parent_id": 512,
+        "relation": "connect"
+    },
+    {
+        "text": "language acquisition, volume 23 of Language Ac-",
+        "box": [
+            318,
+            269,
+            527,
+            280
+        ],
+        "class": "para",
+        "page": 5,
+        "is_meta": false,
+        "line_id": 514,
+        "parent_id": 513,
+        "relation": "connect"
+    },
+    {
+        "text": "quisition and Language Disorders, pages 71\u201378.",
+        "box": [
+            318,
+            280,
+            527,
+            291
+        ],
+        "class": "para",
+        "page": 5,
+        "is_meta": false,
+        "line_id": 515,
+        "parent_id": 514,
+        "relation": "connect"
+    },
+    {
+        "text": "John Benjamins Publishing Company.",
+        "box": [
+            317,
+            292,
+            469,
+            302
+        ],
+        "class": "para",
+        "page": 5,
+        "is_meta": false,
+        "line_id": 516,
+        "parent_id": 515,
+        "relation": "connect"
+    },
+    {
+        "text": "Nils Reimers and Iryna Gurevych. 2019. Sentence-",
+        "box": [
+            307,
+            312,
+            527,
+            321
+        ],
+        "class": "fstline",
+        "page": 5,
+        "is_meta": false,
+        "line_id": 517,
+        "parent_id": 509,
+        "relation": "equality"
+    },
+    {
+        "text": "BERT: Sentence embeddings using Siamese BERT-",
+        "box": [
+            318,
+            322,
+            527,
+            332
+        ],
+        "class": "para",
+        "page": 5,
+        "is_meta": false,
+        "line_id": 518,
+        "parent_id": 517,
+        "relation": "connect"
+    },
+    {
+        "text": "networks. In Proceedings of the 2019 Conference on",
+        "box": [
+            318,
+            333,
+            525,
+            343
+        ],
+        "class": "para",
+        "page": 5,
+        "is_meta": false,
+        "line_id": 519,
+        "parent_id": 518,
+        "relation": "connect"
+    },
+    {
+        "text": "Empirical Methods in Natural Language Processing",
+        "box": [
+            317,
+            344,
+            525,
+            354
+        ],
+        "class": "para",
+        "page": 5,
+        "is_meta": false,
+        "line_id": 520,
+        "parent_id": 519,
+        "relation": "connect"
+    },
+    {
+        "text": "and the 9th International Joint Conference on Natu-",
+        "box": [
+            318,
+            355,
+            527,
+            365
+        ],
+        "class": "para",
+        "page": 5,
+        "is_meta": false,
+        "line_id": 521,
+        "parent_id": 520,
+        "relation": "connect"
+    },
+    {
+        "text": "ral Language Processing (EMNLP-IJCNLP), pages",
+        "box": [
+            318,
+            366,
+            525,
+            376
+        ],
+        "class": "para",
+        "page": 5,
+        "is_meta": false,
+        "line_id": 522,
+        "parent_id": 521,
+        "relation": "connect"
+    },
+    {
+        "text": "3982\u20133992.",
+        "box": [
+            318,
+            377,
+            365,
+            387
+        ],
+        "class": "para",
+        "page": 5,
+        "is_meta": false,
+        "line_id": 523,
+        "parent_id": 522,
+        "relation": "connect"
+    },
+    {
+        "text": "Melanie Soderstrom. 2007. Beyond babytalk: Re-",
+        "box": [
+            307,
+            397,
+            527,
+            407
+        ],
+        "class": "fstline",
+        "page": 5,
+        "is_meta": false,
+        "line_id": 524,
+        "parent_id": 517,
+        "relation": "equality"
+    },
+    {
+        "text": "evaluating the nature and content of speech in-",
+        "box": [
+            318,
+            408,
+            527,
+            418
+        ],
+        "class": "para",
+        "page": 5,
+        "is_meta": false,
+        "line_id": 525,
+        "parent_id": 524,
+        "relation": "connect"
+    },
+    {
+        "text": "put to preverbal infants. Developmental Review,",
+        "box": [
+            318,
+            419,
+            526,
+            429
+        ],
+        "class": "para",
+        "page": 5,
+        "is_meta": false,
+        "line_id": 526,
+        "parent_id": 525,
+        "relation": "connect"
+    },
+    {
+        "text": "27(4):501\u2013532.",
+        "box": [
+            318,
+            430,
+            379,
+            440
+        ],
+        "class": "para",
+        "page": 5,
+        "is_meta": false,
+        "line_id": 527,
+        "parent_id": 526,
+        "relation": "connect"
+    },
+    {
+        "text": "Adriana Weisleder and Anne Fernald. 2013. Talk-",
+        "box": [
+            307,
+            450,
+            527,
+            460
+        ],
+        "class": "fstline",
+        "page": 5,
+        "is_meta": false,
+        "line_id": 528,
+        "parent_id": 524,
+        "relation": "equality"
+    },
+    {
+        "text": "ing to children matters: Early language experience",
+        "box": [
+            318,
+            461,
+            525,
+            471
+        ],
+        "class": "para",
+        "page": 5,
+        "is_meta": false,
+        "line_id": 529,
+        "parent_id": 528,
+        "relation": "connect"
+    },
+    {
+        "text": "strengthens processing and builds vocabulary. Psy-",
+        "box": [
+            318,
+            472,
+            527,
+            482
+        ],
+        "class": "para",
+        "page": 5,
+        "is_meta": false,
+        "line_id": 530,
+        "parent_id": 529,
+        "relation": "connect"
+    },
+    {
+        "text": "chological Science, 24(11):2143\u20132152.",
+        "box": [
+            318,
+            483,
+            474,
+            493
+        ],
+        "class": "para",
+        "page": 5,
+        "is_meta": false,
+        "line_id": 531,
+        "parent_id": 530,
+        "relation": "connect"
+    },
+    {
+        "text": "6",
+        "box": [
+            296,
+            777,
+            301,
+            787
+        ],
+        "class": "foot",
+        "page": 5,
+        "is_meta": true,
+        "line_id": 532,
+        "parent_id": -1,
+        "relation": "meta"
+    }
+]

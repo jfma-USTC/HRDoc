@@ -1,0 +1,7412 @@
+[
+    {
+        "text": "Dialogue State Tracking with Explicit Slot Connection Modeling",
+        "box": [
+            102,
+            70,
+            495,
+            84
+        ],
+        "class": "title",
+        "page": 0,
+        "is_meta": true,
+        "line_id": 0,
+        "parent_id": -1,
+        "relation": "meta"
+    },
+    {
+        "text": "Yawen Ouyang1 \u2217, Moxin Chen1 \u2217, Xinyu Dai1 \u2020, Yinggong Zhao2",
+        "box": [
+            145,
+            99,
+            457,
+            114
+        ],
+        "class": "author",
+        "page": 0,
+        "is_meta": true,
+        "line_id": 1,
+        "parent_id": -1,
+        "relation": "meta"
+    },
+    {
+        "text": "Shujiang Huang1 and Jiajun Chen1",
+        "box": [
+            208,
+            115,
+            391,
+            128
+        ],
+        "class": "author",
+        "page": 0,
+        "is_meta": true,
+        "line_id": 2,
+        "parent_id": -1,
+        "relation": "meta"
+    },
+    {
+        "text": "1National Key Laboratory for Novel Software Technology, Nanjing University, China",
+        "box": [
+            95,
+            129,
+            504,
+            142
+        ],
+        "class": "affili",
+        "page": 0,
+        "is_meta": true,
+        "line_id": 3,
+        "parent_id": -1,
+        "relation": "meta"
+    },
+    {
+        "text": "2Leyan Technologies, China",
+        "box": [
+            232,
+            143,
+            367,
+            156
+        ],
+        "class": "affili",
+        "page": 0,
+        "is_meta": true,
+        "line_id": 4,
+        "parent_id": -1,
+        "relation": "meta"
+    },
+    {
+        "text": "{ouyangyw,chenmx}@smail.nju.edu.cn",
+        "box": [
+            179,
+            157,
+            421,
+            170
+        ],
+        "class": "mail",
+        "page": 0,
+        "is_meta": true,
+        "line_id": 5,
+        "parent_id": -1,
+        "relation": "meta"
+    },
+    {
+        "text": "{daixinyu,huangsj,chenjj}@nju.edu.cn",
+        "box": [
+            172,
+            171,
+            428,
+            183
+        ],
+        "class": "mail",
+        "page": 0,
+        "is_meta": true,
+        "line_id": 6,
+        "parent_id": -1,
+        "relation": "meta"
+    },
+    {
+        "text": "yinggong.zhao@gmail.com",
+        "box": [
+            217,
+            185,
+            382,
+            197
+        ],
+        "class": "mail",
+        "page": 0,
+        "is_meta": true,
+        "line_id": 7,
+        "parent_id": -1,
+        "relation": "meta"
+    },
+    {
+        "text": "Abstract",
+        "box": [
+            158,
+            224,
+            203,
+            235
+        ],
+        "class": "sec1",
+        "page": 0,
+        "is_meta": false,
+        "line_id": 8,
+        "parent_id": -1,
+        "relation": "contain"
+    },
+    {
+        "text": "Recent proposed approaches have made",
+        "box": [
+            89,
+            247,
+            273,
+            257
+        ],
+        "class": "fstline",
+        "page": 0,
+        "is_meta": false,
+        "line_id": 9,
+        "parent_id": 8,
+        "relation": "contain"
+    },
+    {
+        "text": "promising progress in dialogue state tracking",
+        "box": [
+            89,
+            259,
+            273,
+            269
+        ],
+        "class": "para",
+        "page": 0,
+        "is_meta": false,
+        "line_id": 10,
+        "parent_id": 9,
+        "relation": "connect"
+    },
+    {
+        "text": "(DST). However, in multi-domain scenarios,",
+        "box": [
+            88,
+            271,
+            274,
+            281
+        ],
+        "class": "para",
+        "page": 0,
+        "is_meta": false,
+        "line_id": 11,
+        "parent_id": 10,
+        "relation": "connect"
+    },
+    {
+        "text": "ellipsis and reference are frequently adopted",
+        "box": [
+            89,
+            283,
+            273,
+            293
+        ],
+        "class": "para",
+        "page": 0,
+        "is_meta": false,
+        "line_id": 12,
+        "parent_id": 11,
+        "relation": "connect"
+    },
+    {
+        "text": "by users to express values that have been men-",
+        "box": [
+            89,
+            295,
+            274,
+            305
+        ],
+        "class": "para",
+        "page": 0,
+        "is_meta": false,
+        "line_id": 13,
+        "parent_id": 12,
+        "relation": "connect"
+    },
+    {
+        "text": "tioned by slots from other domains. To han-",
+        "box": [
+            89,
+            307,
+            274,
+            317
+        ],
+        "class": "para",
+        "page": 0,
+        "is_meta": false,
+        "line_id": 14,
+        "parent_id": 13,
+        "relation": "connect"
+    },
+    {
+        "text": "dle these phenomena, we propose a Dialogue",
+        "box": [
+            89,
+            319,
+            273,
+            329
+        ],
+        "class": "para",
+        "page": 0,
+        "is_meta": false,
+        "line_id": 15,
+        "parent_id": 14,
+        "relation": "connect"
+    },
+    {
+        "text": "State Tracking with Slot Connections (DST-",
+        "box": [
+            89,
+            331,
+            274,
+            341
+        ],
+        "class": "para",
+        "page": 0,
+        "is_meta": false,
+        "line_id": 16,
+        "parent_id": 15,
+        "relation": "connect"
+    },
+    {
+        "text": "SC) model to explicitly consider slot correla-",
+        "box": [
+            89,
+            343,
+            274,
+            353
+        ],
+        "class": "para",
+        "page": 0,
+        "is_meta": false,
+        "line_id": 17,
+        "parent_id": 16,
+        "relation": "connect"
+    },
+    {
+        "text": "tions across different domains. Given a target",
+        "box": [
+            89,
+            355,
+            273,
+            365
+        ],
+        "class": "para",
+        "page": 0,
+        "is_meta": false,
+        "line_id": 18,
+        "parent_id": 17,
+        "relation": "connect"
+    },
+    {
+        "text": "slot, the slot connecting mechanism in DST-",
+        "box": [
+            89,
+            367,
+            274,
+            377
+        ],
+        "class": "para",
+        "page": 0,
+        "is_meta": false,
+        "line_id": 19,
+        "parent_id": 18,
+        "relation": "connect"
+    },
+    {
+        "text": "SC can infer its source slot and copy the source",
+        "box": [
+            89,
+            379,
+            273,
+            389
+        ],
+        "class": "para",
+        "page": 0,
+        "is_meta": false,
+        "line_id": 20,
+        "parent_id": 19,
+        "relation": "connect"
+    },
+    {
+        "text": "slot value directly, thus significantly reducing",
+        "box": [
+            89,
+            391,
+            273,
+            401
+        ],
+        "class": "para",
+        "page": 0,
+        "is_meta": false,
+        "line_id": 21,
+        "parent_id": 20,
+        "relation": "connect"
+    },
+    {
+        "text": "the difficulty of learning and reasoning. Ex-",
+        "box": [
+            89,
+            403,
+            274,
+            413
+        ],
+        "class": "para",
+        "page": 0,
+        "is_meta": false,
+        "line_id": 22,
+        "parent_id": 21,
+        "relation": "connect"
+    },
+    {
+        "text": "perimental results verify the benefits of ex-",
+        "box": [
+            89,
+            415,
+            274,
+            425
+        ],
+        "class": "para",
+        "page": 0,
+        "is_meta": false,
+        "line_id": 23,
+        "parent_id": 22,
+        "relation": "connect"
+    },
+    {
+        "text": "plicit slot connection modeling, and our model",
+        "box": [
+            89,
+            427,
+            273,
+            436
+        ],
+        "class": "para",
+        "page": 0,
+        "is_meta": false,
+        "line_id": 24,
+        "parent_id": 23,
+        "relation": "connect"
+    },
+    {
+        "text": "achieves state-of-the-art performance on Mul-",
+        "box": [
+            89,
+            438,
+            274,
+            448
+        ],
+        "class": "para",
+        "page": 0,
+        "is_meta": false,
+        "line_id": 25,
+        "parent_id": 24,
+        "relation": "connect"
+    },
+    {
+        "text": "tiWOZ 2.0 and MultiWOZ 2.1 datasets.",
+        "box": [
+            89,
+            450,
+            247,
+            460
+        ],
+        "class": "para",
+        "page": 0,
+        "is_meta": false,
+        "line_id": 26,
+        "parent_id": 25,
+        "relation": "connect"
+    },
+    {
+        "text": "1 Introduction",
+        "box": [
+            72,
+            473,
+            154,
+            485
+        ],
+        "class": "sec1",
+        "page": 0,
+        "is_meta": false,
+        "line_id": 27,
+        "parent_id": 8,
+        "relation": "equality"
+    },
+    {
+        "text": "Task-oriented dialogue systems assist users to",
+        "box": [
+            71,
+            495,
+            290,
+            506
+        ],
+        "class": "fstline",
+        "page": 0,
+        "is_meta": false,
+        "line_id": 28,
+        "parent_id": 27,
+        "relation": "contain"
+    },
+    {
+        "text": "achieve their certain goals, such as making a restau-",
+        "box": [
+            72,
+            508,
+            292,
+            519
+        ],
+        "class": "para",
+        "page": 0,
+        "is_meta": false,
+        "line_id": 29,
+        "parent_id": 28,
+        "relation": "connect"
+    },
+    {
+        "text": "rant reservation or booking a taxi. To fulfill users\u2019",
+        "box": [
+            72,
+            522,
+            292,
+            533
+        ],
+        "class": "para",
+        "page": 0,
+        "is_meta": false,
+        "line_id": 30,
+        "parent_id": 29,
+        "relation": "connect"
+    },
+    {
+        "text": "goals, dialogue state tracking (DST) is employed",
+        "box": [
+            72,
+            535,
+            290,
+            546
+        ],
+        "class": "para",
+        "page": 0,
+        "is_meta": false,
+        "line_id": 31,
+        "parent_id": 30,
+        "relation": "connect"
+    },
+    {
+        "text": "to estimate dialogue states at each turn. Dialogue",
+        "box": [
+            72,
+            549,
+            290,
+            560
+        ],
+        "class": "para",
+        "page": 0,
+        "is_meta": false,
+        "line_id": 32,
+        "parent_id": 31,
+        "relation": "connect"
+    },
+    {
+        "text": "states consist of constraints and requests conveyed",
+        "box": [
+            72,
+            562,
+            290,
+            573
+        ],
+        "class": "para",
+        "page": 0,
+        "is_meta": false,
+        "line_id": 33,
+        "parent_id": 32,
+        "relation": "connect"
+    },
+    {
+        "text": "by user utterances, typically are represented by a",
+        "box": [
+            72,
+            576,
+            290,
+            587
+        ],
+        "class": "para",
+        "page": 0,
+        "is_meta": false,
+        "line_id": 34,
+        "parent_id": 33,
+        "relation": "connect"
+    },
+    {
+        "text": "set of predefined slots and their corresponding val-",
+        "box": [
+            72,
+            589,
+            292,
+            600
+        ],
+        "class": "para",
+        "page": 0,
+        "is_meta": false,
+        "line_id": 35,
+        "parent_id": 34,
+        "relation": "connect"
+    },
+    {
+        "text": "ues. For instance, the user utterance \u201cI am looking",
+        "box": [
+            72,
+            603,
+            290,
+            614
+        ],
+        "class": "para",
+        "page": 0,
+        "is_meta": false,
+        "line_id": 36,
+        "parent_id": 35,
+        "relation": "connect"
+    },
+    {
+        "text": "for a Korean restaurant in the centre\u201d mentions",
+        "box": [
+            72,
+            616,
+            290,
+            627
+        ],
+        "class": "para",
+        "page": 0,
+        "is_meta": false,
+        "line_id": 37,
+        "parent_id": 36,
+        "relation": "connect"
+    },
+    {
+        "text": "two slots, food and area, whose values are Korean",
+        "box": [
+            72,
+            630,
+            290,
+            641
+        ],
+        "class": "para",
+        "page": 0,
+        "is_meta": false,
+        "line_id": 38,
+        "parent_id": 37,
+        "relation": "connect"
+    },
+    {
+        "text": "and centre respectively.",
+        "box": [
+            72,
+            643,
+            174,
+            655
+        ],
+        "class": "para",
+        "page": 0,
+        "is_meta": false,
+        "line_id": 39,
+        "parent_id": 38,
+        "relation": "connect"
+    },
+    {
+        "text": "Numerous methods are proposed to tackle the",
+        "box": [
+            82,
+            657,
+            290,
+            668
+        ],
+        "class": "fstline",
+        "page": 0,
+        "is_meta": false,
+        "line_id": 40,
+        "parent_id": 28,
+        "relation": "equality"
+    },
+    {
+        "text": "challenge of DST recently, and these methods can",
+        "box": [
+            72,
+            671,
+            290,
+            682
+        ],
+        "class": "para",
+        "page": 0,
+        "is_meta": false,
+        "line_id": 41,
+        "parent_id": 40,
+        "relation": "connect"
+    },
+    {
+        "text": "be mainly categorized into two types: fixed vocabu-",
+        "box": [
+            72,
+            684,
+            292,
+            695
+        ],
+        "class": "para",
+        "page": 0,
+        "is_meta": false,
+        "line_id": 42,
+        "parent_id": 41,
+        "relation": "connect"
+    },
+    {
+        "text": "lary and open vocabulary (Eric et al., 2019). Fixed",
+        "box": [
+            72,
+            698,
+            290,
+            709
+        ],
+        "class": "para",
+        "page": 0,
+        "is_meta": false,
+        "line_id": 43,
+        "parent_id": 42,
+        "relation": "connect"
+    },
+    {
+        "text": "vocabulary models are designed in the paradigm of",
+        "box": [
+            71,
+            711,
+            290,
+            722
+        ],
+        "class": "para",
+        "page": 0,
+        "is_meta": false,
+        "line_id": 44,
+        "parent_id": 43,
+        "relation": "connect"
+    },
+    {
+        "text": "multi-class classification, relying on a predefined",
+        "box": [
+            72,
+            725,
+            290,
+            736
+        ],
+        "class": "para",
+        "page": 0,
+        "is_meta": false,
+        "line_id": 45,
+        "parent_id": 44,
+        "relation": "connect"
+    },
+    {
+        "text": "\u2217\u2217 Equal contributions.",
+        "box": [
+            91,
+            743,
+            170,
+            753
+        ],
+        "class": "fnote",
+        "page": 0,
+        "is_meta": true,
+        "line_id": 46,
+        "parent_id": -1,
+        "relation": "meta"
+    },
+    {
+        "text": "\u2020\u2020 Corresponding author.",
+        "box": [
+            91,
+            754,
+            178,
+            764
+        ],
+        "class": "fnote",
+        "page": 0,
+        "is_meta": true,
+        "line_id": 47,
+        "parent_id": -1,
+        "relation": "meta"
+    },
+    {
+        "text": "Table 1: An example of multi-domain dialogue with",
+        "box": [
+            304,
+            218,
+            528,
+            353
+        ],
+        "class": "tab",
+        "page": 0,
+        "is_meta": false,
+        "line_id": 48,
+        "parent_id": -1,
+        "relation": "contain"
+    },
+    {
+        "text": "Table 1: An example of multi-domain dialogue with",
+        "box": [
+            306,
+            360,
+            525,
+            370
+        ],
+        "class": "tabcap",
+        "page": 0,
+        "is_meta": false,
+        "line_id": 49,
+        "parent_id": 48,
+        "relation": "contain"
+    },
+    {
+        "text": "slot connections expressed by ellipsis and reference.",
+        "box": [
+            307,
+            372,
+            527,
+            382
+        ],
+        "class": "opara",
+        "page": 0,
+        "is_meta": false,
+        "line_id": 50,
+        "parent_id": 49,
+        "relation": "connect"
+    },
+    {
+        "text": "(We omit some turns and slots for simplicity.)",
+        "box": [
+            306,
+            384,
+            489,
+            394
+        ],
+        "class": "opara",
+        "page": 0,
+        "is_meta": false,
+        "line_id": 51,
+        "parent_id": 50,
+        "relation": "connect"
+    },
+    {
+        "text": "ontology(Henderson et al., 2014a; Mrk\u02c7sic\u00b4 et al.,",
+        "box": [
+            307,
+            425,
+            526,
+            436
+        ],
+        "class": "para",
+        "page": 0,
+        "is_meta": false,
+        "line_id": 52,
+        "parent_id": 45,
+        "relation": "connect"
+    },
+    {
+        "text": "2017; Zhong et al., 2018). Open vocabulary ap-",
+        "box": [
+            307,
+            439,
+            527,
+            450
+        ],
+        "class": "para",
+        "page": 0,
+        "is_meta": false,
+        "line_id": 53,
+        "parent_id": 52,
+        "relation": "connect"
+    },
+    {
+        "text": "proaches (Xu and Hu, 2018; Wu et al., 2019; Gao",
+        "box": [
+            307,
+            452,
+            525,
+            463
+        ],
+        "class": "para",
+        "page": 0,
+        "is_meta": false,
+        "line_id": 54,
+        "parent_id": 53,
+        "relation": "connect"
+    },
+    {
+        "text": "et al., 2019; Ren et al., 2019) break the assumption",
+        "box": [
+            307,
+            466,
+            525,
+            477
+        ],
+        "class": "para",
+        "page": 0,
+        "is_meta": false,
+        "line_id": 55,
+        "parent_id": 54,
+        "relation": "connect"
+    },
+    {
+        "text": "of predefined ontologies, turning to generate values",
+        "box": [
+            307,
+            479,
+            525,
+            490
+        ],
+        "class": "para",
+        "page": 0,
+        "is_meta": false,
+        "line_id": 56,
+        "parent_id": 55,
+        "relation": "connect"
+    },
+    {
+        "text": "only given target slots. Wu et al. (2019) propose a",
+        "box": [
+            307,
+            493,
+            525,
+            504
+        ],
+        "class": "para",
+        "page": 0,
+        "is_meta": false,
+        "line_id": 57,
+        "parent_id": 56,
+        "relation": "connect"
+    },
+    {
+        "text": "copy-augmented encoder-decoder model to track",
+        "box": [
+            307,
+            506,
+            525,
+            517
+        ],
+        "class": "para",
+        "page": 0,
+        "is_meta": false,
+        "line_id": 58,
+        "parent_id": 57,
+        "relation": "connect"
+    },
+    {
+        "text": "dialogue states, which outperforms fixed vocabu-",
+        "box": [
+            307,
+            520,
+            527,
+            531
+        ],
+        "class": "para",
+        "page": 0,
+        "is_meta": false,
+        "line_id": 59,
+        "parent_id": 58,
+        "relation": "connect"
+    },
+    {
+        "text": "lary models and achieves the state-of-the-art result",
+        "box": [
+            307,
+            533,
+            525,
+            544
+        ],
+        "class": "para",
+        "page": 0,
+        "is_meta": false,
+        "line_id": 60,
+        "parent_id": 59,
+        "relation": "connect"
+    },
+    {
+        "text": "in multi-domain DST.",
+        "box": [
+            307,
+            547,
+            403,
+            558
+        ],
+        "class": "para",
+        "page": 0,
+        "is_meta": false,
+        "line_id": 61,
+        "parent_id": 60,
+        "relation": "connect"
+    },
+    {
+        "text": "Despite significant improvements achieved by",
+        "box": [
+            318,
+            564,
+            525,
+            575
+        ],
+        "class": "fstline",
+        "page": 0,
+        "is_meta": false,
+        "line_id": 62,
+        "parent_id": 40,
+        "relation": "equality"
+    },
+    {
+        "text": "those open vocabulary models, they always suffer",
+        "box": [
+            307,
+            578,
+            525,
+            589
+        ],
+        "class": "para",
+        "page": 0,
+        "is_meta": false,
+        "line_id": 63,
+        "parent_id": 62,
+        "relation": "connect"
+    },
+    {
+        "text": "from understanding enormous ellipsis and refer-",
+        "box": [
+            307,
+            591,
+            527,
+            602
+        ],
+        "class": "para",
+        "page": 0,
+        "is_meta": false,
+        "line_id": 64,
+        "parent_id": 63,
+        "relation": "connect"
+    },
+    {
+        "text": "ence expressions in multi-domain scenarios. As",
+        "box": [
+            307,
+            605,
+            525,
+            616
+        ],
+        "class": "para",
+        "page": 0,
+        "is_meta": false,
+        "line_id": 65,
+        "parent_id": 64,
+        "relation": "connect"
+    },
+    {
+        "text": "shown in Table 1, there are several slot connec-",
+        "box": [
+            307,
+            618,
+            527,
+            629
+        ],
+        "class": "para",
+        "page": 0,
+        "is_meta": false,
+        "line_id": 66,
+        "parent_id": 65,
+        "relation": "connect"
+    },
+    {
+        "text": "tions across multiple domains and turns. For exam-",
+        "box": [
+            307,
+            632,
+            527,
+            643
+        ],
+        "class": "para",
+        "page": 0,
+        "is_meta": false,
+        "line_id": 67,
+        "parent_id": 66,
+        "relation": "connect"
+    },
+    {
+        "text": "ple, at the second turn, the value of the target slot",
+        "box": [
+            307,
+            646,
+            525,
+            656
+        ],
+        "class": "para",
+        "page": 0,
+        "is_meta": false,
+        "line_id": 68,
+        "parent_id": 67,
+        "relation": "connect"
+    },
+    {
+        "text": "attraction-area is informed by a referring expres-",
+        "box": [
+            307,
+            659,
+            527,
+            670
+        ],
+        "class": "para",
+        "page": 0,
+        "is_meta": false,
+        "line_id": 69,
+        "parent_id": 68,
+        "relation": "connect"
+    },
+    {
+        "text": "sion \u201cin the same area as the restaurant\u201d. Thus, the",
+        "box": [
+            307,
+            672,
+            525,
+            684
+        ],
+        "class": "para",
+        "page": 0,
+        "is_meta": false,
+        "line_id": 70,
+        "parent_id": 69,
+        "relation": "connect"
+    },
+    {
+        "text": "system needs to retrieve the value of its source slot",
+        "box": [
+            307,
+            686,
+            525,
+            697
+        ],
+        "class": "para",
+        "page": 0,
+        "is_meta": false,
+        "line_id": 71,
+        "parent_id": 70,
+        "relation": "connect"
+    },
+    {
+        "text": "restaurant-area. The last turn shows an obscurer",
+        "box": [
+            307,
+            699,
+            525,
+            711
+        ],
+        "class": "para",
+        "page": 0,
+        "is_meta": false,
+        "line_id": 72,
+        "parent_id": 71,
+        "relation": "connect"
+    },
+    {
+        "text": "utterance with multiple slot connections, in which",
+        "box": [
+            307,
+            713,
+            525,
+            724
+        ],
+        "class": "para",
+        "page": 0,
+        "is_meta": false,
+        "line_id": 73,
+        "parent_id": 72,
+        "relation": "connect"
+    },
+    {
+        "text": "target slots taxi-departure and taxi-destination are",
+        "box": [
+            307,
+            727,
+            525,
+            738
+        ],
+        "class": "para",
+        "page": 0,
+        "is_meta": false,
+        "line_id": 74,
+        "parent_id": 73,
+        "relation": "connect"
+    },
+    {
+        "text": "implicitly connected to their source slots attraction-",
+        "box": [
+            307,
+            740,
+            527,
+            751
+        ],
+        "class": "para",
+        "page": 0,
+        "is_meta": false,
+        "line_id": 75,
+        "parent_id": 74,
+        "relation": "connect"
+    },
+    {
+        "text": "name and restaurant-name respectively. For those",
+        "box": [
+            307,
+            754,
+            525,
+            765
+        ],
+        "class": "para",
+        "page": 0,
+        "is_meta": false,
+        "line_id": 76,
+        "parent_id": 75,
+        "relation": "connect"
+    },
+    {
+        "text": "34",
+        "box": [
+            293,
+            777,
+            304,
+            787
+        ],
+        "class": "foot",
+        "page": 0,
+        "is_meta": true,
+        "line_id": 77,
+        "parent_id": -1,
+        "relation": "meta"
+    },
+    {
+        "text": "Proceedings of the 58th Annual Meeting of the Association for Computational Linguistics, pages 34\u201340",
+        "box": [
+            112,
+            794,
+            483,
+            803
+        ],
+        "class": "foot",
+        "page": 0,
+        "is_meta": true,
+        "line_id": 78,
+        "parent_id": -1,
+        "relation": "meta"
+    },
+    {
+        "text": "July 5 - 10, 2020. (cid:13)c 2020 Association for Computational Linguistics",
+        "box": [
+            173,
+            805,
+            421,
+            814
+        ],
+        "class": "foot",
+        "page": 0,
+        "is_meta": true,
+        "line_id": 79,
+        "parent_id": -1,
+        "relation": "meta"
+    },
+    {
+        "text": "slots that need connections, existing methods at-",
+        "box": [
+            72,
+            65,
+            292,
+            76
+        ],
+        "class": "para",
+        "page": 1,
+        "is_meta": false,
+        "line_id": 80,
+        "parent_id": 76,
+        "relation": "connect"
+    },
+    {
+        "text": "tempt to find their values out from the lengthy di-",
+        "box": [
+            72,
+            78,
+            292,
+            89
+        ],
+        "class": "para",
+        "page": 1,
+        "is_meta": false,
+        "line_id": 81,
+        "parent_id": 80,
+        "relation": "connect"
+    },
+    {
+        "text": "alogue history, which usually fail because of high",
+        "box": [
+            72,
+            92,
+            290,
+            103
+        ],
+        "class": "para",
+        "page": 1,
+        "is_meta": false,
+        "line_id": 82,
+        "parent_id": 81,
+        "relation": "connect"
+    },
+    {
+        "text": "learning complexity.",
+        "box": [
+            72,
+            105,
+            161,
+            116
+        ],
+        "class": "para",
+        "page": 1,
+        "is_meta": false,
+        "line_id": 83,
+        "parent_id": 82,
+        "relation": "connect"
+    },
+    {
+        "text": "In this paper, we formally consider the above",
+        "box": [
+            82,
+            119,
+            290,
+            130
+        ],
+        "class": "fstline",
+        "page": 1,
+        "is_meta": false,
+        "line_id": 84,
+        "parent_id": 62,
+        "relation": "equality"
+    },
+    {
+        "text": "challenge as related-slot problem and propose a",
+        "box": [
+            72,
+            132,
+            290,
+            143
+        ],
+        "class": "para",
+        "page": 1,
+        "is_meta": false,
+        "line_id": 85,
+        "parent_id": 84,
+        "relation": "connect"
+    },
+    {
+        "text": "novel model DST-SC (Dialogue State Tracking",
+        "box": [
+            72,
+            146,
+            290,
+            157
+        ],
+        "class": "para",
+        "page": 1,
+        "is_meta": false,
+        "line_id": 86,
+        "parent_id": 85,
+        "relation": "connect"
+    },
+    {
+        "text": "with Slot Connections) to address it. We follow",
+        "box": [
+            71,
+            160,
+            290,
+            170
+        ],
+        "class": "para",
+        "page": 1,
+        "is_meta": false,
+        "line_id": 87,
+        "parent_id": 86,
+        "relation": "connect"
+    },
+    {
+        "text": "previous work to build a copy-augmented encoder-",
+        "box": [
+            72,
+            173,
+            292,
+            184
+        ],
+        "class": "para",
+        "page": 1,
+        "is_meta": false,
+        "line_id": 88,
+        "parent_id": 87,
+        "relation": "connect"
+    },
+    {
+        "text": "decoder model. Specially, DST-SC is designed",
+        "box": [
+            72,
+            187,
+            290,
+            198
+        ],
+        "class": "para",
+        "page": 1,
+        "is_meta": false,
+        "line_id": 89,
+        "parent_id": 88,
+        "relation": "connect"
+    },
+    {
+        "text": "with a slot connecting mechanism to establish the",
+        "box": [
+            71,
+            200,
+            290,
+            211
+        ],
+        "class": "para",
+        "page": 1,
+        "is_meta": false,
+        "line_id": 90,
+        "parent_id": 89,
+        "relation": "connect"
+    },
+    {
+        "text": "connection between the target slot and its source",
+        "box": [
+            72,
+            214,
+            290,
+            225
+        ],
+        "class": "para",
+        "page": 1,
+        "is_meta": false,
+        "line_id": 91,
+        "parent_id": 90,
+        "relation": "connect"
+    },
+    {
+        "text": "slot explicitly. Thus it can take advantage of the",
+        "box": [
+            72,
+            227,
+            290,
+            238
+        ],
+        "class": "para",
+        "page": 1,
+        "is_meta": false,
+        "line_id": 92,
+        "parent_id": 91,
+        "relation": "connect"
+    },
+    {
+        "text": "source slot value directly instead of reasoning from",
+        "box": [
+            72,
+            241,
+            290,
+            252
+        ],
+        "class": "para",
+        "page": 1,
+        "is_meta": false,
+        "line_id": 93,
+        "parent_id": 92,
+        "relation": "connect"
+    },
+    {
+        "text": "preceding turns. The contributions of this work are",
+        "box": [
+            72,
+            254,
+            290,
+            265
+        ],
+        "class": "para",
+        "page": 1,
+        "is_meta": false,
+        "line_id": 94,
+        "parent_id": 93,
+        "relation": "connect"
+    },
+    {
+        "text": "two-fold:",
+        "box": [
+            72,
+            268,
+            112,
+            279
+        ],
+        "class": "para",
+        "page": 1,
+        "is_meta": false,
+        "line_id": 95,
+        "parent_id": 94,
+        "relation": "connect"
+    },
+    {
+        "text": "\u2022 To the best of our knowledge, this work is the",
+        "box": [
+            72,
+            290,
+            290,
+            301
+        ],
+        "class": "fstline",
+        "page": 1,
+        "is_meta": false,
+        "line_id": 96,
+        "parent_id": 84,
+        "relation": "equality"
+    },
+    {
+        "text": "first one to discuss the related-slot problem in",
+        "box": [
+            82,
+            303,
+            290,
+            314
+        ],
+        "class": "para",
+        "page": 1,
+        "is_meta": false,
+        "line_id": 97,
+        "parent_id": 96,
+        "relation": "connect"
+    },
+    {
+        "text": "multi-domain DST and address it by explicitly",
+        "box": [
+            82,
+            317,
+            290,
+            328
+        ],
+        "class": "para",
+        "page": 1,
+        "is_meta": false,
+        "line_id": 98,
+        "parent_id": 97,
+        "relation": "connect"
+    },
+    {
+        "text": "modeling slot connections across domains.",
+        "box": [
+            82,
+            330,
+            269,
+            341
+        ],
+        "class": "para",
+        "page": 1,
+        "is_meta": false,
+        "line_id": 99,
+        "parent_id": 98,
+        "relation": "connect"
+    },
+    {
+        "text": "\u2022 We demonstrate that DST-SC is more effective",
+        "box": [
+            72,
+            352,
+            290,
+            364
+        ],
+        "class": "fstline",
+        "page": 1,
+        "is_meta": false,
+        "line_id": 100,
+        "parent_id": 96,
+        "relation": "equality"
+    },
+    {
+        "text": "for handling the related-slot problem and outper-",
+        "box": [
+            82,
+            366,
+            292,
+            377
+        ],
+        "class": "para",
+        "page": 1,
+        "is_meta": false,
+        "line_id": 101,
+        "parent_id": 100,
+        "relation": "connect"
+    },
+    {
+        "text": "forms state-of-the-art baselines.",
+        "box": [
+            82,
+            380,
+            220,
+            391
+        ],
+        "class": "para",
+        "page": 1,
+        "is_meta": false,
+        "line_id": 102,
+        "parent_id": 101,
+        "relation": "connect"
+    },
+    {
+        "text": "2 Model",
+        "box": [
+            72,
+            411,
+            122,
+            423
+        ],
+        "class": "sec1",
+        "page": 1,
+        "is_meta": false,
+        "line_id": 103,
+        "parent_id": 27,
+        "relation": "equality"
+    },
+    {
+        "text": "In this section, we will describe DST-SC model in",
+        "box": [
+            72,
+            433,
+            290,
+            443
+        ],
+        "class": "fstline",
+        "page": 1,
+        "is_meta": false,
+        "line_id": 104,
+        "parent_id": 103,
+        "relation": "contain"
+    },
+    {
+        "text": "detail. DST-SC is an open vocabulary model based",
+        "box": [
+            72,
+            446,
+            290,
+            457
+        ],
+        "class": "para",
+        "page": 1,
+        "is_meta": false,
+        "line_id": 105,
+        "parent_id": 104,
+        "relation": "connect"
+    },
+    {
+        "text": "on the encoder-decoder architecture. As shown in",
+        "box": [
+            72,
+            460,
+            290,
+            471
+        ],
+        "class": "para",
+        "page": 1,
+        "is_meta": false,
+        "line_id": 106,
+        "parent_id": 105,
+        "relation": "connect"
+    },
+    {
+        "text": "Figure 1, there are three components that contribute",
+        "box": [
+            72,
+            473,
+            290,
+            484
+        ],
+        "class": "para",
+        "page": 1,
+        "is_meta": false,
+        "line_id": 107,
+        "parent_id": 106,
+        "relation": "connect"
+    },
+    {
+        "text": "to obtain the target slot value: (1) word generation",
+        "box": [
+            72,
+            487,
+            290,
+            498
+        ],
+        "class": "para",
+        "page": 1,
+        "is_meta": false,
+        "line_id": 108,
+        "parent_id": 107,
+        "relation": "connect"
+    },
+    {
+        "text": "from the vocabulary; (2) word copying from the",
+        "box": [
+            72,
+            500,
+            290,
+            511
+        ],
+        "class": "para",
+        "page": 1,
+        "is_meta": false,
+        "line_id": 109,
+        "parent_id": 108,
+        "relation": "connect"
+    },
+    {
+        "text": "dialogue history; (3) value copying from the source",
+        "box": [
+            72,
+            514,
+            290,
+            525
+        ],
+        "class": "para",
+        "page": 1,
+        "is_meta": false,
+        "line_id": 110,
+        "parent_id": 109,
+        "relation": "connect"
+    },
+    {
+        "text": "slot. To reduce the burden on the decoder, DST-SC",
+        "box": [
+            72,
+            527,
+            290,
+            538
+        ],
+        "class": "para",
+        "page": 1,
+        "is_meta": false,
+        "line_id": 111,
+        "parent_id": 110,
+        "relation": "connect"
+    },
+    {
+        "text": "also equips with a slot gate (Wu et al., 2019) to",
+        "box": [
+            72,
+            541,
+            290,
+            552
+        ],
+        "class": "para",
+        "page": 1,
+        "is_meta": false,
+        "line_id": 112,
+        "parent_id": 111,
+        "relation": "connect"
+    },
+    {
+        "text": "predict for slot values of none and dontcare.",
+        "box": [
+            72,
+            554,
+            264,
+            565
+        ],
+        "class": "para",
+        "page": 1,
+        "is_meta": false,
+        "line_id": 113,
+        "parent_id": 112,
+        "relation": "connect"
+    },
+    {
+        "text": "2.1 Encoder",
+        "box": [
+            72,
+            577,
+            135,
+            588
+        ],
+        "class": "sec2",
+        "page": 1,
+        "is_meta": false,
+        "line_id": 114,
+        "parent_id": 103,
+        "relation": "contain"
+    },
+    {
+        "text": "Our model uses a bi-directional GRU (Cho et al.,",
+        "box": [
+            72,
+            594,
+            291,
+            605
+        ],
+        "class": "fstline",
+        "page": 1,
+        "is_meta": false,
+        "line_id": 115,
+        "parent_id": 114,
+        "relation": "contain"
+    },
+    {
+        "text": "2014) to encode the dialogue history x =",
+        "box": [
+            72,
+            607,
+            290,
+            619
+        ],
+        "class": "para",
+        "page": 1,
+        "is_meta": false,
+        "line_id": 116,
+        "parent_id": 115,
+        "relation": "connect"
+    },
+    {
+        "text": "{w1,w2, \u00b7 \u00b7\u00b7 , wm}, where m is the number of to-",
+        "box": [
+            72,
+            621,
+            292,
+            633
+        ],
+        "class": "para",
+        "page": 1,
+        "is_meta": false,
+        "line_id": 117,
+        "parent_id": 116,
+        "relation": "connect"
+    },
+    {
+        "text": "kens in the dialogue history. Each input token is",
+        "box": [
+            72,
+            635,
+            290,
+            646
+        ],
+        "class": "para",
+        "page": 1,
+        "is_meta": false,
+        "line_id": 118,
+        "parent_id": 117,
+        "relation": "connect"
+    },
+    {
+        "text": "first embedded using a word embedding function",
+        "box": [
+            72,
+            648,
+            290,
+            659
+        ],
+        "class": "para",
+        "page": 1,
+        "is_meta": false,
+        "line_id": 119,
+        "parent_id": 118,
+        "relation": "connect"
+    },
+    {
+        "text": "\u03c6emb and then encoded into a fix-length vector hi.",
+        "box": [
+            72,
+            660,
+            286,
+            674
+        ],
+        "class": "para",
+        "page": 1,
+        "is_meta": false,
+        "line_id": 120,
+        "parent_id": 119,
+        "relation": "connect"
+    },
+    {
+        "text": "hi = GRU(\u03c6emb(wi)). (1)",
+        "box": [
+            130,
+            683,
+            290,
+            697
+        ],
+        "class": "equ",
+        "page": 1,
+        "is_meta": false,
+        "line_id": 121,
+        "parent_id": 120,
+        "relation": "connect"
+    },
+    {
+        "text": "2.2 Word Generation",
+        "box": [
+            72,
+            709,
+            178,
+            720
+        ],
+        "class": "sec2",
+        "page": 1,
+        "is_meta": false,
+        "line_id": 122,
+        "parent_id": 114,
+        "relation": "equality"
+    },
+    {
+        "text": "We employ another GRU to decode slot values.",
+        "box": [
+            71,
+            727,
+            292,
+            738
+        ],
+        "class": "fstline",
+        "page": 1,
+        "is_meta": false,
+        "line_id": 123,
+        "parent_id": 122,
+        "relation": "contain"
+    },
+    {
+        "text": "Each slot is comprised of a domain name and a",
+        "box": [
+            72,
+            740,
+            290,
+            751
+        ],
+        "class": "para",
+        "page": 1,
+        "is_meta": false,
+        "line_id": 124,
+        "parent_id": 123,
+        "relation": "connect"
+    },
+    {
+        "text": "slot name, e.g., hotel-area. While decoding the",
+        "box": [
+            72,
+            754,
+            290,
+            765
+        ],
+        "class": "para",
+        "page": 1,
+        "is_meta": false,
+        "line_id": 125,
+        "parent_id": 124,
+        "relation": "connect"
+    },
+    {
+        "text": "j-th slot sj, its summed embedding is fed as the",
+        "box": [
+            307,
+            64,
+            525,
+            76
+        ],
+        "class": "para",
+        "page": 1,
+        "is_meta": false,
+        "line_id": 126,
+        "parent_id": 125,
+        "relation": "connect"
+    },
+    {
+        "text": "first input. The last hidden state of the encoder",
+        "box": [
+            307,
+            78,
+            525,
+            89
+        ],
+        "class": "para",
+        "page": 1,
+        "is_meta": false,
+        "line_id": 127,
+        "parent_id": 126,
+        "relation": "connect"
+    },
+    {
+        "text": "initializes the decoder hidden state. At decoding",
+        "box": [
+            307,
+            92,
+            525,
+            103
+        ],
+        "class": "para",
+        "page": 1,
+        "is_meta": false,
+        "line_id": 128,
+        "parent_id": 127,
+        "relation": "connect"
+    },
+    {
+        "text": "step t, the hidden state is represented as h(cid:101)jt . (The",
+        "box": [
+            307,
+            102,
+            525,
+            118
+        ],
+        "class": "para",
+        "page": 1,
+        "is_meta": false,
+        "line_id": 129,
+        "parent_id": 128,
+        "relation": "connect"
+    },
+    {
+        "text": "superscript j will be omitted for simplicity.)",
+        "box": [
+            307,
+            119,
+            499,
+            130
+        ],
+        "class": "para",
+        "page": 1,
+        "is_meta": false,
+        "line_id": 130,
+        "parent_id": 129,
+        "relation": "connect"
+    },
+    {
+        "text": "Following the vanilla attention-based decoder",
+        "box": [
+            318,
+            132,
+            525,
+            143
+        ],
+        "class": "fstline",
+        "page": 1,
+        "is_meta": false,
+        "line_id": 131,
+        "parent_id": 123,
+        "relation": "equality"
+    },
+    {
+        "text": "architecture (Bahdanau et al., 2014), h(cid:101)t is used to",
+        "box": [
+            307,
+            146,
+            525,
+            158
+        ],
+        "class": "para",
+        "page": 1,
+        "is_meta": false,
+        "line_id": 132,
+        "parent_id": 131,
+        "relation": "connect"
+    },
+    {
+        "text": "apply attention over encoder outputs and aggregate",
+        "box": [
+            307,
+            160,
+            525,
+            170
+        ],
+        "class": "para",
+        "page": 1,
+        "is_meta": false,
+        "line_id": 133,
+        "parent_id": 132,
+        "relation": "connect"
+    },
+    {
+        "text": "them to get the context vector ct.",
+        "box": [
+            307,
+            173,
+            451,
+            185
+        ],
+        "class": "para",
+        "page": 1,
+        "is_meta": false,
+        "line_id": 134,
+        "parent_id": 133,
+        "relation": "connect"
+    },
+    {
+        "text": "actit == s(cid:88)im=of1tmatiahx(i.fmlp([h(cid:101)t, hi])), ((23))",
+        "box": [
+            342,
+            193,
+            530,
+            246
+        ],
+        "class": "equ",
+        "page": 1,
+        "is_meta": false,
+        "line_id": 135,
+        "parent_id": 134,
+        "relation": "connect"
+    },
+    {
+        "text": "The distribution of generating token yt is given by:",
+        "box": [
+            306,
+            252,
+            527,
+            264
+        ],
+        "class": "fstline",
+        "page": 1,
+        "is_meta": false,
+        "line_id": 136,
+        "parent_id": 131,
+        "relation": "equality"
+    },
+    {
+        "text": "Pgen(yt) = softmax(Wgen [h(cid:101)t, ct]). (4)",
+        "box": [
+            338,
+            276,
+            526,
+            293
+        ],
+        "class": "equ",
+        "page": 1,
+        "is_meta": false,
+        "line_id": 137,
+        "parent_id": 136,
+        "relation": "connect"
+    },
+    {
+        "text": "2.3 Word Copying",
+        "box": [
+            307,
+            302,
+            400,
+            313
+        ],
+        "class": "sec2",
+        "page": 1,
+        "is_meta": false,
+        "line_id": 138,
+        "parent_id": 122,
+        "relation": "equality"
+    },
+    {
+        "text": "The copy mechanism is shown to be effective in",
+        "box": [
+            306,
+            319,
+            525,
+            330
+        ],
+        "class": "fstline",
+        "page": 1,
+        "is_meta": false,
+        "line_id": 139,
+        "parent_id": 138,
+        "relation": "contain"
+    },
+    {
+        "text": "DST (Lei et al., 2018; Xu and Hu, 2018; Wu et al.,",
+        "box": [
+            307,
+            333,
+            526,
+            344
+        ],
+        "class": "para",
+        "page": 1,
+        "is_meta": false,
+        "line_id": 140,
+        "parent_id": 139,
+        "relation": "connect"
+    },
+    {
+        "text": "2019). Here, we follow Wu et al. (2019) to augment",
+        "box": [
+            307,
+            346,
+            525,
+            357
+        ],
+        "class": "para",
+        "page": 1,
+        "is_meta": false,
+        "line_id": 141,
+        "parent_id": 140,
+        "relation": "connect"
+    },
+    {
+        "text": "the vanilla attention-based decoder with pointer-",
+        "box": [
+            307,
+            360,
+            527,
+            371
+        ],
+        "class": "para",
+        "page": 1,
+        "is_meta": false,
+        "line_id": 142,
+        "parent_id": 141,
+        "relation": "connect"
+    },
+    {
+        "text": "generator copying, enabling it to capture slot values",
+        "box": [
+            307,
+            373,
+            525,
+            384
+        ],
+        "class": "para",
+        "page": 1,
+        "is_meta": false,
+        "line_id": 143,
+        "parent_id": 142,
+        "relation": "connect"
+    },
+    {
+        "text": "that explicitly occur in the dialogue history.",
+        "box": [
+            307,
+            387,
+            496,
+            398
+        ],
+        "class": "para",
+        "page": 1,
+        "is_meta": false,
+        "line_id": 144,
+        "parent_id": 143,
+        "relation": "connect"
+    },
+    {
+        "text": "Pwc(yt = w) = i:w(cid:88)i=w ati. (5)",
+        "box": [
+            359,
+            404,
+            528,
+            434
+        ],
+        "class": "equ",
+        "page": 1,
+        "is_meta": false,
+        "line_id": 145,
+        "parent_id": 144,
+        "relation": "connect"
+    },
+    {
+        "text": "A soft gate g1 is used to combine word copying",
+        "box": [
+            306,
+            442,
+            525,
+            454
+        ],
+        "class": "fstline",
+        "page": 1,
+        "is_meta": false,
+        "line_id": 146,
+        "parent_id": 139,
+        "relation": "equality"
+    },
+    {
+        "text": "distribution and generative distribution.",
+        "box": [
+            307,
+            456,
+            479,
+            467
+        ],
+        "class": "para",
+        "page": 1,
+        "is_meta": false,
+        "line_id": 147,
+        "parent_id": 146,
+        "relation": "connect"
+    },
+    {
+        "text": "Pgo1ri=g(ysitg)m=oigd1(PWgge1n[((cid:101)hytt,)c+t, \u03c6(1em\u2212b(gy1t)\u2212P1)w]c)(,yt).((67))",
+        "box": [
+            313,
+            476,
+            528,
+            525
+        ],
+        "class": "equ",
+        "page": 1,
+        "is_meta": false,
+        "line_id": 148,
+        "parent_id": 147,
+        "relation": "connect"
+    },
+    {
+        "text": "2.4 Slot Connecting Mechanism",
+        "box": [
+            307,
+            530,
+            462,
+            540
+        ],
+        "class": "sec2",
+        "page": 1,
+        "is_meta": false,
+        "line_id": 149,
+        "parent_id": 138,
+        "relation": "equality"
+    },
+    {
+        "text": "As claimed in Section 1, connecting the target slot",
+        "box": [
+            306,
+            547,
+            525,
+            558
+        ],
+        "class": "fstline",
+        "page": 1,
+        "is_meta": false,
+        "line_id": 150,
+        "parent_id": 149,
+        "relation": "contain"
+    },
+    {
+        "text": "with its source slot helps to decrease the reason-",
+        "box": [
+            306,
+            561,
+            527,
+            572
+        ],
+        "class": "para",
+        "page": 1,
+        "is_meta": false,
+        "line_id": 151,
+        "parent_id": 150,
+        "relation": "connect"
+    },
+    {
+        "text": "ing difficulty. Therefore, we enhance the copy-",
+        "box": [
+            307,
+            574,
+            527,
+            585
+        ],
+        "class": "para",
+        "page": 1,
+        "is_meta": false,
+        "line_id": 152,
+        "parent_id": 151,
+        "relation": "connect"
+    },
+    {
+        "text": "augmented encoder-decoder model with a slot con-",
+        "box": [
+            307,
+            588,
+            527,
+            599
+        ],
+        "class": "para",
+        "page": 1,
+        "is_meta": false,
+        "line_id": 153,
+        "parent_id": 152,
+        "relation": "connect"
+    },
+    {
+        "text": "necting mechanism to model slot correlations di-",
+        "box": [
+            307,
+            601,
+            527,
+            612
+        ],
+        "class": "para",
+        "page": 1,
+        "is_meta": false,
+        "line_id": 154,
+        "parent_id": 153,
+        "relation": "connect"
+    },
+    {
+        "text": "rectly. When decoding the target slot sj, DST-SC",
+        "box": [
+            307,
+            615,
+            525,
+            627
+        ],
+        "class": "para",
+        "page": 1,
+        "is_meta": false,
+        "line_id": 155,
+        "parent_id": 154,
+        "relation": "connect"
+    },
+    {
+        "text": "infers its source slot from last dialogue states, then",
+        "box": [
+            307,
+            628,
+            525,
+            639
+        ],
+        "class": "para",
+        "page": 1,
+        "is_meta": false,
+        "line_id": 156,
+        "parent_id": 155,
+        "relation": "connect"
+    },
+    {
+        "text": "copies its value for the final distribution.",
+        "box": [
+            307,
+            642,
+            483,
+            653
+        ],
+        "class": "para",
+        "page": 1,
+        "is_meta": false,
+        "line_id": 157,
+        "parent_id": 156,
+        "relation": "connect"
+    },
+    {
+        "text": "Last dialogue states are represented by (slot,",
+        "box": [
+            318,
+            655,
+            526,
+            666
+        ],
+        "class": "fstline",
+        "page": 1,
+        "is_meta": false,
+        "line_id": 158,
+        "parent_id": 150,
+        "relation": "equality"
+    },
+    {
+        "text": "value) tuples: {(s1,v1),(s2,v2),\u00b7\u00b7 \u00b7 , (sn, vn)}.",
+        "box": [
+            307,
+            669,
+            527,
+            681
+        ],
+        "class": "para",
+        "page": 1,
+        "is_meta": false,
+        "line_id": 159,
+        "parent_id": 158,
+        "relation": "connect"
+    },
+    {
+        "text": "We use (cid:101)h0 as the query to attend the potential",
+        "box": [
+            306,
+            682,
+            525,
+            695
+        ],
+        "class": "para",
+        "page": 1,
+        "is_meta": false,
+        "line_id": 160,
+        "parent_id": 159,
+        "relation": "connect"
+    },
+    {
+        "text": "source slot.",
+        "box": [
+            307,
+            696,
+            356,
+            707
+        ],
+        "class": "para",
+        "page": 1,
+        "is_meta": false,
+        "line_id": 161,
+        "parent_id": 160,
+        "relation": "connect"
+    },
+    {
+        "text": "ak = softmax(fmlp([h(cid:101)0, sk])), (8)",
+        "box": [
+            349,
+            718,
+            525,
+            730
+        ],
+        "class": "equ",
+        "page": 1,
+        "is_meta": false,
+        "line_id": 162,
+        "parent_id": 161,
+        "relation": "connect"
+    },
+    {
+        "text": "where sk is the summed slot embedding, k \u2208",
+        "box": [
+            306,
+            740,
+            525,
+            752
+        ],
+        "class": "para",
+        "page": 1,
+        "is_meta": false,
+        "line_id": 163,
+        "parent_id": 162,
+        "relation": "connect"
+    },
+    {
+        "text": "{1, 2, \u00b7 \u00b7 \u00b7 , n} \\ {j}. Attention score ak measures",
+        "box": [
+            307,
+            754,
+            525,
+            766
+        ],
+        "class": "para",
+        "page": 1,
+        "is_meta": false,
+        "line_id": 164,
+        "parent_id": 163,
+        "relation": "connect"
+    },
+    {
+        "text": "35",
+        "box": [
+            293,
+            777,
+            304,
+            787
+        ],
+        "class": "foot",
+        "page": 1,
+        "is_meta": true,
+        "line_id": 165,
+        "parent_id": -1,
+        "relation": "meta"
+    },
+    {
+        "text": "Figure 1: DST-SC model architecture (best viewed in color). Three processing flows leading to Pgen , Pwc, Pvc are",
+        "box": [
+            68,
+            51,
+            535,
+            222
+        ],
+        "class": "fig",
+        "page": 2,
+        "is_meta": false,
+        "line_id": 166,
+        "parent_id": -1,
+        "relation": "contain"
+    },
+    {
+        "text": "Figure 1: DST-SC model architecture (best viewed in color). Three processing flows leading to Pgen, Pwc, Pvc are",
+        "box": [
+            72,
+            228,
+            525,
+            239
+        ],
+        "class": "figcap",
+        "page": 2,
+        "is_meta": false,
+        "line_id": 167,
+        "parent_id": 166,
+        "relation": "contain"
+    },
+    {
+        "text": "respectively generation (brown), copying from dialogue history (green), copying from last dialogue states (purple).",
+        "box": [
+            72,
+            240,
+            525,
+            250
+        ],
+        "class": "opara",
+        "page": 2,
+        "is_meta": false,
+        "line_id": 168,
+        "parent_id": 167,
+        "relation": "connect"
+    },
+    {
+        "text": "how related sk is to the target slot sj. It is computed",
+        "box": [
+            72,
+            274,
+            290,
+            286
+        ],
+        "class": "para",
+        "page": 2,
+        "is_meta": false,
+        "line_id": 169,
+        "parent_id": 164,
+        "relation": "connect"
+    },
+    {
+        "text": "only once at the first decoding step and maintained",
+        "box": [
+            72,
+            288,
+            290,
+            299
+        ],
+        "class": "para",
+        "page": 2,
+        "is_meta": false,
+        "line_id": 170,
+        "parent_id": 169,
+        "relation": "connect"
+    },
+    {
+        "text": "consistency to subsequent tokens in the value vk.",
+        "box": [
+            72,
+            301,
+            292,
+            313
+        ],
+        "class": "para",
+        "page": 2,
+        "is_meta": false,
+        "line_id": 171,
+        "parent_id": 170,
+        "relation": "connect"
+    },
+    {
+        "text": "At the t-th decoding step, the t-th token vkt con-",
+        "box": [
+            71,
+            315,
+            292,
+            327
+        ],
+        "class": "para",
+        "page": 2,
+        "is_meta": false,
+        "line_id": 172,
+        "parent_id": 171,
+        "relation": "connect"
+    },
+    {
+        "text": "tributes to form value copying distribution Pvc(yt).",
+        "box": [
+            72,
+            328,
+            292,
+            340
+        ],
+        "class": "para",
+        "page": 2,
+        "is_meta": false,
+        "line_id": 173,
+        "parent_id": 172,
+        "relation": "connect"
+    },
+    {
+        "text": "Pvc(yt = w) = k: (cid:88)vkt=w ak. (9)",
+        "box": [
+            121,
+            353,
+            293,
+            384
+        ],
+        "class": "equ",
+        "page": 2,
+        "is_meta": false,
+        "line_id": 174,
+        "parent_id": 173,
+        "relation": "connect"
+    },
+    {
+        "text": "Similar to the copy-augmented decoder, we com-",
+        "box": [
+            72,
+            392,
+            292,
+            403
+        ],
+        "class": "fstline",
+        "page": 2,
+        "is_meta": false,
+        "line_id": 175,
+        "parent_id": 158,
+        "relation": "equality"
+    },
+    {
+        "text": "bine value copying distribution and original dis-",
+        "box": [
+            72,
+            406,
+            292,
+            417
+        ],
+        "class": "para",
+        "page": 2,
+        "is_meta": false,
+        "line_id": 176,
+        "parent_id": 175,
+        "relation": "connect"
+    },
+    {
+        "text": "tributions using a soft gate g2 to get final output",
+        "box": [
+            72,
+            419,
+            290,
+            431
+        ],
+        "class": "para",
+        "page": 2,
+        "is_meta": false,
+        "line_id": 177,
+        "parent_id": 176,
+        "relation": "connect"
+    },
+    {
+        "text": "distribution.",
+        "box": [
+            72,
+            433,
+            124,
+            444
+        ],
+        "class": "para",
+        "page": 2,
+        "is_meta": false,
+        "line_id": 178,
+        "parent_id": 177,
+        "relation": "connect"
+    },
+    {
+        "text": "P(yt) = g2g2P=vc(syitg)m+oi(d1(W\u2212 gg22c) 0P)o,rig(yt). ((1101))",
+        "box": [
+            78,
+            456,
+            293,
+            494
+        ],
+        "class": "equ",
+        "page": 2,
+        "is_meta": false,
+        "line_id": 179,
+        "parent_id": 178,
+        "relation": "connect"
+    },
+    {
+        "text": "3 Experimental Setup",
+        "box": [
+            72,
+            504,
+            191,
+            516
+        ],
+        "class": "sec1",
+        "page": 2,
+        "is_meta": false,
+        "line_id": 180,
+        "parent_id": 103,
+        "relation": "equality"
+    },
+    {
+        "text": "3.1 Datasets",
+        "box": [
+            72,
+            528,
+            135,
+            539
+        ],
+        "class": "sec2",
+        "page": 2,
+        "is_meta": false,
+        "line_id": 181,
+        "parent_id": 180,
+        "relation": "contain"
+    },
+    {
+        "text": "To evaluate the effectiveness of DST-SC, we",
+        "box": [
+            71,
+            547,
+            290,
+            558
+        ],
+        "class": "fstline",
+        "page": 2,
+        "is_meta": false,
+        "line_id": 182,
+        "parent_id": 181,
+        "relation": "contain"
+    },
+    {
+        "text": "conducted experiments on MultiWOZ 2.0",
+        "box": [
+            72,
+            560,
+            290,
+            571
+        ],
+        "class": "para",
+        "page": 2,
+        "is_meta": false,
+        "line_id": 183,
+        "parent_id": 182,
+        "relation": "connect"
+    },
+    {
+        "text": "(Budzianowski et al., 2018) and MultiWOZ",
+        "box": [
+            71,
+            574,
+            290,
+            585
+        ],
+        "class": "para",
+        "page": 2,
+        "is_meta": false,
+        "line_id": 184,
+        "parent_id": 183,
+        "relation": "connect"
+    },
+    {
+        "text": "2.1 datasets (Eric et al., 2019). MultiWOZ 2.0",
+        "box": [
+            72,
+            588,
+            290,
+            598
+        ],
+        "class": "para",
+        "page": 2,
+        "is_meta": false,
+        "line_id": 185,
+        "parent_id": 184,
+        "relation": "connect"
+    },
+    {
+        "text": "is a multi-domain dialogues corpus, and some",
+        "box": [
+            72,
+            601,
+            290,
+            612
+        ],
+        "class": "para",
+        "page": 2,
+        "is_meta": false,
+        "line_id": 186,
+        "parent_id": 185,
+        "relation": "connect"
+    },
+    {
+        "text": "annotation errors are corrected in MultiWOZ 2.1.",
+        "box": [
+            72,
+            615,
+            287,
+            626
+        ],
+        "class": "para",
+        "page": 2,
+        "is_meta": false,
+        "line_id": 187,
+        "parent_id": 186,
+        "relation": "connect"
+    },
+    {
+        "text": "3.2 Baselines",
+        "box": [
+            72,
+            640,
+            139,
+            651
+        ],
+        "class": "sec2",
+        "page": 2,
+        "is_meta": false,
+        "line_id": 188,
+        "parent_id": 181,
+        "relation": "equality"
+    },
+    {
+        "text": "We compare DST-SC with several baseline meth-",
+        "box": [
+            71,
+            659,
+            292,
+            670
+        ],
+        "class": "fstline",
+        "page": 2,
+        "is_meta": false,
+        "line_id": 189,
+        "parent_id": 188,
+        "relation": "contain"
+    },
+    {
+        "text": "ods. FJST and HJST (Eric et al., 2019) apply a",
+        "box": [
+            72,
+            673,
+            290,
+            684
+        ],
+        "class": "para",
+        "page": 2,
+        "is_meta": false,
+        "line_id": 190,
+        "parent_id": 189,
+        "relation": "connect"
+    },
+    {
+        "text": "separate feed-forward network to classify for ev-",
+        "box": [
+            72,
+            686,
+            292,
+            697
+        ],
+        "class": "para",
+        "page": 2,
+        "is_meta": false,
+        "line_id": 191,
+        "parent_id": 190,
+        "relation": "connect"
+    },
+    {
+        "text": "ery single state slot. HyST (Goel et al., 2019) is a",
+        "box": [
+            72,
+            700,
+            290,
+            711
+        ],
+        "class": "para",
+        "page": 2,
+        "is_meta": false,
+        "line_id": 192,
+        "parent_id": 191,
+        "relation": "connect"
+    },
+    {
+        "text": "hybrid approach, which combines the joint track-",
+        "box": [
+            72,
+            713,
+            292,
+            724
+        ],
+        "class": "para",
+        "page": 2,
+        "is_meta": false,
+        "line_id": 193,
+        "parent_id": 192,
+        "relation": "connect"
+    },
+    {
+        "text": "ing fixed vocabulary approach and open vocabu-",
+        "box": [
+            72,
+            727,
+            292,
+            738
+        ],
+        "class": "para",
+        "page": 2,
+        "is_meta": false,
+        "line_id": 194,
+        "parent_id": 193,
+        "relation": "connect"
+    },
+    {
+        "text": "lary approach. COMER (Ren et al., 2019) adopts",
+        "box": [
+            72,
+            740,
+            290,
+            751
+        ],
+        "class": "para",
+        "page": 2,
+        "is_meta": false,
+        "line_id": 195,
+        "parent_id": 194,
+        "relation": "connect"
+    },
+    {
+        "text": "three hierarchically stacked decoders to generate",
+        "box": [
+            72,
+            754,
+            290,
+            765
+        ],
+        "class": "para",
+        "page": 2,
+        "is_meta": false,
+        "line_id": 196,
+        "parent_id": 195,
+        "relation": "connect"
+    },
+    {
+        "text": "dialogue states. TRADE (Wu et al., 2019) gener-",
+        "box": [
+            307,
+            274,
+            527,
+            285
+        ],
+        "class": "para",
+        "page": 2,
+        "is_meta": false,
+        "line_id": 197,
+        "parent_id": 196,
+        "relation": "connect"
+    },
+    {
+        "text": "ates dialogue states from the dialogue history using",
+        "box": [
+            307,
+            288,
+            525,
+            299
+        ],
+        "class": "para",
+        "page": 2,
+        "is_meta": false,
+        "line_id": 198,
+        "parent_id": 197,
+        "relation": "connect"
+    },
+    {
+        "text": "a copy-augmented decoder.",
+        "box": [
+            307,
+            301,
+            426,
+            312
+        ],
+        "class": "para",
+        "page": 2,
+        "is_meta": false,
+        "line_id": 199,
+        "parent_id": 198,
+        "relation": "connect"
+    },
+    {
+        "text": "3.3 Implementation Details",
+        "box": [
+            307,
+            327,
+            441,
+            338
+        ],
+        "class": "sec2",
+        "page": 2,
+        "is_meta": false,
+        "line_id": 200,
+        "parent_id": 188,
+        "relation": "equality"
+    },
+    {
+        "text": "In our experiments, we used Glove (Pennington",
+        "box": [
+            307,
+            346,
+            525,
+            357
+        ],
+        "class": "fstline",
+        "page": 2,
+        "is_meta": false,
+        "line_id": 201,
+        "parent_id": 200,
+        "relation": "contain"
+    },
+    {
+        "text": "et al., 2014) and character embeddings (Hashimoto",
+        "box": [
+            307,
+            360,
+            525,
+            370
+        ],
+        "class": "para",
+        "page": 2,
+        "is_meta": false,
+        "line_id": 202,
+        "parent_id": 201,
+        "relation": "connect"
+    },
+    {
+        "text": "et al., 2017) to initialize word embeddings, each",
+        "box": [
+            307,
+            373,
+            525,
+            384
+        ],
+        "class": "para",
+        "page": 2,
+        "is_meta": false,
+        "line_id": 203,
+        "parent_id": 202,
+        "relation": "connect"
+    },
+    {
+        "text": "word is represented by a 400-dimensional vector.",
+        "box": [
+            306,
+            387,
+            527,
+            398
+        ],
+        "class": "para",
+        "page": 2,
+        "is_meta": false,
+        "line_id": 204,
+        "parent_id": 203,
+        "relation": "connect"
+    },
+    {
+        "text": "The hidden sizes of all GRU layers are set to 400. In",
+        "box": [
+            306,
+            400,
+            525,
+            411
+        ],
+        "class": "para",
+        "page": 2,
+        "is_meta": false,
+        "line_id": 205,
+        "parent_id": 204,
+        "relation": "connect"
+    },
+    {
+        "text": "the training phase, we used ground truth prior-turn",
+        "box": [
+            307,
+            414,
+            525,
+            425
+        ],
+        "class": "para",
+        "page": 2,
+        "is_meta": false,
+        "line_id": 206,
+        "parent_id": 205,
+        "relation": "connect"
+    },
+    {
+        "text": "dialogue states in the slot connecting mechanism.",
+        "box": [
+            307,
+            427,
+            527,
+            438
+        ],
+        "class": "para",
+        "page": 2,
+        "is_meta": false,
+        "line_id": 207,
+        "parent_id": 206,
+        "relation": "connect"
+    },
+    {
+        "text": "Adam optimizer (Kingma and Ba, 2015) is applied",
+        "box": [
+            306,
+            441,
+            525,
+            452
+        ],
+        "class": "para",
+        "page": 2,
+        "is_meta": false,
+        "line_id": 208,
+        "parent_id": 207,
+        "relation": "connect"
+    },
+    {
+        "text": "with 0.001 learning rate initially. The learning rate",
+        "box": [
+            306,
+            454,
+            525,
+            465
+        ],
+        "class": "para",
+        "page": 2,
+        "is_meta": false,
+        "line_id": 209,
+        "parent_id": 208,
+        "relation": "connect"
+    },
+    {
+        "text": "then reduced by a factor of 0.2, and the training",
+        "box": [
+            307,
+            468,
+            525,
+            479
+        ],
+        "class": "para",
+        "page": 2,
+        "is_meta": false,
+        "line_id": 210,
+        "parent_id": 209,
+        "relation": "connect"
+    },
+    {
+        "text": "stopped early when the performance in validation",
+        "box": [
+            307,
+            481,
+            525,
+            492
+        ],
+        "class": "para",
+        "page": 2,
+        "is_meta": false,
+        "line_id": 211,
+        "parent_id": 210,
+        "relation": "connect"
+    },
+    {
+        "text": "set was not improved for 6 consecutive epochs. We",
+        "box": [
+            307,
+            495,
+            525,
+            506
+        ],
+        "class": "para",
+        "page": 2,
+        "is_meta": false,
+        "line_id": 212,
+        "parent_id": 211,
+        "relation": "connect"
+    },
+    {
+        "text": "used a batch size of 32 and dropout rate of 0.2.",
+        "box": [
+            307,
+            509,
+            527,
+            519
+        ],
+        "class": "para",
+        "page": 2,
+        "is_meta": false,
+        "line_id": 213,
+        "parent_id": 212,
+        "relation": "connect"
+    },
+    {
+        "text": "Greedy search strategy is used for decoding, with",
+        "box": [
+            307,
+            522,
+            525,
+            533
+        ],
+        "class": "para",
+        "page": 2,
+        "is_meta": false,
+        "line_id": 214,
+        "parent_id": 213,
+        "relation": "connect"
+    },
+    {
+        "text": "maximum 10 decoded tokens and 50% probability",
+        "box": [
+            307,
+            536,
+            525,
+            547
+        ],
+        "class": "para",
+        "page": 2,
+        "is_meta": false,
+        "line_id": 215,
+        "parent_id": 214,
+        "relation": "connect"
+    },
+    {
+        "text": "of teacher forcing. Also, we followed previous",
+        "box": [
+            307,
+            549,
+            525,
+            560
+        ],
+        "class": "para",
+        "page": 2,
+        "is_meta": false,
+        "line_id": 216,
+        "parent_id": 215,
+        "relation": "connect"
+    },
+    {
+        "text": "work to utilize our model with the word dropout",
+        "box": [
+            306,
+            563,
+            525,
+            574
+        ],
+        "class": "para",
+        "page": 2,
+        "is_meta": false,
+        "line_id": 217,
+        "parent_id": 216,
+        "relation": "connect"
+    },
+    {
+        "text": "(Wu et al., 2019) by masking input tokens with",
+        "box": [
+            306,
+            576,
+            525,
+            587
+        ],
+        "class": "para",
+        "page": 2,
+        "is_meta": false,
+        "line_id": 218,
+        "parent_id": 217,
+        "relation": "connect"
+    },
+    {
+        "text": "a 20% probability. All experiments are averaged",
+        "box": [
+            307,
+            590,
+            525,
+            601
+        ],
+        "class": "para",
+        "page": 2,
+        "is_meta": false,
+        "line_id": 219,
+        "parent_id": 218,
+        "relation": "connect"
+    },
+    {
+        "text": "across 3 seeds.",
+        "box": [
+            307,
+            603,
+            371,
+            614
+        ],
+        "class": "para",
+        "page": 2,
+        "is_meta": false,
+        "line_id": 220,
+        "parent_id": 219,
+        "relation": "connect"
+    },
+    {
+        "text": "4 Results and Analysis",
+        "box": [
+            307,
+            629,
+            430,
+            641
+        ],
+        "class": "sec1",
+        "page": 2,
+        "is_meta": false,
+        "line_id": 221,
+        "parent_id": 180,
+        "relation": "equality"
+    },
+    {
+        "text": "4.1 Experimental Results",
+        "box": [
+            307,
+            653,
+            432,
+            664
+        ],
+        "class": "sec2",
+        "page": 2,
+        "is_meta": false,
+        "line_id": 222,
+        "parent_id": 221,
+        "relation": "contain"
+    },
+    {
+        "text": "We follow previous work to compare the perfor-",
+        "box": [
+            306,
+            673,
+            527,
+            684
+        ],
+        "class": "fstline",
+        "page": 2,
+        "is_meta": false,
+        "line_id": 223,
+        "parent_id": 222,
+        "relation": "contain"
+    },
+    {
+        "text": "mance of joint goal accuracy. We get the joint",
+        "box": [
+            307,
+            686,
+            525,
+            697
+        ],
+        "class": "para",
+        "page": 2,
+        "is_meta": false,
+        "line_id": 224,
+        "parent_id": 223,
+        "relation": "connect"
+    },
+    {
+        "text": "goal correct if the predicted state exactly matches",
+        "box": [
+            307,
+            700,
+            525,
+            711
+        ],
+        "class": "para",
+        "page": 2,
+        "is_meta": false,
+        "line_id": 225,
+        "parent_id": 224,
+        "relation": "connect"
+    },
+    {
+        "text": "the ground truth state for every slot. As shown",
+        "box": [
+            307,
+            713,
+            525,
+            724
+        ],
+        "class": "para",
+        "page": 2,
+        "is_meta": false,
+        "line_id": 226,
+        "parent_id": 225,
+        "relation": "connect"
+    },
+    {
+        "text": "in Table 2, open vocabulary approaches achieve",
+        "box": [
+            307,
+            727,
+            525,
+            738
+        ],
+        "class": "para",
+        "page": 2,
+        "is_meta": false,
+        "line_id": 227,
+        "parent_id": 226,
+        "relation": "connect"
+    },
+    {
+        "text": "higher accuracy than fixed vocabulary approaches.",
+        "box": [
+            307,
+            740,
+            527,
+            751
+        ],
+        "class": "para",
+        "page": 2,
+        "is_meta": false,
+        "line_id": 228,
+        "parent_id": 227,
+        "relation": "connect"
+    },
+    {
+        "text": "DST-SC achieves state-of-the-art performance on",
+        "box": [
+            307,
+            754,
+            525,
+            765
+        ],
+        "class": "para",
+        "page": 2,
+        "is_meta": false,
+        "line_id": 229,
+        "parent_id": 228,
+        "relation": "connect"
+    },
+    {
+        "text": "36",
+        "box": [
+            293,
+            777,
+            304,
+            787
+        ],
+        "class": "foot",
+        "page": 2,
+        "is_meta": true,
+        "line_id": 230,
+        "parent_id": -1,
+        "relation": "meta"
+    },
+    {
+        "text": "Table 2: Joint goal accuracy on MultiWOZ 2.0 and",
+        "box": [
+            67,
+            56,
+            294,
+            179
+        ],
+        "class": "tab",
+        "page": 3,
+        "is_meta": false,
+        "line_id": 231,
+        "parent_id": -1,
+        "relation": "contain"
+    },
+    {
+        "text": "Table 2: Joint goal accuracy on MultiWOZ 2.0 and",
+        "box": [
+            71,
+            186,
+            290,
+            196
+        ],
+        "class": "tabcap",
+        "page": 3,
+        "is_meta": false,
+        "line_id": 232,
+        "parent_id": 231,
+        "relation": "contain"
+    },
+    {
+        "text": "MultiWOZ 2.1. Results marked with \u2020 are from origi-",
+        "box": [
+            72,
+            198,
+            291,
+            208
+        ],
+        "class": "opara",
+        "page": 3,
+        "is_meta": false,
+        "line_id": 233,
+        "parent_id": 232,
+        "relation": "connect"
+    },
+    {
+        "text": "nal papers.",
+        "box": [
+            72,
+            210,
+            115,
+            220
+        ],
+        "class": "opara",
+        "page": 3,
+        "is_meta": false,
+        "line_id": 234,
+        "parent_id": 233,
+        "relation": "connect"
+    },
+    {
+        "text": "MultiWOZ 2.0 and MultiWOZ 2.1, with the joint",
+        "box": [
+            72,
+            245,
+            290,
+            256
+        ],
+        "class": "fstline",
+        "page": 3,
+        "is_meta": false,
+        "line_id": 235,
+        "parent_id": 223,
+        "relation": "equality"
+    },
+    {
+        "text": "goal accuracy of 52.24% and 49.58%.",
+        "box": [
+            72,
+            259,
+            237,
+            269
+        ],
+        "class": "para",
+        "page": 3,
+        "is_meta": false,
+        "line_id": 236,
+        "parent_id": 235,
+        "relation": "connect"
+    },
+    {
+        "text": "4.2 Related-slot Tests",
+        "box": [
+            72,
+            283,
+            178,
+            294
+        ],
+        "class": "sec2",
+        "page": 3,
+        "is_meta": false,
+        "line_id": 237,
+        "parent_id": 222,
+        "relation": "equality"
+    },
+    {
+        "text": "We conducted further related-slot tests to verify",
+        "box": [
+            71,
+            302,
+            290,
+            313
+        ],
+        "class": "fstline",
+        "page": 3,
+        "is_meta": false,
+        "line_id": 238,
+        "parent_id": 237,
+        "relation": "contain"
+    },
+    {
+        "text": "the effectiveness of DST-SC in solving the related-",
+        "box": [
+            72,
+            315,
+            292,
+            326
+        ],
+        "class": "para",
+        "page": 3,
+        "is_meta": false,
+        "line_id": 239,
+        "parent_id": 238,
+        "relation": "connect"
+    },
+    {
+        "text": "slot problem. The dataset for related-slot tests is",
+        "box": [
+            72,
+            329,
+            290,
+            340
+        ],
+        "class": "para",
+        "page": 3,
+        "is_meta": false,
+        "line_id": 240,
+        "parent_id": 239,
+        "relation": "connect"
+    },
+    {
+        "text": "constructed by manually extracting dialogues with",
+        "box": [
+            72,
+            342,
+            290,
+            353
+        ],
+        "class": "para",
+        "page": 3,
+        "is_meta": false,
+        "line_id": 241,
+        "parent_id": 240,
+        "relation": "connect"
+    },
+    {
+        "text": "the related-slot problem from MultiWOZ 2.1 test",
+        "box": [
+            72,
+            356,
+            290,
+            367
+        ],
+        "class": "para",
+        "page": 3,
+        "is_meta": false,
+        "line_id": 242,
+        "parent_id": 241,
+        "relation": "connect"
+    },
+    {
+        "text": "set. We made an observation that slot connections",
+        "box": [
+            72,
+            369,
+            290,
+            380
+        ],
+        "class": "para",
+        "page": 3,
+        "is_meta": false,
+        "line_id": 243,
+        "parent_id": 242,
+        "relation": "connect"
+    },
+    {
+        "text": "are common at target slots such as attraction-area,",
+        "box": [
+            72,
+            383,
+            291,
+            394
+        ],
+        "class": "para",
+        "page": 3,
+        "is_meta": false,
+        "line_id": 244,
+        "parent_id": 243,
+        "relation": "connect"
+    },
+    {
+        "text": "hotel-area, hotel-book day and so on. We only",
+        "box": [
+            72,
+            396,
+            290,
+            407
+        ],
+        "class": "para",
+        "page": 3,
+        "is_meta": false,
+        "line_id": 245,
+        "parent_id": 244,
+        "relation": "connect"
+    },
+    {
+        "text": "need to focus on target slot accuracy of turns with",
+        "box": [
+            72,
+            410,
+            290,
+            421
+        ],
+        "class": "para",
+        "page": 3,
+        "is_meta": false,
+        "line_id": 246,
+        "parent_id": 245,
+        "relation": "connect"
+    },
+    {
+        "text": "slot connections. However, some target slots occur",
+        "box": [
+            72,
+            424,
+            290,
+            435
+        ],
+        "class": "para",
+        "page": 3,
+        "is_meta": false,
+        "line_id": 247,
+        "parent_id": 246,
+        "relation": "connect"
+    },
+    {
+        "text": "infrequently in the extracted dataset. Considering",
+        "box": [
+            72,
+            437,
+            290,
+            448
+        ],
+        "class": "para",
+        "page": 3,
+        "is_meta": false,
+        "line_id": 248,
+        "parent_id": 247,
+        "relation": "connect"
+    },
+    {
+        "text": "that target slots from different domains with the",
+        "box": [
+            72,
+            451,
+            290,
+            462
+        ],
+        "class": "para",
+        "page": 3,
+        "is_meta": false,
+        "line_id": 249,
+        "parent_id": 248,
+        "relation": "connect"
+    },
+    {
+        "text": "same slot type always correspond to similar slot",
+        "box": [
+            72,
+            464,
+            290,
+            475
+        ],
+        "class": "para",
+        "page": 3,
+        "is_meta": false,
+        "line_id": 250,
+        "parent_id": 249,
+        "relation": "connect"
+    },
+    {
+        "text": "connection expressions, we can neglect their do-",
+        "box": [
+            72,
+            478,
+            292,
+            489
+        ],
+        "class": "para",
+        "page": 3,
+        "is_meta": false,
+        "line_id": 251,
+        "parent_id": 250,
+        "relation": "connect"
+    },
+    {
+        "text": "mains and calculate the accuracy of each slot type",
+        "box": [
+            72,
+            491,
+            290,
+            502
+        ],
+        "class": "para",
+        "page": 3,
+        "is_meta": false,
+        "line_id": 252,
+        "parent_id": 251,
+        "relation": "connect"
+    },
+    {
+        "text": "instead. For example, we can calculate the accu-",
+        "box": [
+            72,
+            505,
+            292,
+            516
+        ],
+        "class": "para",
+        "page": 3,
+        "is_meta": false,
+        "line_id": 253,
+        "parent_id": 252,
+        "relation": "connect"
+    },
+    {
+        "text": "racy of slot type price instead of calculating the",
+        "box": [
+            72,
+            518,
+            290,
+            529
+        ],
+        "class": "para",
+        "page": 3,
+        "is_meta": false,
+        "line_id": 254,
+        "parent_id": 253,
+        "relation": "connect"
+    },
+    {
+        "text": "accuracy of hotel-price range and restaurant-price",
+        "box": [
+            72,
+            532,
+            290,
+            543
+        ],
+        "class": "para",
+        "page": 3,
+        "is_meta": false,
+        "line_id": 255,
+        "parent_id": 254,
+        "relation": "connect"
+    },
+    {
+        "text": "range separately. Table 3 lists slot types and their",
+        "box": [
+            72,
+            545,
+            290,
+            556
+        ],
+        "class": "para",
+        "page": 3,
+        "is_meta": false,
+        "line_id": 256,
+        "parent_id": 255,
+        "relation": "connect"
+    },
+    {
+        "text": "corresponding target slots.",
+        "box": [
+            72,
+            559,
+            187,
+            570
+        ],
+        "class": "para",
+        "page": 3,
+        "is_meta": false,
+        "line_id": 257,
+        "parent_id": 256,
+        "relation": "connect"
+    },
+    {
+        "text": "To make more convincing tests, we performed",
+        "box": [
+            82,
+            573,
+            290,
+            584
+        ],
+        "class": "fstline",
+        "page": 3,
+        "is_meta": false,
+        "line_id": 258,
+        "parent_id": 238,
+        "relation": "equality"
+    },
+    {
+        "text": "data augmentations to get more samples for each",
+        "box": [
+            72,
+            587,
+            290,
+            598
+        ],
+        "class": "para",
+        "page": 3,
+        "is_meta": false,
+        "line_id": 259,
+        "parent_id": 258,
+        "relation": "connect"
+    },
+    {
+        "text": "slot type. We used two heuristic rules to augment",
+        "box": [
+            72,
+            600,
+            290,
+            611
+        ],
+        "class": "para",
+        "page": 3,
+        "is_meta": false,
+        "line_id": 260,
+        "parent_id": 259,
+        "relation": "connect"
+    },
+    {
+        "text": "the extracted data and obtained 100 dialogues for",
+        "box": [
+            72,
+            614,
+            290,
+            625
+        ],
+        "class": "para",
+        "page": 3,
+        "is_meta": false,
+        "line_id": 261,
+        "parent_id": 260,
+        "relation": "connect"
+    },
+    {
+        "text": "each slot type. (1) Paraphrasing: we rewrote",
+        "box": [
+            72,
+            627,
+            290,
+            638
+        ],
+        "class": "para",
+        "page": 3,
+        "is_meta": false,
+        "line_id": 262,
+        "parent_id": 261,
+        "relation": "connect"
+    },
+    {
+        "text": "some utterances to get multiple phrases with the",
+        "box": [
+            72,
+            641,
+            290,
+            652
+        ],
+        "class": "para",
+        "page": 3,
+        "is_meta": false,
+        "line_id": 263,
+        "parent_id": 262,
+        "relation": "connect"
+    },
+    {
+        "text": "same intent. For example, the phrase \u201cin the same",
+        "box": [
+            72,
+            654,
+            290,
+            665
+        ],
+        "class": "para",
+        "page": 3,
+        "is_meta": false,
+        "line_id": 264,
+        "parent_id": 263,
+        "relation": "connect"
+    },
+    {
+        "text": "area as the restaurant\u201d can be rewritten as \u201cclose",
+        "box": [
+            72,
+            668,
+            290,
+            679
+        ],
+        "class": "para",
+        "page": 3,
+        "is_meta": false,
+        "line_id": 265,
+        "parent_id": 264,
+        "relation": "connect"
+    },
+    {
+        "text": "to the restaurant\u201d. (2) Replacing values: we re-",
+        "box": [
+            72,
+            681,
+            292,
+            693
+        ],
+        "class": "para",
+        "page": 3,
+        "is_meta": false,
+        "line_id": 266,
+        "parent_id": 265,
+        "relation": "connect"
+    },
+    {
+        "text": "placed some slot values to exclude the influence of",
+        "box": [
+            72,
+            695,
+            290,
+            706
+        ],
+        "class": "para",
+        "page": 3,
+        "is_meta": false,
+        "line_id": 267,
+        "parent_id": 266,
+        "relation": "connect"
+    },
+    {
+        "text": "overfitting. For example, the phrase \u201cstay in the",
+        "box": [
+            72,
+            709,
+            290,
+            720
+        ],
+        "class": "para",
+        "page": 3,
+        "is_meta": false,
+        "line_id": 268,
+        "parent_id": 267,
+        "relation": "connect"
+    },
+    {
+        "text": "east\u201d can be replaced as \u201cstay in the west\u201d.",
+        "box": [
+            72,
+            722,
+            259,
+            733
+        ],
+        "class": "para",
+        "page": 3,
+        "is_meta": false,
+        "line_id": 269,
+        "parent_id": 268,
+        "relation": "connect"
+    },
+    {
+        "text": "1We re-implemented TRADE as described in section 2.2",
+        "box": [
+            88,
+            744,
+            290,
+            754
+        ],
+        "class": "fnote",
+        "page": 3,
+        "is_meta": true,
+        "line_id": 270,
+        "parent_id": -1,
+        "relation": "meta"
+    },
+    {
+        "text": "and section 2.3 and got a stronger baseline.",
+        "box": [
+            72,
+            755,
+            226,
+            764
+        ],
+        "class": "opara",
+        "page": 3,
+        "is_meta": true,
+        "line_id": 271,
+        "parent_id": 270,
+        "relation": "connect"
+    },
+    {
+        "text": "Table 3: Slot types and corresponding target slots in-",
+        "box": [
+            304,
+            58,
+            526,
+            282
+        ],
+        "class": "tab",
+        "page": 3,
+        "is_meta": false,
+        "line_id": 272,
+        "parent_id": -1,
+        "relation": "contain"
+    },
+    {
+        "text": "Table 3: Slot types and corresponding target slots in-",
+        "box": [
+            306,
+            288,
+            527,
+            298
+        ],
+        "class": "tabcap",
+        "page": 3,
+        "is_meta": false,
+        "line_id": 273,
+        "parent_id": 272,
+        "relation": "contain"
+    },
+    {
+        "text": "volved in related-slot tests.",
+        "box": [
+            307,
+            300,
+            414,
+            310
+        ],
+        "class": "opara",
+        "page": 3,
+        "is_meta": false,
+        "line_id": 274,
+        "parent_id": 273,
+        "relation": "connect"
+    },
+    {
+        "text": "As shown in Table 4, DST-SC outperforms",
+        "box": [
+            318,
+            336,
+            525,
+            347
+        ],
+        "class": "fstline",
+        "page": 3,
+        "is_meta": false,
+        "line_id": 275,
+        "parent_id": 258,
+        "relation": "equality"
+    },
+    {
+        "text": "TRADE by a large margin at most slot types. Case",
+        "box": [
+            306,
+            349,
+            525,
+            360
+        ],
+        "class": "para",
+        "page": 3,
+        "is_meta": false,
+        "line_id": 276,
+        "parent_id": 275,
+        "relation": "connect"
+    },
+    {
+        "text": "1 in Table 5 illustrates the advantage of DST-SC",
+        "box": [
+            306,
+            363,
+            525,
+            374
+        ],
+        "class": "para",
+        "page": 3,
+        "is_meta": false,
+        "line_id": 277,
+        "parent_id": 276,
+        "relation": "connect"
+    },
+    {
+        "text": "explicitly. We find that both generation and word",
+        "box": [
+            307,
+            376,
+            525,
+            387
+        ],
+        "class": "para",
+        "page": 3,
+        "is_meta": false,
+        "line_id": 278,
+        "parent_id": 277,
+        "relation": "connect"
+    },
+    {
+        "text": "copying miss the correct token. However, the slot",
+        "box": [
+            307,
+            390,
+            525,
+            401
+        ],
+        "class": "para",
+        "page": 3,
+        "is_meta": false,
+        "line_id": 279,
+        "parent_id": 278,
+        "relation": "connect"
+    },
+    {
+        "text": "connecting mechanism in DST-SC helps to find out",
+        "box": [
+            307,
+            403,
+            525,
+            414
+        ],
+        "class": "para",
+        "page": 3,
+        "is_meta": false,
+        "line_id": 280,
+        "parent_id": 279,
+        "relation": "connect"
+    },
+    {
+        "text": "the correct source slot and merges its value into P",
+        "box": [
+            307,
+            417,
+            524,
+            428
+        ],
+        "class": "para",
+        "page": 3,
+        "is_meta": false,
+        "line_id": 281,
+        "parent_id": 280,
+        "relation": "connect"
+    },
+    {
+        "text": "under the control of gate g2.",
+        "box": [
+            307,
+            430,
+            429,
+            442
+        ],
+        "class": "para",
+        "page": 3,
+        "is_meta": false,
+        "line_id": 282,
+        "parent_id": 281,
+        "relation": "connect"
+    },
+    {
+        "text": "Note that there are no obvious improvements on",
+        "box": [
+            318,
+            445,
+            525,
+            456
+        ],
+        "class": "fstline",
+        "page": 3,
+        "is_meta": false,
+        "line_id": 283,
+        "parent_id": 275,
+        "relation": "equality"
+    },
+    {
+        "text": "slot types departure and destination. We suspect",
+        "box": [
+            307,
+            459,
+            525,
+            470
+        ],
+        "class": "para",
+        "page": 3,
+        "is_meta": false,
+        "line_id": 284,
+        "parent_id": 283,
+        "relation": "connect"
+    },
+    {
+        "text": "that this is caused by lots of missing annotations for",
+        "box": [
+            307,
+            472,
+            525,
+            483
+        ],
+        "class": "para",
+        "page": 3,
+        "is_meta": false,
+        "line_id": 285,
+        "parent_id": 284,
+        "relation": "connect"
+    },
+    {
+        "text": "attraction-name, hotel-name and restaurant-name,",
+        "box": [
+            307,
+            486,
+            526,
+            497
+        ],
+        "class": "para",
+        "page": 3,
+        "is_meta": false,
+        "line_id": 286,
+        "parent_id": 285,
+        "relation": "connect"
+    },
+    {
+        "text": "which usually act as source slots for departure and",
+        "box": [
+            306,
+            499,
+            525,
+            510
+        ],
+        "class": "para",
+        "page": 3,
+        "is_meta": false,
+        "line_id": 287,
+        "parent_id": 286,
+        "relation": "connect"
+    },
+    {
+        "text": "destination. The absence of these critical informa-",
+        "box": [
+            307,
+            513,
+            527,
+            524
+        ],
+        "class": "para",
+        "page": 3,
+        "is_meta": false,
+        "line_id": 288,
+        "parent_id": 287,
+        "relation": "connect"
+    },
+    {
+        "text": "tion makes DST-SC pay less attention to values",
+        "box": [
+            307,
+            526,
+            525,
+            537
+        ],
+        "class": "para",
+        "page": 3,
+        "is_meta": false,
+        "line_id": 289,
+        "parent_id": 288,
+        "relation": "connect"
+    },
+    {
+        "text": "from source slots. As shown in case 2 in Table 5,",
+        "box": [
+            307,
+            540,
+            526,
+            551
+        ],
+        "class": "para",
+        "page": 3,
+        "is_meta": false,
+        "line_id": 290,
+        "parent_id": 289,
+        "relation": "connect"
+    },
+    {
+        "text": "even if the slot connection mechanism has inferred",
+        "box": [
+            307,
+            554,
+            525,
+            565
+        ],
+        "class": "para",
+        "page": 3,
+        "is_meta": false,
+        "line_id": 291,
+        "parent_id": 290,
+        "relation": "connect"
+    },
+    {
+        "text": "the correct source slot, the unconfidence of g2 leads",
+        "box": [
+            307,
+            567,
+            525,
+            579
+        ],
+        "class": "para",
+        "page": 3,
+        "is_meta": false,
+        "line_id": 292,
+        "parent_id": 291,
+        "relation": "connect"
+    },
+    {
+        "text": "to the final incorrect output.",
+        "box": [
+            307,
+            581,
+            428,
+            592
+        ],
+        "class": "para",
+        "page": 3,
+        "is_meta": false,
+        "line_id": 293,
+        "parent_id": 292,
+        "relation": "connect"
+    },
+    {
+        "text": "5 Related Work",
+        "box": [
+            307,
+            607,
+            396,
+            619
+        ],
+        "class": "sec1",
+        "page": 3,
+        "is_meta": false,
+        "line_id": 294,
+        "parent_id": 221,
+        "relation": "equality"
+    },
+    {
+        "text": "Traditional approaches for dialogue state tracking",
+        "box": [
+            306,
+            632,
+            525,
+            643
+        ],
+        "class": "fstline",
+        "page": 3,
+        "is_meta": false,
+        "line_id": 295,
+        "parent_id": 294,
+        "relation": "contain"
+    },
+    {
+        "text": "(Henderson et al., 2014b; Sun et al., 2014; Zilka",
+        "box": [
+            306,
+            646,
+            525,
+            656
+        ],
+        "class": "para",
+        "page": 3,
+        "is_meta": false,
+        "line_id": 296,
+        "parent_id": 295,
+        "relation": "connect"
+    },
+    {
+        "text": "and Jurc\u00b4\u0131cek, 2015; Mrk\u02c7sic\u00b4 et al., 2015) rely on",
+        "box": [
+            307,
+            659,
+            525,
+            670
+        ],
+        "class": "para",
+        "page": 3,
+        "is_meta": false,
+        "line_id": 297,
+        "parent_id": 296,
+        "relation": "connect"
+    },
+    {
+        "text": "manually constructed semantic dictionaries to ex-",
+        "box": [
+            307,
+            673,
+            527,
+            684
+        ],
+        "class": "para",
+        "page": 3,
+        "is_meta": false,
+        "line_id": 298,
+        "parent_id": 297,
+        "relation": "connect"
+    },
+    {
+        "text": "tract features from input text, known as delexicali-",
+        "box": [
+            307,
+            686,
+            527,
+            697
+        ],
+        "class": "para",
+        "page": 3,
+        "is_meta": false,
+        "line_id": 299,
+        "parent_id": 298,
+        "relation": "connect"
+    },
+    {
+        "text": "sation. These methods are vulnerable to linguistic",
+        "box": [
+            307,
+            700,
+            525,
+            711
+        ],
+        "class": "para",
+        "page": 3,
+        "is_meta": false,
+        "line_id": 300,
+        "parent_id": 299,
+        "relation": "connect"
+    },
+    {
+        "text": "variations and difficult to scale. To overcome these",
+        "box": [
+            307,
+            713,
+            525,
+            724
+        ],
+        "class": "para",
+        "page": 3,
+        "is_meta": false,
+        "line_id": 301,
+        "parent_id": 300,
+        "relation": "connect"
+    },
+    {
+        "text": "problems, Mrks\u02c7i\u00b4c et al. (2017) propose the first",
+        "box": [
+            307,
+            727,
+            525,
+            738
+        ],
+        "class": "para",
+        "page": 3,
+        "is_meta": false,
+        "line_id": 302,
+        "parent_id": 301,
+        "relation": "connect"
+    },
+    {
+        "text": "data-driven model for DST, the employed deep",
+        "box": [
+            307,
+            740,
+            525,
+            751
+        ],
+        "class": "para",
+        "page": 3,
+        "is_meta": false,
+        "line_id": 303,
+        "parent_id": 302,
+        "relation": "connect"
+    },
+    {
+        "text": "learning approaches provide stronger representa-",
+        "box": [
+            307,
+            754,
+            527,
+            765
+        ],
+        "class": "para",
+        "page": 3,
+        "is_meta": false,
+        "line_id": 304,
+        "parent_id": 303,
+        "relation": "connect"
+    },
+    {
+        "text": "37",
+        "box": [
+            293,
+            777,
+            304,
+            787
+        ],
+        "class": "foot",
+        "page": 3,
+        "is_meta": true,
+        "line_id": 305,
+        "parent_id": -1,
+        "relation": "meta"
+    },
+    {
+        "text": "Table 4: Slot type accuracy of related-slot tests.",
+        "box": [
+            71,
+            56,
+            528,
+            109
+        ],
+        "class": "tab",
+        "page": 4,
+        "is_meta": false,
+        "line_id": 306,
+        "parent_id": -1,
+        "relation": "contain"
+    },
+    {
+        "text": "Table 4: Slot type accuracy of related-slot tests.",
+        "box": [
+            202,
+            117,
+            394,
+            127
+        ],
+        "class": "tabcap",
+        "page": 4,
+        "is_meta": false,
+        "line_id": 307,
+        "parent_id": 306,
+        "relation": "contain"
+    },
+    {
+        "text": "Table 5: Case study. We only list tokens with the highest output probability in Pgen , Pwc , Pv c and P .",
+        "box": [
+            67,
+            135,
+            527,
+            262
+        ],
+        "class": "tab",
+        "page": 4,
+        "is_meta": false,
+        "line_id": 308,
+        "parent_id": -1,
+        "relation": "contain"
+    },
+    {
+        "text": "Table 5: Case study. We only list tokens with the highest output probability in Pgen, Pwc, Pvc and P .",
+        "box": [
+            97,
+            268,
+            499,
+            279
+        ],
+        "class": "tabcap",
+        "page": 4,
+        "is_meta": false,
+        "line_id": 309,
+        "parent_id": 308,
+        "relation": "contain"
+    },
+    {
+        "text": "tion learning ability. By sharing parameters among",
+        "box": [
+            72,
+            302,
+            290,
+            313
+        ],
+        "class": "para",
+        "page": 4,
+        "is_meta": false,
+        "line_id": 310,
+        "parent_id": 304,
+        "relation": "connect"
+    },
+    {
+        "text": "slots (Ren et al., 2018; Zhong et al., 2018; Nouri",
+        "box": [
+            72,
+            316,
+            290,
+            327
+        ],
+        "class": "para",
+        "page": 4,
+        "is_meta": false,
+        "line_id": 311,
+        "parent_id": 310,
+        "relation": "connect"
+    },
+    {
+        "text": "and Hosseini-Asl, 2018), the model is further im-",
+        "box": [
+            72,
+            329,
+            292,
+            340
+        ],
+        "class": "para",
+        "page": 4,
+        "is_meta": false,
+        "line_id": 312,
+        "parent_id": 311,
+        "relation": "connect"
+    },
+    {
+        "text": "proved to track rare slot values. These approaches",
+        "box": [
+            72,
+            343,
+            290,
+            354
+        ],
+        "class": "para",
+        "page": 4,
+        "is_meta": false,
+        "line_id": 313,
+        "parent_id": 312,
+        "relation": "connect"
+    },
+    {
+        "text": "are all designed in the paradigm of multi-class clas-",
+        "box": [
+            72,
+            356,
+            292,
+            367
+        ],
+        "class": "para",
+        "page": 4,
+        "is_meta": false,
+        "line_id": 314,
+        "parent_id": 313,
+        "relation": "connect"
+    },
+    {
+        "text": "sification over predefined slot value candidates and",
+        "box": [
+            72,
+            370,
+            290,
+            381
+        ],
+        "class": "para",
+        "page": 4,
+        "is_meta": false,
+        "line_id": 315,
+        "parent_id": 314,
+        "relation": "connect"
+    },
+    {
+        "text": "usually referred to as fixed vocabulary approaches.",
+        "box": [
+            72,
+            383,
+            292,
+            394
+        ],
+        "class": "para",
+        "page": 4,
+        "is_meta": false,
+        "line_id": 316,
+        "parent_id": 315,
+        "relation": "connect"
+    },
+    {
+        "text": "Fixed vocabulary approaches always require a",
+        "box": [
+            82,
+            399,
+            290,
+            410
+        ],
+        "class": "fstline",
+        "page": 4,
+        "is_meta": false,
+        "line_id": 317,
+        "parent_id": 295,
+        "relation": "equality"
+    },
+    {
+        "text": "predefined ontology, which is usually impractical.",
+        "box": [
+            72,
+            413,
+            292,
+            424
+        ],
+        "class": "para",
+        "page": 4,
+        "is_meta": false,
+        "line_id": 318,
+        "parent_id": 317,
+        "relation": "connect"
+    },
+    {
+        "text": "Their applications are usually limited in a single",
+        "box": [
+            71,
+            426,
+            290,
+            437
+        ],
+        "class": "para",
+        "page": 4,
+        "is_meta": false,
+        "line_id": 319,
+        "parent_id": 318,
+        "relation": "connect"
+    },
+    {
+        "text": "domain. Therefore, several open vocabulary ap-",
+        "box": [
+            72,
+            440,
+            292,
+            451
+        ],
+        "class": "para",
+        "page": 4,
+        "is_meta": false,
+        "line_id": 320,
+        "parent_id": 319,
+        "relation": "connect"
+    },
+    {
+        "text": "proaches in generative fashion (Xu and Hu, 2018;",
+        "box": [
+            72,
+            453,
+            291,
+            464
+        ],
+        "class": "para",
+        "page": 4,
+        "is_meta": false,
+        "line_id": 321,
+        "parent_id": 320,
+        "relation": "connect"
+    },
+    {
+        "text": "Wu et al., 2019; Gao et al., 2019; Ren et al., 2019)",
+        "box": [
+            71,
+            467,
+            290,
+            478
+        ],
+        "class": "para",
+        "page": 4,
+        "is_meta": false,
+        "line_id": 322,
+        "parent_id": 321,
+        "relation": "connect"
+    },
+    {
+        "text": "are proposed to handle unlimited slot values in",
+        "box": [
+            72,
+            480,
+            290,
+            491
+        ],
+        "class": "para",
+        "page": 4,
+        "is_meta": false,
+        "line_id": 323,
+        "parent_id": 322,
+        "relation": "connect"
+    },
+    {
+        "text": "more complicated dialogues. Open vocabulary",
+        "box": [
+            72,
+            494,
+            290,
+            505
+        ],
+        "class": "para",
+        "page": 4,
+        "is_meta": false,
+        "line_id": 324,
+        "parent_id": 323,
+        "relation": "connect"
+    },
+    {
+        "text": "models show the promising performance in multi-",
+        "box": [
+            72,
+            507,
+            292,
+            518
+        ],
+        "class": "para",
+        "page": 4,
+        "is_meta": false,
+        "line_id": 325,
+        "parent_id": 324,
+        "relation": "connect"
+    },
+    {
+        "text": "domain DST. However, ellipsis and reference phe-",
+        "box": [
+            72,
+            521,
+            292,
+            532
+        ],
+        "class": "para",
+        "page": 4,
+        "is_meta": false,
+        "line_id": 326,
+        "parent_id": 325,
+        "relation": "connect"
+    },
+    {
+        "text": "nomena among multi-domain slots are still less",
+        "box": [
+            72,
+            535,
+            290,
+            545
+        ],
+        "class": "para",
+        "page": 4,
+        "is_meta": false,
+        "line_id": 327,
+        "parent_id": 326,
+        "relation": "connect"
+    },
+    {
+        "text": "explored in existing literature.",
+        "box": [
+            72,
+            548,
+            203,
+            559
+        ],
+        "class": "para",
+        "page": 4,
+        "is_meta": false,
+        "line_id": 328,
+        "parent_id": 327,
+        "relation": "connect"
+    },
+    {
+        "text": "6 Conclusion",
+        "box": [
+            72,
+            578,
+            147,
+            590
+        ],
+        "class": "sec1",
+        "page": 4,
+        "is_meta": false,
+        "line_id": 329,
+        "parent_id": 294,
+        "relation": "equality"
+    },
+    {
+        "text": "In this paper, we highlight a regularly appeared yet",
+        "box": [
+            72,
+            605,
+            290,
+            616
+        ],
+        "class": "fstline",
+        "page": 4,
+        "is_meta": false,
+        "line_id": 330,
+        "parent_id": 329,
+        "relation": "contain"
+    },
+    {
+        "text": "rarely discussed problem in multi-domain DST,",
+        "box": [
+            72,
+            618,
+            291,
+            629
+        ],
+        "class": "para",
+        "page": 4,
+        "is_meta": false,
+        "line_id": 331,
+        "parent_id": 330,
+        "relation": "connect"
+    },
+    {
+        "text": "namely the related-slot problem. We propose",
+        "box": [
+            72,
+            632,
+            290,
+            643
+        ],
+        "class": "para",
+        "page": 4,
+        "is_meta": false,
+        "line_id": 332,
+        "parent_id": 331,
+        "relation": "connect"
+    },
+    {
+        "text": "a novel dialogue state tracking model DST-SC,",
+        "box": [
+            72,
+            646,
+            291,
+            656
+        ],
+        "class": "para",
+        "page": 4,
+        "is_meta": false,
+        "line_id": 333,
+        "parent_id": 332,
+        "relation": "connect"
+    },
+    {
+        "text": "which equips with the slot connecting mechanism",
+        "box": [
+            71,
+            659,
+            290,
+            670
+        ],
+        "class": "para",
+        "page": 4,
+        "is_meta": false,
+        "line_id": 334,
+        "parent_id": 333,
+        "relation": "connect"
+    },
+    {
+        "text": "to build slot connections across domains. Our",
+        "box": [
+            72,
+            673,
+            290,
+            684
+        ],
+        "class": "para",
+        "page": 4,
+        "is_meta": false,
+        "line_id": 335,
+        "parent_id": 334,
+        "relation": "connect"
+    },
+    {
+        "text": "model achieves significant improvements on two",
+        "box": [
+            72,
+            686,
+            290,
+            697
+        ],
+        "class": "para",
+        "page": 4,
+        "is_meta": false,
+        "line_id": 336,
+        "parent_id": 335,
+        "relation": "connect"
+    },
+    {
+        "text": "public datasets and shows effectiveness on related-",
+        "box": [
+            72,
+            700,
+            292,
+            711
+        ],
+        "class": "para",
+        "page": 4,
+        "is_meta": false,
+        "line_id": 337,
+        "parent_id": 336,
+        "relation": "connect"
+    },
+    {
+        "text": "slot problem tests. Annotations complement for",
+        "box": [
+            72,
+            713,
+            290,
+            724
+        ],
+        "class": "para",
+        "page": 4,
+        "is_meta": false,
+        "line_id": 338,
+        "parent_id": 337,
+        "relation": "connect"
+    },
+    {
+        "text": "MultiWOZ dataset in the future might enable DST-",
+        "box": [
+            72,
+            727,
+            292,
+            738
+        ],
+        "class": "para",
+        "page": 4,
+        "is_meta": false,
+        "line_id": 339,
+        "parent_id": 338,
+        "relation": "connect"
+    },
+    {
+        "text": "SC to handle the related-slot problem more effec-",
+        "box": [
+            72,
+            740,
+            292,
+            751
+        ],
+        "class": "para",
+        "page": 4,
+        "is_meta": false,
+        "line_id": 340,
+        "parent_id": 339,
+        "relation": "connect"
+    },
+    {
+        "text": "tively and further improve the joint accuracy.",
+        "box": [
+            72,
+            754,
+            268,
+            765
+        ],
+        "class": "para",
+        "page": 4,
+        "is_meta": false,
+        "line_id": 341,
+        "parent_id": 340,
+        "relation": "connect"
+    },
+    {
+        "text": "Acknowledgments",
+        "box": [
+            307,
+            301,
+            400,
+            313
+        ],
+        "class": "sec1",
+        "page": 4,
+        "is_meta": false,
+        "line_id": 342,
+        "parent_id": 329,
+        "relation": "equality"
+    },
+    {
+        "text": "We would like to thank the anonymous review-",
+        "box": [
+            306,
+            325,
+            527,
+            336
+        ],
+        "class": "fstline",
+        "page": 4,
+        "is_meta": false,
+        "line_id": 343,
+        "parent_id": 342,
+        "relation": "contain"
+    },
+    {
+        "text": "ers for their constructive comments. This work is",
+        "box": [
+            307,
+            339,
+            525,
+            350
+        ],
+        "class": "para",
+        "page": 4,
+        "is_meta": false,
+        "line_id": 344,
+        "parent_id": 343,
+        "relation": "connect"
+    },
+    {
+        "text": "supported by the National Natural Science Foun-",
+        "box": [
+            307,
+            353,
+            527,
+            363
+        ],
+        "class": "para",
+        "page": 4,
+        "is_meta": false,
+        "line_id": 345,
+        "parent_id": 344,
+        "relation": "connect"
+    },
+    {
+        "text": "dation of China (Nos. 61976114 and 61936012),",
+        "box": [
+            307,
+            366,
+            526,
+            377
+        ],
+        "class": "para",
+        "page": 4,
+        "is_meta": false,
+        "line_id": 346,
+        "parent_id": 345,
+        "relation": "connect"
+    },
+    {
+        "text": "the National Key R&D Program of China (No.",
+        "box": [
+            307,
+            380,
+            527,
+            391
+        ],
+        "class": "para",
+        "page": 4,
+        "is_meta": false,
+        "line_id": 347,
+        "parent_id": 346,
+        "relation": "connect"
+    },
+    {
+        "text": "2018YFB1005102).",
+        "box": [
+            307,
+            393,
+            394,
+            404
+        ],
+        "class": "para",
+        "page": 4,
+        "is_meta": false,
+        "line_id": 348,
+        "parent_id": 347,
+        "relation": "connect"
+    },
+    {
+        "text": "References",
+        "box": [
+            307,
+            432,
+            362,
+            444
+        ],
+        "class": "sec1",
+        "page": 4,
+        "is_meta": false,
+        "line_id": 349,
+        "parent_id": 342,
+        "relation": "equality"
+    },
+    {
+        "text": "Dzmitry Bahdanau, Kyunghyun Cho, and Yoshua Ben-",
+        "box": [
+            307,
+            453,
+            527,
+            463
+        ],
+        "class": "fstline",
+        "page": 4,
+        "is_meta": false,
+        "line_id": 350,
+        "parent_id": 349,
+        "relation": "contain"
+    },
+    {
+        "text": "gio. 2014. Neural machine translation by jointly",
+        "box": [
+            318,
+            464,
+            525,
+            474
+        ],
+        "class": "para",
+        "page": 4,
+        "is_meta": false,
+        "line_id": 351,
+        "parent_id": 350,
+        "relation": "connect"
+    },
+    {
+        "text": "learning to align and translate. arXiv preprint",
+        "box": [
+            318,
+            475,
+            525,
+            485
+        ],
+        "class": "para",
+        "page": 4,
+        "is_meta": false,
+        "line_id": 352,
+        "parent_id": 351,
+        "relation": "connect"
+    },
+    {
+        "text": "arXiv:1409.0473.",
+        "box": [
+            318,
+            486,
+            388,
+            496
+        ],
+        "class": "para",
+        "page": 4,
+        "is_meta": false,
+        "line_id": 353,
+        "parent_id": 352,
+        "relation": "connect"
+    },
+    {
+        "text": "Pawe\u0142 Budzianowski, Tsung-Hsien Wen, Bo-Hsiang",
+        "box": [
+            307,
+            510,
+            525,
+            520
+        ],
+        "class": "fstline",
+        "page": 4,
+        "is_meta": false,
+        "line_id": 354,
+        "parent_id": 350,
+        "relation": "equality"
+    },
+    {
+        "text": "Tseng, In\u02dcigo Casanueva, Stefan Ultes, Osman Ra-",
+        "box": [
+            317,
+            521,
+            527,
+            531
+        ],
+        "class": "para",
+        "page": 4,
+        "is_meta": false,
+        "line_id": 355,
+        "parent_id": 354,
+        "relation": "connect"
+    },
+    {
+        "text": "madan, and Milica Ga\u02c7si\u00b4c. 2018. MultiWOZ - a",
+        "box": [
+            318,
+            532,
+            525,
+            542
+        ],
+        "class": "para",
+        "page": 4,
+        "is_meta": false,
+        "line_id": 356,
+        "parent_id": 355,
+        "relation": "connect"
+    },
+    {
+        "text": "large-scale multi-domain wizard-of-Oz dataset for",
+        "box": [
+            318,
+            543,
+            525,
+            553
+        ],
+        "class": "para",
+        "page": 4,
+        "is_meta": false,
+        "line_id": 357,
+        "parent_id": 356,
+        "relation": "connect"
+    },
+    {
+        "text": "task-oriented dialogue modelling. In Proceedings of",
+        "box": [
+            318,
+            554,
+            525,
+            564
+        ],
+        "class": "para",
+        "page": 4,
+        "is_meta": false,
+        "line_id": 358,
+        "parent_id": 357,
+        "relation": "connect"
+    },
+    {
+        "text": "the 2018 Conference on Empirical Methods in Nat-",
+        "box": [
+            318,
+            565,
+            527,
+            574
+        ],
+        "class": "para",
+        "page": 4,
+        "is_meta": false,
+        "line_id": 359,
+        "parent_id": 358,
+        "relation": "connect"
+    },
+    {
+        "text": "ural Language Processing, pages 5016\u20135026, Brus-",
+        "box": [
+            318,
+            575,
+            527,
+            586
+        ],
+        "class": "para",
+        "page": 4,
+        "is_meta": false,
+        "line_id": 360,
+        "parent_id": 359,
+        "relation": "connect"
+    },
+    {
+        "text": "sels, Belgium. Association for Computational Lin-",
+        "box": [
+            318,
+            587,
+            527,
+            597
+        ],
+        "class": "para",
+        "page": 4,
+        "is_meta": false,
+        "line_id": 361,
+        "parent_id": 360,
+        "relation": "connect"
+    },
+    {
+        "text": "guistics.",
+        "box": [
+            318,
+            598,
+            351,
+            608
+        ],
+        "class": "para",
+        "page": 4,
+        "is_meta": false,
+        "line_id": 362,
+        "parent_id": 361,
+        "relation": "connect"
+    },
+    {
+        "text": "Kyunghyun Cho, Bart van Merri\u00a8enboer, Dzmitry Bah-",
+        "box": [
+            307,
+            621,
+            527,
+            631
+        ],
+        "class": "fstline",
+        "page": 4,
+        "is_meta": false,
+        "line_id": 363,
+        "parent_id": 354,
+        "relation": "equality"
+    },
+    {
+        "text": "danau, and Yoshua Bengio. 2014. On the properties",
+        "box": [
+            318,
+            632,
+            525,
+            642
+        ],
+        "class": "para",
+        "page": 4,
+        "is_meta": false,
+        "line_id": 364,
+        "parent_id": 363,
+        "relation": "connect"
+    },
+    {
+        "text": "of neural machine translation: Encoder\u2013decoder ap-",
+        "box": [
+            318,
+            643,
+            527,
+            653
+        ],
+        "class": "para",
+        "page": 4,
+        "is_meta": false,
+        "line_id": 365,
+        "parent_id": 364,
+        "relation": "connect"
+    },
+    {
+        "text": "proaches. In Proceedings of SSST-8, Eighth Work-",
+        "box": [
+            318,
+            654,
+            527,
+            664
+        ],
+        "class": "para",
+        "page": 4,
+        "is_meta": false,
+        "line_id": 366,
+        "parent_id": 365,
+        "relation": "connect"
+    },
+    {
+        "text": "shop on Syntax, Semantics and Structure in Statisti-",
+        "box": [
+            318,
+            665,
+            527,
+            675
+        ],
+        "class": "para",
+        "page": 4,
+        "is_meta": false,
+        "line_id": 367,
+        "parent_id": 366,
+        "relation": "connect"
+    },
+    {
+        "text": "cal Translation, pages 103\u2013111, Doha, Qatar. Asso-",
+        "box": [
+            318,
+            676,
+            527,
+            686
+        ],
+        "class": "para",
+        "page": 4,
+        "is_meta": false,
+        "line_id": 368,
+        "parent_id": 367,
+        "relation": "connect"
+    },
+    {
+        "text": "ciation for Computational Linguistics.",
+        "box": [
+            318,
+            687,
+            470,
+            697
+        ],
+        "class": "para",
+        "page": 4,
+        "is_meta": false,
+        "line_id": 369,
+        "parent_id": 368,
+        "relation": "connect"
+    },
+    {
+        "text": "Mihail Eric, Rahul Goel, Shachi Paul, Abhishek Sethi,",
+        "box": [
+            307,
+            711,
+            526,
+            721
+        ],
+        "class": "fstline",
+        "page": 4,
+        "is_meta": false,
+        "line_id": 370,
+        "parent_id": 363,
+        "relation": "equality"
+    },
+    {
+        "text": "Sanchit Agarwal, Shuyag Gao, and Dilek Hakkani-",
+        "box": [
+            318,
+            722,
+            527,
+            732
+        ],
+        "class": "para",
+        "page": 4,
+        "is_meta": false,
+        "line_id": 371,
+        "parent_id": 370,
+        "relation": "connect"
+    },
+    {
+        "text": "Tur. 2019. Multiwoz 2.1: Multi-domain dialogue",
+        "box": [
+            317,
+            733,
+            525,
+            743
+        ],
+        "class": "para",
+        "page": 4,
+        "is_meta": false,
+        "line_id": 372,
+        "parent_id": 371,
+        "relation": "connect"
+    },
+    {
+        "text": "state corrections and state tracking baselines. In",
+        "box": [
+            318,
+            744,
+            525,
+            754
+        ],
+        "class": "para",
+        "page": 4,
+        "is_meta": false,
+        "line_id": 373,
+        "parent_id": 372,
+        "relation": "connect"
+    },
+    {
+        "text": "arXiv preprint arXiv:1907.01669.",
+        "box": [
+            318,
+            754,
+            452,
+            765
+        ],
+        "class": "para",
+        "page": 4,
+        "is_meta": false,
+        "line_id": 374,
+        "parent_id": 373,
+        "relation": "connect"
+    },
+    {
+        "text": "38",
+        "box": [
+            293,
+            777,
+            304,
+            787
+        ],
+        "class": "foot",
+        "page": 4,
+        "is_meta": true,
+        "line_id": 375,
+        "parent_id": -1,
+        "relation": "meta"
+    },
+    {
+        "text": "Shuyang Gao, Abhishek Sethi, Sanchit Agarwal, Tagy-",
+        "box": [
+            72,
+            65,
+            291,
+            75
+        ],
+        "class": "fstline",
+        "page": 5,
+        "is_meta": false,
+        "line_id": 376,
+        "parent_id": 370,
+        "relation": "equality"
+    },
+    {
+        "text": "oung Chung, and Dilek Hakkani-Tur. 2019. Dialog",
+        "box": [
+            82,
+            76,
+            290,
+            86
+        ],
+        "class": "para",
+        "page": 5,
+        "is_meta": false,
+        "line_id": 377,
+        "parent_id": 376,
+        "relation": "connect"
+    },
+    {
+        "text": "state tracking: A neural reading comprehension ap-",
+        "box": [
+            82,
+            87,
+            291,
+            97
+        ],
+        "class": "para",
+        "page": 5,
+        "is_meta": false,
+        "line_id": 378,
+        "parent_id": 377,
+        "relation": "connect"
+    },
+    {
+        "text": "proach. In Proceedings of the 20th Annual SIGdial",
+        "box": [
+            82,
+            98,
+            290,
+            108
+        ],
+        "class": "para",
+        "page": 5,
+        "is_meta": false,
+        "line_id": 379,
+        "parent_id": 378,
+        "relation": "connect"
+    },
+    {
+        "text": "Meeting onDiscourse and Dialogue, pages 264\u2013273,",
+        "box": [
+            82,
+            109,
+            291,
+            119
+        ],
+        "class": "para",
+        "page": 5,
+        "is_meta": false,
+        "line_id": 380,
+        "parent_id": 379,
+        "relation": "connect"
+    },
+    {
+        "text": "Stockholm, Sweden. Association for Computational",
+        "box": [
+            82,
+            120,
+            290,
+            130
+        ],
+        "class": "para",
+        "page": 5,
+        "is_meta": false,
+        "line_id": 381,
+        "parent_id": 380,
+        "relation": "connect"
+    },
+    {
+        "text": "Linguistics.",
+        "box": [
+            82,
+            131,
+            129,
+            141
+        ],
+        "class": "para",
+        "page": 5,
+        "is_meta": false,
+        "line_id": 382,
+        "parent_id": 381,
+        "relation": "connect"
+    },
+    {
+        "text": "Rahul Goel, Shachi Paul, and Dilek Hakkani-Tu\u00a8r.",
+        "box": [
+            72,
+            150,
+            292,
+            160
+        ],
+        "class": "fstline",
+        "page": 5,
+        "is_meta": false,
+        "line_id": 383,
+        "parent_id": 376,
+        "relation": "equality"
+    },
+    {
+        "text": "2019. Hyst: A hybrid approach for flexible and",
+        "box": [
+            82,
+            161,
+            290,
+            171
+        ],
+        "class": "para",
+        "page": 5,
+        "is_meta": false,
+        "line_id": 384,
+        "parent_id": 383,
+        "relation": "connect"
+    },
+    {
+        "text": "accurate dialogue state tracking. arXiv preprint",
+        "box": [
+            82,
+            172,
+            290,
+            182
+        ],
+        "class": "para",
+        "page": 5,
+        "is_meta": false,
+        "line_id": 385,
+        "parent_id": 384,
+        "relation": "connect"
+    },
+    {
+        "text": "arXiv:1907.00883.",
+        "box": [
+            82,
+            183,
+            158,
+            193
+        ],
+        "class": "para",
+        "page": 5,
+        "is_meta": false,
+        "line_id": 386,
+        "parent_id": 385,
+        "relation": "connect"
+    },
+    {
+        "text": "Kazuma Hashimoto, Caiming Xiong, Yoshimasa Tsu-",
+        "box": [
+            72,
+            201,
+            291,
+            211
+        ],
+        "class": "fstline",
+        "page": 5,
+        "is_meta": false,
+        "line_id": 387,
+        "parent_id": 383,
+        "relation": "equality"
+    },
+    {
+        "text": "ruoka, and Richard Socher. 2017. A joint many-task",
+        "box": [
+            82,
+            212,
+            290,
+            222
+        ],
+        "class": "para",
+        "page": 5,
+        "is_meta": false,
+        "line_id": 388,
+        "parent_id": 387,
+        "relation": "connect"
+    },
+    {
+        "text": "model: Growing a neural network for multiple NLP",
+        "box": [
+            82,
+            223,
+            290,
+            233
+        ],
+        "class": "para",
+        "page": 5,
+        "is_meta": false,
+        "line_id": 389,
+        "parent_id": 388,
+        "relation": "connect"
+    },
+    {
+        "text": "tasks. In Proceedings of the 2017 Conference on",
+        "box": [
+            82,
+            234,
+            290,
+            244
+        ],
+        "class": "para",
+        "page": 5,
+        "is_meta": false,
+        "line_id": 390,
+        "parent_id": 389,
+        "relation": "connect"
+    },
+    {
+        "text": "Empirical Methods in Natural Language Processing,",
+        "box": [
+            82,
+            245,
+            291,
+            255
+        ],
+        "class": "para",
+        "page": 5,
+        "is_meta": false,
+        "line_id": 391,
+        "parent_id": 390,
+        "relation": "connect"
+    },
+    {
+        "text": "pages 1923\u20131933, Copenhagen, Denmark. Associa-",
+        "box": [
+            82,
+            256,
+            291,
+            266
+        ],
+        "class": "para",
+        "page": 5,
+        "is_meta": false,
+        "line_id": 392,
+        "parent_id": 391,
+        "relation": "connect"
+    },
+    {
+        "text": "tion for Computational Linguistics.",
+        "box": [
+            82,
+            267,
+            223,
+            277
+        ],
+        "class": "para",
+        "page": 5,
+        "is_meta": false,
+        "line_id": 393,
+        "parent_id": 392,
+        "relation": "connect"
+    },
+    {
+        "text": "Matthew Henderson, Blaise Thomson, and Steve",
+        "box": [
+            72,
+            286,
+            290,
+            296
+        ],
+        "class": "fstline",
+        "page": 5,
+        "is_meta": false,
+        "line_id": 394,
+        "parent_id": 387,
+        "relation": "equality"
+    },
+    {
+        "text": "Young. 2014a. Word-based dialog state tracking",
+        "box": [
+            82,
+            297,
+            290,
+            307
+        ],
+        "class": "para",
+        "page": 5,
+        "is_meta": false,
+        "line_id": 395,
+        "parent_id": 394,
+        "relation": "connect"
+    },
+    {
+        "text": "with recurrent neural networks. In Proceedings",
+        "box": [
+            82,
+            308,
+            290,
+            318
+        ],
+        "class": "para",
+        "page": 5,
+        "is_meta": false,
+        "line_id": 396,
+        "parent_id": 395,
+        "relation": "connect"
+    },
+    {
+        "text": "of the 15th Annual Meeting of the Special Inter-",
+        "box": [
+            82,
+            319,
+            291,
+            329
+        ],
+        "class": "para",
+        "page": 5,
+        "is_meta": false,
+        "line_id": 397,
+        "parent_id": 396,
+        "relation": "connect"
+    },
+    {
+        "text": "est Group on Discourse and Dialogue (SIGDIAL),",
+        "box": [
+            82,
+            330,
+            291,
+            340
+        ],
+        "class": "para",
+        "page": 5,
+        "is_meta": false,
+        "line_id": 398,
+        "parent_id": 397,
+        "relation": "connect"
+    },
+    {
+        "text": "pages 292\u2013299.",
+        "box": [
+            82,
+            341,
+            145,
+            351
+        ],
+        "class": "para",
+        "page": 5,
+        "is_meta": false,
+        "line_id": 399,
+        "parent_id": 398,
+        "relation": "connect"
+    },
+    {
+        "text": "Matthew Henderson, Blaise Thomson, and Steve",
+        "box": [
+            72,
+            359,
+            290,
+            369
+        ],
+        "class": "fstline",
+        "page": 5,
+        "is_meta": false,
+        "line_id": 400,
+        "parent_id": 394,
+        "relation": "equality"
+    },
+    {
+        "text": "Young. 2014b. Word-based dialog state tracking",
+        "box": [
+            82,
+            370,
+            290,
+            380
+        ],
+        "class": "para",
+        "page": 5,
+        "is_meta": false,
+        "line_id": 401,
+        "parent_id": 400,
+        "relation": "connect"
+    },
+    {
+        "text": "with recurrent neural networks. In Proceedings",
+        "box": [
+            82,
+            381,
+            290,
+            391
+        ],
+        "class": "para",
+        "page": 5,
+        "is_meta": false,
+        "line_id": 402,
+        "parent_id": 401,
+        "relation": "connect"
+    },
+    {
+        "text": "of the 15th Annual Meeting of the Special Inter-",
+        "box": [
+            82,
+            392,
+            291,
+            402
+        ],
+        "class": "para",
+        "page": 5,
+        "is_meta": false,
+        "line_id": 403,
+        "parent_id": 402,
+        "relation": "connect"
+    },
+    {
+        "text": "est Group on Discourse and Dialogue (SIGDIAL),",
+        "box": [
+            82,
+            403,
+            291,
+            413
+        ],
+        "class": "para",
+        "page": 5,
+        "is_meta": false,
+        "line_id": 404,
+        "parent_id": 403,
+        "relation": "connect"
+    },
+    {
+        "text": "pages 292\u2013299, Philadelphia, PA, U.S.A. Associa-",
+        "box": [
+            82,
+            414,
+            291,
+            424
+        ],
+        "class": "para",
+        "page": 5,
+        "is_meta": false,
+        "line_id": 405,
+        "parent_id": 404,
+        "relation": "connect"
+    },
+    {
+        "text": "tion for Computational Linguistics.",
+        "box": [
+            82,
+            425,
+            223,
+            435
+        ],
+        "class": "para",
+        "page": 5,
+        "is_meta": false,
+        "line_id": 406,
+        "parent_id": 405,
+        "relation": "connect"
+    },
+    {
+        "text": "Diederik P. Kingma and Jimmy Ba. 2015. Adam: A",
+        "box": [
+            72,
+            444,
+            290,
+            454
+        ],
+        "class": "fstline",
+        "page": 5,
+        "is_meta": false,
+        "line_id": 407,
+        "parent_id": 400,
+        "relation": "equality"
+    },
+    {
+        "text": "method for stochastic optimization. In 3rd Inter-",
+        "box": [
+            82,
+            455,
+            291,
+            465
+        ],
+        "class": "para",
+        "page": 5,
+        "is_meta": false,
+        "line_id": 408,
+        "parent_id": 407,
+        "relation": "connect"
+    },
+    {
+        "text": "national Conference on Learning Representations,",
+        "box": [
+            82,
+            466,
+            292,
+            476
+        ],
+        "class": "para",
+        "page": 5,
+        "is_meta": false,
+        "line_id": 409,
+        "parent_id": 408,
+        "relation": "connect"
+    },
+    {
+        "text": "ICLR 2015, San Diego, CA, USA, May 7-9, 2015,",
+        "box": [
+            82,
+            477,
+            292,
+            487
+        ],
+        "class": "para",
+        "page": 5,
+        "is_meta": false,
+        "line_id": 410,
+        "parent_id": 409,
+        "relation": "connect"
+    },
+    {
+        "text": "Conference Track Proceedings.",
+        "box": [
+            82,
+            488,
+            207,
+            498
+        ],
+        "class": "para",
+        "page": 5,
+        "is_meta": false,
+        "line_id": 411,
+        "parent_id": 410,
+        "relation": "connect"
+    },
+    {
+        "text": "Wenqiang Lei, Xisen Jin, Min-Yen Kan, Zhaochun",
+        "box": [
+            72,
+            506,
+            290,
+            516
+        ],
+        "class": "fstline",
+        "page": 5,
+        "is_meta": false,
+        "line_id": 412,
+        "parent_id": 407,
+        "relation": "equality"
+    },
+    {
+        "text": "Ren, Xiangnan He, and Dawei Yin. 2018. Sequicity:",
+        "box": [
+            82,
+            517,
+            291,
+            527
+        ],
+        "class": "para",
+        "page": 5,
+        "is_meta": false,
+        "line_id": 413,
+        "parent_id": 412,
+        "relation": "connect"
+    },
+    {
+        "text": "Simplifying task-oriented dialogue systems with sin-",
+        "box": [
+            82,
+            528,
+            291,
+            538
+        ],
+        "class": "para",
+        "page": 5,
+        "is_meta": false,
+        "line_id": 414,
+        "parent_id": 413,
+        "relation": "connect"
+    },
+    {
+        "text": "gle sequence-to-sequence architectures. In Proceed-",
+        "box": [
+            82,
+            539,
+            291,
+            549
+        ],
+        "class": "para",
+        "page": 5,
+        "is_meta": false,
+        "line_id": 415,
+        "parent_id": 414,
+        "relation": "connect"
+    },
+    {
+        "text": "ings of the 56th Annual Meeting of the Association",
+        "box": [
+            82,
+            550,
+            290,
+            560
+        ],
+        "class": "para",
+        "page": 5,
+        "is_meta": false,
+        "line_id": 416,
+        "parent_id": 415,
+        "relation": "connect"
+    },
+    {
+        "text": "for Computational Linguistics (Volume 1: Long Pa-",
+        "box": [
+            82,
+            561,
+            291,
+            571
+        ],
+        "class": "para",
+        "page": 5,
+        "is_meta": false,
+        "line_id": 417,
+        "parent_id": 416,
+        "relation": "connect"
+    },
+    {
+        "text": "pers), pages 1437\u20131447, Melbourne, Australia. As-",
+        "box": [
+            82,
+            572,
+            291,
+            582
+        ],
+        "class": "para",
+        "page": 5,
+        "is_meta": false,
+        "line_id": 418,
+        "parent_id": 417,
+        "relation": "connect"
+    },
+    {
+        "text": "sociation for Computational Linguistics.",
+        "box": [
+            82,
+            583,
+            243,
+            593
+        ],
+        "class": "para",
+        "page": 5,
+        "is_meta": false,
+        "line_id": 419,
+        "parent_id": 418,
+        "relation": "connect"
+    },
+    {
+        "text": "Nikola Mrks\u02c7ic\u00b4, Diarmuid O\u00b4 S\u00b4eaghdha, Blaise Thom-",
+        "box": [
+            72,
+            601,
+            291,
+            613
+        ],
+        "class": "fstline",
+        "page": 5,
+        "is_meta": false,
+        "line_id": 420,
+        "parent_id": 412,
+        "relation": "equality"
+    },
+    {
+        "text": "son, Milica Ga\u02c7sic\u00b4, Pei-Hao Su, David Vandyke,",
+        "box": [
+            82,
+            614,
+            291,
+            624
+        ],
+        "class": "para",
+        "page": 5,
+        "is_meta": false,
+        "line_id": 421,
+        "parent_id": 420,
+        "relation": "connect"
+    },
+    {
+        "text": "Tsung-Hsien Wen, and Steve Young. 2015. Multi-",
+        "box": [
+            82,
+            625,
+            291,
+            635
+        ],
+        "class": "para",
+        "page": 5,
+        "is_meta": false,
+        "line_id": 422,
+        "parent_id": 421,
+        "relation": "connect"
+    },
+    {
+        "text": "domain dialog state tracking using recurrent neural",
+        "box": [
+            82,
+            636,
+            290,
+            646
+        ],
+        "class": "para",
+        "page": 5,
+        "is_meta": false,
+        "line_id": 423,
+        "parent_id": 422,
+        "relation": "connect"
+    },
+    {
+        "text": "networks. In Proceedings of the 53rd Annual Meet-",
+        "box": [
+            82,
+            647,
+            291,
+            657
+        ],
+        "class": "para",
+        "page": 5,
+        "is_meta": false,
+        "line_id": 424,
+        "parent_id": 423,
+        "relation": "connect"
+    },
+    {
+        "text": "ing of the Association for Computational Linguis-",
+        "box": [
+            82,
+            658,
+            291,
+            668
+        ],
+        "class": "para",
+        "page": 5,
+        "is_meta": false,
+        "line_id": 425,
+        "parent_id": 424,
+        "relation": "connect"
+    },
+    {
+        "text": "tics and the 7th International Joint Conference on",
+        "box": [
+            82,
+            669,
+            290,
+            679
+        ],
+        "class": "para",
+        "page": 5,
+        "is_meta": false,
+        "line_id": 426,
+        "parent_id": 425,
+        "relation": "connect"
+    },
+    {
+        "text": "Natural Language Processing (Volume 2: Short Pa-",
+        "box": [
+            82,
+            680,
+            291,
+            690
+        ],
+        "class": "para",
+        "page": 5,
+        "is_meta": false,
+        "line_id": 427,
+        "parent_id": 426,
+        "relation": "connect"
+    },
+    {
+        "text": "pers), pages 794\u2013799, Beijing, China. Association",
+        "box": [
+            82,
+            691,
+            290,
+            701
+        ],
+        "class": "para",
+        "page": 5,
+        "is_meta": false,
+        "line_id": 428,
+        "parent_id": 427,
+        "relation": "connect"
+    },
+    {
+        "text": "for Computational Linguistics.",
+        "box": [
+            82,
+            702,
+            205,
+            712
+        ],
+        "class": "para",
+        "page": 5,
+        "is_meta": false,
+        "line_id": 429,
+        "parent_id": 428,
+        "relation": "connect"
+    },
+    {
+        "text": "Nikola Mrk\u02c7si\u00b4c, Diarmuid O\u00b4 S\u00b4eaghdha, Tsung-Hsien",
+        "box": [
+            72,
+            719,
+            290,
+            732
+        ],
+        "class": "fstline",
+        "page": 5,
+        "is_meta": false,
+        "line_id": 430,
+        "parent_id": 420,
+        "relation": "equality"
+    },
+    {
+        "text": "Wen, Blaise Thomson, and Steve Young. 2017. Neu-",
+        "box": [
+            82,
+            733,
+            291,
+            743
+        ],
+        "class": "para",
+        "page": 5,
+        "is_meta": false,
+        "line_id": 431,
+        "parent_id": 430,
+        "relation": "connect"
+    },
+    {
+        "text": "ral belief tracker: Data-driven dialogue state track-",
+        "box": [
+            82,
+            744,
+            291,
+            754
+        ],
+        "class": "para",
+        "page": 5,
+        "is_meta": false,
+        "line_id": 432,
+        "parent_id": 431,
+        "relation": "connect"
+    },
+    {
+        "text": "ing. In Proceedings of the 55th Annual Meeting of",
+        "box": [
+            82,
+            754,
+            290,
+            765
+        ],
+        "class": "para",
+        "page": 5,
+        "is_meta": false,
+        "line_id": 433,
+        "parent_id": 432,
+        "relation": "connect"
+    },
+    {
+        "text": "the Association for Computational Linguistics (Vol-",
+        "box": [
+            318,
+            65,
+            527,
+            75
+        ],
+        "class": "para",
+        "page": 5,
+        "is_meta": false,
+        "line_id": 434,
+        "parent_id": 433,
+        "relation": "connect"
+    },
+    {
+        "text": "ume 1: Long Papers), pages 1777\u20131788, Vancouver,",
+        "box": [
+            318,
+            76,
+            526,
+            86
+        ],
+        "class": "para",
+        "page": 5,
+        "is_meta": false,
+        "line_id": 435,
+        "parent_id": 434,
+        "relation": "connect"
+    },
+    {
+        "text": "Canada. Association for Computational Linguistics.",
+        "box": [
+            318,
+            87,
+            525,
+            97
+        ],
+        "class": "para",
+        "page": 5,
+        "is_meta": false,
+        "line_id": 436,
+        "parent_id": 435,
+        "relation": "connect"
+    },
+    {
+        "text": "Elnaz Nouri and Ehsan Hosseini-Asl. 2018. To-",
+        "box": [
+            307,
+            108,
+            527,
+            118
+        ],
+        "class": "fstline",
+        "page": 5,
+        "is_meta": false,
+        "line_id": 437,
+        "parent_id": 430,
+        "relation": "equality"
+    },
+    {
+        "text": "ward scalable neural dialogue state tracking model.",
+        "box": [
+            317,
+            119,
+            527,
+            129
+        ],
+        "class": "para",
+        "page": 5,
+        "is_meta": false,
+        "line_id": 438,
+        "parent_id": 437,
+        "relation": "connect"
+    },
+    {
+        "text": "CoRR, abs/1812.00899.",
+        "box": [
+            317,
+            130,
+            412,
+            140
+        ],
+        "class": "para",
+        "page": 5,
+        "is_meta": false,
+        "line_id": 439,
+        "parent_id": 438,
+        "relation": "connect"
+    },
+    {
+        "text": "Jeffrey Pennington, Richard Socher, and Christopher",
+        "box": [
+            307,
+            150,
+            525,
+            160
+        ],
+        "class": "fstline",
+        "page": 5,
+        "is_meta": false,
+        "line_id": 440,
+        "parent_id": 437,
+        "relation": "equality"
+    },
+    {
+        "text": "Manning. 2014. Glove: Global vectors for word rep-",
+        "box": [
+            318,
+            161,
+            527,
+            171
+        ],
+        "class": "para",
+        "page": 5,
+        "is_meta": false,
+        "line_id": 441,
+        "parent_id": 440,
+        "relation": "connect"
+    },
+    {
+        "text": "resentation. In Proceedings of the 2014 Conference",
+        "box": [
+            318,
+            172,
+            525,
+            182
+        ],
+        "class": "para",
+        "page": 5,
+        "is_meta": false,
+        "line_id": 442,
+        "parent_id": 441,
+        "relation": "connect"
+    },
+    {
+        "text": "on Empirical Methods in Natural Language Process-",
+        "box": [
+            318,
+            183,
+            527,
+            193
+        ],
+        "class": "para",
+        "page": 5,
+        "is_meta": false,
+        "line_id": 443,
+        "parent_id": 442,
+        "relation": "connect"
+    },
+    {
+        "text": "ing (EMNLP), pages 1532\u20131543, Doha, Qatar. Asso-",
+        "box": [
+            318,
+            194,
+            527,
+            204
+        ],
+        "class": "para",
+        "page": 5,
+        "is_meta": false,
+        "line_id": 444,
+        "parent_id": 443,
+        "relation": "connect"
+    },
+    {
+        "text": "ciation for Computational Linguistics.",
+        "box": [
+            318,
+            205,
+            470,
+            215
+        ],
+        "class": "para",
+        "page": 5,
+        "is_meta": false,
+        "line_id": 445,
+        "parent_id": 444,
+        "relation": "connect"
+    },
+    {
+        "text": "Liliang Ren, Jianmo Ni, and Julian McAuley. 2019.",
+        "box": [
+            307,
+            226,
+            527,
+            236
+        ],
+        "class": "fstline",
+        "page": 5,
+        "is_meta": false,
+        "line_id": 446,
+        "parent_id": 440,
+        "relation": "equality"
+    },
+    {
+        "text": "Scalable and accurate dialogue state tracking via hi-",
+        "box": [
+            318,
+            237,
+            527,
+            247
+        ],
+        "class": "para",
+        "page": 5,
+        "is_meta": false,
+        "line_id": 447,
+        "parent_id": 446,
+        "relation": "connect"
+    },
+    {
+        "text": "erarchical sequence generation. In Proceedings of",
+        "box": [
+            318,
+            247,
+            525,
+            258
+        ],
+        "class": "para",
+        "page": 5,
+        "is_meta": false,
+        "line_id": 448,
+        "parent_id": 447,
+        "relation": "connect"
+    },
+    {
+        "text": "the 2019 Conference on Empirical Methods in Nat-",
+        "box": [
+            318,
+            258,
+            527,
+            268
+        ],
+        "class": "para",
+        "page": 5,
+        "is_meta": false,
+        "line_id": 449,
+        "parent_id": 448,
+        "relation": "connect"
+    },
+    {
+        "text": "ural Language Processing and the 9th International",
+        "box": [
+            318,
+            269,
+            525,
+            279
+        ],
+        "class": "para",
+        "page": 5,
+        "is_meta": false,
+        "line_id": 450,
+        "parent_id": 449,
+        "relation": "connect"
+    },
+    {
+        "text": "Joint Conference on Natural Language Processing",
+        "box": [
+            317,
+            280,
+            525,
+            290
+        ],
+        "class": "para",
+        "page": 5,
+        "is_meta": false,
+        "line_id": 451,
+        "parent_id": 450,
+        "relation": "connect"
+    },
+    {
+        "text": "(EMNLP-IJCNLP), pages 1876\u20131885, Hong Kong,",
+        "box": [
+            317,
+            291,
+            526,
+            301
+        ],
+        "class": "para",
+        "page": 5,
+        "is_meta": false,
+        "line_id": 452,
+        "parent_id": 451,
+        "relation": "connect"
+    },
+    {
+        "text": "China. Association for Computational Linguistics.",
+        "box": [
+            318,
+            302,
+            519,
+            312
+        ],
+        "class": "para",
+        "page": 5,
+        "is_meta": false,
+        "line_id": 453,
+        "parent_id": 452,
+        "relation": "connect"
+    },
+    {
+        "text": "Liliang Ren, Kaige Xie, Lu Chen, and Kai Yu. 2018.",
+        "box": [
+            307,
+            323,
+            527,
+            333
+        ],
+        "class": "fstline",
+        "page": 5,
+        "is_meta": false,
+        "line_id": 454,
+        "parent_id": 446,
+        "relation": "equality"
+    },
+    {
+        "text": "Towards universal dialogue state tracking. In Pro-",
+        "box": [
+            317,
+            334,
+            527,
+            344
+        ],
+        "class": "para",
+        "page": 5,
+        "is_meta": false,
+        "line_id": 455,
+        "parent_id": 454,
+        "relation": "connect"
+    },
+    {
+        "text": "ceedings of the 2018 Conference on Empirical Meth-",
+        "box": [
+            318,
+            345,
+            527,
+            355
+        ],
+        "class": "para",
+        "page": 5,
+        "is_meta": false,
+        "line_id": 456,
+        "parent_id": 455,
+        "relation": "connect"
+    },
+    {
+        "text": "ods in Natural Language Processing, pages 2780\u2013",
+        "box": [
+            318,
+            356,
+            527,
+            366
+        ],
+        "class": "para",
+        "page": 5,
+        "is_meta": false,
+        "line_id": 457,
+        "parent_id": 456,
+        "relation": "connect"
+    },
+    {
+        "text": "2786, Brussels, Belgium. Association for Computa-",
+        "box": [
+            318,
+            367,
+            527,
+            377
+        ],
+        "class": "para",
+        "page": 5,
+        "is_meta": false,
+        "line_id": 458,
+        "parent_id": 457,
+        "relation": "connect"
+    },
+    {
+        "text": "tional Linguistics.",
+        "box": [
+            318,
+            378,
+            390,
+            388
+        ],
+        "class": "para",
+        "page": 5,
+        "is_meta": false,
+        "line_id": 459,
+        "parent_id": 458,
+        "relation": "connect"
+    },
+    {
+        "text": "Kai Sun, Lu Chen, Su Zhu, and Kai Yu. 2014. The",
+        "box": [
+            307,
+            398,
+            525,
+            408
+        ],
+        "class": "fstline",
+        "page": 5,
+        "is_meta": false,
+        "line_id": 460,
+        "parent_id": 454,
+        "relation": "equality"
+    },
+    {
+        "text": "SJTU system for dialog state tracking challenge",
+        "box": [
+            318,
+            409,
+            525,
+            419
+        ],
+        "class": "para",
+        "page": 5,
+        "is_meta": false,
+        "line_id": 461,
+        "parent_id": 460,
+        "relation": "connect"
+    },
+    {
+        "text": "2. In Proceedings of the 15th Annual Meeting of",
+        "box": [
+            318,
+            420,
+            525,
+            430
+        ],
+        "class": "para",
+        "page": 5,
+        "is_meta": false,
+        "line_id": 462,
+        "parent_id": 461,
+        "relation": "connect"
+    },
+    {
+        "text": "the Special Interest Group on Discourse and Dia-",
+        "box": [
+            318,
+            431,
+            527,
+            441
+        ],
+        "class": "para",
+        "page": 5,
+        "is_meta": false,
+        "line_id": 463,
+        "parent_id": 462,
+        "relation": "connect"
+    },
+    {
+        "text": "logue (SIGDIAL), pages 318\u2013326, Philadelphia, PA,",
+        "box": [
+            318,
+            442,
+            526,
+            452
+        ],
+        "class": "para",
+        "page": 5,
+        "is_meta": false,
+        "line_id": 464,
+        "parent_id": 463,
+        "relation": "connect"
+    },
+    {
+        "text": "U.S.A. Association for Computational Linguistics.",
+        "box": [
+            318,
+            453,
+            520,
+            463
+        ],
+        "class": "para",
+        "page": 5,
+        "is_meta": false,
+        "line_id": 465,
+        "parent_id": 464,
+        "relation": "connect"
+    },
+    {
+        "text": "Chien-Sheng Wu, Andrea Madotto, Ehsan Hosseini-",
+        "box": [
+            307,
+            474,
+            527,
+            484
+        ],
+        "class": "fstline",
+        "page": 5,
+        "is_meta": false,
+        "line_id": 466,
+        "parent_id": 460,
+        "relation": "equality"
+    },
+    {
+        "text": "Asl, Caiming Xiong, Richard Socher, and Pascale",
+        "box": [
+            317,
+            485,
+            525,
+            495
+        ],
+        "class": "para",
+        "page": 5,
+        "is_meta": false,
+        "line_id": 467,
+        "parent_id": 466,
+        "relation": "connect"
+    },
+    {
+        "text": "Fung. 2019. Transferable multi-domain state gener-",
+        "box": [
+            318,
+            496,
+            527,
+            506
+        ],
+        "class": "para",
+        "page": 5,
+        "is_meta": false,
+        "line_id": 468,
+        "parent_id": 467,
+        "relation": "connect"
+    },
+    {
+        "text": "ator for task-oriented dialogue systems. In Proceed-",
+        "box": [
+            318,
+            506,
+            527,
+            517
+        ],
+        "class": "para",
+        "page": 5,
+        "is_meta": false,
+        "line_id": 469,
+        "parent_id": 468,
+        "relation": "connect"
+    },
+    {
+        "text": "ings of the 57th Annual Meeting of the Association",
+        "box": [
+            318,
+            517,
+            525,
+            527
+        ],
+        "class": "para",
+        "page": 5,
+        "is_meta": false,
+        "line_id": 470,
+        "parent_id": 469,
+        "relation": "connect"
+    },
+    {
+        "text": "for Computational Linguistics, pages 808\u2013819, Flo-",
+        "box": [
+            318,
+            528,
+            527,
+            539
+        ],
+        "class": "para",
+        "page": 5,
+        "is_meta": false,
+        "line_id": 471,
+        "parent_id": 470,
+        "relation": "connect"
+    },
+    {
+        "text": "rence, Italy. Association for Computational Linguis-",
+        "box": [
+            318,
+            540,
+            527,
+            549
+        ],
+        "class": "para",
+        "page": 5,
+        "is_meta": false,
+        "line_id": 472,
+        "parent_id": 471,
+        "relation": "connect"
+    },
+    {
+        "text": "tics.",
+        "box": [
+            318,
+            550,
+            334,
+            560
+        ],
+        "class": "para",
+        "page": 5,
+        "is_meta": false,
+        "line_id": 473,
+        "parent_id": 472,
+        "relation": "connect"
+    },
+    {
+        "text": "Puyang Xu and Qi Hu. 2018. An end-to-end approach",
+        "box": [
+            307,
+            571,
+            525,
+            581
+        ],
+        "class": "fstline",
+        "page": 5,
+        "is_meta": false,
+        "line_id": 474,
+        "parent_id": 466,
+        "relation": "equality"
+    },
+    {
+        "text": "for handling unknown slot values in dialogue state",
+        "box": [
+            318,
+            582,
+            525,
+            592
+        ],
+        "class": "para",
+        "page": 5,
+        "is_meta": false,
+        "line_id": 475,
+        "parent_id": 474,
+        "relation": "connect"
+    },
+    {
+        "text": "tracking. In Proceedings of the 56th Annual Meet-",
+        "box": [
+            318,
+            593,
+            527,
+            603
+        ],
+        "class": "para",
+        "page": 5,
+        "is_meta": false,
+        "line_id": 476,
+        "parent_id": 475,
+        "relation": "connect"
+    },
+    {
+        "text": "ing of the Association for Computational Linguistics",
+        "box": [
+            318,
+            604,
+            525,
+            614
+        ],
+        "class": "para",
+        "page": 5,
+        "is_meta": false,
+        "line_id": 477,
+        "parent_id": 476,
+        "relation": "connect"
+    },
+    {
+        "text": "(Volume 1: Long Papers), pages 1448\u20131457, Mel-",
+        "box": [
+            317,
+            615,
+            527,
+            625
+        ],
+        "class": "para",
+        "page": 5,
+        "is_meta": false,
+        "line_id": 478,
+        "parent_id": 477,
+        "relation": "connect"
+    },
+    {
+        "text": "bourne, Australia. Association for Computational",
+        "box": [
+            318,
+            626,
+            525,
+            636
+        ],
+        "class": "para",
+        "page": 5,
+        "is_meta": false,
+        "line_id": 479,
+        "parent_id": 478,
+        "relation": "connect"
+    },
+    {
+        "text": "Linguistics.",
+        "box": [
+            318,
+            637,
+            364,
+            647
+        ],
+        "class": "para",
+        "page": 5,
+        "is_meta": false,
+        "line_id": 480,
+        "parent_id": 479,
+        "relation": "connect"
+    },
+    {
+        "text": "Victor Zhong, Caiming Xiong, and Richard Socher.",
+        "box": [
+            307,
+            657,
+            527,
+            667
+        ],
+        "class": "fstline",
+        "page": 5,
+        "is_meta": false,
+        "line_id": 481,
+        "parent_id": 474,
+        "relation": "equality"
+    },
+    {
+        "text": "2018. Global-locally self-attentive encoder for di-",
+        "box": [
+            318,
+            668,
+            527,
+            678
+        ],
+        "class": "para",
+        "page": 5,
+        "is_meta": false,
+        "line_id": 482,
+        "parent_id": 481,
+        "relation": "connect"
+    },
+    {
+        "text": "alogue state tracking. In Proceedings of the 56th An-",
+        "box": [
+            318,
+            679,
+            527,
+            689
+        ],
+        "class": "para",
+        "page": 5,
+        "is_meta": false,
+        "line_id": 483,
+        "parent_id": 482,
+        "relation": "connect"
+    },
+    {
+        "text": "nual Meeting of the Association for Computational",
+        "box": [
+            318,
+            690,
+            525,
+            700
+        ],
+        "class": "para",
+        "page": 5,
+        "is_meta": false,
+        "line_id": 484,
+        "parent_id": 483,
+        "relation": "connect"
+    },
+    {
+        "text": "Linguistics (Volume 1: Long Papers), pages 1458\u2013",
+        "box": [
+            317,
+            701,
+            527,
+            711
+        ],
+        "class": "para",
+        "page": 5,
+        "is_meta": false,
+        "line_id": 485,
+        "parent_id": 484,
+        "relation": "connect"
+    },
+    {
+        "text": "1467, Melbourne, Australia. Association for Compu-",
+        "box": [
+            317,
+            712,
+            527,
+            722
+        ],
+        "class": "para",
+        "page": 5,
+        "is_meta": false,
+        "line_id": 486,
+        "parent_id": 485,
+        "relation": "connect"
+    },
+    {
+        "text": "tational Linguistics.",
+        "box": [
+            318,
+            723,
+            397,
+            733
+        ],
+        "class": "para",
+        "page": 5,
+        "is_meta": false,
+        "line_id": 487,
+        "parent_id": 486,
+        "relation": "connect"
+    },
+    {
+        "text": "Luk\u00b4as Zilka and Filip Jurc\u00b4\u0131cek. 2015. Incremental lstm-",
+        "box": [
+            307,
+            744,
+            527,
+            754
+        ],
+        "class": "fstline",
+        "page": 5,
+        "is_meta": false,
+        "line_id": 488,
+        "parent_id": 481,
+        "relation": "equality"
+    },
+    {
+        "text": "based dialog state tracker. 2015 IEEE Workshop on",
+        "box": [
+            318,
+            754,
+            525,
+            765
+        ],
+        "class": "para",
+        "page": 5,
+        "is_meta": false,
+        "line_id": 489,
+        "parent_id": 488,
+        "relation": "connect"
+    },
+    {
+        "text": "39",
+        "box": [
+            293,
+            777,
+            304,
+            787
+        ],
+        "class": "foot",
+        "page": 5,
+        "is_meta": true,
+        "line_id": 490,
+        "parent_id": -1,
+        "relation": "meta"
+    },
+    {
+        "text": "Automatic Speech Recognition and Understanding",
+        "box": [
+            82,
+            65,
+            290,
+            75
+        ],
+        "class": "para",
+        "page": 6,
+        "is_meta": false,
+        "line_id": 491,
+        "parent_id": 489,
+        "relation": "connect"
+    },
+    {
+        "text": "(ASRU), pages 757\u2013762.",
+        "box": [
+            82,
+            76,
+            180,
+            86
+        ],
+        "class": "para",
+        "page": 6,
+        "is_meta": false,
+        "line_id": 492,
+        "parent_id": 491,
+        "relation": "connect"
+    },
+    {
+        "text": "40",
+        "box": [
+            293,
+            777,
+            304,
+            787
+        ],
+        "class": "foot",
+        "page": 6,
+        "is_meta": true,
+        "line_id": 493,
+        "parent_id": -1,
+        "relation": "meta"
+    }
+]
