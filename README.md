@@ -31,7 +31,7 @@ We have released scripts related to the data generation, rule-based system and i
 3. The human-designed rule system as a new baseline. See `utils/relation_recover.py`
 4. An end2end multi-modal system for reconstruction task. See `end2end_system` folder
 
-The HRDoc dataset and the model weight and inference code of DSPS system will be made available soon.
+The HRDS dataset and HRDH dataset have been released! Google drive([HRDS](https://drive.google.com/file/d/16a-_46htAcHs7zSRU_c1ohObd9BxGZ83/view), [HRDH](https://drive.google.com/file/d/1q7jHOuX3IF9lOC4aDSOlzEIet4q3NUN9/view)).
 
 # Results
 
