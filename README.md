@@ -19,6 +19,7 @@ Here we present some samples in the HRDoc dataset.
 <img src="./figs/dataset_sample.jpg" width=600 alt="framework"/>
 
 # News
+- We updated the class transfer scripts used in our experiment, use `trans_class` function in `utils/utils.py` to transfer HRDS/HRDH `class` label to the one used in our paper.
 - We released evaluation tool, please refer to `utils/teds_eval.py`.
 - We released some examples for HRDoc datasets, please refer to `examples` folder.
 - Our paper has been accepted by the AAAI-2023 conference!

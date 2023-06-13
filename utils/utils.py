@@ -17,6 +17,26 @@ logging.basicConfig(format='%(asctime)s - %(levelname)s - %(name)s -   %(message
                     level=logging.ERROR)
 logger = logging.getLogger(__name__)
 
+class2class = {
+    "title": "title",
+    "author": "author",
+    "mail": "mail",
+    "affili": "affili",
+    "sec1": "section",
+    "sec2": "section",
+    "sec3": "section",
+    "fstline": "fstline",
+    "para": "paraline",
+    "tab": "table",
+    "fig": "figure",
+    "tabcap": "caption",
+    "figcap": "caption",
+    "equ": "equation",
+    "foot": "footer",
+    "header": "header",
+    "fnote": "footnote",
+}
+
 '''corsponding charactors are: Ĳ ĳ Œ œ ﬀ ﬁ ﬂ ﬃ ﬄ ﬅ , e.g. ord(int(0x0132, 16)) = Ĳ '''
 LIGATURES_EQUAL = {
     "0x0132": "IJ",
@@ -697,3 +717,13 @@ def tid_cal(tid):
         result += eval(n) * rate[n_i]
 
     return result
+
+
+def trans_class(all_pg_lines, unit):
+    if unit["class"] != "opara":
+        return class2class[unit["class"]]
+    else:
+        parent_cl = all_pg_lines[unit['parent_id']]
+        while parent_cl["class"] == 'opara':
+            parent_cl = all_pg_lines[parent_cl['parent_id']]
+        return class2class[parent_cl["class"]]
