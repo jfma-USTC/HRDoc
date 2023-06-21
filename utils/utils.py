@@ -6,7 +6,6 @@ import os
 import cv2
 import pdfplumber
 import numpy as np
-import fitz
 import glob
 import re
 from collections import Counter
@@ -14,7 +13,7 @@ import logging
 
 logging.basicConfig(format='%(asctime)s - %(levelname)s - %(name)s -   %(message)s',
                     datefmt='%m/%d/%Y %H:%M:%S',
-                    level=logging.ERROR)
+                    level=logging.INFO)
 logger = logging.getLogger(__name__)
 
 class2class = {
@@ -346,6 +345,7 @@ def translate_Unicode_latin_ligatures(unicode_chars):
         return unicode_chars
 
 def pdf2img(pdf_path, img_dir, zoom_x=1.0, zoom_y=1.0, rotate=0):
+    import fitz
     print("Making dir: {}".format(img_dir))
     if not os.path.exists(img_dir):
         print("Making dir: {}".format(img_dir))
